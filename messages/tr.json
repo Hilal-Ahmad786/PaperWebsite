@@ -1,0 +1,314 @@
+{
+    "nav": {
+        "products": "Ürünler",
+        "services": "Hizmetler",
+        "regions": "Bölgeler",
+        "sustainability": "Sürdürülebilirlik",
+        "insights": "İçgörüler",
+        "stockOffers": "Stok & Teklifler",
+        "about": "Hakkımızda",
+        "contact": "İletişim"
+    },
+    "common": {
+        "getQuote": "Teklif İste",
+        "viewProducts": "Ürünleri Gör",
+        "learnMore": "Daha Fazla Bilgi",
+        "readMore": "Devamını Oku",
+        "contactUs": "Bize Ulaşın",
+        "sendMessage": "Mesaj Gönder",
+        "loading": "Yükleniyor...",
+        "error": "Bir hata oluştu"
+    },
+    "home": {
+        "hero": {
+            "title": "Küresel Kağıt Ticareti",
+            "titleHighlight": "Ölçeklenebilir Çözümler",
+            "subtitle": "Avrupa, Türkiye ve Asya'yı hassas kaynak kullanımıyla birbirine bağlıyoruz. Gerçek zamanlı piyasa verileri. Şeffaf lojistik. Sıfır aracı.",
+            "cta1": "Teklif İste",
+            "cta2": "Ürünleri İncele"
+        },
+        "stats": {
+            "suppliers": "Aktif Tedarikçi",
+            "countries": "Hizmet Verilen Ülke",
+            "volume": "Aylık Tonaj",
+            "uptime": "Piyasa Takibi"
+        },
+        "whoWeServe": {
+            "title": "Kimlere Hizmet Veriyoruz",
+            "converters": "Ambalaj Dönüştürücüler",
+            "printers": "Kutu Fabrikaları & Matbaalar",
+            "traders": "Tüccarlar & Toptancılar"
+        },
+        "products": {
+            "title": "Temel Ürün Grupları",
+            "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler"
+        },
+        "regions": {
+            "title": "Küresel Ağ",
+            "subtitle": "Üç kıtada çok dilli destek ile hizmet"
+        },
+        "whyUs": {
+            "title": "Neden Bizimle Çalışmalısınız",
+            "multilingual": "Çok Dilli Destek",
+            "multilingualDesc": "TR, EN, DE, AR konuşan ekip",
+            "boutique": "Butik & İlgili",
+            "boutiqueDesc": "Aile şirketi, kişisel ilgi",
+            "network": "Güçlü Fabrika Ağı",
+            "networkDesc": "Türkiye, Hindistan, Çin, AB bağlantıları",
+            "flexible": "Esnek Minimum Sipariş",
+            "flexibleDesc": "Test konteynerleri mevcut",
+            "documentation": "Tam Dokümantasyon",
+            "documentationDesc": "Lojistik & uyumluluk desteği"
+        }
+    },
+    "products": {
+        "title": "Ürünlerimiz",
+        "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler",
+        "duplexBoard": {
+            "name": "Duplex Board",
+            "short": "FMCG, kozmetik ve ilaç ambalajları için premium gri ve beyaz arka yüzeyli kaliteler",
+            "description": "Gri veya beyaz arka yüzeyli premium kalite duplex board. FMCG ambalajları, kozmetik kutuları, ilaç kartonları ve elektronik ambalajları için idealdir. GC1, GC2 ve GD2 kalitelerinde mevcuttur.",
+            "apps": {
+                "fmcg": "FMCG Ambalajları",
+                "cosmetics": "Kozmetik & Güzellik Kutuları",
+                "pharma": "İlaç Kartonları",
+                "electronics": "Elektronik Ambalajları"
+            },
+            "industries": {
+                "packaging": "Ambalaj Dönüştürücüler",
+                "printing": "Ticari Matbaalar",
+                "converting": "Dönüştürme Tesisleri"
+            }
+        },
+        "testlinerFluting": {
+            "name": "Testliner & Fluting",
+            "short": "Tutarlı kalite ve rekabetçi fiyatlandırma ile oluklu mukavva uygulamaları için geri dönüştürülmüş konteyner kartonu",
+            "description": "TL1, TL2, TL3 ve Fluting Medium kalitelerinde geri dönüştürülmüş konteyner kartonu. E-ticaret ambalajları, endüstriyel kutular ve tarımsal ambalajlar için mükemmeldir. %60-100 geri dönüştürülmüş içerik ile sürdürülebilir seçim.",
+            "apps": {
+                "ecommerce": "E-ticaret Gönderimi",
+                "shipping": "Genel Nakliye Kutuları",
+                "industrial": "Endüstriyel Ambalaj",
+                "agriculture": "Tarımsal Kutular"
+            },
+            "industries": {
+                "boxPlants": "Kutu Üretim Tesisleri",
+                "corrugated": "Oluklu Mukavva Üreticileri",
+                "converters": "Ambalaj Dönüştürücüler"
+            }
+        },
+        "kraftlinerWhiteTop": {
+            "name": "Kraftliner & White Top",
+            "short": "Zorlu uygulamalar için üstün mukavemet ve yüksek patlama indeksine sahip bakir elyaf linerboard",
+            "description": "Olağanüstü mukavemete sahip bakir elyaf kraftliner ve beyaz üst linerboard. Ağır hizmet, ihracat ve premium ambalaj uygulamaları için yüksek patlama indeksi (3.5-5.5 kPa·m²/g).",
+            "apps": {
+                "heavy": "Ağır Hizmet Ambalajları",
+                "export": "İhracat Sınıfı Kutular",
+                "premium": "Premium Ambalaj",
+                "frozen": "Dondurulmuş Gıda Kutuları"
+            },
+            "industries": {
+                "corrugated": "Oluklu Mukavva Üreticileri",
+                "export": "İhracat Ambalajları",
+                "food": "Gıda Ambalajları"
+            }
+        },
+        "fbb": {
+            "name": "Folding Boxboard (FBB)",
+            "short": "Lüks ambalaj, ilaç ve şekerleme için yüksek parlaklıkta katlanır kutu kartonu",
+            "description": "Tek veya çift kat kaplamalı premium katlanır kutu kartonu. Lüks ambalaj, ilaç kutuları, kozmetik ve şekerleme ambalajları için yüksek parlaklık (%85-95 ISO).",
+            "apps": {
+                "luxury": "Lüks Ambalaj",
+                "pharma": "İlaç Kutuları",
+                "cosmetics": "Kozmetik Ambalajları",
+                "confectionery": "Şekerleme Kutuları"
+            },
+            "industries": {
+                "packaging": "Premium Ambalaj",
+                "printing": "Yüksek Kalite Baskı",
+                "luxury": "Lüks Tüketim Malları"
+            }
+        }
+    },
+    "specs": {
+        "gsmRange": "GSM Aralığı",
+        "grades": "Kaliteler",
+        "backColor": "Arka Renk",
+        "reelWidth": "Bobin Genişliği",
+        "coreSize": "Masura Boyutu",
+        "recycledContent": "Geri Dönüştürülmüş İçerik",
+        "type": "Tip",
+        "burstIndex": "Patlama İndeksi",
+        "coating": "Kaplama",
+        "brightness": "Parlaklık",
+        "origin": "Menşei",
+        "leadTime": "Teslim Süresi"
+    },
+    "stockOffers": {
+        "title": "Stok & Teklifler",
+        "subtitle": "Güncel stok durumu ve özel teklifler",
+        "filters": {
+            "all": "Tüm Ürünler",
+            "prime": "Birinci Kalite",
+            "stocklot": "Stok Fazlası",
+            "byProduct": "Ürüne Göre Filtrele",
+            "byOrigin": "Menşeiye Göre Filtrele"
+        },
+        "table": {
+            "grade": "Kalite",
+            "gsm": "GSM",
+            "quantity": "Miktar",
+            "origin": "Menşei",
+            "port": "Liman",
+            "availability": "Durum",
+            "type": "Tip",
+            "action": "İşlem"
+        },
+        "requestOffer": "Teklif İste",
+        "tons": "ton"
+    },
+    "contact": {
+        "title": "İletişime Geçin",
+        "subtitle": "İhtiyaçlarınızı bize iletin. 24 saat içinde dönüş yapalım.",
+        "form": {
+            "name": "Ad Soyad",
+            "company": "Şirket Adı",
+            "country": "Ülke",
+            "email": "E-posta Adresi",
+            "phone": "Telefon / WhatsApp",
+            "product": "İlgilendiğiniz Ürün",
+            "productPlaceholder": "Ürün seçiniz",
+            "gsmRange": "GSM Aralığı",
+            "quantity": "Miktar (ton)",
+            "destinationPort": "Varış Limanı",
+            "message": "Mesaj / Gereksinimler",
+            "submit": "Gönder",
+            "submitting": "Gönderiliyor...",
+            "success": "Teşekkürler! 24 saat içinde size dönüş yapacağız.",
+            "error": "Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin."
+        }
+    },
+    "footer": {
+        "tagline": "Avrupa, Türkiye ve Asya arasında uzmanlaşmış kağıt ve karton ticareti. Aile şirketi. Çok dilli. Şeffaf.",
+        "products": "Ürünler",
+        "company": "Şirket",
+        "legal": "Yasal",
+        "privacy": "Gizlilik Politikası",
+        "terms": "Kullanım Koşulları",
+        "imprint": "Künye",
+        "rights": "Tüm hakları saklıdır",
+        "locations": "Viyana, Avusturya | İstanbul, Türkiye"
+    },
+    "services": {
+        "title": "Hizmetlerimiz",
+        "subtitle": "İş ihtiyaçlarınıza özel kapsamlı kağıt ticareti çözümleri.",
+        "items": {
+            "sourcing": {
+                "title": "Küresel Tedarik",
+                "description": "Dünya çapındaki en iyi üreticilerden premium kağıt kalitelerine erişim."
+            },
+            "logistics": {
+                "title": "Lojistik & Nakliye",
+                "description": "Limanınıza zamanında teslimat sağlayan uçtan uca lojistik çözümleri."
+            },
+            "financing": {
+                "title": "Ticaret Finansmanı",
+                "description": "Nitelikli alıcılar için esnek ödeme koşulları ve finansman seçenekleri."
+            },
+            "documentation": {
+                "title": "Dokümantasyon",
+                "description": "Gümrük belgeleri ve uyumluluk evraklarının tam yönetimi."
+            }
+        },
+        "cta": {
+            "title": "Özel Bir Çözüme mi İhtiyacınız Var?",
+            "button": "Bize Ulaşın"
+        }
+    },
+    "regions": {
+        "title": "Küresel Erişim",
+        "subtitle": "Kağıt pazarlarını kıtalar arasında verimlilik ve güvenilirlikle birbirine bağlıyoruz.",
+        "items": {
+            "middleEast": {
+                "name": "Orta Doğu",
+                "description": "BAE, Suudi Arabistan, Katar ve ötesindeki büyük pazarlara hizmet veriyoruz.",
+                "stats": "15+ Ülke"
+            },
+            "europe": {
+                "name": "Avrupa",
+                "description": "Avrupalı üreticileri küresel taleple buluşturuyoruz.",
+                "stats": "20+ Ortak"
+            },
+            "asia": {
+                "name": "Asya",
+                "description": "Önde gelen Asya fabrikalarından yüksek kaliteli kağıt ürünleri tedarik ediyoruz.",
+                "stats": "Yüksek Hacim"
+            },
+            "africa": {
+                "name": "Afrika",
+                "description": "Kıta genelindeki gelişmekte olan pazarlara erişimimizi genişletiyoruz.",
+                "stats": "Büyüyen Pazar"
+            }
+        },
+        "cta": {
+            "title": "Pazarınızı Genişletin",
+            "button": "Bizimle Ortak Olun"
+        }
+    },
+    "sustainability": {
+        "title": "Sürdürülebilirlik",
+        "subtitle": "Çevre dostu uygulamalara ve sorumlu kağıt tedarikine bağlıyız.",
+        "items": {
+            "recycled": {
+                "title": "Geri Dönüştürülmüş Malzemeler",
+                "description": "Geri dönüştürülmüş içerik ve sürdürülebilir ormancılık uygulamaları kullanan tedarikçilere öncelik veriyoruz."
+            },
+            "impact": {
+                "title": "Küresel Etki",
+                "description": "Optimize edilmiş lojistik ve bölgesel tedarik yoluyla karbon ayak izini azaltıyoruz."
+            },
+            "partnerships": {
+                "title": "Etik Ortaklıklar",
+                "description": "Yalnızca katı çevre standartlarına uyan ortaklarla çalışıyoruz."
+            }
+        }
+    },
+    "insights": {
+        "title": "Pazar İçgörüleri",
+        "subtitle": "Kağıt dünyasından en son haberler, trendler ve analizlerle önde olun.",
+        "items": {
+            "trends": {
+                "title": "Küresel Kağıt Pazarı Trendleri 2024",
+                "summary": "Küresel kağıt endüstrisindeki fiyat dalgalanmaları ve talep değişimlerinin analizi.",
+                "category": "Pazar Analizi"
+            },
+            "packaging": {
+                "title": "Sürdürülebilir Ambalaj Çözümleri",
+                "summary": "Çevre dostu ambalaja geçişin pazarı nasıl yeniden şekillendirdiği.",
+                "category": "Sürdürülebilirlik"
+            },
+            "logistics": {
+                "title": "Lojistik Zorluklar & Fırsatlar",
+                "summary": "Küresel nakliye ve navlun dünyasının mevcut durumunu yönetmek.",
+                "category": "Lojistik"
+            }
+        }
+    },
+    "about": {
+        "title": "Hakkımızda",
+        "subtitle": "Küresel kağıt ticareti endüstrisindeki güvenilir ortağınız.",
+        "mission": {
+            "title": "Misyonumuz",
+            "description": "Paper Market World olarak, küresel ölçekte kağıt ürünleri üreticileri ve tüketicileri arasındaki boşluğu doldurmayı hedefliyoruz. Misyonumuz, işletmelerin büyümesini sağlayan sorunsuz, verimli ve şeffaf ticaret çözümleri sunmaktır."
+        },
+        "vision": {
+            "title": "Vizyonumuz",
+            "description": "Endüstride kalite, güvenilirlik ve inovasyon standartlarını belirleyen, dünyanın önde gelen dijital kağıt ticaret platformu olmak."
+        },
+        "whyChooseUs": "Neden Bizi Seçmelisiniz?",
+        "stats": {
+            "experience": "Yıllık Deneyim",
+            "partners": "Küresel Ortak",
+            "support": "Destek"
+        }
+    }
+}

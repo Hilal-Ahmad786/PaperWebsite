@@ -1,0 +1,314 @@
+{
+    "nav": {
+        "products": "Produkte",
+        "services": "Dienstleistungen",
+        "regions": "Regionen",
+        "sustainability": "Nachhaltigkeit",
+        "insights": "Einblicke",
+        "stockOffers": "Lager & Angebote",
+        "about": "Über uns",
+        "contact": "Kontakt"
+    },
+    "common": {
+        "getQuote": "Angebot anfordern",
+        "viewProducts": "Produkte ansehen",
+        "learnMore": "Mehr erfahren",
+        "readMore": "Weiterlesen",
+        "contactUs": "Kontaktieren Sie uns",
+        "sendMessage": "Nachricht senden",
+        "loading": "Laden...",
+        "error": "Ein Fehler ist aufgetreten"
+    },
+    "home": {
+        "hero": {
+            "title": "Globaler Papierhandel",
+            "titleHighlight": "Skalierbare Lösungen",
+            "subtitle": "Verbindung von Europa, der Türkei & Asien durch präzise Beschaffung. Echtzeit-Marktdaten. Transparente Logistik. Keine Zwischenhändler.",
+            "cta1": "Angebot anfordern",
+            "cta2": "Produkte ansehen"
+        },
+        "stats": {
+            "suppliers": "Aktive Lieferanten",
+            "countries": "Belieferte Länder",
+            "volume": "Monatliches Volumen (Tonnen)",
+            "uptime": "Marktüberwachung"
+        },
+        "whoWeServe": {
+            "title": "Wen wir bedienen",
+            "converters": "Verpackungshersteller",
+            "printers": "Kartonagenwerke & Druckereien",
+            "traders": "Händler & Großhändler"
+        },
+        "products": {
+            "title": "Kernproduktlinien",
+            "subtitle": "Spezialisierte Qualitäten für Verpackungs-, Druck- & Industrieanwendungen"
+        },
+        "regions": {
+            "title": "Globales Netzwerk",
+            "subtitle": "Bedienung von drei Kontinenten mit mehrsprachigem Support"
+        },
+        "whyUs": {
+            "title": "Warum mit uns arbeiten",
+            "multilingual": "Mehrsprachiger Support",
+            "multilingualDesc": "Team spricht DE, EN, TR, AR",
+            "boutique": "Boutique & Persönlich",
+            "boutiqueDesc": "Familiengeführt, persönliche Betreuung",
+            "network": "Starkes Fabriknetzwerk",
+            "networkDesc": "Verbindungen in Türkei, Indien, China, EU",
+            "flexible": "Flexible Mindestbestellmengen",
+            "flexibleDesc": "Testcontainer verfügbar",
+            "documentation": "Vollständige Dokumentation",
+            "documentationDesc": "Logistik- & Compliance-Support"
+        }
+    },
+    "products": {
+        "title": "Unsere Produkte",
+        "subtitle": "Spezialisierte Qualitäten für Verpackungs-, Druck- & Industrieanwendungen",
+        "duplexBoard": {
+            "name": "Duplexkarton",
+            "short": "Premium-Qualitäten mit grauer und weißer Rückseite für FMCG, Kosmetik und Pharmaverpackungen",
+            "description": "Premium-Duplexkarton mit grauer oder weißer Rückseite. Ideal für FMCG-Verpackungen, Kosmetikschachteln, Pharmakartons und Elektronikverpackungen. Erhältlich in den Qualitäten GC1, GC2 und GD2.",
+            "apps": {
+                "fmcg": "FMCG-Verpackungen",
+                "cosmetics": "Kosmetik- & Beauty-Boxen",
+                "pharma": "Pharmakartons",
+                "electronics": "Elektronikverpackungen"
+            },
+            "industries": {
+                "packaging": "Verpackungshersteller",
+                "printing": "Akzidenzdruckereien",
+                "converting": "Verarbeitungsbetriebe"
+            }
+        },
+        "testlinerFluting": {
+            "name": "Testliner & Wellenstoff",
+            "short": "Recycelter Wellpappenrohpapier für Wellpappenanwendungen mit konstanter Qualität und wettbewerbsfähigen Preisen",
+            "description": "Recycelter Wellpappenrohpapier in den Qualitäten TL1, TL2, TL3 und Wellenstoff. Perfekt für E-Commerce-Verpackungen, Industriekartons und landwirtschaftliche Verpackungen. Nachhaltige Wahl mit 60-100% Recyclinganteil.",
+            "apps": {
+                "ecommerce": "E-Commerce-Versand",
+                "shipping": "Allgemeine Versandkartons",
+                "industrial": "Industrieverpackungen",
+                "agriculture": "Landwirtschaftliche Boxen"
+            },
+            "industries": {
+                "boxPlants": "Kartonagenwerke",
+                "corrugated": "Wellpappenhersteller",
+                "converters": "Verpackungshersteller"
+            }
+        },
+        "kraftlinerWhiteTop": {
+            "name": "Kraftliner & White Top",
+            "short": "Frischfaser-Linerboard mit überlegener Festigkeit und hohem Berstindex für anspruchsvolle Anwendungen",
+            "description": "Frischfaser-Kraftliner und White Top Linerboard mit außergewöhnlicher Festigkeit. Hoher Berstindex (3,5-5,5 kPa·m²/g) für Schwerlast-, Export- und Premiumverpackungsanwendungen.",
+            "apps": {
+                "heavy": "Schwerlastverpackungen",
+                "export": "Exportkartons",
+                "premium": "Premiumverpackungen",
+                "frozen": "Tiefkühlkost-Boxen"
+            },
+            "industries": {
+                "corrugated": "Wellpappenhersteller",
+                "export": "Exportverpackungen",
+                "food": "Lebensmittelverpackungen"
+            }
+        },
+        "fbb": {
+            "name": "Faltschachtelkarton (FBB)",
+            "short": "Hochweißer Faltschachtelkarton für Luxusverpackungen, Pharmazeutika und Süßwaren",
+            "description": "Premium-Faltschachtelkarton mit einfacher oder doppelter Beschichtung. Hoher Weißgrad (85-95% ISO) für Luxusverpackungen, Pharmaschachteln, Kosmetik und Süßwarenverpackungen.",
+            "apps": {
+                "luxury": "Luxusverpackungen",
+                "pharma": "Pharmaschachteln",
+                "cosmetics": "Kosmetikverpackungen",
+                "confectionery": "Süßwarenboxen"
+            },
+            "industries": {
+                "packaging": "Premiumverpackungen",
+                "printing": "High-End-Druck",
+                "luxury": "Luxusgüter"
+            }
+        }
+    },
+    "specs": {
+        "gsmRange": "GSM-Bereich",
+        "grades": "Qualitäten",
+        "backColor": "Rückseitenfarbe",
+        "reelWidth": "Rollenbreite",
+        "coreSize": "Hülsengröße",
+        "recycledContent": "Recyclinganteil",
+        "type": "Typ",
+        "burstIndex": "Berstindex",
+        "coating": "Beschichtung",
+        "brightness": "Weißgrad",
+        "origin": "Herkunft",
+        "leadTime": "Lieferzeit"
+    },
+    "stockOffers": {
+        "title": "Lager & Angebote",
+        "subtitle": "Aktuelle Verfügbarkeit und Sonderangebote",
+        "filters": {
+            "all": "Alle Produkte",
+            "prime": "Prime-Qualität",
+            "stocklot": "Restposten",
+            "byProduct": "Nach Produkt filtern",
+            "byOrigin": "Nach Herkunft filtern"
+        },
+        "table": {
+            "grade": "Qualität",
+            "gsm": "GSM",
+            "quantity": "Menge",
+            "origin": "Herkunft",
+            "port": "Hafen",
+            "availability": "Verfügbarkeit",
+            "type": "Typ",
+            "action": "Aktion"
+        },
+        "requestOffer": "Angebot anfordern",
+        "tons": "Tonnen"
+    },
+    "contact": {
+        "title": "Kontakt aufnehmen",
+        "subtitle": "Senden Sie uns Ihre Anforderungen. Wir antworten innerhalb von 24 Stunden.",
+        "form": {
+            "name": "Vollständiger Name",
+            "company": "Firmenname",
+            "country": "Land",
+            "email": "E-Mail-Adresse",
+            "phone": "Telefon / WhatsApp",
+            "product": "Produktinteresse",
+            "productPlaceholder": "Produkt auswählen",
+            "gsmRange": "GSM-Bereich",
+            "quantity": "Menge (Tonnen)",
+            "destinationPort": "Bestimmungshafen",
+            "message": "Nachricht / Anforderungen",
+            "submit": "Anfrage senden",
+            "submitting": "Wird gesendet...",
+            "success": "Danke! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
+            "error": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder senden Sie uns direkt eine E-Mail."
+        }
+    },
+    "footer": {
+        "tagline": "Spezialisierter Papier- & Kartonhandel zwischen Europa, der Türkei & Asien. Familiengeführt. Mehrsprachig. Transparent.",
+        "products": "Produkte",
+        "company": "Unternehmen",
+        "legal": "Rechtliches",
+        "privacy": "Datenschutzerklärung",
+        "terms": "Nutzungsbedingungen",
+        "imprint": "Impressum",
+        "rights": "Alle Rechte vorbehalten",
+        "locations": "Wien, Österreich | Istanbul, Türkei"
+    },
+    "services": {
+        "title": "Unsere Dienstleistungen",
+        "subtitle": "Umfassende Papierhandelslösungen, zugeschnitten auf Ihre Geschäftsanforderungen.",
+        "items": {
+            "sourcing": {
+                "title": "Globale Beschaffung",
+                "description": "Zugang zu Premium-Papierqualitäten von Top-Herstellern weltweit."
+            },
+            "logistics": {
+                "title": "Logistik & Versand",
+                "description": "End-to-End-Logistiklösungen für pünktliche Lieferung an Ihren Hafen."
+            },
+            "financing": {
+                "title": "Handelsfinanzierung",
+                "description": "Flexible Zahlungsbedingungen und Finanzierungsoptionen für qualifizierte Käufer."
+            },
+            "documentation": {
+                "title": "Dokumentation",
+                "description": "Vollständige Abwicklung von Zolldokumenten und Compliance-Papieren."
+            }
+        },
+        "cta": {
+            "title": "Benötigen Sie eine individuelle Lösung?",
+            "button": "Kontaktieren Sie uns"
+        }
+    },
+    "regions": {
+        "title": "Globale Reichweite",
+        "subtitle": "Verbindung von Papiermärkten über Kontinente hinweg mit Effizienz und Zuverlässigkeit.",
+        "items": {
+            "middleEast": {
+                "name": "Naher Osten",
+                "description": "Bedienung wichtiger Märkte in den VAE, Saudi-Arabien, Katar und darüber hinaus.",
+                "stats": "15+ Länder"
+            },
+            "europe": {
+                "name": "Europa",
+                "description": "Verbindung europäischer Hersteller mit globaler Nachfrage.",
+                "stats": "20+ Partner"
+            },
+            "asia": {
+                "name": "Asien",
+                "description": "Beschaffung hochwertiger Papierprodukte von führenden asiatischen Fabriken.",
+                "stats": "Hohes Volumen"
+            },
+            "africa": {
+                "name": "Afrika",
+                "description": "Ausweitung unserer Reichweite auf aufstrebende Märkte auf dem ganzen Kontinent.",
+                "stats": "Wachsender Markt"
+            }
+        },
+        "cta": {
+            "title": "Erweitern Sie Ihren Markt",
+            "button": "Werden Sie unser Partner"
+        }
+    },
+    "sustainability": {
+        "title": "Nachhaltigkeit",
+        "subtitle": "Verpflichtet zu umweltfreundlichen Praktiken und verantwortungsvoller Papierbeschaffung.",
+        "items": {
+            "recycled": {
+                "title": "Recycelte Materialien",
+                "description": "Priorisierung von Lieferanten, die recycelte Inhalte und nachhaltige Forstwirtschaftspraktiken nutzen."
+            },
+            "impact": {
+                "title": "Globaler Einfluss",
+                "description": "Reduzierung des CO2-Fußabdrucks durch optimierte Logistik und regionale Beschaffung."
+            },
+            "partnerships": {
+                "title": "Ethische Partnerschaften",
+                "description": "Ausschließliche Zusammenarbeit mit Partnern, die strenge Umweltstandards einhalten."
+            }
+        }
+    },
+    "insights": {
+        "title": "Markteinblicke",
+        "subtitle": "Bleiben Sie mit den neuesten Nachrichten, Trends und Analysen aus der Papierwelt auf dem Laufenden.",
+        "items": {
+            "trends": {
+                "title": "Globale Papiermarkttrends 2024",
+                "summary": "Analyse von Preisschwankungen und Nachfrageverschiebungen in der globalen Papierindustrie.",
+                "category": "Marktanalyse"
+            },
+            "packaging": {
+                "title": "Nachhaltige Verpackungslösungen",
+                "summary": "Wie der Wandel zu umweltfreundlichen Verpackungen den Markt neu gestaltet.",
+                "category": "Nachhaltigkeit"
+            },
+            "logistics": {
+                "title": "Logistische Herausforderungen & Chancen",
+                "summary": "Navigation durch die aktuelle Landschaft der globalen Schifffahrt und Fracht.",
+                "category": "Logistik"
+            }
+        }
+    },
+    "about": {
+        "title": "Über uns",
+        "subtitle": "Ihr vertrauenswürdiger Partner in der globalen Papierhandelsbranche.",
+        "mission": {
+            "title": "Unsere Mission",
+            "description": "Bei Paper Market World streben wir danach, die Lücke zwischen Herstellern und Verbrauchern von Papierprodukten weltweit zu schließen. Unsere Mission ist es, nahtlose, effiziente und transparente Handelslösungen anzubieten, die Unternehmen zum Erfolg verhelfen."
+        },
+        "vision": {
+            "title": "Unsere Vision",
+            "description": "Die weltweit führende digitale Plattform für den Papierhandel zu sein und den Standard für Qualität, Zuverlässigkeit und Innovation in der Branche zu setzen."
+        },
+        "whyChooseUs": "Warum uns wählen?",
+        "stats": {
+            "experience": "Jahre Erfahrung",
+            "partners": "Globale Partner",
+            "support": "Support"
+        }
+    }
+}

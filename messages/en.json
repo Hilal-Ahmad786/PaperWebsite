@@ -1,0 +1,314 @@
+{
+  "nav": {
+    "products": "Products",
+    "services": "Services",
+    "regions": "Regions",
+    "sustainability": "Sustainability",
+    "insights": "Insights",
+    "stockOffers": "Stock & Offers",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "common": {
+    "getQuote": "Request Quote",
+    "viewProducts": "View Products",
+    "learnMore": "Learn More",
+    "readMore": "Read More",
+    "contactUs": "Contact Us",
+    "sendMessage": "Send Message",
+    "loading": "Loading...",
+    "error": "An error occurred"
+  },
+  "home": {
+    "hero": {
+      "title": "Global Paper Trading",
+      "titleHighlight": "Engineered for Scale",
+      "subtitle": "Connecting Europe, Turkey & Asia through precision sourcing of duplex board and containerboard. Real-time market data. Transparent logistics. Zero intermediaries.",
+      "cta1": "Request Quote",
+      "cta2": "View Products"
+    },
+    "stats": {
+      "suppliers": "Active Suppliers",
+      "countries": "Countries Served",
+      "volume": "Tons Traded Monthly",
+      "uptime": "Market Monitoring"
+    },
+    "whoWeServe": {
+      "title": "Who We Serve",
+      "converters": "Packaging Converters",
+      "printers": "Box Plants & Printers",
+      "traders": "Traders & Wholesalers"
+    },
+    "products": {
+      "title": "Core Product Lines",
+      "subtitle": "Specialized grades for packaging, printing & industrial applications"
+    },
+    "regions": {
+      "title": "Global Network",
+      "subtitle": "Serving three continents with multilingual support"
+    },
+    "whyUs": {
+      "title": "Why Work With Us",
+      "multilingual": "Multilingual Support",
+      "multilingualDesc": "EN, TR, DE, AR speaking team",
+      "boutique": "Boutique & Responsive",
+      "boutiqueDesc": "Family-owned, personal attention",
+      "network": "Strong Mill Network",
+      "networkDesc": "Turkey, India, China, EU connections",
+      "flexible": "Flexible MOQs",
+      "flexibleDesc": "Test containers available",
+      "documentation": "Full Documentation",
+      "documentationDesc": "Logistics & compliance support"
+    }
+  },
+  "products": {
+    "title": "Our Products",
+    "subtitle": "Specialized grades for packaging, printing & industrial applications",
+    "duplexBoard": {
+      "name": "Duplex Board",
+      "short": "Premium grey and white back grades for FMCG, cosmetics, and pharmaceutical packaging",
+      "description": "Premium quality duplex board with grey or white back. Ideal for FMCG packaging, cosmetics boxes, pharmaceutical cartons, and electronics packaging. Available in GC1, GC2, and GD2 grades.",
+      "apps": {
+        "fmcg": "FMCG Packaging",
+        "cosmetics": "Cosmetics & Beauty Boxes",
+        "pharma": "Pharmaceutical Cartons",
+        "electronics": "Electronics Packaging"
+      },
+      "industries": {
+        "packaging": "Packaging Converters",
+        "printing": "Commercial Printers",
+        "converting": "Converting Plants"
+      }
+    },
+    "testlinerFluting": {
+      "name": "Testliner & Fluting",
+      "short": "Recycled containerboard for corrugated applications with consistent quality and competitive pricing",
+      "description": "Recycled containerboard in grades TL1, TL2, TL3, and Fluting Medium. Perfect for e-commerce packaging, industrial boxes, and agricultural packaging. Sustainable choice with 60-100% recycled content.",
+      "apps": {
+        "ecommerce": "E-commerce Shipping",
+        "shipping": "General Shipping Boxes",
+        "industrial": "Industrial Packaging",
+        "agriculture": "Agricultural Boxes"
+      },
+      "industries": {
+        "boxPlants": "Box Manufacturing Plants",
+        "corrugated": "Corrugated Board Producers",
+        "converters": "Packaging Converters"
+      }
+    },
+    "kraftlinerWhiteTop": {
+      "name": "Kraftliner & White Top",
+      "short": "Virgin fiber linerboard with superior strength and high burst index for demanding applications",
+      "description": "Virgin fiber kraftliner and white top linerboard with exceptional strength. High burst index (3.5-5.5 kPa·m²/g) for heavy-duty, export, and premium packaging applications.",
+      "apps": {
+        "heavy": "Heavy-Duty Packaging",
+        "export": "Export Grade Boxes",
+        "premium": "Premium Packaging",
+        "frozen": "Frozen Food Boxes"
+      },
+      "industries": {
+        "corrugated": "Corrugated Manufacturers",
+        "export": "Export Packaging",
+        "food": "Food Packaging"
+      }
+    },
+    "fbb": {
+      "name": "Folding Boxboard (FBB)",
+      "short": "High brightness folding boxboard for luxury packaging, pharmaceuticals, and confectionery",
+      "description": "Premium folding boxboard with single or double coating. High brightness (85-95% ISO) for luxury packaging, pharmaceutical boxes, cosmetics, and confectionery packaging.",
+      "apps": {
+        "luxury": "Luxury Packaging",
+        "pharma": "Pharmaceutical Boxes",
+        "cosmetics": "Cosmetics Packaging",
+        "confectionery": "Confectionery Boxes"
+      },
+      "industries": {
+        "packaging": "Premium Packaging",
+        "printing": "High-End Printing",
+        "luxury": "Luxury Goods"
+      }
+    }
+  },
+  "specs": {
+    "gsmRange": "GSM Range",
+    "grades": "Grades",
+    "backColor": "Back Color",
+    "reelWidth": "Reel Width",
+    "coreSize": "Core Size",
+    "recycledContent": "Recycled Content",
+    "type": "Type",
+    "burstIndex": "Burst Index",
+    "coating": "Coating",
+    "brightness": "Brightness",
+    "origin": "Origin",
+    "leadTime": "Lead Time"
+  },
+  "stockOffers": {
+    "title": "Stock & Offers",
+    "subtitle": "Current availability and special offers",
+    "filters": {
+      "all": "All Products",
+      "prime": "Prime Quality",
+      "stocklot": "Stocklots",
+      "byProduct": "Filter by Product",
+      "byOrigin": "Filter by Origin"
+    },
+    "table": {
+      "grade": "Grade",
+      "gsm": "GSM",
+      "quantity": "Quantity",
+      "origin": "Origin",
+      "port": "Port",
+      "availability": "Availability",
+      "type": "Type",
+      "action": "Action"
+    },
+    "requestOffer": "Request This Offer",
+    "tons": "tons"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "subtitle": "Send us your requirements. We'll respond within 24 hours.",
+    "form": {
+      "name": "Full Name",
+      "company": "Company Name",
+      "country": "Country",
+      "email": "Email Address",
+      "phone": "Phone / WhatsApp",
+      "product": "Product Interest",
+      "productPlaceholder": "Select product",
+      "gsmRange": "GSM Range",
+      "quantity": "Quantity (tons)",
+      "destinationPort": "Destination Port",
+      "message": "Message / Requirements",
+      "submit": "Send Request",
+      "submitting": "Sending...",
+      "success": "Thank you! We'll respond within 24 hours.",
+      "error": "Failed to send. Please try again or email us directly."
+    }
+  },
+  "footer": {
+    "tagline": "Specialized paper & board trading between Europe, Turkey & Asia. Family-owned. Multilingual. Transparent.",
+    "products": "Products",
+    "company": "Company",
+    "legal": "Legal",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "imprint": "Imprint",
+    "rights": "All rights reserved",
+    "locations": "Vienna, Austria | Istanbul, Turkey"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive paper trading solutions tailored to your business needs.",
+    "items": {
+      "sourcing": {
+        "title": "Global Sourcing",
+        "description": "Access to premium paper grades from top manufacturers worldwide."
+      },
+      "logistics": {
+        "title": "Logistics & Shipping",
+        "description": "End-to-end logistics solutions ensuring timely delivery to your port."
+      },
+      "financing": {
+        "title": "Trade Financing",
+        "description": "Flexible payment terms and financing options for qualified buyers."
+      },
+      "documentation": {
+        "title": "Documentation",
+        "description": "Full handling of customs documentation and compliance paperwork."
+      }
+    },
+    "cta": {
+      "title": "Need a Custom Solution?",
+      "button": "Contact Us"
+    }
+  },
+  "regions": {
+    "title": "Global Reach",
+    "subtitle": "Connecting paper markets across continents with efficiency and reliability.",
+    "items": {
+      "middleEast": {
+        "name": "Middle East",
+        "description": "Serving major markets in UAE, Saudi Arabia, Qatar, and beyond.",
+        "stats": "15+ Countries"
+      },
+      "europe": {
+        "name": "Europe",
+        "description": "Connecting European manufacturers with global demand.",
+        "stats": "20+ Partners"
+      },
+      "asia": {
+        "name": "Asia",
+        "description": "Sourcing high-quality paper products from leading Asian mills.",
+        "stats": "High Volume"
+      },
+      "africa": {
+        "name": "Africa",
+        "description": "Expanding our reach to emerging markets across the continent.",
+        "stats": "Growing Market"
+      }
+    },
+    "cta": {
+      "title": "Expand Your Market",
+      "button": "Partner With Us"
+    }
+  },
+  "sustainability": {
+    "title": "Sustainability",
+    "subtitle": "Committed to eco-friendly practices and responsible paper sourcing.",
+    "items": {
+      "recycled": {
+        "title": "Recycled Materials",
+        "description": "Prioritizing suppliers who use recycled content and sustainable forestry practices."
+      },
+      "impact": {
+        "title": "Global Impact",
+        "description": "Reducing carbon footprint through optimized logistics and regional sourcing."
+      },
+      "partnerships": {
+        "title": "Ethical Partnerships",
+        "description": "Working exclusively with partners who adhere to strict environmental standards."
+      }
+    }
+  },
+  "insights": {
+    "title": "Market Insights",
+    "subtitle": "Stay ahead with the latest news, trends, and analysis from the paper world.",
+    "items": {
+      "trends": {
+        "title": "Global Paper Market Trends 2024",
+        "summary": "Analysis of price fluctuations and demand shifts in the global paper industry.",
+        "category": "Market Analysis"
+      },
+      "packaging": {
+        "title": "Sustainable Packaging Solutions",
+        "summary": "How the shift towards eco-friendly packaging is reshaping the market.",
+        "category": "Sustainability"
+      },
+      "logistics": {
+        "title": "Logistics Challenges & Opportunities",
+        "summary": "Navigating the current landscape of global shipping and freight.",
+        "category": "Logistics"
+      }
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "subtitle": "Your trusted partner in the global paper trade industry.",
+    "mission": {
+      "title": "Our Mission",
+      "description": "At Paper Market World, we strive to bridge the gap between manufacturers and consumers of paper products globally. Our mission is to provide seamless, efficient, and transparent trading solutions that empower businesses to thrive."
+    },
+    "vision": {
+      "title": "Our Vision",
+      "description": "To be the world's leading digital platform for paper trading, setting the standard for quality, reliability, and innovation in the industry."
+    },
+    "whyChooseUs": "Why Choose Us?",
+    "stats": {
+      "experience": "Years Experience",
+      "partners": "Global Partners",
+      "support": "Support"
+    }
+  }
+}

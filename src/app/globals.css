@@ -1,0 +1,59 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Inter font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@layer base {
+  * {
+    @apply border-border-primary;
+  }
+  
+  body {
+    @apply bg-background-primary text-text-primary font-sans antialiased;
+  }
+
+  /* RTL Support for Arabic */
+  [dir="rtl"] {
+    direction: rtl;
+  }
+}
+
+@layer components {
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-background-secondary;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-text-tertiary rounded;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-brand-primary;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-brand-primary/20 text-brand-primary;
+  }
+}
+
+@layer utilities {
+  /* Text gradient */
+  .text-gradient {
+    @apply bg-gradient-to-r from-text-primary to-text-secondary bg-clip-text text-transparent;
+  }
+
+  /* Glass morphism */
+  .glass {
+    @apply backdrop-blur-md bg-opacity-80;
+  }
+}
