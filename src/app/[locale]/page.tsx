@@ -10,7 +10,9 @@ import { stockOffers } from '@/content/offers';
 export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const t = useTranslations();
 
+
   return (
+
     <>
       {/* Hero Section */}
       <Section variant="dark" className="relative overflow-hidden">
