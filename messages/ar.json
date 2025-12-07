@@ -327,5 +327,25 @@
             "applications": "التطبيقات الرئيسية"
         },
         "addToQuote": "إضافة إلى العرض"
+    },
+    "calculator": {
+        "title": "تقدير السعر الفوري",
+        "subtitle": "احصل على عرض مبدئي لاحتياجاتك من الورق",
+        "product": "المنتج",
+        "selectProduct": "اختر منتجاً",
+        "gsm": "نطاق GSM",
+        "selectGsm": "اختر GSM",
+        "quantity": "الكمية (طن)",
+        "port": "ميناء التسليم",
+        "estimatedTotal": "الإجمالي التقديري",
+        "basePrice": "السعر الأساسي + اللوجستيات",
+        "submit": "طلب عرض رسمي"
+    },
+    "datatable": {
+        "search": "بحث...",
+        "export": "تصدير CSV",
+        "noData": "لا توجد بيانات",
+        "rowsPerPage": "صفوف لكل صفحة:",
+        "showing": "عرض {start}-{end} من {total}"
     }
 }

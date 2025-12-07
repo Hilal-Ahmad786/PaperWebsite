@@ -335,5 +335,25 @@
       "applications": "Key Applications"
     },
     "addToQuote": "Add to Quote"
+  },
+  "calculator": {
+    "title": "Instant Price Estimator",
+    "subtitle": "Get a preliminary quote for your paper needs",
+    "product": "Product",
+    "selectProduct": "Select a product",
+    "gsm": "GSM Range",
+    "selectGsm": "Select GSM",
+    "quantity": "Quantity (Tons)",
+    "port": "Delivery Port",
+    "estimatedTotal": "Estimated Total",
+    "basePrice": "Base Price + Logistics",
+    "submit": "Request Formal Quote"
+  },
+  "datatable": {
+    "search": "Search...",
+    "export": "Export CSV",
+    "noData": "No data found",
+    "rowsPerPage": "Rows per page:",
+    "showing": "Showing {start}-{end} of {total}"
   }
 }

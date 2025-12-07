@@ -327,5 +327,25 @@
             "applications": "Hauptanwendungen"
         },
         "addToQuote": "Zum Angebot hinzufügen"
+    },
+    "calculator": {
+        "title": "Sofortige Preisschätzung",
+        "subtitle": "Erhalten Sie ein vorläufiges Angebot",
+        "product": "Produkt",
+        "selectProduct": "Produkt auswählen",
+        "gsm": "GSM-Bereich",
+        "selectGsm": "GSM auswählen",
+        "quantity": "Menge (Tonnen)",
+        "port": "Lieferhafen",
+        "estimatedTotal": "Geschätzte Summe",
+        "basePrice": "Grundpreis + Logistik",
+        "submit": "Offizielles Angebot anfordern"
+    },
+    "datatable": {
+        "search": "Suchen...",
+        "export": "CSV exportieren",
+        "noData": "Keine Daten gefunden",
+        "rowsPerPage": "Zeilen pro Seite:",
+        "showing": "Zeige {start}-{end} von {total}"
     }
 }

@@ -327,5 +327,25 @@
             "applications": "Temel Uygulamalar"
         },
         "addToQuote": "Teklife Ekle"
+    },
+    "calculator": {
+        "title": "Anlık Fiyat Tahmini",
+        "subtitle": "Kağıt ihtiyaçlarınız için ön teklif alın",
+        "product": "Ürün",
+        "selectProduct": "Bir ürün seçin",
+        "gsm": "GSM Aralığı",
+        "selectGsm": "GSM Seçin",
+        "quantity": "Miktar (Ton)",
+        "port": "Teslimat Limanı",
+        "estimatedTotal": "Tahmini Toplam",
+        "basePrice": "Baz Fiyat + Lojistik",
+        "submit": "Resmi Teklif İste"
+    },
+    "datatable": {
+        "search": "Ara...",
+        "export": "CSV Dışa Aktar",
+        "noData": "Veri bulunamadı",
+        "rowsPerPage": "Sayfa başına satır:",
+        "showing": "{total} kayıttan {start}-{end} arası gösteriliyor"
     }
 }
