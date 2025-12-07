@@ -249,8 +249,8 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
             },
             {
               emoji: '⚡',
-              title: 'Fast Response',
-              desc: '24-hour quote turnaround',
+              title: t('home.whyUs.fastResponse'),
+              desc: t('home.whyUs.fastResponseDesc'),
             },
           ].map((item, index) => (
             <Card key={index} className="text-center flex flex-col items-center">

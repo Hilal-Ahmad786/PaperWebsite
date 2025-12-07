@@ -75,7 +75,7 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
                                 onChange={(e) => setFilters({ ...filters, origin: e.target.value })}
                                 className="w-full bg-background-primary border border-border-primary text-text-primary px-3 py-2 focus:outline-none focus:border-brand-primary"
                             >
-                                <option value="">All Origins</option>
+                                <option value="">{t('filters.allOrigins')}</option>
                                 {origins.map(origin => (
                                     <option key={origin} value={origin}>{origin}</option>
                                 ))}

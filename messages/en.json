@@ -20,6 +20,10 @@
     "error": "An error occurred"
   },
   "home": {
+    "whyUs": {
+      "fastResponse": "Fast Response",
+      "fastResponseDesc": "24-hour quote turnaround"
+    },
     "hero": {
       "title": "Global Paper Trading",
       "titleHighlight": "Engineered for Scale",
@@ -147,6 +151,10 @@
     "title": "Stock & Offers",
     "subtitle": "Current availability and special offers",
     "filters": {
+      "filters": {
+        "allOrigins": "All Origins",
+        "allTypes": "All Types"
+      },
       "all": "All Products",
       "prime": "Prime Quality",
       "stocklot": "Stocklots",
@@ -309,6 +317,11 @@
       "experience": "Years Experience",
       "partners": "Global Partners",
       "support": "Support"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Privacy Policy"
     }
   }
 }

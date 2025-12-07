@@ -310,5 +310,10 @@
             "partners": "Globale Partner",
             "support": "Support"
         }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Datenschutzerklärung"
+        }
     }
 }

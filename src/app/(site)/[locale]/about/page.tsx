@@ -53,15 +53,15 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <Card className="p-6 text-center">
                         <div className="text-4xl font-bold text-brand-primary mb-2">10+</div>
-                        <div className="text-text-secondary">Years Experience</div>
+                        <div className="text-text-secondary">{t('stats.experience')}</div>
                     </Card>
                     <Card className="p-6 text-center">
                         <div className="text-4xl font-bold text-brand-primary mb-2">50+</div>
-                        <div className="text-text-secondary">Global Partners</div>
+                        <div className="text-text-secondary">{t('stats.partners')}</div>
                     </Card>
                     <Card className="p-6 text-center">
                         <div className="text-4xl font-bold text-brand-primary mb-2">24/7</div>
-                        <div className="text-text-secondary">Support</div>
+                        <div className="text-text-secondary">{t('stats.support')}</div>
                     </Card>
                 </div>
             </Section>

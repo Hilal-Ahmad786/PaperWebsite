@@ -310,5 +310,10 @@
             "partners": "Küresel Ortak",
             "support": "Destek"
         }
+    },
+    "legal": {
+        "privacy": {
+            "title": "Gizlilik Politikası"
+        }
     }
 }
