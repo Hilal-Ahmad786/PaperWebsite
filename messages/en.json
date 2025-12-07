@@ -204,7 +204,8 @@
     "terms": "Terms of Service",
     "imprint": "Imprint",
     "rights": "All rights reserved",
-    "locations": "Vienna, Austria | Istanbul, Turkey"
+    "locations": "Vienna, Austria | Istanbul, Turkey",
+    "developedBy": "Developed by"
   },
   "services": {
     "title": "Our Services",
@@ -323,5 +324,16 @@
     "privacy": {
       "title": "Privacy Policy"
     }
+  },
+  "comparison": {
+    "label": {
+      "features": "Features",
+      "gsm": "GSM Range",
+      "grades": "Grades",
+      "origin": "Origin",
+      "price": "Price Indicator",
+      "applications": "Key Applications"
+    },
+    "addToQuote": "Add to Quote"
   }
 }

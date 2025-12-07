@@ -5,7 +5,7 @@ const withNextIntl = createNextIntlPlugin('./src/i18n.ts');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  transpilePackages: ['@lobehub/fluent-emoji', 'antd-style'],
+  transpilePackages: ['@lobehub/fluent-emoji', 'antd-style', 'antd'],
   images: {
     domains: [],
     formats: ['image/avif', 'image/webp'],

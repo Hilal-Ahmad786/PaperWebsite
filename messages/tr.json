@@ -196,7 +196,8 @@
         "terms": "Kullanım Koşulları",
         "imprint": "Künye",
         "rights": "Tüm hakları saklıdır",
-        "locations": "Viyana, Avusturya | İstanbul, Türkiye"
+        "locations": "Viyana, Avusturya | İstanbul, Türkiye",
+        "developedBy": "Geliştiren"
     },
     "services": {
         "title": "Hizmetlerimiz",
@@ -315,5 +316,16 @@
         "privacy": {
             "title": "Gizlilik Politikası"
         }
+    },
+    "comparison": {
+        "label": {
+            "features": "Özellikler",
+            "gsm": "GSM Aralığı",
+            "grades": "Kaliteler",
+            "origin": "Menşei",
+            "price": "Fiyat Göstergesi",
+            "applications": "Temel Uygulamalar"
+        },
+        "addToQuote": "Teklife Ekle"
     }
 }

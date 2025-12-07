@@ -196,7 +196,8 @@
         "terms": "Nutzungsbedingungen",
         "imprint": "Impressum",
         "rights": "Alle Rechte vorbehalten",
-        "locations": "Wien, Österreich | Istanbul, Türkei"
+        "locations": "Wien, Österreich | Istanbul, Türkei",
+        "developedBy": "Entwickelt von"
     },
     "services": {
         "title": "Unsere Dienstleistungen",
@@ -315,5 +316,16 @@
         "privacy": {
             "title": "Datenschutzerklärung"
         }
+    },
+    "comparison": {
+        "label": {
+            "features": "Eigenschaften",
+            "gsm": "GSM-Bereich",
+            "grades": "Sorten",
+            "origin": "Herkunft",
+            "price": "Preisindikator",
+            "applications": "Hauptanwendungen"
+        },
+        "addToQuote": "Zum Angebot hinzufügen"
     }
 }

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { ProductComparison } from '@/components/ui/ProductComparison';
 import { products } from '@/content/products';
 import { cn } from '@/lib/utils';
 
@@ -98,7 +99,21 @@ export default function ProductsPage({ params: { locale } }: { params: { locale:
                         </Link>
                     ))}
                 </div>
-            </Section>
+
+
+                {/* Product Comparison */}
+                <div className="mt-24">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl font-bold text-text-primary mb-4">
+                            {t('comparison.label.features')}
+                        </h2>
+                        <p className="text-text-secondary">
+                            {t('products.subtitle')}
+                        </p>
+                    </div>
+                    <ProductComparison products={products} />
+                </div>
+            </Section >
         </>
     );
 }
