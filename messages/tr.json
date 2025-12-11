@@ -382,7 +382,11 @@
         "welcomeSubtitle": "Bize bir mesaj bırakın, en kısa sürede size geri dönelim.",
         "startChat": "Sohbeti Başlat",
         "placeholder": "Bir mesaj yazın...",
-        "agentResponse": "Mesajınız için teşekkürler! Bir temsilci kısa süre içinde sizinle ilgilenecek."
+        "agentResponse": "Mesajınız için teşekkürler! Bir temsilci kısa süre içinde sizinle ilgilenecek.",
+        "callUs": "Bizi Arayın",
+        "emailUs": "E-posta",
+        "liveChat": "Canlı Sohbet",
+        "close": "Kapat"
     },
     "upload": {
         "dropzone": {

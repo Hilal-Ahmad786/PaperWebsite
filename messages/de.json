@@ -382,7 +382,11 @@
         "welcomeSubtitle": "Hinterlassen Sie uns eine Nachricht, wir melden uns in Kürze.",
         "startChat": "Chat starten",
         "placeholder": "Nachricht eingeben...",
-        "agentResponse": "Danke für Ihre Nachricht! Ein Mitarbeiter wird sich in Kürze bei Ihnen melden."
+        "agentResponse": "Danke für Ihre Nachricht! Ein Mitarbeiter wird sich in Kürze bei Ihnen melden.",
+        "callUs": "Rufen Sie uns an",
+        "emailUs": "E-Mail",
+        "liveChat": "Live-Chat",
+        "close": "Schließen"
     },
     "upload": {
         "dropzone": {

@@ -386,7 +386,11 @@
     "welcomeSubtitle": "Leave us a message and we'll get back to you shortly.",
     "startChat": "Start Chat",
     "placeholder": "Type a message...",
-    "agentResponse": "Thanks for your message! An agent will be with you shortly."
+    "agentResponse": "Thanks for your message! An agent will be with you shortly.",
+    "callUs": "Call Us",
+    "emailUs": "Email",
+    "liveChat": "Live Chat",
+    "close": "Close"
   },
   "upload": {
     "dropzone": {

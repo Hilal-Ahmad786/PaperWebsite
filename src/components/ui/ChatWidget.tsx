@@ -6,9 +6,10 @@ import {
     X,
     Minus,
     Send,
-    User
+    User,
+    MessageCircle
 } from 'lucide-react';
-import { FaWhatsapp, FaPhoneAlt, FaEnvelope, FaCommentDots } from 'react-icons/fa';
+import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
 
@@ -52,7 +53,7 @@ export function ChatWidget({
     const playNotificationSound = () => {
         try {
             const audio = new Audio('data:audio/mp3;base64,//NExAAAAANIAAAAAExBTUUzLjEwMKqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq');
-            audio.play().catch(() => { }); // Ignore auto-play errors
+            audio.play().catch(() => { });
         } catch (e) {
             // Ignore audio errors
         }
@@ -66,10 +67,8 @@ export function ChatWidget({
     const handleStartChat = (e: React.FormEvent) => {
         e.preventDefault();
         setHasStarted(true);
-        // Add initial message from user
         if (formData.message) {
             addMessage(formData.message, 'user');
-            // Simulate agent response
             simulateAgentResponse();
         }
     };
@@ -118,11 +117,11 @@ export function ChatWidget({
     };
 
     return (
-        <div className="fixed bottom-8 right-6 z-50 flex flex-col items-end gap-3 animate-in slide-in-from-bottom-10 fade-in duration-500">
-            {/* Chat Window - Positioned to the left of the buttons */}
+        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+            {/* Chat Window */}
             {(isOpen && !isMinimized) && (
-                <div className="fixed bottom-8 right-24 w-[380px] h-[600px] max-w-[calc(100vw-110px)] max-h-[calc(100vh-40px)] bg-background-secondary border border-border-primary rounded-xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-right-10 fade-in duration-300 z-50">
-                    {/* Header with Gradient */}
+                <div className="absolute bottom-20 right-0 w-[380px] h-[600px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-120px)] bg-background-secondary border border-border-primary rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+                    {/* Header */}
                     <div className="bg-gradient-to-r from-brand-primary to-brand-secondary p-4 flex items-center justify-between text-white shadow-md flex-shrink-0">
                         <div className="flex items-center gap-3">
                             <div className="relative">
@@ -286,61 +285,82 @@ export function ChatWidget({
                 </div>
             )}
 
-            {/* Floating Action Buttons Stack */}
-            <div className="flex flex-col items-center gap-3">
-
+            {/* Option 5: Pill with Labels - Floating Action Buttons */}
+            <div className="flex flex-col items-end gap-2.5">
                 {/* WhatsApp */}
                 <a
                     href="https://wa.me/436602492186"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="w-14 h-14 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative z-40"
+                    className="group flex items-center gap-3 py-2.5 pl-3 pr-4 bg-[#1E293B] border border-border-primary/50 rounded-full cursor-pointer transition-all duration-200 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2 shadow-lg"
                     aria-label="WhatsApp"
                 >
-                    <FaWhatsapp className="w-7 h-7" />
-                    <span className="absolute right-16 bg-black/80 text-white text-xs py-1.5 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-white/10 backdrop-blur-sm">
-                        WhatsApp
-                    </span>
+                    <div className="w-9 h-9 rounded-full bg-brand-primary/15 flex items-center justify-center">
+                        <FaWhatsapp className="w-[18px] h-[18px] text-brand-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-text-primary">WhatsApp</span>
                 </a>
 
                 {/* Phone */}
                 <a
                     href="tel:+436602492186"
-                    className="w-14 h-14 bg-[#3B82F6] hover:bg-[#2563EB] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative z-40"
+                    className="group flex items-center gap-3 py-2.5 pl-3 pr-4 bg-[#1E293B] border border-border-primary/50 rounded-full cursor-pointer transition-all duration-200 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2 shadow-lg"
                     aria-label="Call Us"
                 >
-                    <FaPhoneAlt className="w-6 h-6" />
-                    <span className="absolute right-16 bg-black/80 text-white text-xs py-1.5 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-white/10 backdrop-blur-sm">
-                        Call Us
-                    </span>
+                    <div className="w-9 h-9 rounded-full bg-brand-primary/15 flex items-center justify-center">
+                        <FaPhoneAlt className="w-4 h-4 text-brand-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-text-primary">{t('chat.callUs') || 'Call Us'}</span>
                 </a>
 
                 {/* Email */}
                 <a
                     href="mailto:papermarketworld@gmail.com"
-                    className="w-14 h-14 bg-[#EF4444] hover:bg-[#DC2626] text-white rounded-full shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95 group relative z-40"
+                    className="group flex items-center gap-3 py-2.5 pl-3 pr-4 bg-[#1E293B] border border-border-primary/50 rounded-full cursor-pointer transition-all duration-200 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2 shadow-lg"
                     aria-label="Email Us"
                 >
-                    <FaEnvelope className="w-6 h-6" />
-                    <span className="absolute right-16 bg-black/80 text-white text-xs py-1.5 px-3 rounded-md opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none shadow-xl border border-white/10 backdrop-blur-sm">
-                        Email Us
-                    </span>
+                    <div className="w-9 h-9 rounded-full bg-brand-primary/15 flex items-center justify-center">
+                        <FaEnvelope className="w-4 h-4 text-brand-primary" />
+                    </div>
+                    <span className="text-sm font-medium text-text-primary">{t('chat.emailUs') || 'Email'}</span>
                 </a>
 
                 {/* Chat Toggle Button */}
                 <button
                     onClick={toggleChat}
-                    className="relative w-14 h-14 rounded-full bg-brand-primary hover:bg-brand-secondary text-white shadow-lg flex items-center justify-center transition-all hover:scale-110 active:scale-95 z-50"
-                >
-                    {isOpen && !isMinimized ? (
-                        <X className="w-7 h-7" />
-                    ) : (
-                        <FaCommentDots className="w-7 h-7" />
+                    className={cn(
+                        "relative group flex items-center gap-3 py-2.5 pl-3 pr-4 rounded-full cursor-pointer transition-all duration-200 shadow-lg",
+                        isOpen && !isMinimized
+                            ? "bg-brand-primary border border-brand-primary hover:bg-brand-secondary"
+                            : "bg-[#1E293B] border border-border-primary/50 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2"
                     )}
+                    aria-label="Live Chat"
+                >
+                    <div className={cn(
+                        "w-9 h-9 rounded-full flex items-center justify-center transition-colors",
+                        isOpen && !isMinimized
+                            ? "bg-white/20"
+                            : "bg-brand-primary/15"
+                    )}>
+                        {isOpen && !isMinimized ? (
+                            <X className={cn(
+                                "w-[18px] h-[18px]",
+                                isOpen && !isMinimized ? "text-white" : "text-brand-primary"
+                            )} />
+                        ) : (
+                            <MessageCircle className="w-[18px] h-[18px] text-brand-primary" />
+                        )}
+                    </div>
+                    <span className={cn(
+                        "text-sm font-medium",
+                        isOpen && !isMinimized ? "text-white" : "text-text-primary"
+                    )}>
+                        {isOpen && !isMinimized ? (t('chat.close') || 'Close') : (t('chat.liveChat') || 'Live Chat')}
+                    </span>
 
                     {/* Unread Badge */}
-                    {unreadCount > 0 && (
-                        <div className="absolute -top-1 -right-1 w-6 h-6 bg-red-500 rounded-full border-2 border-background-primary flex items-center justify-center text-xs font-bold animate-pulse shadow-sm">
+                    {unreadCount > 0 && !(isOpen && !isMinimized) && (
+                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full border-2 border-[#1E293B] flex items-center justify-center text-[10px] font-bold text-white animate-pulse">
                             {unreadCount}
                         </div>
                     )}
@@ -349,4 +369,3 @@ export function ChatWidget({
         </div>
     );
 }
-
