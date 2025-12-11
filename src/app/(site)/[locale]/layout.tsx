@@ -6,6 +6,8 @@ import '../../globals.css';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
 import { MarketTicker } from '@/components/layout/MarketTicker';
+import { ChatWidget } from '@/components/ui/ChatWidget';
+import { ToastContainer } from '@/components/ui/Toast';
 import { getDirection } from '@/lib/utils';
 import { Inter } from 'next/font/google';
 
@@ -40,6 +42,8 @@ export default async function LocaleLayout({
           <MarketTicker />
           <main>{children}</main>
           <Footer locale={locale} />
+          <ChatWidget />
+          <ToastContainer />
         </NextIntlClientProvider>
       </body>
     </html>

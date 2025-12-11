@@ -22,7 +22,7 @@ export function ProductComparison({ products, onAddToCart }: ProductComparisonPr
                 return '$$';
             case 'kraftliner-white-top':
                 return '$$$';
-            case 'fbb':
+            case 'triplex-board':
                 return '$$$';
             default:
                 return '$$';

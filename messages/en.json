@@ -7,7 +7,8 @@
     "insights": "Insights",
     "stockOffers": "Stock & Offers",
     "about": "About",
-    "contact": "Contact"
+    "contact": "Contact",
+    "getQuote": "Get Quote"
   },
   "common": {
     "getQuote": "Request Quote",
@@ -17,13 +18,11 @@
     "contactUs": "Contact Us",
     "sendMessage": "Send Message",
     "loading": "Loading...",
-    "error": "An error occurred"
+    "error": "An error occurred",
+    "back": "Back",
+    "next": "Next"
   },
   "home": {
-    "whyUs": {
-      "fastResponse": "Fast Response",
-      "fastResponseDesc": "24-hour quote turnaround"
-    },
     "hero": {
       "title": "Global Paper Trading",
       "titleHighlight": "Engineered for Scale",
@@ -62,7 +61,9 @@
       "flexible": "Flexible MOQs",
       "flexibleDesc": "Test containers available",
       "documentation": "Full Documentation",
-      "documentationDesc": "Logistics & compliance support"
+      "documentationDesc": "Logistics & compliance support",
+      "fastResponse": "Fast Response",
+      "fastResponseDesc": "24-hour quote turnaround"
     }
   },
   "products": {
@@ -116,20 +117,20 @@
         "food": "Food Packaging"
       }
     },
-    "fbb": {
-      "name": "Folding Boxboard (FBB)",
-      "short": "High brightness folding boxboard for luxury packaging, pharmaceuticals, and confectionery",
-      "description": "Premium folding boxboard with single or double coating. High brightness (85-95% ISO) for luxury packaging, pharmaceutical boxes, cosmetics, and confectionery packaging.",
+    "triplexBoard": {
+      "name": "TRİPLEXBOARD",
+      "short": "High performance multi-ply recycled board for packaging",
+      "description": "Premium quality triplex board with white top and grey back. Excellent stiffness and printability for packaging solutions. Ideal for FMCG, food packaging, and industrial cartons. Cost-effective sustainable choice.",
       "apps": {
-        "luxury": "Luxury Packaging",
+        "fmcg": "FMCG Packaging",
         "pharma": "Pharmaceutical Boxes",
         "cosmetics": "Cosmetics Packaging",
         "confectionery": "Confectionery Boxes"
       },
       "industries": {
-        "packaging": "Premium Packaging",
-        "printing": "High-End Printing",
-        "luxury": "Luxury Goods"
+        "packaging": "Packaging Converters",
+        "printing": "Commercial Printing",
+        "luxury": "Consumer Goods"
       }
     }
   },
@@ -355,5 +356,65 @@
     "noData": "No data found",
     "rowsPerPage": "Rows per page:",
     "showing": "Showing {start}-{end} of {total}"
+  },
+  "finder": {
+    "step": "Step {current} of {total}",
+    "finish": "See Results",
+    "step1": {
+      "title": "What are you looking for?"
+    },
+    "step2": {
+      "title": "Technical Specifications",
+      "gsmRange": "Preferred GSM Range",
+      "quality": "Quality Grade"
+    },
+    "step3": {
+      "title": "Origin & Budget",
+      "budget": "Budget Range"
+    },
+    "results": {
+      "matchFound": "{count} Matches Found",
+      "subtitle": "Based on your requirements",
+      "reset": "Start Over",
+      "viewDetails": "View Details"
+    }
+  },
+  "chat": {
+    "online": "Online",
+    "offline": "Offline",
+    "welcomeTitle": "How can we help?",
+    "welcomeSubtitle": "Leave us a message and we'll get back to you shortly.",
+    "startChat": "Start Chat",
+    "placeholder": "Type a message...",
+    "agentResponse": "Thanks for your message! An agent will be with you shortly."
+  },
+  "upload": {
+    "dropzone": {
+      "title": "Click to upload or drag and drop",
+      "subtitle": "PDF, PNG, JPG or XLSX (max. {max}MB)"
+    },
+    "status": {
+      "completed": "Completed",
+      "uploading": "Uploading..."
+    },
+    "error": {
+      "size": "File size exceeds {size}MB limit",
+      "type": "Invalid file type"
+    }
+  },
+  "tracker": {
+    "estimatedDelivery": "Estimated Delivery",
+    "stages": {
+      "placed": "Order Placed",
+      "production": "In Production",
+      "quality": "Quality Check",
+      "shipped": "Shipped",
+      "delivered": "Delivered"
+    },
+    "documents": {
+      "invoice": "Invoice",
+      "packingList": "Packing List",
+      "other": "Document"
+    }
   }
 }

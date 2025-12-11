@@ -1,6 +1,7 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -19,6 +20,15 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
             {/* Hero Section */}
             <Section variant="dark" className="py-20 lg:py-32">
                 <div className="max-w-4xl">
+                    <div className="mb-8">
+                        <Breadcrumbs
+                            items={[
+                                { label: 'Home', href: `/${locale}` },
+                                { label: t('products.title'), href: `/${locale}/products` },
+                                { label: t(`${product.i18nKey}.name`), href: `/${locale}/products/${slug}` },
+                            ]}
+                        />
+                    </div>
                     <div className="text-brand-primary font-mono text-sm uppercase tracking-wider mb-4">
                         {product.category}
                     </div>

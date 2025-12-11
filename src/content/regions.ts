@@ -32,7 +32,7 @@ export const regions: RegionInfo[] = [
       'regions.asia.customers.traders',
       'regions.asia.customers.converters',
     ],
-    typicalProducts: ['duplex-board', 'fbb', 'testliner-fluting'],
+    typicalProducts: ['duplex-board', 'triplex-board', 'testliner-fluting'],
   },
 ];
 

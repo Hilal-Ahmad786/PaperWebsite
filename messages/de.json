@@ -7,7 +7,8 @@
         "insights": "Einblicke",
         "stockOffers": "Lager & Angebote",
         "about": "Über uns",
-        "contact": "Kontakt"
+        "contact": "Kontakt",
+        "getQuote": "Angebot anfordern"
     },
     "common": {
         "getQuote": "Angebot anfordern",
@@ -16,8 +17,10 @@
         "readMore": "Weiterlesen",
         "contactUs": "Kontaktieren Sie uns",
         "sendMessage": "Nachricht senden",
-        "loading": "Laden...",
-        "error": "Ein Fehler ist aufgetreten"
+        "loading": "Wird geladen...",
+        "error": "Ein Fehler ist aufgetreten",
+        "back": "Zurück",
+        "next": "Weiter"
     },
     "home": {
         "hero": {
@@ -58,7 +61,9 @@
             "flexible": "Flexible Mindestbestellmengen",
             "flexibleDesc": "Testcontainer verfügbar",
             "documentation": "Vollständige Dokumentation",
-            "documentationDesc": "Logistik- & Compliance-Support"
+            "documentationDesc": "Logistik- & Compliance-Support",
+            "fastResponse": "Schnelle Antwort",
+            "fastResponseDesc": "Angebot innerhalb von 24 Stunden"
         }
     },
     "products": {
@@ -112,20 +117,20 @@
                 "food": "Lebensmittelverpackungen"
             }
         },
-        "fbb": {
-            "name": "Faltschachtelkarton (FBB)",
-            "short": "Hochweißer Faltschachtelkarton für Luxusverpackungen, Pharmazeutika und Süßwaren",
-            "description": "Premium-Faltschachtelkarton mit einfacher oder doppelter Beschichtung. Hoher Weißgrad (85-95% ISO) für Luxusverpackungen, Pharmaschachteln, Kosmetik und Süßwarenverpackungen.",
+        "triplexBoard": {
+            "name": "TRİPLEXBOARD",
+            "short": "Hochleistungsfähiger mehrlagiger Recyclingkarton für Verpackungen",
+            "description": "Erstklassiger Triplexkarton mit weißer Oberseite und grauer Rückseite. Hervorragende Steifigkeit und Bedruckbarkeit für Verpackungslösungen. Ideal für FMCG, Lebensmittelverpackungen und Industriekartons. Kostengünstige nachhaltige Wahl.",
             "apps": {
-                "luxury": "Luxusverpackungen",
+                "fmcg": "FMCG-Verpackungen",
                 "pharma": "Pharmaschachteln",
                 "cosmetics": "Kosmetikverpackungen",
                 "confectionery": "Süßwarenboxen"
             },
             "industries": {
-                "packaging": "Premiumverpackungen",
-                "printing": "High-End-Druck",
-                "luxury": "Luxusgüter"
+                "packaging": "Verpackungshersteller",
+                "printing": "Akzidenzdruck",
+                "luxury": "Konsumgüter"
             }
         }
     },
@@ -347,5 +352,65 @@
         "noData": "Keine Daten gefunden",
         "rowsPerPage": "Zeilen pro Seite:",
         "showing": "Zeige {start}-{end} von {total}"
+    },
+    "finder": {
+        "step": "Schritt {current} von {total}",
+        "finish": "Ergebnisse anzeigen",
+        "step1": {
+            "title": "Wonach suchen Sie?"
+        },
+        "step2": {
+            "title": "Technische Daten",
+            "gsmRange": "Bevorzugter GSM-Bereich",
+            "quality": "Qualitätsklasse"
+        },
+        "step3": {
+            "title": "Herkunft & Budget",
+            "budget": "Budgetbereich"
+        },
+        "results": {
+            "matchFound": "{count} Treffer gefunden",
+            "subtitle": "Basierend auf Ihren Anforderungen",
+            "reset": "Neu starten",
+            "viewDetails": "Details anzeigen"
+        }
+    },
+    "chat": {
+        "online": "Online",
+        "offline": "Offline",
+        "welcomeTitle": "Wie können wir helfen?",
+        "welcomeSubtitle": "Hinterlassen Sie uns eine Nachricht, wir melden uns in Kürze.",
+        "startChat": "Chat starten",
+        "placeholder": "Nachricht eingeben...",
+        "agentResponse": "Danke für Ihre Nachricht! Ein Mitarbeiter wird sich in Kürze bei Ihnen melden."
+    },
+    "upload": {
+        "dropzone": {
+            "title": "Klicken zum Hochladen oder Drag & Drop",
+            "subtitle": "PDF, PNG, JPG oder XLSX (max. {max}MB)"
+        },
+        "status": {
+            "completed": "Abgeschlossen",
+            "uploading": "Wird hochgeladen..."
+        },
+        "error": {
+            "size": "Dateigröße überschreitet {size}MB Limit",
+            "type": "Ungültiger Dateityp"
+        }
+    },
+    "tracker": {
+        "estimatedDelivery": "Voraussichtliche Lieferung",
+        "stages": {
+            "placed": "Bestellung aufgegeben",
+            "production": "In Produktion",
+            "quality": "Qualitätskontrolle",
+            "shipped": "Versandt",
+            "delivered": "Zugestellt"
+        },
+        "documents": {
+            "invoice": "Rechnung",
+            "packingList": "Packliste",
+            "other": "Dokument"
+        }
     }
 }

@@ -3,7 +3,7 @@ export type ProductSlug =
   | 'duplex-board'
   | 'testliner-fluting'
   | 'kraftliner-white-top'
-  | 'fbb';
+  | 'triplex-board';
 
 export type ProductCategory = 'board' | 'containerboard';
 
@@ -50,10 +50,10 @@ export interface RegionInfo {
 }
 
 // Article/Blog Types
-export type ArticleCategory = 
-  | 'market-update' 
-  | 'grade-guide' 
-  | 'logistics' 
+export type ArticleCategory =
+  | 'market-update'
+  | 'grade-guide'
+  | 'logistics'
   | 'sustainability';
 
 export interface ArticleMeta {

@@ -37,9 +37,21 @@ export function Footer({ locale }: FooterProps) {
             <div className="text-xl font-bold text-brand-primary mb-4">
               PAPER MARKET WORLD
             </div>
-            <p className="text-sm text-text-secondary leading-relaxed">
+            <p className="text-sm text-text-secondary leading-relaxed mb-6">
               {t('footer.tagline')}
             </p>
+
+            <div className="space-y-2">
+              <a href="mailto:papermarketworld@gmail.com" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors font-medium">
+                papermarketworld@gmail.com
+              </a>
+              <a href="tel:+436602492186" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors">
+                AT: +43 660 249 21 86
+              </a>
+              <a href="tel:+905347749744" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors">
+                TR: +90 534 774 97 44
+              </a>
+            </div>
           </div>
 
           {/* Products */}

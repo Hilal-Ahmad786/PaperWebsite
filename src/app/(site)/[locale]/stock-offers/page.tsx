@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
@@ -35,6 +36,14 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
         <>
             <Section variant="dark" className="py-20">
                 <div className="text-center max-w-4xl mx-auto">
+                    <div className="flex justify-center mb-8">
+                        <Breadcrumbs
+                            items={[
+                                { label: 'Home', href: `/${locale}` },
+                                { label: t('title'), href: `/${locale}/stock-offers` },
+                            ]}
+                        />
+                    </div>
                     <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient">
                         {t('title')}
                     </h1>

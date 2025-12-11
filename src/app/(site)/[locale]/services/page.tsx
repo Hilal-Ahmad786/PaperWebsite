@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
 export default function ServicesPage({ params: { locale } }: { params: { locale: string } }) {
     const t = useTranslations('services');
@@ -35,6 +36,14 @@ export default function ServicesPage({ params: { locale } }: { params: { locale:
         <>
             <Section variant="dark" className="relative overflow-hidden">
                 <div className="max-w-4xl relative z-10">
+                    <div className="mb-8">
+                        <Breadcrumbs
+                            items={[
+                                { label: 'Home', href: `/${locale}` },
+                                { label: t('title'), href: `/${locale}/services` },
+                            ]}
+                        />
+                    </div>
                     <h1 className="text-5xl font-extrabold mb-6">
                         <span className="text-gradient">{t('title')}</span>
                     </h1>

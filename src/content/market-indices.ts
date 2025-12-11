@@ -34,7 +34,7 @@ export const marketIndices: MarketIndex[] = [
     isUp: true,
   },
   {
-    label: 'FBB CHINA',
+    label: 'TRİPLEXBOARD',
     value: '¥4,200',
     change: '▼ 1.3%',
     isUp: false,

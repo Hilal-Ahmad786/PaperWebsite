@@ -1,13 +1,23 @@
 import { useTranslations } from 'next-intl';
 import { Section } from '@/components/ui/Section';
+import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 
-export default function PrivacyPage() {
+export default function PrivacyPage({ params: { locale } }: { params: { locale: string } }) {
     const t = useTranslations('legal');
 
     return (
         <>
             <Section variant="dark" className="py-20">
                 <div className="max-w-4xl mx-auto">
+                    <div className="mb-8">
+                        <Breadcrumbs
+                            items={[
+                                { label: 'Home', href: `/${locale}` },
+                                { label: 'Legal', href: `/${locale}/legal` }, // Assuming there is a legal index or just a placeholder
+                                { label: t('privacy.title'), href: `/${locale}/legal/privacy` },
+                            ]}
+                        />
+                    </div>
                     <h1 className="text-5xl font-extrabold mb-6 text-gradient">
                         {t('privacy.title')}
                     </h1>

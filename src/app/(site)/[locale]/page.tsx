@@ -6,6 +6,7 @@ import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { products } from '@/content/products';
 import { stockOffers } from '@/content/offers';
+import { HomeProductFinder } from '@/components/home/HomeProductFinder';
 
 export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const t = useTranslations();
@@ -82,6 +83,19 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
             ))}
           </div>
         </div>
+      </Section>
+
+      {/* Product Finder Section */}
+      <Section variant="default" className="py-12">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
+            Find Your Perfect Paper
+          </h2>
+          <p className="text-text-secondary max-w-2xl mx-auto">
+            Use our smart product finder to discover the best grades for your specific application.
+          </p>
+        </div>
+        <HomeProductFinder products={products} />
       </Section>
 
       {/* Products Section */}

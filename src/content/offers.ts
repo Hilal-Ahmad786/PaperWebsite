@@ -63,8 +63,8 @@ export const stockOffers: StockOffer[] = [
   },
   {
     id: 'SO-2024-006',
-    productSlug: 'fbb',
-    gradeName: 'FBB Coated Board',
+    productSlug: 'triplex-board',
+    gradeName: 'Triplex Board Coated',
     gsmRange: '250–300 gsm',
     originCountry: 'China',
     quantityTons: 120,
