@@ -117,10 +117,10 @@ export function ChatWidget({
     };
 
     return (
-        <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+        <div className="fixed bottom-0 left-0 right-0 z-50 md:bottom-6 md:right-6 md:w-auto md:left-auto">
             {/* Chat Window */}
             {(isOpen && !isMinimized) && (
-                <div className="absolute bottom-20 right-0 w-[380px] h-[600px] max-w-[calc(100vw-48px)] max-h-[calc(100vh-120px)] bg-background-secondary border border-border-primary rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+                <div className="fixed inset-0 w-full h-full z-[60] md:absolute md:bottom-20 md:right-0 md:w-[380px] md:h-[600px] md:max-w-[calc(100vw-48px)] md:max-h-[calc(100vh-120px)] bg-background-secondary border border-border-primary md:rounded-2xl rounded-none shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
                     {/* Header */}
                     <div className="bg-gradient-to-r from-brand-primary to-brand-secondary p-4 flex items-center justify-between text-white shadow-md flex-shrink-0">
                         <div className="flex items-center gap-3">
@@ -146,7 +146,7 @@ export function ChatWidget({
                         <div className="flex items-center gap-1">
                             <button
                                 onClick={() => setIsMinimized(true)}
-                                className="p-1.5 hover:bg-white/20 rounded-full transition-colors"
+                                className="p-1.5 hover:bg-white/20 rounded-full transition-colors md:block hidden"
                             >
                                 <Minus className="w-4 h-4" />
                             </button>
@@ -285,82 +285,83 @@ export function ChatWidget({
                 </div>
             )}
 
-            {/* Option 5: Pill with Labels - Floating Action Buttons */}
-            <div className="flex flex-col items-end gap-2.5">
+            {/* Floating Action Buttons - Mobile: Bottom Bar, Desktop: Floating Stack */}
+            <div className="flex flex-row md:flex-col items-center justify-around md:justify-end md:items-end gap-0 md:gap-2.5 bg-background-secondary/95 backdrop-blur-lg md:bg-transparent border-t border-border-primary md:border-0 p-2 md:p-0 shadow-[0_-4px_10px_rgba(0,0,0,0.1)] md:shadow-none w-full md:w-auto pb-safe">
                 {/* WhatsApp */}
                 <a
                     href="https://wa.me/436602492186"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group flex items-center gap-3 py-2.5 pl-3 pr-4 bg-[#1E293B] border border-border-primary/50 rounded-full cursor-pointer transition-all duration-200 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2 shadow-lg"
+                    className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
                     aria-label="WhatsApp"
                 >
-                    <div className="w-9 h-9 rounded-full bg-brand-primary/15 flex items-center justify-center">
-                        <FaWhatsapp className="w-[18px] h-[18px] text-brand-primary" />
+                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">WhatsApp</span>
+                    <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-transparent md:bg-brand-primary/15 flex items-center justify-center order-1 md:order-2">
+                        <FaWhatsapp className="w-6 h-6 md:w-[18px] md:h-[18px] text-brand-primary" />
                     </div>
-                    <span className="text-sm font-medium text-text-primary">WhatsApp</span>
                 </a>
 
                 {/* Phone */}
                 <a
                     href="tel:+436602492186"
-                    className="group flex items-center gap-3 py-2.5 pl-3 pr-4 bg-[#1E293B] border border-border-primary/50 rounded-full cursor-pointer transition-all duration-200 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2 shadow-lg"
+                    className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
                     aria-label="Call Us"
                 >
-                    <div className="w-9 h-9 rounded-full bg-brand-primary/15 flex items-center justify-center">
-                        <FaPhoneAlt className="w-4 h-4 text-brand-primary" />
+                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">{t('chat.callUs') || 'Call Us'}</span>
+                    <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-transparent md:bg-brand-primary/15 flex items-center justify-center order-1 md:order-2">
+                        <FaPhoneAlt className="w-5 h-5 md:w-4 md:h-4 text-brand-primary" />
                     </div>
-                    <span className="text-sm font-medium text-text-primary">{t('chat.callUs') || 'Call Us'}</span>
                 </a>
 
                 {/* Email */}
                 <a
                     href="mailto:papermarketworld@gmail.com"
-                    className="group flex items-center gap-3 py-2.5 pl-3 pr-4 bg-[#1E293B] border border-border-primary/50 rounded-full cursor-pointer transition-all duration-200 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2 shadow-lg"
+                    className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
                     aria-label="Email Us"
                 >
-                    <div className="w-9 h-9 rounded-full bg-brand-primary/15 flex items-center justify-center">
-                        <FaEnvelope className="w-4 h-4 text-brand-primary" />
+                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">{t('chat.emailUs') || 'Email'}</span>
+                    <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-transparent md:bg-brand-primary/15 flex items-center justify-center order-1 md:order-2">
+                        <FaEnvelope className="w-5 h-5 md:w-4 md:h-4 text-brand-primary" />
                     </div>
-                    <span className="text-sm font-medium text-text-primary">{t('chat.emailUs') || 'Email'}</span>
                 </a>
 
                 {/* Chat Toggle Button */}
                 <button
                     onClick={toggleChat}
                     className={cn(
-                        "relative group flex items-center gap-3 py-2.5 pl-3 pr-4 rounded-full cursor-pointer transition-all duration-200 shadow-lg",
+                        "relative group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:shadow-lg",
                         isOpen && !isMinimized
-                            ? "bg-brand-primary border border-brand-primary hover:bg-brand-secondary"
-                            : "bg-[#1E293B] border border-border-primary/50 hover:bg-brand-primary/10 hover:border-brand-primary hover:-translate-x-2"
+                            ? "md:bg-brand-primary md:border md:border-brand-primary md:hover:bg-brand-secondary text-brand-primary md:text-white"
+                            : "md:bg-[#1E293B] md:border md:border-border-primary/50 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2"
                     )}
                     aria-label="Live Chat"
                 >
-                    <div className={cn(
-                        "w-9 h-9 rounded-full flex items-center justify-center transition-colors",
-                        isOpen && !isMinimized
-                            ? "bg-white/20"
-                            : "bg-brand-primary/15"
-                    )}>
-                        {isOpen && !isMinimized ? (
-                            <X className={cn(
-                                "w-[18px] h-[18px]",
-                                isOpen && !isMinimized ? "text-white" : "text-brand-primary"
-                            )} />
-                        ) : (
-                            <MessageCircle className="w-[18px] h-[18px] text-brand-primary" />
-                        )}
-                    </div>
                     <span className={cn(
-                        "text-sm font-medium",
-                        isOpen && !isMinimized ? "text-white" : "text-text-primary"
+                        "text-[10px] md:text-sm font-medium order-2 md:order-1 mt-1 md:mt-0",
+                        isOpen && !isMinimized ? "text-brand-primary md:text-white" : "text-text-primary"
                     )}>
                         {isOpen && !isMinimized ? (t('chat.close') || 'Close') : (t('chat.liveChat') || 'Live Chat')}
                     </span>
+                    <div className={cn(
+                        "w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center transition-colors order-1 md:order-2",
+                        isOpen && !isMinimized
+                            ? "bg-transparent md:bg-white/20"
+                            : "bg-transparent md:bg-brand-primary/15"
+                    )}>
+                        {isOpen && !isMinimized ? (
+                            <X className={cn(
+                                "w-6 h-6 md:w-[18px] md:h-[18px]",
+                                isOpen && !isMinimized ? "text-brand-primary md:text-white" : "text-brand-primary"
+                            )} />
+                        ) : (
+                            <MessageCircle className="w-6 h-6 md:w-[18px] md:h-[18px] text-brand-primary" />
+                        )}
+                    </div>
+
 
                     {/* Unread Badge */}
                     {unreadCount > 0 && !(isOpen && !isMinimized) && (
-                        <div className="absolute -top-1 -right-1 w-5 h-5 bg-red-500 rounded-full border-2 border-[#1E293B] flex items-center justify-center text-[10px] font-bold text-white animate-pulse">
+                        <div className="absolute top-0 right-2 md:-top-1 md:-right-1 w-4 h-4 md:w-5 md:h-5 bg-red-500 rounded-full border md:border-2 border-[#1E293B] flex items-center justify-center text-[10px] font-bold text-white animate-pulse">
                             {unreadCount}
                         </div>
                     )}
