@@ -120,7 +120,7 @@ export function ChatWidget({
         <div className="fixed bottom-0 left-0 right-0 z-50 md:bottom-6 md:right-6 md:w-auto md:left-auto">
             {/* Chat Window */}
             {(isOpen && !isMinimized) && (
-                <div className="fixed inset-0 w-full h-full z-[60] md:absolute md:bottom-20 md:right-0 md:w-[380px] md:h-[600px] md:max-w-[calc(100vw-48px)] md:max-h-[calc(100vh-120px)] bg-background-secondary border border-border-primary md:rounded-2xl rounded-none shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
+                <div className="fixed inset-0 w-full h-full z-[60] md:absolute md:bottom-0 md:right-full md:mr-4 md:w-[380px] md:h-[600px] md:max-w-[calc(100vw-48px)] md:max-h-[calc(100vh-120px)] bg-background-secondary border border-border-primary md:rounded-2xl rounded-none shadow-2xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-5 fade-in duration-300">
                     {/* Header */}
                     <div className="bg-gradient-to-r from-brand-primary to-brand-secondary p-4 flex items-center justify-between text-white shadow-md flex-shrink-0">
                         <div className="flex items-center gap-3">
