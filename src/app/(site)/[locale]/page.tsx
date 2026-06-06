@@ -89,10 +89,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
       <Section variant="default" className="py-12">
         <div className="text-center mb-8">
           <h2 className="text-3xl lg:text-4xl font-bold text-text-primary mb-4">
-            Find Your Perfect Paper
+            {t('home.productFinder.title')}
           </h2>
           <p className="text-text-secondary max-w-2xl mx-auto">
-            Use our smart product finder to discover the best grades for your specific application.
+            {t('home.productFinder.subtitle')}
           </p>
         </div>
         <HomeProductFinder products={products} />
@@ -157,10 +157,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
       <Section variant="dark">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-extrabold text-text-primary mb-4">
-            Current Stock & Offers
+            {t('home.stockOffers.title')}
           </h2>
           <p className="text-lg text-text-secondary">
-            Limited availability on these grades
+            {t('home.stockOffers.subtitle')}
           </p>
         </div>
 
@@ -283,10 +283,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
       {/* CTA Section */}
       <Section variant="darker" className="text-center">
         <h2 className="text-4xl lg:text-5xl font-extrabold text-text-primary mb-6">
-          Ready to Source Your Next Container?
+          {t('home.finalCta.title')}
         </h2>
         <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
-          Send us your requirements. We'll respond with options, pricing, and lead times within 24 hours.
+          {t('home.finalCta.subtitle')}
         </p>
         <Link href={`/${locale}/contact`}>
           <Button variant="primary" size="lg">

@@ -8,7 +8,8 @@
         "stockOffers": "Stok & Teklifler",
         "about": "Hakkımızda",
         "contact": "İletişim",
-        "getQuote": "Teklif Al"
+        "getQuote": "Teklif Al",
+        "home": "Anasayfa"
     },
     "common": {
         "getQuote": "Teklif İste",
@@ -64,11 +65,32 @@
             "documentationDesc": "Lojistik & uyumluluk desteği",
             "fastResponse": "Hızlı Yanıt",
             "fastResponseDesc": "24 saat içinde teklif dönüşü"
+        },
+        "productFinder": {
+            "title": "Mükemmel Kağıdınızı Bulun",
+            "subtitle": "Özel uygulamanız için en iyi kaliteleri keşfetmek üzere akıllı ürün bulucumuzu kullanın."
+        },
+        "stockOffers": {
+            "title": "Güncel Stok & Teklifler",
+            "subtitle": "Bu kalitelerde sınırlı stok"
+        },
+        "finalCta": {
+            "title": "Bir Sonraki Konteynerinizi Tedarik Etmeye Hazır mısınız?",
+            "subtitle": "Gereksinimlerinizi bize gönderin. Seçenekler, fiyatlandırma ve teslim süreleri ile 24 saat içinde yanıt verelim."
         }
     },
     "products": {
         "title": "Ürünlerimiz",
         "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler",
+        "categories": {
+            "board": "Karton",
+            "containerboard": "Oluklu Mukavva Hammaddesi",
+            "converted": "Dönüştürülmüş Kağıt Ürünleri"
+        },
+        "gallery": {
+            "title": "Ürün Galerisi",
+            "subtitle": "Ürün formları, yüzeyler, renkler ve özelleştirme seçenekleri için görsel referanslar."
+        },
         "duplexBoard": {
             "name": "Duplex Board",
             "short": "FMCG, kozmetik ve ilaç ambalajları için premium gri ve beyaz arka yüzeyli kaliteler",
@@ -132,6 +154,52 @@
                 "printing": "Ticari Baskı",
                 "luxury": "Tüketim Malları"
             }
+        },
+        "paperConesTubes": {
+            "name": "Kağıt Koniler & Masura Hülseleri",
+            "short": "Tekstil ipliği, kağıt, folyo ve teknik uygulamalar için özel kağıt koniler ve sarım hülseleri",
+            "description": "Tekstil ve endüstriyel sarım uygulamaları için özelleştirilebilir kağıt koniler ve masura hülseleri. Doğal, renkli, baskılı ve velvet/flok kaplamalı yüzeylerle; ölçüye özel üretim ve desen seçenekleriyle sunulur.",
+            "apps": {
+                "textileYarn": "Tekstil İpliği Sarımı",
+                "paperFoil": "Kağıt, Film & Folyo Sarımı",
+                "technicalTextiles": "Teknik Tekstil Uygulamaları",
+                "brandedCones": "Baskılı & Markalı Koni Programları"
+            },
+            "industries": {
+                "textileMills": "Tekstil Fabrikaları",
+                "yarnProducers": "İplik Üreticileri",
+                "converters": "Endüstriyel Dönüştürücüler"
+            },
+            "gallery": {
+                "cover": {
+                    "alt": "Kağıt koniler ve masura hülseleri ürün ailesi katalog kapağı",
+                    "caption": "Koniler, hülseler ve iplik sarım formatlarıyla ürün ailesi görünümü"
+                },
+                "flyer": {
+                    "alt": "Kağıt koniler ve masura hülseleri için Almanca ürün broşürü",
+                    "caption": "Kalite, teslimat ve özelleştirme avantajlarını gösteren ürün broşürü"
+                },
+                "measurements": {
+                    "alt": "El yazısı ölçü etiketli kağıt koni numuneleri",
+                    "caption": "Üretim ölçüleri ve kenar işaretleme seçenekleriyle numune koniler"
+                },
+                "measurementsDetail": {
+                    "alt": "Etiketli kağıt koniler ve masura hülselerinin yakın görünümü",
+                    "caption": "Koni ölçüleri ve baskılı işaretleri gösteren detaylı numune seti"
+                },
+                "colorRings": {
+                    "alt": "Renkli halkalı ve uç işaretli kağıt koni numuneleri",
+                    "caption": "Tanımlama için koni formu ve renkli halka seçenekleri"
+                },
+                "flockedColors": {
+                    "alt": "Flok kaplamalı kağıt koni uç renkleri katalog sayfası",
+                    "caption": "Velvet/flok uç renk kataloğu"
+                },
+                "patternCatalog": {
+                    "alt": "Flok kaplamalı kağıt koni desenleri katalog sayfası",
+                    "caption": "Baskılı ve flok koni özelleştirmeleri için desen kataloğu"
+                }
+            }
         }
     },
     "specs": {
@@ -146,7 +214,12 @@
         "coating": "Kaplama",
         "brightness": "Parlaklık",
         "origin": "Menşei",
-        "leadTime": "Teslim Süresi"
+        "leadTime": "Teslim Süresi",
+        "productTypes": "Ürün Tipleri",
+        "dimensions": "Ölçüler",
+        "surfaceOptions": "Yüzey Seçenekleri",
+        "printOptions": "Baskı Seçenekleri",
+        "applications": "Uygulamalar"
     },
     "stockOffers": {
         "title": "Stok & Teklifler",
@@ -190,6 +263,27 @@
             "submitting": "Gönderiliyor...",
             "success": "Teşekkürler! 24 saat içinde size dönüş yapacağız.",
             "error": "Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin."
+        },
+        "info": {
+            "headquarters": {
+                "title": "Genel Merkez",
+                "address": {
+                    "line1": "Paper Market World GmbH",
+                    "line2": "Kärntner Ring 5-7",
+                    "line3": "1010 Viyana, Avusturya"
+                }
+            },
+            "regional": {
+                "title": "Bölge Ofisi",
+                "address": {
+                    "line1": "PMW Türkiye",
+                    "line2": "Maslak Mah. Büyükdere Cad.",
+                    "line3": "34398 İstanbul, Türkiye"
+                }
+            },
+            "direct": {
+                "title": "Doğrudan İletişim"
+            }
         }
     },
     "footer": {
@@ -310,11 +404,33 @@
             "title": "Vizyonumuz",
             "description": "Endüstride kalite, güvenilirlik ve inovasyon standartlarını belirleyen, dünyanın önde gelen dijital kağıt ticaret platformu olmak."
         },
-        "whyChooseUs": "Neden Bizi Seçmelisiniz?",
         "stats": {
             "experience": "Yıllık Deneyim",
             "partners": "Küresel Ortak",
             "support": "Destek"
+        },
+        "whyChooseUs": "Neden Bizi Seçmelisiniz?",
+        "faq": {
+            "title": "Sıkça Sorulan Sorular",
+            "subtitle": "Hizmetlerimiz ve ticaret süreci hakkında sık sorulan sorular.",
+            "items": {
+                "moq": {
+                    "question": "Minimum sipariş miktarınız (MOQ) nedir?",
+                    "answer": "Standart MOQ'umuz bir 20ft konteynerdir (yaklaşık 15-18 ton). Ancak, yeni müşteriler için kaliteye bağlı olarak deneme siparişleri veya karma konteynerler görüşebiliriz."
+                },
+                "payment": {
+                    "question": "Hangi ödeme koşullarını kabul ediyorsunuz?",
+                    "answer": "Genellikle görüldüğünde Akreditif (L/C), Vesaik Mukabili (CAD) veya Peşin Ödeme (TT) ile çalışıyoruz. Sigorta onayına tabi olarak uzun vadeli ortaklar için vadeli ödeme koşulları mevcut olabilir."
+                },
+                "logistics": {
+                    "question": "Lojistik ve gümrük işlemlerini hallediyor musunuz?",
+                    "answer": "Evet, uçtan uca lojistik çözümleri sunuyoruz. Nakliye, sigorta ve tüm ihracat belgelerini hallediyoruz. İthalat gümrük işlemleri genellikle alıcının sorumluluğundadır, ancak gerekli tüm destek ve evrakları sağlıyoruz."
+                },
+                "samples": {
+                    "question": "Sipariş vermeden önce numune sağlayabilir misiniz?",
+                    "answer": "Kesinlikle. Kalite kontrolü için kurye ile A4 numuneler gönderebiliriz. Daha büyük deneme bobinleri için lütfen satış ekibimizle iletişime geçin."
+                }
+            }
         }
     },
     "legal": {
@@ -372,7 +488,32 @@
             "matchFound": "{count} Eşleşme Bulundu",
             "subtitle": "İhtiyaçlarınıza göre",
             "reset": "Baştan Başla",
-            "viewDetails": "Detayları Gör"
+            "viewDetails": "Detayları Gör",
+            "match": "Eşleşme"
+        },
+        "options": {
+            "fmcg": "Hızlı Tüketim & Ambalaj",
+            "pharma": "İlaç Sektörü",
+            "ecommerce": "E-ticaret",
+            "industrial": "Endüstriyel"
+        },
+        "grades": {
+            "virgin": "Bakır Elyaf",
+            "recycled": "Geri Dönüştürülmüş",
+            "mixed": "Karışık",
+            "coated": "Kuşe",
+            "uncoated": "Kuşesiz"
+        },
+        "origins": {
+            "turkey": "Türkiye",
+            "europe": "Avrupa",
+            "asia": "Asya",
+            "usa": "ABD"
+        },
+        "budgets": {
+            "economy": "Ekonomik",
+            "standard": "Standart",
+            "premium": "Premium"
         }
     },
     "chat": {

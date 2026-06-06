@@ -118,10 +118,10 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {[
-                                { id: 'fmcg', icon: Package, label: 'FMCG & Packaging' },
-                                { id: 'pharma', icon: Factory, label: 'Pharmaceuticals' },
-                                { id: 'ecommerce', icon: ShoppingCart, label: 'E-commerce' },
-                                { id: 'industrial', icon: Factory, label: 'Industrial' },
+                                { id: 'fmcg', icon: Package, label: t('finder.options.fmcg') },
+                                { id: 'pharma', icon: Factory, label: t('finder.options.pharma') },
+                                { id: 'ecommerce', icon: ShoppingCart, label: t('finder.options.ecommerce') },
+                                { id: 'industrial', icon: Factory, label: t('finder.options.industrial') },
                             ].map((app) => (
                                 <div
                                     key={app.id}
@@ -194,7 +194,7 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                                                 : "bg-transparent text-text-secondary border-border-primary hover:border-brand-primary"
                                         )}
                                     >
-                                        {grade}
+                                        {t(`finder.grades.${grade.toLowerCase()}`)}
                                     </button>
                                 ))}
                             </div>
@@ -234,7 +234,7 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                                     )}>
                                         {state.origins.includes(origin) && <Check className="w-3 h-3 text-white" />}
                                     </div>
-                                    <span className="text-text-primary">{origin}</span>
+                                    <span className="text-text-primary">{t(`finder.origins.${origin.toLowerCase()}`)}</span>
                                 </div>
                             ))}
                         </div>
@@ -255,7 +255,7 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                                                 : "bg-background-tertiary border-border-primary text-text-secondary"
                                         )}
                                     >
-                                        {budget}
+                                        {t(`finder.budgets.${budget}`)}
                                     </button>
                                 ))}
                             </div>
@@ -294,7 +294,7 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                                         </div>
                                     </div>
                                     <div className="text-brand-primary font-bold text-sm">
-                                        98% Match
+                                        98% {t('finder.results.match' as any)}
                                     </div>
                                 </div>
                             ))}

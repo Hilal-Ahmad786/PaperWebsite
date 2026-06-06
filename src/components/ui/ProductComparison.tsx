@@ -24,6 +24,8 @@ export function ProductComparison({ products, onAddToCart }: ProductComparisonPr
                 return '$$$';
             case 'triplex-board':
                 return '$$$';
+            case 'paper-cones-tubes':
+                return '$$';
             default:
                 return '$$';
         }

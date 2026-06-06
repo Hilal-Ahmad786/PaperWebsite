@@ -52,7 +52,7 @@ export function Header({ locale }: HeaderProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-5 ml-8">
             {navigation.map((item) => (
               <Link
                 key={item.key}

@@ -1,4 +1,4 @@
-import { Product } from '@/types';
+import { Product, ProductCategory } from '@/types';
 
 export const products: Product[] = [
   {
@@ -97,12 +97,78 @@ export const products: Product[] = [
       'products.triplexBoard.industries.luxury',
     ],
   },
+  {
+    slug: 'paper-cones-tubes',
+    i18nKey: 'products.paperConesTubes',
+    category: 'converted',
+    specTable: [
+      { labelKey: 'specs.productTypes', value: 'Cones, spool tubes, specialty cones' },
+      { labelKey: 'specs.dimensions', value: 'Custom lengths and diameters' },
+      { labelKey: 'specs.surfaceOptions', value: 'Natural, colored, velvet/flocked' },
+      { labelKey: 'specs.printOptions', value: 'Printed patterns, codes, branding' },
+      { labelKey: 'specs.applications', value: 'Textile yarn, paper, foil' },
+    ],
+    applications: [
+      'products.paperConesTubes.apps.textileYarn',
+      'products.paperConesTubes.apps.paperFoil',
+      'products.paperConesTubes.apps.technicalTextiles',
+      'products.paperConesTubes.apps.brandedCones',
+    ],
+    origins: ['Turkey', 'EU'],
+    typicalIndustries: [
+      'products.paperConesTubes.industries.textileMills',
+      'products.paperConesTubes.industries.yarnProducers',
+      'products.paperConesTubes.industries.converters',
+    ],
+    heroImage: {
+      src: '/images/products/paper-cones-tubes/product-family-cover.jpeg',
+      altKey: 'products.paperConesTubes.gallery.cover.alt',
+      captionKey: 'products.paperConesTubes.gallery.cover.caption',
+    },
+    images: [
+      {
+        src: '/images/products/paper-cones-tubes/product-family-cover.jpeg',
+        altKey: 'products.paperConesTubes.gallery.cover.alt',
+        captionKey: 'products.paperConesTubes.gallery.cover.caption',
+      },
+      {
+        src: '/images/products/paper-cones-tubes/product-flyer.jpeg',
+        altKey: 'products.paperConesTubes.gallery.flyer.alt',
+        captionKey: 'products.paperConesTubes.gallery.flyer.caption',
+      },
+      {
+        src: '/images/products/paper-cones-tubes/sample-measurements-1.jpeg',
+        altKey: 'products.paperConesTubes.gallery.measurements.alt',
+        captionKey: 'products.paperConesTubes.gallery.measurements.caption',
+      },
+      {
+        src: '/images/products/paper-cones-tubes/sample-measurements-2.jpeg',
+        altKey: 'products.paperConesTubes.gallery.measurementsDetail.alt',
+        captionKey: 'products.paperConesTubes.gallery.measurementsDetail.caption',
+      },
+      {
+        src: '/images/products/paper-cones-tubes/sample-color-rings.jpeg',
+        altKey: 'products.paperConesTubes.gallery.colorRings.alt',
+        captionKey: 'products.paperConesTubes.gallery.colorRings.caption',
+      },
+      {
+        src: '/images/products/paper-cones-tubes/flocked-tip-colors.jpeg',
+        altKey: 'products.paperConesTubes.gallery.flockedColors.alt',
+        captionKey: 'products.paperConesTubes.gallery.flockedColors.caption',
+      },
+      {
+        src: '/images/products/paper-cones-tubes/flocked-pattern-catalog.jpeg',
+        altKey: 'products.paperConesTubes.gallery.patternCatalog.alt',
+        captionKey: 'products.paperConesTubes.gallery.patternCatalog.caption',
+      },
+    ],
+  },
 ];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find(p => p.slug === slug);
 }
 
-export function getProductsByCategory(category: 'board' | 'containerboard'): Product[] {
+export function getProductsByCategory(category: ProductCategory): Product[] {
   return products.filter(p => p.category === category);
 }

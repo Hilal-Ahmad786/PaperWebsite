@@ -8,7 +8,8 @@
     "stockOffers": "Stock & Offers",
     "about": "About",
     "contact": "Contact",
-    "getQuote": "Get Quote"
+    "getQuote": "Get Quote",
+    "home": "Home"
   },
   "common": {
     "getQuote": "Request Quote",
@@ -64,11 +65,32 @@
       "documentationDesc": "Logistics & compliance support",
       "fastResponse": "Fast Response",
       "fastResponseDesc": "24-hour quote turnaround"
+    },
+    "productFinder": {
+      "title": "Find Your Perfect Paper",
+      "subtitle": "Use our smart product finder to discover the best grades for your specific application."
+    },
+    "stockOffers": {
+      "title": "Current Stock & Offers",
+      "subtitle": "Limited availability on these grades"
+    },
+    "finalCta": {
+      "title": "Ready to Source Your Next Container?",
+      "subtitle": "Send us your requirements. We'll respond with options, pricing, and lead times within 24 hours."
     }
   },
   "products": {
     "title": "Our Products",
     "subtitle": "Specialized grades for packaging, printing & industrial applications",
+    "categories": {
+      "board": "Board",
+      "containerboard": "Containerboard",
+      "converted": "Converted Paper Products"
+    },
+    "gallery": {
+      "title": "Product Gallery",
+      "subtitle": "Visual references for product forms, finishes, colors and customization options."
+    },
     "duplexBoard": {
       "name": "Duplex Board",
       "short": "Premium grey and white back grades for FMCG, cosmetics, and pharmaceutical packaging",
@@ -132,6 +154,52 @@
         "printing": "Commercial Printing",
         "luxury": "Consumer Goods"
       }
+    },
+    "paperConesTubes": {
+      "name": "Paper Cones & Spool Tubes",
+      "short": "Custom paper cones and winding tubes for textile yarn, paper, foil and technical applications",
+      "description": "Customizable paper cones and spool tubes for textile and industrial winding applications. Available with natural, colored, printed and velvet/flocked finishes, including size-specific production and pattern options.",
+      "apps": {
+        "textileYarn": "Textile Yarn Winding",
+        "paperFoil": "Paper, Film & Foil Winding",
+        "technicalTextiles": "Technical Textile Applications",
+        "brandedCones": "Printed & Branded Cone Programs"
+      },
+      "industries": {
+        "textileMills": "Textile Mills",
+        "yarnProducers": "Yarn Producers",
+        "converters": "Industrial Converters"
+      },
+      "gallery": {
+        "cover": {
+          "alt": "Paper cones and spool tubes product family catalog cover",
+          "caption": "Product family overview with cones, tubes and yarn winding formats"
+        },
+        "flyer": {
+          "alt": "German product flyer for paper cones and spool tubes",
+          "caption": "Product flyer highlighting quality, delivery and customization benefits"
+        },
+        "measurements": {
+          "alt": "Paper cone samples with handwritten measurement labels",
+          "caption": "Sample cones with production measurements and edge marking options"
+        },
+        "measurementsDetail": {
+          "alt": "Close view of labeled paper cones and spool tubes",
+          "caption": "Detailed sample set showing cone dimensions and printed markings"
+        },
+        "colorRings": {
+          "alt": "Paper cone samples with colored rings and tip markings",
+          "caption": "Cone shape and color-ring options for identification"
+        },
+        "flockedColors": {
+          "alt": "Catalog page of flocked paper cone tip colors",
+          "caption": "Velvet/flocked tip color catalog"
+        },
+        "patternCatalog": {
+          "alt": "Catalog page of flocked paper cone pattern designs",
+          "caption": "Pattern catalog for printed and flocked cone customization"
+        }
+      }
     }
   },
   "specs": {
@@ -146,7 +214,12 @@
     "coating": "Coating",
     "brightness": "Brightness",
     "origin": "Origin",
-    "leadTime": "Lead Time"
+    "leadTime": "Lead Time",
+    "productTypes": "Product Types",
+    "dimensions": "Dimensions",
+    "surfaceOptions": "Surface Options",
+    "printOptions": "Print Options",
+    "applications": "Applications"
   },
   "stockOffers": {
     "title": "Stock & Offers",
@@ -194,6 +267,27 @@
       "submitting": "Sending...",
       "success": "Thank you! We'll respond within 24 hours.",
       "error": "Failed to send. Please try again or email us directly."
+    },
+    "info": {
+      "headquarters": {
+        "title": "Headquarters",
+        "address": {
+          "line1": "Paper Market World GmbH",
+          "line2": "Kärntner Ring 5-7",
+          "line3": "1010 Vienna, Austria"
+        }
+      },
+      "regional": {
+        "title": "Regional Office",
+        "address": {
+          "line1": "PMW Turkey",
+          "line2": "Maslak Mah. Büyükdere Cad.",
+          "line3": "34398 Istanbul, Turkey"
+        }
+      },
+      "direct": {
+        "title": "Direct Contact"
+      }
     }
   },
   "footer": {
@@ -319,6 +413,28 @@
       "experience": "Years Experience",
       "partners": "Global Partners",
       "support": "Support"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Common questions about our services and trading process.",
+      "items": {
+        "moq": {
+          "question": "What are your minimum order quantities (MOQ)?",
+          "answer": "Our standard MOQ is one 20ft container (approx. 15-18 tons). However, for new clients, we can discuss trial orders or mixed containers depending on the grade."
+        },
+        "payment": {
+          "question": "Which payment terms do you accept?",
+          "answer": "We typically work with L/C (Letter of Credit) at sight, CAD (Cash Against Documents), or TT (Telegraphic Transfer). Credit terms may be available for long-term partners subject to insurance approval."
+        },
+        "logistics": {
+          "question": "Do you handle logistics and customs clearance?",
+          "answer": "Yes, we provide end-to-end logistics solutions. We handle shipping, insurance, and all export documentation. Import customs clearance is usually the responsibility of the buyer, but we provide all necessary support and paperwork."
+        },
+        "samples": {
+          "question": "Can you provide samples before ordering?",
+          "answer": "Absolutely. We can send A4 samples via courier for quality verification. For larger trial reels, please contact our sales team."
+        }
+      }
     }
   },
   "legal": {
@@ -376,7 +492,32 @@
       "matchFound": "{count} Matches Found",
       "subtitle": "Based on your requirements",
       "reset": "Start Over",
-      "viewDetails": "View Details"
+      "viewDetails": "View Details",
+      "match": "Match"
+    },
+    "options": {
+      "fmcg": "FMCG & Packaging",
+      "pharma": "Pharmaceuticals",
+      "ecommerce": "E-commerce",
+      "industrial": "Industrial"
+    },
+    "grades": {
+      "virgin": "Virgin",
+      "recycled": "Recycled",
+      "mixed": "Mixed",
+      "coated": "Coated",
+      "uncoated": "Uncoated"
+    },
+    "origins": {
+      "turkey": "Turkey",
+      "europe": "Europe",
+      "asia": "Asia",
+      "usa": "USA"
+    },
+    "budgets": {
+      "economy": "Economy",
+      "standard": "Standard",
+      "premium": "Premium"
     }
   },
   "chat": {

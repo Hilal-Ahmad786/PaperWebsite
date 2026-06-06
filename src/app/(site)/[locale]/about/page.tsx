@@ -9,6 +9,7 @@ import { Accordion } from '@/components/ui/Accordion';
 
 export default function AboutPage({ params: { locale } }: { params: { locale: string } }) {
     const t = useTranslations('about');
+    const tNav = useTranslations('nav');
 
     return (
         <>
@@ -17,7 +18,7 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
                     <div className="mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
+                                { label: tNav('home'), href: `/${locale}` },
                                 { label: t('title'), href: `/${locale}/about` },
                             ]}
                         />
@@ -58,7 +59,7 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
 
             <Section variant="darker">
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl font-bold">Why Choose Us?</h2>
+                    <h2 className="text-3xl font-bold">{t('whyChooseUs')}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <Card className="p-6 text-center">
@@ -80,30 +81,30 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
             <Section variant="default">
                 <div className="max-w-3xl mx-auto">
                     <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold mb-4">Frequently Asked Questions</h2>
-                        <p className="text-text-secondary">Common questions about our services and trading process.</p>
+                        <h2 className="text-3xl font-bold mb-4">{t('faq.title')}</h2>
+                        <p className="text-text-secondary">{t('faq.subtitle')}</p>
                     </div>
                     <Accordion
                         items={[
                             {
                                 id: '1',
-                                question: 'What are your minimum order quantities (MOQ)?',
-                                answer: 'Our standard MOQ is one 20ft container (approx. 15-18 tons). However, for new clients, we can discuss trial orders or mixed containers depending on the grade.'
+                                question: t('faq.items.moq.question'),
+                                answer: t('faq.items.moq.answer')
                             },
                             {
                                 id: '2',
-                                question: 'Which payment terms do you accept?',
-                                answer: 'We typically work with L/C (Letter of Credit) at sight, CAD (Cash Against Documents), or TT (Telegraphic Transfer). Credit terms may be available for long-term partners subject to insurance approval.'
+                                question: t('faq.items.payment.question'),
+                                answer: t('faq.items.payment.answer')
                             },
                             {
                                 id: '3',
-                                question: 'Do you handle logistics and customs clearance?',
-                                answer: 'Yes, we provide end-to-end logistics solutions. We handle shipping, insurance, and all export documentation. Import customs clearance is usually the responsibility of the buyer, but we provide all necessary support and paperwork.'
+                                question: t('faq.items.logistics.question'),
+                                answer: t('faq.items.logistics.answer')
                             },
                             {
                                 id: '4',
-                                question: 'Can you provide samples before ordering?',
-                                answer: 'Absolutely. We can send A4 samples via courier for quality verification. For larger trial reels, please contact our sales team.'
+                                question: t('faq.items.samples.question'),
+                                answer: t('faq.items.samples.answer')
                             }
                         ]}
                     />

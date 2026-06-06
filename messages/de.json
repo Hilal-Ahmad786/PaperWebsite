@@ -8,7 +8,8 @@
         "stockOffers": "Lager & Angebote",
         "about": "Über uns",
         "contact": "Kontakt",
-        "getQuote": "Angebot anfordern"
+        "getQuote": "Angebot anfordern",
+        "home": "Startseite"
     },
     "common": {
         "getQuote": "Angebot anfordern",
@@ -64,11 +65,32 @@
             "documentationDesc": "Logistik- & Compliance-Support",
             "fastResponse": "Schnelle Antwort",
             "fastResponseDesc": "Angebot innerhalb von 24 Stunden"
+        },
+        "productFinder": {
+            "title": "Finden Sie Ihr perfektes Papier",
+            "subtitle": "Nutzen Sie unseren intelligenten Produktfinder, um die besten Qualitäten für Ihre spezifische Anwendung zu entdecken."
+        },
+        "stockOffers": {
+            "title": "Aktuelle Lagerbestände & Angebote",
+            "subtitle": "Begrenzte Verfügbarkeit dieser Qualitäten"
+        },
+        "finalCta": {
+            "title": "Bereit für Ihre nächste Container-Bestellung?",
+            "subtitle": "Senden Sie uns Ihre Anforderungen. Wir antworten innerhalb von 24 Stunden mit Optionen, Preisen und Lieferzeiten."
         }
     },
     "products": {
         "title": "Unsere Produkte",
         "subtitle": "Spezialisierte Qualitäten für Verpackungs-, Druck- & Industrieanwendungen",
+        "categories": {
+            "board": "Karton",
+            "containerboard": "Wellpappenrohpapier",
+            "converted": "Verarbeitete Papierprodukte"
+        },
+        "gallery": {
+            "title": "Produktgalerie",
+            "subtitle": "Visuelle Referenzen für Produktformen, Ausführungen, Farben und Anpassungsmöglichkeiten."
+        },
         "duplexBoard": {
             "name": "Duplexkarton",
             "short": "Premium-Qualitäten mit grauer und weißer Rückseite für FMCG, Kosmetik und Pharmaverpackungen",
@@ -132,6 +154,52 @@
                 "printing": "Akzidenzdruck",
                 "luxury": "Konsumgüter"
             }
+        },
+        "paperConesTubes": {
+            "name": "Papierkonen & Spulhülsen",
+            "short": "Maßgefertigte Papierkonen und Wickelhülsen für Textilgarn, Papier, Folie und technische Anwendungen",
+            "description": "Anpassbare Papierkonen und Spulhülsen für Textil- und industrielle Wickelanwendungen. Lieferbar mit natürlicher, farbiger, bedruckter und Velvet-/Flocking-Ausführung, einschließlich maßbezogener Produktion und Musteroptionen.",
+            "apps": {
+                "textileYarn": "Textilgarn-Wicklung",
+                "paperFoil": "Papier-, Film- & Folienwicklung",
+                "technicalTextiles": "Technische Textilanwendungen",
+                "brandedCones": "Bedruckte & gebrandete Konenprogramme"
+            },
+            "industries": {
+                "textileMills": "Textilwerke",
+                "yarnProducers": "Garnhersteller",
+                "converters": "Industrielle Verarbeiter"
+            },
+            "gallery": {
+                "cover": {
+                    "alt": "Katalogcover mit Papierkonen und Spulhülsen",
+                    "caption": "Produktfamilie mit Konen, Hülsen und Garnwickelformaten"
+                },
+                "flyer": {
+                    "alt": "Deutscher Produktflyer für Papierkonen und Spulhülsen",
+                    "caption": "Produktflyer mit Qualitäts-, Liefer- und Anpassungsvorteilen"
+                },
+                "measurements": {
+                    "alt": "Papierkonen-Muster mit handschriftlichen Maßangaben",
+                    "caption": "Musterkonen mit Produktionsmaßen und Kantenmarkierungen"
+                },
+                "measurementsDetail": {
+                    "alt": "Nahaufnahme beschrifteter Papierkonen und Spulhülsen",
+                    "caption": "Mustersatz mit Konenabmessungen und bedruckten Markierungen"
+                },
+                "colorRings": {
+                    "alt": "Papierkonen-Muster mit farbigen Ringen und Spitzenmarkierungen",
+                    "caption": "Konenform und Farbringoptionen zur Identifikation"
+                },
+                "flockedColors": {
+                    "alt": "Katalogseite mit Flocking-Farben für Papierkonenspitzen",
+                    "caption": "Farbkatalog für Velvet-/Flocking-Spitzen"
+                },
+                "patternCatalog": {
+                    "alt": "Katalogseite mit Flocking-Mustern für Papierkonen",
+                    "caption": "Musterkatalog für bedruckte und geflockte Konenanpassungen"
+                }
+            }
         }
     },
     "specs": {
@@ -146,7 +214,12 @@
         "coating": "Beschichtung",
         "brightness": "Weißgrad",
         "origin": "Herkunft",
-        "leadTime": "Lieferzeit"
+        "leadTime": "Lieferzeit",
+        "productTypes": "Produkttypen",
+        "dimensions": "Abmessungen",
+        "surfaceOptions": "Oberflächenoptionen",
+        "printOptions": "Druckoptionen",
+        "applications": "Anwendungen"
     },
     "stockOffers": {
         "title": "Lager & Angebote",
@@ -190,6 +263,27 @@
             "submitting": "Wird gesendet...",
             "success": "Danke! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
             "error": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder senden Sie uns direkt eine E-Mail."
+        },
+        "info": {
+            "headquarters": {
+                "title": "Hauptsitz",
+                "address": {
+                    "line1": "Paper Market World GmbH",
+                    "line2": "Kärntner Ring 5-7",
+                    "line3": "1010 Wien, Österreich"
+                }
+            },
+            "regional": {
+                "title": "Regionalbüro",
+                "address": {
+                    "line1": "PMW Türkei",
+                    "line2": "Maslak Mah. Büyükdere Cad.",
+                    "line3": "34398 Istanbul, Türkei"
+                }
+            },
+            "direct": {
+                "title": "Direkter Kontakt"
+            }
         }
     },
     "footer": {
@@ -310,11 +404,33 @@
             "title": "Unsere Vision",
             "description": "Die weltweit führende digitale Plattform für den Papierhandel zu sein und den Standard für Qualität, Zuverlässigkeit und Innovation in der Branche zu setzen."
         },
-        "whyChooseUs": "Warum uns wählen?",
         "stats": {
             "experience": "Jahre Erfahrung",
             "partners": "Globale Partner",
             "support": "Support"
+        },
+        "whyChooseUs": "Warum uns wählen?",
+        "faq": {
+            "title": "Häufig gestellte Fragen",
+            "subtitle": "Häufige Fragen zu unseren Dienstleistungen und dem Handelsprozess.",
+            "items": {
+                "moq": {
+                    "question": "Was sind Ihre Mindestbestellmengen (MOQ)?",
+                    "answer": "Unsere Standard-MOQ beträgt einen 20-Fuß-Container (ca. 15-18 Tonnen). Für neue Kunden können wir jedoch je nach Qualität Testbestellungen oder gemischte Container besprechen."
+                },
+                "payment": {
+                    "question": "Welche Zahlungsbedingungen akzeptieren Sie?",
+                    "answer": "Wir arbeiten in der Regel mit L/C (Akkreditiv) auf Sicht, CAD (Kasse gegen Dokumente) oder TT (Telegrafische Überweisung). Kreditbedingungen können für langfristige Partner nach Genehmigung durch die Versicherung verfügbar sein."
+                },
+                "logistics": {
+                    "question": "Kümmern Sie sich um Logistik und Zollabfertigung?",
+                    "answer": "Ja, wir bieten End-to-End-Logistiklösungen an. Wir kümmern uns um Versand, Versicherung und alle Exportdokumente. Die Einfuhrverzollung liegt normalerweise in der Verantwortung des Käufers, aber wir stellen alle notwendigen Unterstützung und Papiere bereit."
+                },
+                "samples": {
+                    "question": "Können Sie vor der Bestellung Muster bereitstellen?",
+                    "answer": "Absolut. Wir können A4-Muster per Kurier zur Qualitätsprüfung senden. Für größere Testrollen kontaktieren Sie bitte unser Verkaufsteam."
+                }
+            }
         }
     },
     "legal": {
@@ -372,7 +488,32 @@
             "matchFound": "{count} Treffer gefunden",
             "subtitle": "Basierend auf Ihren Anforderungen",
             "reset": "Neu starten",
-            "viewDetails": "Details anzeigen"
+            "viewDetails": "Details anzeigen",
+            "match": "Treffer"
+        },
+        "options": {
+            "fmcg": "FMCG & Verpackung",
+            "pharma": "Pharmazeutika",
+            "ecommerce": "E-Commerce",
+            "industrial": "Industrie"
+        },
+        "grades": {
+            "virgin": "Frischfaser",
+            "recycled": "Recycelt",
+            "mixed": "Gemischt",
+            "coated": "Beschichtet",
+            "uncoated": "Unbeschichtet"
+        },
+        "origins": {
+            "turkey": "Türkei",
+            "europe": "Europa",
+            "asia": "Asien",
+            "usa": "USA"
+        },
+        "budgets": {
+            "economy": "Economy",
+            "standard": "Standard",
+            "premium": "Premium"
         }
     },
     "chat": {

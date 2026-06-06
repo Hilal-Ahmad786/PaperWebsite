@@ -3,13 +3,20 @@ export type ProductSlug =
   | 'duplex-board'
   | 'testliner-fluting'
   | 'kraftliner-white-top'
-  | 'triplex-board';
+  | 'triplex-board'
+  | 'paper-cones-tubes';
 
-export type ProductCategory = 'board' | 'containerboard';
+export type ProductCategory = 'board' | 'containerboard' | 'converted';
 
 export interface SpecItem {
   labelKey: string;
   value: string;
+}
+
+export interface ProductImage {
+  src: string;
+  altKey: string;
+  captionKey?: string;
 }
 
 export interface Product {
@@ -20,6 +27,8 @@ export interface Product {
   applications: string[]; // translation keys
   origins: string[]; // e.g., ["Turkey", "EU", "India", "China"]
   typicalIndustries: string[]; // translation keys
+  heroImage?: ProductImage;
+  images?: ProductImage[];
 }
 
 // Stock Offer Types

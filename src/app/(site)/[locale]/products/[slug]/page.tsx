@@ -5,6 +5,7 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { ImageGallery } from '@/components/ui/ImageGallery';
 import { getProductBySlug } from '@/content/products';
 
 export default function ProductPage({ params: { locale, slug } }: { params: { locale: string; slug: string } }) {
@@ -15,41 +16,59 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
         notFound();
     }
 
+    const heroImage = product.heroImage;
+    const galleryImages = product.images?.map((image) => ({
+        src: image.src,
+        alt: t(image.altKey),
+        caption: image.captionKey ? t(image.captionKey) : undefined,
+    })) ?? [];
+
     return (
         <>
             {/* Hero Section */}
             <Section variant="dark" className="py-20 lg:py-32">
-                <div className="max-w-4xl">
-                    <div className="mb-8">
-                        <Breadcrumbs
-                            items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: t('products.title'), href: `/${locale}/products` },
-                                { label: t(`${product.i18nKey}.name`), href: `/${locale}/products/${slug}` },
-                            ]}
-                        />
+                <div className={heroImage ? "grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-12 lg:gap-16 items-center" : "max-w-4xl"}>
+                    <div>
+                        <div className="mb-8">
+                            <Breadcrumbs
+                                items={[
+                                    { label: 'Home', href: `/${locale}` },
+                                    { label: t('products.title'), href: `/${locale}/products` },
+                                    { label: t(`${product.i18nKey}.name`), href: `/${locale}/products/${slug}` },
+                                ]}
+                            />
+                        </div>
+                        <div className="text-brand-primary font-mono text-sm uppercase tracking-wider mb-4">
+                            {t(`products.categories.${product.category}`)}
+                        </div>
+                        <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-text-primary">
+                            {t(`${product.i18nKey}.name`)}
+                        </h1>
+                        <p className="text-xl lg:text-2xl text-text-secondary mb-10 leading-relaxed max-w-3xl">
+                            {t(`${product.i18nKey}.description`)}
+                        </p>
+                        <div className="flex flex-wrap gap-4">
+                            <Link href={`/${locale}/contact?product=${product.slug}`}>
+                                <Button variant="primary" size="lg">
+                                    {t('common.getQuote')}
+                                </Button>
+                            </Link>
+                            <Link href="#specs">
+                                <Button variant="secondary" size="lg">
+                                    {t('specs.grades')} ↓
+                                </Button>
+                            </Link>
+                        </div>
                     </div>
-                    <div className="text-brand-primary font-mono text-sm uppercase tracking-wider mb-4">
-                        {product.category}
-                    </div>
-                    <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-text-primary">
-                        {t(`${product.i18nKey}.name`)}
-                    </h1>
-                    <p className="text-xl lg:text-2xl text-text-secondary mb-10 leading-relaxed max-w-3xl">
-                        {t(`${product.i18nKey}.description`)}
-                    </p>
-                    <div className="flex flex-wrap gap-4">
-                        <Link href={`/${locale}/contact?product=${product.slug}`}>
-                            <Button variant="primary" size="lg">
-                                {t('common.getQuote')}
-                            </Button>
-                        </Link>
-                        <Link href="#specs">
-                            <Button variant="secondary" size="lg">
-                                {t('specs.grades')} ↓
-                            </Button>
-                        </Link>
-                    </div>
+                    {heroImage && (
+                        <div className="relative mx-auto w-full max-w-[420px] overflow-hidden border border-border-primary bg-white shadow-2xl">
+                            <img
+                                src={heroImage.src}
+                                alt={t(heroImage.altKey)}
+                                className="aspect-[3/4] h-full w-full object-contain"
+                            />
+                        </div>
+                    )}
                 </div>
             </Section>
 
@@ -110,6 +129,20 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                     </div>
                 </div>
             </Section>
+
+            {galleryImages.length > 0 && (
+                <Section variant="darker">
+                    <div className="text-center mb-12">
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-text-primary">
+                            {t('products.gallery.title')}
+                        </h2>
+                        <p className="text-text-secondary max-w-2xl mx-auto">
+                            {t('products.gallery.subtitle')}
+                        </p>
+                    </div>
+                    <ImageGallery images={galleryImages} columns={3} />
+                </Section>
+            )}
 
             {/* CTA Section */}
             <Section variant="darker" className="text-center">
