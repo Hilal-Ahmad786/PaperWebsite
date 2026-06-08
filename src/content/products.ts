@@ -8,7 +8,7 @@ export const products: Product[] = [
     specTable: [
       { labelKey: 'specs.gsmRange', value: '230–450 gsm' },
       { labelKey: 'specs.grades', value: 'GC1, GC2, GD2' },
-      { labelKey: 'specs.backColor', value: 'Grey / White' },
+      { labelKey: 'specs.backColor', value: 'Grey / White', valueKey: 'specValues.backColor.greyWhite' },
       { labelKey: 'specs.reelWidth', value: '600–2800 mm' },
       { labelKey: 'specs.coreSize', value: '76mm / 100mm' },
     ],
@@ -31,7 +31,7 @@ export const products: Product[] = [
     category: 'containerboard',
     specTable: [
       { labelKey: 'specs.gsmRange', value: '100–200 gsm' },
-      { labelKey: 'specs.grades', value: 'TL1, TL2, TL3, Fluting' },
+      { labelKey: 'specs.grades', value: 'TL1, TL2, TL3, Fluting', valueKey: 'specValues.grades.testlinerFluting' },
       { labelKey: 'specs.recycledContent', value: '60–100%' },
       { labelKey: 'specs.reelWidth', value: '800–2800 mm' },
       { labelKey: 'specs.coreSize', value: '76mm' },
@@ -55,7 +55,7 @@ export const products: Product[] = [
     category: 'containerboard',
     specTable: [
       { labelKey: 'specs.gsmRange', value: '125–300 gsm' },
-      { labelKey: 'specs.type', value: 'Virgin Fiber' },
+      { labelKey: 'specs.type', value: 'Virgin Fiber', valueKey: 'specValues.type.virginFiber' },
       { labelKey: 'specs.burstIndex', value: '3.5–5.5 kPa·m²/g' },
       { labelKey: 'specs.reelWidth', value: '1000–2800 mm' },
       { labelKey: 'specs.coreSize', value: '76mm / 100mm' },
@@ -79,7 +79,7 @@ export const products: Product[] = [
     category: 'board',
     specTable: [
       { labelKey: 'specs.gsmRange', value: '230–450 gsm' },
-      { labelKey: 'specs.coating', value: 'Double Coated' },
+      { labelKey: 'specs.coating', value: 'Double Coated', valueKey: 'specValues.coating.doubleCoated' },
       { labelKey: 'specs.brightness', value: '80–90% ISO' },
       { labelKey: 'specs.reelWidth', value: '600–2400 mm' },
       { labelKey: 'specs.coreSize', value: '76mm / 100mm' },
@@ -102,11 +102,11 @@ export const products: Product[] = [
     i18nKey: 'products.paperConesTubes',
     category: 'converted',
     specTable: [
-      { labelKey: 'specs.productTypes', value: 'Cones, spool tubes, specialty cones' },
-      { labelKey: 'specs.dimensions', value: 'Custom lengths and diameters' },
-      { labelKey: 'specs.surfaceOptions', value: 'Natural, colored, velvet/flocked' },
-      { labelKey: 'specs.printOptions', value: 'Printed patterns, codes, branding' },
-      { labelKey: 'specs.applications', value: 'Textile yarn, paper, foil' },
+      { labelKey: 'specs.productTypes', value: 'Cones, spool tubes, specialty cones', valueKey: 'specValues.productTypes.paperConesTubes' },
+      { labelKey: 'specs.dimensions', value: 'Custom lengths and diameters', valueKey: 'specValues.dimensions.custom' },
+      { labelKey: 'specs.surfaceOptions', value: 'Natural, colored, velvet/flocked', valueKey: 'specValues.surfaceOptions.cones' },
+      { labelKey: 'specs.printOptions', value: 'Printed patterns, codes, branding', valueKey: 'specValues.printOptions.cones' },
+      { labelKey: 'specs.applications', value: 'Textile yarn, paper, foil', valueKey: 'specValues.applications.cones' },
     ],
     applications: [
       'products.paperConesTubes.apps.textileYarn',

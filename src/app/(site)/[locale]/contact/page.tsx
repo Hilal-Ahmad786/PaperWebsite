@@ -3,8 +3,11 @@ import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/ui/ContactForm';
 import { Card } from '@/components/ui/Card';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations('contact');
     const tNav = useTranslations('nav');
 
@@ -15,8 +18,8 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                     <div className="flex justify-center mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: tNav('home'), href: `/${locale}` },
-                                { label: t('title'), href: `/${locale}/contact` },
+                                { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('title'), href: getLocalizedPath(currentLocale, '/contact') },
                             ]}
                         />
                     </div>
@@ -54,9 +57,9 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                         <Card>
                             <h3 className="text-xl font-bold text-text-primary mb-4">{t('info.direct.title')}</h3>
                             <div className="space-y-2 text-text-secondary">
-                                <p>Email: papermarketworld@gmail.com</p>
-                                <p>Phone: +43 660 249 21 86</p>
-                                <p>Phone TR: +90 534 774 97 44</p>
+                                <p>{t('info.direct.email')}: papermarketworld@gmail.com</p>
+                                <p>{t('info.direct.phone')}: +43 660 249 21 86</p>
+                                <p>{t('info.direct.phoneTr')}: +90 534 774 97 44</p>
                                 <p>WhatsApp: +43 660 249 21 86</p>
                             </div>
                         </Card>

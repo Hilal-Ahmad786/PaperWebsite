@@ -9,9 +9,12 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { stockOffers } from '@/content/offers';
 import { products } from '@/content/products';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function StockOffersPage({ params: { locale } }: { params: { locale: string } }) {
-    const t = useTranslations('stockOffers');
+    const currentLocale = locale as Locale;
+    const t = useTranslations();
 
     const [filters, setFilters] = useState({
         product: '',
@@ -31,6 +34,9 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
     });
 
     const clearFilters = () => setFilters({ product: '', origin: '', type: '' });
+    const offerGradeName = (offer: typeof stockOffers[number]) => offer.gradeNameKey ? t(offer.gradeNameKey) : offer.gradeName;
+    const offerOrigin = (offer: typeof stockOffers[number]) => offer.originKey ? t(offer.originKey) : offer.originCountry;
+    const offerAvailability = (offer: typeof stockOffers[number]) => offer.availabilityKey ? t(offer.availabilityKey) : offer.availability;
 
     return (
         <>
@@ -39,16 +45,16 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
                     <div className="flex justify-center mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: t('title'), href: `/${locale}/stock-offers` },
+                                { label: t('nav.home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('stockOffers.title'), href: getLocalizedPath(currentLocale, '/stock-offers') },
                             ]}
                         />
                     </div>
                     <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient">
-                        {t('title')}
+                        {t('stockOffers.title')}
                     </h1>
                     <p className="text-xl text-text-secondary">
-                        {t('subtitle')}
+                        {t('stockOffers.subtitle')}
                     </p>
                 </div>
             </Section>
@@ -59,17 +65,17 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-end">
                         <div>
                             <label className="block text-sm font-medium text-text-secondary mb-2">
-                                {t('filters.byProduct')}
+                                {t('stockOffers.filters.byProduct')}
                             </label>
                             <select
                                 value={filters.product}
                                 onChange={(e) => setFilters({ ...filters, product: e.target.value })}
                                 className="w-full bg-background-primary border border-border-primary text-text-primary px-3 py-2 focus:outline-none focus:border-brand-primary"
                             >
-                                <option value="">{t('filters.all')}</option>
+                                <option value="">{t('stockOffers.filters.all')}</option>
                                 {products.map(p => (
                                     <option key={p.slug} value={p.slug}>
-                                        {p.slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')}
+                                        {t(`${p.i18nKey}.name`)}
                                     </option>
                                 ))}
                             </select>
@@ -77,32 +83,34 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
 
                         <div>
                             <label className="block text-sm font-medium text-text-secondary mb-2">
-                                {t('filters.byOrigin')}
+                                {t('stockOffers.filters.byOrigin')}
                             </label>
                             <select
                                 value={filters.origin}
                                 onChange={(e) => setFilters({ ...filters, origin: e.target.value })}
                                 className="w-full bg-background-primary border border-border-primary text-text-primary px-3 py-2 focus:outline-none focus:border-brand-primary"
                             >
-                                <option value="">{t('filters.allOrigins')}</option>
+                                <option value="">{t('stockOffers.filters.allOrigins')}</option>
                                 {origins.map(origin => (
-                                    <option key={origin} value={origin}>{origin}</option>
+                                    <option key={origin} value={origin}>
+                                        {t(`origins.${origin.toLowerCase().replace(/[^a-z0-9]+/g, '')}`)}
+                                    </option>
                                 ))}
                             </select>
                         </div>
 
                         <div>
                             <label className="block text-sm font-medium text-text-secondary mb-2">
-                                Type
+                                {t('stockOffers.filters.byType')}
                             </label>
                             <select
                                 value={filters.type}
                                 onChange={(e) => setFilters({ ...filters, type: e.target.value })}
                                 className="w-full bg-background-primary border border-border-primary text-text-primary px-3 py-2 focus:outline-none focus:border-brand-primary"
                             >
-                                <option value="">All Types</option>
+                                <option value="">{t('stockOffers.filters.allTypes')}</option>
                                 {types.map(type => (
-                                    <option key={type} value={type}>{type.toUpperCase()}</option>
+                                    <option key={type} value={type}>{t(`stockOffers.filters.${type}`)}</option>
                                 ))}
                             </select>
                         </div>
@@ -113,7 +121,7 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
                                 className="w-full"
                                 onClick={clearFilters}
                             >
-                                Clear Filters
+                                {t('stockOffers.filters.clear')}
                             </Button>
                         </div>
                     </div>
@@ -127,10 +135,10 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
                                 <div className="flex items-start justify-between mb-4">
                                     <div>
                                         <div className="text-xs uppercase tracking-wider text-text-tertiary mb-1">
-                                            {offer.type}
+                                            {t(`stockOffers.filters.${offer.type}`)}
                                         </div>
                                         <h3 className="text-xl font-bold text-text-primary">
-                                            {offer.gradeName}
+                                            {offerGradeName(offer)}
                                         </h3>
                                     </div>
                                     <div className="px-3 py-1 bg-brand-primary/10 border border-brand-primary/30 text-brand-primary text-xs font-bold">
@@ -140,26 +148,26 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
 
                                 <div className="space-y-3 text-sm mb-6">
                                     <div className="flex justify-between border-b border-border-secondary pb-2">
-                                        <span className="text-text-tertiary">{t('table.gsm')}</span>
+                                        <span className="text-text-tertiary">{t('stockOffers.table.gsm')}</span>
                                         <span className="text-text-primary font-mono">{offer.gsmRange}</span>
                                     </div>
                                     <div className="flex justify-between border-b border-border-secondary pb-2">
-                                        <span className="text-text-tertiary">{t('table.origin')}</span>
-                                        <span className="text-text-primary">{offer.originCountry}</span>
+                                        <span className="text-text-tertiary">{t('stockOffers.table.origin')}</span>
+                                        <span className="text-text-primary">{offerOrigin(offer)}</span>
                                     </div>
                                     <div className="flex justify-between border-b border-border-secondary pb-2">
-                                        <span className="text-text-tertiary">{t('table.port')}</span>
+                                        <span className="text-text-tertiary">{t('stockOffers.table.port')}</span>
                                         <span className="text-text-primary">{offer.port}</span>
                                     </div>
                                     <div className="flex justify-between pb-2">
-                                        <span className="text-text-tertiary">{t('table.availability')}</span>
-                                        <span className="text-brand-primary font-semibold">{offer.availability}</span>
+                                        <span className="text-text-tertiary">{t('stockOffers.table.availability')}</span>
+                                        <span className="text-brand-primary font-semibold">{offerAvailability(offer)}</span>
                                     </div>
                                 </div>
 
-                                <Link href={`/${locale}/contact?offer=${offer.id}`}>
+                                <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { offer: offer.id })}>
                                     <Button variant="primary" className="w-full">
-                                        {t('requestOffer')}
+                                        {t('stockOffers.requestOffer')}
                                     </Button>
                                 </Link>
                             </Card>
@@ -167,13 +175,13 @@ export default function StockOffersPage({ params: { locale } }: { params: { loca
                     </div>
                 ) : (
                     <div className="text-center py-20 text-text-secondary">
-                        No offers found matching your filters.
+                        {t('stockOffers.empty')}
                         <br />
                         <button
                             onClick={clearFilters}
                             className="text-brand-primary underline mt-2 hover:text-brand-secondary"
                         >
-                            Clear filters
+                            {t('stockOffers.filters.clear')}
                         </button>
                     </div>
                 )}

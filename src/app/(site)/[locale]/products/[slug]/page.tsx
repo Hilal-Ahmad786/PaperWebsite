@@ -1,15 +1,20 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import { ArrowDown, Check, Factory } from 'lucide-react';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { ImageGallery } from '@/components/ui/ImageGallery';
 import { getProductBySlug } from '@/content/products';
+import { type Locale } from '@/i18n';
+import { getCanonicalProductSlug, getLocalizedPath, getLocalizedProductPath } from '@/routing';
 
 export default function ProductPage({ params: { locale, slug } }: { params: { locale: string; slug: string } }) {
-    const product = getProductBySlug(slug);
+    const currentLocale = locale as Locale;
+    const canonicalSlug = getCanonicalProductSlug(currentLocale, slug);
+    const product = getProductBySlug(canonicalSlug);
     const t = useTranslations();
 
     if (!product) {
@@ -22,6 +27,7 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
         alt: t(image.altKey),
         caption: image.captionKey ? t(image.captionKey) : undefined,
     })) ?? [];
+    const originKey = (origin: string) => origin.toLowerCase().replace(/[^a-z0-9]+/g, '');
 
     return (
         <>
@@ -32,9 +38,9 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                         <div className="mb-8">
                             <Breadcrumbs
                                 items={[
-                                    { label: 'Home', href: `/${locale}` },
-                                    { label: t('products.title'), href: `/${locale}/products` },
-                                    { label: t(`${product.i18nKey}.name`), href: `/${locale}/products/${slug}` },
+                                    { label: t('nav.home'), href: getLocalizedPath(currentLocale, '/') },
+                                    { label: t('products.title'), href: getLocalizedPath(currentLocale, '/products') },
+                                    { label: t(`${product.i18nKey}.name`), href: getLocalizedProductPath(currentLocale, product.slug) },
                                 ]}
                             />
                         </div>
@@ -48,14 +54,15 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                             {t(`${product.i18nKey}.description`)}
                         </p>
                         <div className="flex flex-wrap gap-4">
-                            <Link href={`/${locale}/contact?product=${product.slug}`}>
+                            <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}>
                                 <Button variant="primary" size="lg">
                                     {t('common.getQuote')}
                                 </Button>
                             </Link>
                             <Link href="#specs">
                                 <Button variant="secondary" size="lg">
-                                    {t('specs.grades')} ↓
+                                    {t('products.detail.specsAnchor')}
+                                    <ArrowDown className="ml-2 h-5 w-5" aria-hidden="true" />
                                 </Button>
                             </Link>
                         </div>
@@ -76,24 +83,26 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
             <Section variant="default" id="specs">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                     <div>
-                        <h2 className="text-3xl font-bold mb-8 text-text-primary">Technical Specifications</h2>
+                        <h2 className="text-3xl font-bold mb-8 text-text-primary">{t('products.detail.technicalSpecs')}</h2>
                         <Card className="p-0 overflow-hidden">
                             <div className="divide-y divide-border-secondary">
                                 {product.specTable.map((spec, index) => (
                                     <div key={index} className="flex justify-between p-4 hover:bg-background-tertiary transition-colors">
                                         <span className="text-text-secondary">{t(spec.labelKey)}</span>
-                                        <span className="font-mono text-text-primary font-semibold text-right">{spec.value}</span>
+                                        <span className="font-mono text-text-primary font-semibold text-right">
+                                            {spec.valueKey ? t(spec.valueKey) : spec.value}
+                                        </span>
                                     </div>
                                 ))}
                             </div>
                         </Card>
 
                         <div className="mt-8">
-                            <h3 className="text-xl font-bold mb-4 text-text-primary">Origins</h3>
+                            <h3 className="text-xl font-bold mb-4 text-text-primary">{t('products.detail.origins')}</h3>
                             <div className="flex flex-wrap gap-2">
                                 {product.origins.map((origin) => (
                                     <span key={origin} className="px-3 py-1 bg-background-secondary border border-border-primary rounded-full text-sm text-text-secondary">
-                                        {origin}
+                                        {t(`origins.${originKey(origin)}`)}
                                     </span>
                                 ))}
                             </div>
@@ -103,11 +112,11 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                     <div className="space-y-12">
                         {/* Applications */}
                         <div>
-                            <h2 className="text-3xl font-bold mb-8 text-text-primary">Applications</h2>
+                            <h2 className="text-3xl font-bold mb-8 text-text-primary">{t('products.detail.applications')}</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {product.applications.map((app) => (
                                     <div key={app} className="flex items-center gap-3 p-4 bg-background-secondary border border-border-secondary rounded-sm">
-                                        <span className="text-brand-primary">✓</span>
+                                        <Check className="h-4 w-4 shrink-0 text-brand-primary" aria-hidden="true" />
                                         <span className="text-text-primary">{t(app)}</span>
                                     </div>
                                 ))}
@@ -116,11 +125,11 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
 
                         {/* Industries */}
                         <div>
-                            <h2 className="text-3xl font-bold mb-8 text-text-primary">Typical Industries</h2>
+                            <h2 className="text-3xl font-bold mb-8 text-text-primary">{t('products.detail.typicalIndustries')}</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {product.typicalIndustries.map((ind) => (
                                     <div key={ind} className="flex items-center gap-3 p-4 bg-background-secondary border border-border-secondary rounded-sm">
-                                        <span className="text-brand-primary">🏭</span>
+                                        <Factory className="h-4 w-4 shrink-0 text-brand-primary" aria-hidden="true" />
                                         <span className="text-text-primary">{t(ind)}</span>
                                     </div>
                                 ))}
@@ -147,14 +156,14 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
             {/* CTA Section */}
             <Section variant="darker" className="text-center">
                 <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-text-primary">
-                    Need {t(`${product.i18nKey}.name`)}?
+                    {t('products.detail.ctaTitle', { product: t(`${product.i18nKey}.name`) })}
                 </h2>
                 <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
-                    We can source this grade from multiple origins to match your specific requirements and budget.
+                    {t('products.detail.ctaSubtitle')}
                 </p>
-                <Link href={`/${locale}/contact?product=${product.slug}`}>
+                <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}>
                     <Button variant="primary" size="lg">
-                        Request a Quote for {t(`${product.i18nKey}.name`)}
+                        {t('products.detail.ctaButton', { product: t(`${product.i18nKey}.name`) })}
                     </Button>
                 </Link>
             </Section>

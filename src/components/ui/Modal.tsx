@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useTranslations } from 'next-intl';
 import { X } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
@@ -28,10 +29,11 @@ export function Modal({
     footer,
     variant = 'custom',
     onConfirm,
-    confirmText = 'Confirm',
-    cancelText = 'Cancel',
+    confirmText,
+    cancelText,
     description
 }: ModalProps) {
+    const t = useTranslations('modal');
     const modalRef = useRef<HTMLDivElement>(null);
 
     // Close on ESC
@@ -102,7 +104,7 @@ export function Modal({
                         className="text-text-tertiary hover:text-text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-full p-1"
                     >
                         <X className="w-5 h-5" />
-                        <span className="sr-only">Close</span>
+                        <span className="sr-only">{t('close')}</span>
                     </button>
                 </div>
 
@@ -123,11 +125,11 @@ export function Modal({
                             <>
                                 {variant === 'confirm' && (
                                     <Button variant="secondary" onClick={onClose}>
-                                        {cancelText}
+                                        {cancelText ?? t('cancel')}
                                     </Button>
                                 )}
                                 <Button onClick={onConfirm || onClose}>
-                                    {confirmText}
+                                    {confirmText ?? t('confirm')}
                                 </Button>
                             </>
                         )}

@@ -1,30 +1,47 @@
 import { useTranslations } from 'next-intl';
-import { FluentEmoji } from '@lobehub/fluent-emoji';
+import { ChartNoAxesCombined, Leaf, Newspaper, Truck, type LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { HeroIconFrame, IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function InsightsPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations('insights');
+    const tNav = useTranslations('nav');
+    const formatDate = (date: string) => new Intl.DateTimeFormat(locale, { dateStyle: 'medium' }).format(new Date(date));
 
-    const insights = [
+    const insights: Array<{
+        icon: LucideIcon;
+        tone: IconTone;
+        title: string;
+        date: string;
+        summary: string;
+        category: string;
+    }> = [
         {
+            icon: ChartNoAxesCombined,
+            tone: 'sky',
             title: t('items.trends.title'),
-            date: 'Dec 1, 2024',
+            date: formatDate('2024-12-01'),
             summary: t('items.trends.summary'),
             category: t('items.trends.category')
         },
         {
+            icon: Leaf,
+            tone: 'lime',
             title: t('items.packaging.title'),
-            date: 'Nov 28, 2024',
+            date: formatDate('2024-11-28'),
             summary: t('items.packaging.summary'),
             category: t('items.packaging.category')
         },
         {
+            icon: Truck,
+            tone: 'amber',
             title: t('items.logistics.title'),
-            date: 'Nov 15, 2024',
+            date: formatDate('2024-11-15'),
             summary: t('items.logistics.summary'),
             category: t('items.logistics.category')
         }
@@ -37,8 +54,8 @@ export default function InsightsPage({ params: { locale } }: { params: { locale:
                     <div className="mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: t('title'), href: `/${locale}/insights` },
+                                { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('title'), href: getLocalizedPath(currentLocale, '/insights') },
                             ]}
                         />
                     </div>
@@ -49,18 +66,19 @@ export default function InsightsPage({ params: { locale } }: { params: { locale:
                         {t('subtitle')}
                     </p>
                 </div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-                    {/* Using lightning as fallback for lightbulb/trends */}
-                    <FluentEmoji emoji="⚡" type="3d" size={400} />
-                </div>
+                <HeroIconFrame icon={Newspaper} tone="sky" />
             </Section>
 
             <Section variant="default">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {insights.map((item, index) => (
-                        <Card key={index} hover className="flex flex-col h-full">
-                            <div className="mb-4 text-xs font-bold text-brand-primary uppercase tracking-wider">
-                                {item.category}
+                        <Card key={index} hover className="group relative flex h-full flex-col overflow-hidden">
+                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                            <div className="mb-6 flex items-center gap-4">
+                                <IconFrame icon={item.icon} tone={item.tone} size="md" />
+                                <div className="text-xs font-bold text-brand-primary uppercase tracking-wider">
+                                    {item.category}
+                                </div>
                             </div>
                             <h3 className="text-xl font-bold text-text-primary mb-3">
                                 {item.title}

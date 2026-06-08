@@ -91,6 +91,16 @@
             "title": "Ürün Galerisi",
             "subtitle": "Ürün formları, yüzeyler, renkler ve özelleştirme seçenekleri için görsel referanslar."
         },
+        "detail": {
+            "technicalSpecs": "Teknik Özellikler",
+            "origins": "Menşeler",
+            "applications": "Uygulamalar",
+            "typicalIndustries": "Tipik Sektörler",
+            "specsAnchor": "Özellikler",
+            "ctaTitle": "{product} mi arıyorsunuz?",
+            "ctaSubtitle": "Bu kaliteyi özel gereksinimlerinize ve bütçenize uygun şekilde farklı menşelerden tedarik edebiliriz.",
+            "ctaButton": "{product} için Teklif İste"
+        },
         "duplexBoard": {
             "name": "Duplex Board",
             "short": "FMCG, kozmetik ve ilaç ambalajları için premium gri ve beyaz arka yüzeyli kaliteler",
@@ -221,15 +231,61 @@
         "printOptions": "Baskı Seçenekleri",
         "applications": "Uygulamalar"
     },
+    "specValues": {
+        "backColor": {
+            "greyWhite": "Gri / Beyaz"
+        },
+        "grades": {
+            "testlinerFluting": "TL1, TL2, TL3, Fluting"
+        },
+        "type": {
+            "virginFiber": "Bakir Elyaf"
+        },
+        "coating": {
+            "doubleCoated": "Çift Kaplamalı"
+        },
+        "productTypes": {
+            "paperConesTubes": "Koniler, masura hülseleri, özel koniler"
+        },
+        "dimensions": {
+            "custom": "Özel uzunluk ve çaplar"
+        },
+        "surfaceOptions": {
+            "cones": "Doğal, renkli, velvet/flok"
+        },
+        "printOptions": {
+            "cones": "Baskılı desenler, kodlar, markalama"
+        },
+        "applications": {
+            "cones": "Tekstil ipliği, kağıt, folyo"
+        }
+    },
+    "origins": {
+        "turkey": "Türkiye",
+        "india": "Hindistan",
+        "china": "Çin",
+        "eu": "AB",
+        "egypt": "Mısır",
+        "russia": "Rusya",
+        "brazil": "Brezilya",
+        "nordic": "Nordik ülkeler",
+        "europe": "Avrupa",
+        "asia": "Asya",
+        "usa": "ABD"
+    },
     "stockOffers": {
         "title": "Stok & Teklifler",
         "subtitle": "Güncel stok durumu ve özel teklifler",
         "filters": {
+            "allOrigins": "Tüm Menşeler",
+            "allTypes": "Tüm Tipler",
             "all": "Tüm Ürünler",
             "prime": "Birinci Kalite",
             "stocklot": "Stok Fazlası",
             "byProduct": "Ürüne Göre Filtrele",
-            "byOrigin": "Menşeiye Göre Filtrele"
+            "byOrigin": "Menşeiye Göre Filtrele",
+            "byType": "Tipe Göre Filtrele",
+            "clear": "Filtreleri Temizle"
         },
         "table": {
             "grade": "Kalite",
@@ -242,7 +298,34 @@
             "action": "İşlem"
         },
         "requestOffer": "Teklif İste",
-        "tons": "ton"
+        "viewAll": "Tüm Teklifleri Gör",
+        "empty": "Filtrelerinize uygun teklif bulunamadı.",
+        "tons": "ton",
+        "availability": {
+            "readyToShip": "Sevkiyata Hazır",
+            "inProduction14Days": "Üretimde - 14 gün",
+            "in2Weeks": "2 hafta içinde"
+        },
+        "items": {
+            "so2024001": {
+                "gradeName": "GC1 Duplex Board"
+            },
+            "so2024002": {
+                "gradeName": "TL3 Testliner"
+            },
+            "so2024003": {
+                "gradeName": "GD2 Gri Arka"
+            },
+            "so2024004": {
+                "gradeName": "White Top Kraftliner"
+            },
+            "so2024005": {
+                "gradeName": "Fluting Medium"
+            },
+            "so2024006": {
+                "gradeName": "Kaplamalı Triplex Board"
+            }
+        }
     },
     "contact": {
         "title": "İletişime Geçin",
@@ -262,7 +345,10 @@
             "submit": "Gönder",
             "submitting": "Gönderiliyor...",
             "success": "Teşekkürler! 24 saat içinde size dönüş yapacağız.",
-            "error": "Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin."
+            "error": "Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.",
+            "sendAnother": "Başka Mesaj Gönder",
+            "other": "Diğer",
+            "quantityPlaceholder": "örn. 100"
         },
         "info": {
             "headquarters": {
@@ -282,7 +368,10 @@
                 }
             },
             "direct": {
-                "title": "Doğrudan İletişim"
+                "title": "Doğrudan İletişim",
+                "email": "E-posta",
+                "phone": "Telefon",
+                "phoneTr": "Telefon TR"
             }
         }
     },
@@ -435,7 +524,34 @@
     },
     "legal": {
         "privacy": {
-            "title": "Gizlilik Politikası"
+            "title": "Gizlilik Politikası",
+            "lastUpdated": "Son güncelleme: Aralık 2024",
+            "sections": {
+                "data": {
+                    "title": "Topladığımız Veriler",
+                    "body": "Bize doğrudan sağladığınız ad, e-posta, şirket bilgileri ve bizimle iletişime geçtiğinizde paylaştığınız talep bilgilerini toplarız."
+                },
+                "use": {
+                    "title": "Verileri Nasıl Kullanırız",
+                    "body": "Verileriniz yalnızca taleplerinize yanıt vermek ve teklif sunmak için kullanılır. Bilgilerinizi üçüncü taraflarla satmayız veya paylaşmayız."
+                },
+                "protection": {
+                    "title": "Veri Koruma",
+                    "body": "Verilerinizi korumak için sektör standardı güvenlik önlemleri uygularız."
+                },
+                "rights": {
+                    "title": "Haklarınız",
+                    "body": "Kişisel verilerinize erişme, düzeltme veya silme hakkına sahipsiniz. Bize privacy@papermarketworld.com adresinden ulaşabilirsiniz."
+                },
+                "cookies": {
+                    "title": "Çerezler",
+                    "body": "Site işlevselliği için zorunlu çerezleri kullanırız. Takip çerezleri kullanılmaz."
+                },
+                "contact": {
+                    "title": "İletişim",
+                    "body": "Gizlilik soruları için: privacy@papermarketworld.com"
+                }
+            }
         }
     },
     "comparison": {
@@ -460,7 +576,10 @@
         "port": "Teslimat Limanı",
         "estimatedTotal": "Tahmini Toplam",
         "basePrice": "Baz Fiyat + Lojistik",
-        "submit": "Resmi Teklif İste"
+        "submit": "Resmi Teklif İste",
+        "standardRange": "Standart Aralık",
+        "portPlaceholder": "örn. İstanbul, Hamburg",
+        "included": "Dahil"
     },
     "datatable": {
         "search": "Ara...",
@@ -517,6 +636,7 @@
         }
     },
     "chat": {
+        "agentName": "Destek Temsilcisi",
         "online": "Çevrimiçi",
         "offline": "Çevrimdışı",
         "welcomeTitle": "Nasıl yardımcı olabiliriz?",
@@ -527,6 +647,19 @@
         "callUs": "Bizi Arayın",
         "emailUs": "E-posta",
         "liveChat": "Canlı Sohbet",
+        "close": "Kapat",
+        "namePlaceholder": "Ad Soyad",
+        "emailPlaceholder": "ad@example.com",
+        "messagePlaceholder": "Size nasıl yardımcı olabiliriz?",
+        "poweredBy": "Altyapı"
+    },
+    "accordion": {
+        "searchPlaceholder": "SSS içinde ara...",
+        "noResults": "“{query}” için sonuç bulunamadı"
+    },
+    "modal": {
+        "confirm": "Onayla",
+        "cancel": "İptal",
         "close": "Kapat"
     },
     "upload": {
@@ -544,6 +677,8 @@
         }
     },
     "tracker": {
+        "title": "Siparişinizi Takip Edin",
+        "subtitle": "Sevkiyat durumunuzla ilgili gerçek zamanlı güncellemeler",
         "estimatedDelivery": "Tahmini Teslimat",
         "stages": {
             "placed": "Sipariş Alındı",
@@ -551,6 +686,9 @@
             "quality": "Kalite Kontrol",
             "shipped": "Kargolandı",
             "delivered": "Teslim Edildi"
+        },
+        "descriptions": {
+            "production": "Fabrikada üretim devam ediyor"
         },
         "documents": {
             "invoice": "Fatura",

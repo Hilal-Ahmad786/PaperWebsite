@@ -1,13 +1,41 @@
 import { useTranslations } from 'next-intl';
-import { FluentEmoji } from '@lobehub/fluent-emoji';
+import { Earth, Leaf, Recycle, ShieldCheck, type LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { HeroIconFrame, IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function SustainabilityPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations('sustainability');
+    const tNav = useTranslations('nav');
+    const items: Array<{
+        icon: LucideIcon;
+        tone: IconTone;
+        title: string;
+        description: string;
+    }> = [
+        {
+            icon: Recycle,
+            tone: 'emerald',
+            title: t('items.recycled.title'),
+            description: t('items.recycled.description'),
+        },
+        {
+            icon: Earth,
+            tone: 'sky',
+            title: t('items.impact.title'),
+            description: t('items.impact.description'),
+        },
+        {
+            icon: ShieldCheck,
+            tone: 'lime',
+            title: t('items.partnerships.title'),
+            description: t('items.partnerships.description'),
+        },
+    ];
 
     return (
         <>
@@ -16,8 +44,8 @@ export default function SustainabilityPage({ params: { locale } }: { params: { l
                     <div className="mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: t('title'), href: `/${locale}/sustainability` },
+                                { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('title'), href: getLocalizedPath(currentLocale, '/sustainability') },
                             ]}
                         />
                     </div>
@@ -28,35 +56,22 @@ export default function SustainabilityPage({ params: { locale } }: { params: { l
                         {t('subtitle')}
                     </p>
                 </div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-                    {/* Using globe as fallback for leaf */}
-                    <FluentEmoji emoji="🌍" type="3d" size={400} />
-                </div>
+                <HeroIconFrame icon={Leaf} tone="lime" />
             </Section>
 
             <Section variant="default">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <Card hover className="p-8 text-center flex flex-col items-center">
-                        <div className="mb-6 relative w-20 h-20 flex items-center justify-center">
-                            <FluentEmoji emoji="🏭" type="3d" size={80} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-4">{t('items.recycled.title')}</h3>
-                        <p className="text-text-secondary">{t('items.recycled.description')}</p>
-                    </Card>
-                    <Card hover className="p-8 text-center flex flex-col items-center">
-                        <div className="mb-6 relative w-20 h-20 flex items-center justify-center">
-                            <FluentEmoji emoji="🌍" type="3d" size={80} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-4">{t('items.impact.title')}</h3>
-                        <p className="text-text-secondary">{t('items.impact.description')}</p>
-                    </Card>
-                    <Card hover className="p-8 text-center flex flex-col items-center">
-                        <div className="mb-6 relative w-20 h-20 flex items-center justify-center">
-                            <FluentEmoji emoji="🤝" type="3d" size={80} />
-                        </div>
-                        <h3 className="text-xl font-bold mb-4">{t('items.partnerships.title')}</h3>
-                        <p className="text-text-secondary">{t('items.partnerships.description')}</p>
-                    </Card>
+                    {items.map((item) => (
+                        <Card key={item.title} hover className="group relative overflow-hidden p-8 text-left">
+                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                            <div className="mb-6 flex items-center gap-4">
+                                <IconFrame icon={item.icon} tone={item.tone} size="lg" />
+                                <div className="h-px flex-1 bg-gradient-to-r from-brand-primary/45 to-transparent" />
+                            </div>
+                            <h3 className="text-xl font-bold mb-4">{item.title}</h3>
+                            <p className="text-text-secondary leading-relaxed">{item.description}</p>
+                        </Card>
+                    ))}
                 </div>
             </Section>
         </>

@@ -11,6 +11,7 @@ export type ProductCategory = 'board' | 'containerboard' | 'converted';
 export interface SpecItem {
   labelKey: string;
   value: string;
+  valueKey?: string;
 }
 
 export interface ProductImage {
@@ -38,11 +39,14 @@ export interface StockOffer {
   id: string;
   productSlug: ProductSlug;
   gradeName: string;
+  gradeNameKey?: string;
   gsmRange: string;
   originCountry: string;
+  originKey?: string;
   quantityTons: number;
   port: string;
   availability: string;
+  availabilityKey?: string;
   type: OfferType;
   updatedAt: string; // ISO date string
 }

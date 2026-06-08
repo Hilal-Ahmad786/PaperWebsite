@@ -8,6 +8,7 @@ import { products } from '@/content/products';
 
 export function ContactForm() {
     const t = useTranslations('contact.form');
+    const tAll = useTranslations();
     const searchParams = useSearchParams();
     const initialProduct = searchParams.get('product') || '';
     const initialOffer = searchParams.get('offer') || '';
@@ -43,7 +44,7 @@ export function ContactForm() {
                 <div className="text-4xl mb-4">✅</div>
                 <h3 className="text-xl font-bold text-text-primary mb-2">{t('success')}</h3>
                 <Button variant="secondary" onClick={() => setStatus('idle')} className="mt-4">
-                    Send Another Message
+                    {t('sendAnother')}
                 </Button>
             </div>
         );
@@ -118,10 +119,10 @@ export function ContactForm() {
                         <option value="">{t('productPlaceholder')}</option>
                         {products.map((p) => (
                             <option key={p.slug} value={p.slug}>
-                                {p.slug.split('-').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ')}
+                                {tAll(`${p.i18nKey}.name`)}
                             </option>
                         ))}
-                        <option value="other">Other</option>
+                        <option value="other">{t('other')}</option>
                     </select>
                 </div>
                 <div>
@@ -132,7 +133,7 @@ export function ContactForm() {
                         type="text"
                         id="quantity"
                         name="quantity"
-                        placeholder="e.g. 100"
+                        placeholder={t('quantityPlaceholder')}
                         className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
                     />
                 </div>

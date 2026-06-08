@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import { useTranslations } from 'next-intl';
 import { ChevronDown, Search } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -25,8 +26,9 @@ export function Accordion({
     defaultOpen = [],
     className,
     showSearch = false,
-    searchPlaceholder = "Search FAQs..."
+    searchPlaceholder
 }: AccordionProps) {
+    const t = useTranslations('accordion');
     const [openItems, setOpenItems] = useState<string[]>(defaultOpen);
     const [searchQuery, setSearchQuery] = useState('');
 
@@ -69,7 +71,7 @@ export function Accordion({
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-text-tertiary" />
                     <input
                         type="text"
-                        placeholder={searchPlaceholder}
+                        placeholder={searchPlaceholder ?? t('searchPlaceholder')}
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full pl-10 pr-4 py-3 bg-background-tertiary border border-border-primary rounded-lg text-text-primary placeholder:text-text-tertiary focus:outline-none focus:border-brand-primary transition-colors"
@@ -91,7 +93,7 @@ export function Accordion({
 
                 {filteredItems.length === 0 && searchQuery && (
                     <div className="text-center py-8 text-text-secondary">
-                        No results found for "{searchQuery}"
+                        {t('noResults', { query: searchQuery })}
                     </div>
                 )}
             </div>

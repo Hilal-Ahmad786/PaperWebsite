@@ -9,13 +9,21 @@ import {
     ChevronRight,
     ChevronLeft,
     Check,
+    Boxes,
+    Container,
+    Cylinder,
     Package,
+    PackageCheck,
+    PanelsTopLeft,
     Factory,
     Globe,
+    PillBottle,
     ShoppingCart,
-    RotateCcw
+    RotateCcw,
+    type LucideIcon
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
+import { IconFrame, type IconTone } from '@/components/ui/IconFrame';
 
 interface ProductFinderProps {
     products: Product[];
@@ -38,6 +46,14 @@ const INITIAL_STATE: FinderState = {
     grades: [],
     origins: [],
     budget: 'standard'
+};
+
+const productIconMap: Record<string, { icon: LucideIcon; tone: IconTone }> = {
+    'duplex-board': { icon: PanelsTopLeft, tone: 'sky' },
+    'testliner-fluting': { icon: Container, tone: 'emerald' },
+    'kraftliner-white-top': { icon: Factory, tone: 'amber' },
+    'triplex-board': { icon: Boxes, tone: 'teal' },
+    'paper-cones-tubes': { icon: Cylinder, tone: 'rose' },
 };
 
 export function ProductFinder({ products, onComplete }: ProductFinderProps) {
@@ -118,8 +134,8 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                         </h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {[
-                                { id: 'fmcg', icon: Package, label: t('finder.options.fmcg') },
-                                { id: 'pharma', icon: Factory, label: t('finder.options.pharma') },
+                                { id: 'fmcg', icon: PackageCheck, label: t('finder.options.fmcg') },
+                                { id: 'pharma', icon: PillBottle, label: t('finder.options.pharma') },
                                 { id: 'ecommerce', icon: ShoppingCart, label: t('finder.options.ecommerce') },
                                 { id: 'industrial', icon: Factory, label: t('finder.options.industrial') },
                             ].map((app) => (
@@ -279,25 +295,27 @@ export function ProductFinder({ products, onComplete }: ProductFinderProps) {
                         </div>
 
                         <div className="grid gap-4">
-                            {matches.map((product) => (
-                                <div
-                                    key={product.slug}
-                                    className="bg-background-tertiary border border-border-primary rounded-lg p-4 flex items-center justify-between group hover:border-brand-primary transition-colors"
-                                >
-                                    <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-background-secondary rounded flex items-center justify-center text-2xl">
-                                            📦
+                            {matches.map((product) => {
+                                const productIcon = productIconMap[product.slug] ?? { icon: Package, tone: 'emerald' as IconTone };
+
+                                return (
+                                    <div
+                                        key={product.slug}
+                                        className="bg-background-tertiary border border-border-primary rounded-lg p-4 flex items-center justify-between group hover:border-brand-primary transition-colors"
+                                    >
+                                        <div className="flex items-center gap-4">
+                                            <IconFrame icon={productIcon.icon} tone={productIcon.tone} size="sm" />
+                                            <div>
+                                                <h4 className="font-bold text-text-primary">{t(product.i18nKey + '.name')}</h4>
+                                                <p className="text-xs text-text-tertiary">{t(`products.categories.${product.category}`)}</p>
+                                            </div>
                                         </div>
-                                        <div>
-                                            <h4 className="font-bold text-text-primary">{t(product.i18nKey + '.name')}</h4>
-                                            <p className="text-xs text-text-tertiary">{product.category}</p>
+                                        <div className="text-brand-primary font-bold text-sm">
+                                            98% {t('finder.results.match' as any)}
                                         </div>
                                     </div>
-                                    <div className="text-brand-primary font-bold text-sm">
-                                        98% {t('finder.results.match' as any)}
-                                    </div>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
 
                         <div className="flex gap-4 pt-4">

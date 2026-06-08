@@ -2,9 +2,13 @@
 
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import NextLink from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useTranslations } from 'next-intl';
-import { Link, usePathname } from '@/navigation';
+import { Link } from '@/navigation';
 import { locales } from '@/i18n';
+import { type AppPathname } from '@/routing';
+import { getLocalizedAlternatePath } from '@/routing';
 import { Menu, X, ChevronDown, Check } from 'lucide-react';
 
 interface HeaderProps {
@@ -15,7 +19,9 @@ export function Header({ locale }: HeaderProps) {
   const t = useTranslations();
   const pathname = usePathname();
 
-  const navigation = [
+  type NavigationPathname = Exclude<AppPathname, '/' | '/products/[slug]' | '/legal/privacy'>;
+
+  const navigation: Array<{ key: string; href: NavigationPathname }> = [
     { key: 'products', href: '/products' },
     { key: 'services', href: '/services' },
     { key: 'regions', href: '/regions' },
@@ -76,10 +82,10 @@ export function Header({ locale }: HeaderProps) {
               <div className="absolute right-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 min-w-[120px]">
                 <div className="bg-background-secondary border border-border-primary rounded-lg shadow-xl overflow-hidden py-1">
                   {locales.map((loc) => (
-                    <Link
+                    <NextLink
                       key={loc}
-                      href={pathname}
-                      locale={loc}
+                      href={getLocalizedAlternatePath(pathname, loc)}
+                      hrefLang={loc}
                       className={`block px-4 py-2 text-sm font-medium transition-colors ${locale === loc
                         ? 'bg-brand-primary/10 text-brand-primary'
                         : 'text-text-secondary hover:bg-background-tertiary hover:text-brand-primary'
@@ -91,7 +97,7 @@ export function Header({ locale }: HeaderProps) {
                           <Check className="w-4 h-4" />
                         )}
                       </div>
-                    </Link>
+                    </NextLink>
                   ))}
                 </div>
               </div>
@@ -138,17 +144,17 @@ export function Header({ locale }: HeaderProps) {
               {/* Mobile Language Switcher */}
               <div className="flex items-center gap-3 overflow-x-auto pb-2">
                 {locales.map((loc) => (
-                  <Link
+                  <NextLink
                     key={loc}
-                    href={pathname}
-                    locale={loc}
+                    href={getLocalizedAlternatePath(pathname, loc)}
+                    hrefLang={loc}
                     className={`px-4 py-2 rounded-lg text-sm font-bold border transition-colors ${locale === loc
                       ? 'bg-brand-primary text-white border-brand-primary'
                       : 'bg-background-tertiary text-text-secondary border-border-primary'
                       }`}
                   >
                     {loc.toUpperCase()}
-                  </Link>
+                  </NextLink>
                 ))}
               </div>
 

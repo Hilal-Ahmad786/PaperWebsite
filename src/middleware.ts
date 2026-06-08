@@ -1,11 +1,27 @@
 import createMiddleware from 'next-intl/middleware';
+import { type NextRequest, NextResponse } from 'next/server';
 import { locales, defaultLocale } from './i18n';
+import { getCanonicalRedirectPath, pathnames } from './routing';
 
-export default createMiddleware({
+const intlMiddleware = createMiddleware({
   locales,
   defaultLocale,
-  localePrefix: 'always'
+  localePrefix: 'always',
+  pathnames,
+  alternateLinks: false,
 });
+
+export default function middleware(request: NextRequest) {
+  const redirectPath = getCanonicalRedirectPath(request.nextUrl.pathname);
+
+  if (redirectPath) {
+    const url = request.nextUrl.clone();
+    url.pathname = redirectPath;
+    return NextResponse.redirect(url);
+  }
+
+  return intlMiddleware(request);
+}
 
 export const config = {
   // Match all pathnames except for

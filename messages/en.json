@@ -91,6 +91,16 @@
       "title": "Product Gallery",
       "subtitle": "Visual references for product forms, finishes, colors and customization options."
     },
+    "detail": {
+      "technicalSpecs": "Technical Specifications",
+      "origins": "Origins",
+      "applications": "Applications",
+      "typicalIndustries": "Typical Industries",
+      "specsAnchor": "Specifications",
+      "ctaTitle": "Need {product}?",
+      "ctaSubtitle": "We can source this grade from multiple origins to match your specific requirements and budget.",
+      "ctaButton": "Request a Quote for {product}"
+    },
     "duplexBoard": {
       "name": "Duplex Board",
       "short": "Premium grey and white back grades for FMCG, cosmetics, and pharmaceutical packaging",
@@ -221,19 +231,61 @@
     "printOptions": "Print Options",
     "applications": "Applications"
   },
+  "specValues": {
+    "backColor": {
+      "greyWhite": "Grey / White"
+    },
+    "grades": {
+      "testlinerFluting": "TL1, TL2, TL3, Fluting"
+    },
+    "type": {
+      "virginFiber": "Virgin Fiber"
+    },
+    "coating": {
+      "doubleCoated": "Double Coated"
+    },
+    "productTypes": {
+      "paperConesTubes": "Cones, spool tubes, specialty cones"
+    },
+    "dimensions": {
+      "custom": "Custom lengths and diameters"
+    },
+    "surfaceOptions": {
+      "cones": "Natural, colored, velvet/flocked"
+    },
+    "printOptions": {
+      "cones": "Printed patterns, codes, branding"
+    },
+    "applications": {
+      "cones": "Textile yarn, paper, foil"
+    }
+  },
+  "origins": {
+    "turkey": "Turkey",
+    "india": "India",
+    "china": "China",
+    "eu": "EU",
+    "egypt": "Egypt",
+    "russia": "Russia",
+    "brazil": "Brazil",
+    "nordic": "Nordic",
+    "europe": "Europe",
+    "asia": "Asia",
+    "usa": "USA"
+  },
   "stockOffers": {
     "title": "Stock & Offers",
     "subtitle": "Current availability and special offers",
     "filters": {
-      "filters": {
-        "allOrigins": "All Origins",
-        "allTypes": "All Types"
-      },
+      "allOrigins": "All Origins",
+      "allTypes": "All Types",
       "all": "All Products",
       "prime": "Prime Quality",
       "stocklot": "Stocklots",
       "byProduct": "Filter by Product",
-      "byOrigin": "Filter by Origin"
+      "byOrigin": "Filter by Origin",
+      "byType": "Filter by Type",
+      "clear": "Clear Filters"
     },
     "table": {
       "grade": "Grade",
@@ -246,7 +298,34 @@
       "action": "Action"
     },
     "requestOffer": "Request This Offer",
-    "tons": "tons"
+    "viewAll": "View All Offers",
+    "empty": "No offers found matching your filters.",
+    "tons": "tons",
+    "availability": {
+      "readyToShip": "Ready to Ship",
+      "inProduction14Days": "In production - 14 days",
+      "in2Weeks": "In 2 weeks"
+    },
+    "items": {
+      "so2024001": {
+        "gradeName": "GC1 Duplex Board"
+      },
+      "so2024002": {
+        "gradeName": "TL3 Testliner"
+      },
+      "so2024003": {
+        "gradeName": "GD2 Grey Back"
+      },
+      "so2024004": {
+        "gradeName": "White Top Kraftliner"
+      },
+      "so2024005": {
+        "gradeName": "Fluting Medium"
+      },
+      "so2024006": {
+        "gradeName": "Triplex Board Coated"
+      }
+    }
   },
   "contact": {
     "title": "Get in Touch",
@@ -266,7 +345,10 @@
       "submit": "Send Request",
       "submitting": "Sending...",
       "success": "Thank you! We'll respond within 24 hours.",
-      "error": "Failed to send. Please try again or email us directly."
+      "error": "Failed to send. Please try again or email us directly.",
+      "sendAnother": "Send Another Message",
+      "other": "Other",
+      "quantityPlaceholder": "e.g. 100"
     },
     "info": {
       "headquarters": {
@@ -286,7 +368,10 @@
         }
       },
       "direct": {
-        "title": "Direct Contact"
+        "title": "Direct Contact",
+        "email": "Email",
+        "phone": "Phone",
+        "phoneTr": "Phone TR"
       }
     }
   },
@@ -439,7 +524,34 @@
   },
   "legal": {
     "privacy": {
-      "title": "Privacy Policy"
+      "title": "Privacy Policy",
+      "lastUpdated": "Last updated: December 2024",
+      "sections": {
+        "data": {
+          "title": "Data We Collect",
+          "body": "We collect information you provide directly, including name, email, company details, and inquiry information when you contact us."
+        },
+        "use": {
+          "title": "How We Use Data",
+          "body": "Your data is used solely to respond to your inquiries and provide quotes. We do not sell or share your information with third parties."
+        },
+        "protection": {
+          "title": "Data Protection",
+          "body": "We implement industry-standard security measures to protect your data."
+        },
+        "rights": {
+          "title": "Your Rights",
+          "body": "You have the right to access, correct, or delete your personal data. Contact us at privacy@papermarketworld.com."
+        },
+        "cookies": {
+          "title": "Cookies",
+          "body": "We use essential cookies for site functionality. No tracking cookies are used."
+        },
+        "contact": {
+          "title": "Contact",
+          "body": "For privacy questions: privacy@papermarketworld.com"
+        }
+      }
     }
   },
   "comparison": {
@@ -464,7 +576,10 @@
     "port": "Delivery Port",
     "estimatedTotal": "Estimated Total",
     "basePrice": "Base Price + Logistics",
-    "submit": "Request Formal Quote"
+    "submit": "Request Formal Quote",
+    "standardRange": "Standard Range",
+    "portPlaceholder": "e.g. Istanbul, Hamburg",
+    "included": "Included"
   },
   "datatable": {
     "search": "Search...",
@@ -521,6 +636,7 @@
     }
   },
   "chat": {
+    "agentName": "Support Agent",
     "online": "Online",
     "offline": "Offline",
     "welcomeTitle": "How can we help?",
@@ -531,6 +647,19 @@
     "callUs": "Call Us",
     "emailUs": "Email",
     "liveChat": "Live Chat",
+    "close": "Close",
+    "namePlaceholder": "John Doe",
+    "emailPlaceholder": "john@example.com",
+    "messagePlaceholder": "How can we help you?",
+    "poweredBy": "Powered by"
+  },
+  "accordion": {
+    "searchPlaceholder": "Search FAQs...",
+    "noResults": "No results found for \"{query}\""
+  },
+  "modal": {
+    "confirm": "Confirm",
+    "cancel": "Cancel",
     "close": "Close"
   },
   "upload": {
@@ -548,6 +677,8 @@
     }
   },
   "tracker": {
+    "title": "Track Your Order",
+    "subtitle": "Real-time updates on your shipment status",
     "estimatedDelivery": "Estimated Delivery",
     "stages": {
       "placed": "Order Placed",
@@ -555,6 +686,9 @@
       "quality": "Quality Check",
       "shipped": "Shipped",
       "delivered": "Delivered"
+    },
+    "descriptions": {
+      "production": "Production in progress at mill"
     },
     "documents": {
       "invoice": "Invoice",

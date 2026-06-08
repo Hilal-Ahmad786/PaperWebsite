@@ -91,6 +91,16 @@
             "title": "Produktgalerie",
             "subtitle": "Visuelle Referenzen für Produktformen, Ausführungen, Farben und Anpassungsmöglichkeiten."
         },
+        "detail": {
+            "technicalSpecs": "Technische Spezifikationen",
+            "origins": "Herkünfte",
+            "applications": "Anwendungen",
+            "typicalIndustries": "Typische Branchen",
+            "specsAnchor": "Spezifikationen",
+            "ctaTitle": "Benötigen Sie {product}?",
+            "ctaSubtitle": "Wir können diese Qualität aus mehreren Herkunftsländern beschaffen und an Ihre Anforderungen und Ihr Budget anpassen.",
+            "ctaButton": "Angebot für {product} anfordern"
+        },
         "duplexBoard": {
             "name": "Duplexkarton",
             "short": "Premium-Qualitäten mit grauer und weißer Rückseite für FMCG, Kosmetik und Pharmaverpackungen",
@@ -221,15 +231,61 @@
         "printOptions": "Druckoptionen",
         "applications": "Anwendungen"
     },
+    "specValues": {
+        "backColor": {
+            "greyWhite": "Grau / Weiß"
+        },
+        "grades": {
+            "testlinerFluting": "TL1, TL2, TL3, Wellenstoff"
+        },
+        "type": {
+            "virginFiber": "Frischfaser"
+        },
+        "coating": {
+            "doubleCoated": "Doppelt gestrichen"
+        },
+        "productTypes": {
+            "paperConesTubes": "Konen, Spulhülsen, Spezialkonen"
+        },
+        "dimensions": {
+            "custom": "Kundenspezifische Längen und Durchmesser"
+        },
+        "surfaceOptions": {
+            "cones": "Natur, farbig, Velvet/Flocking"
+        },
+        "printOptions": {
+            "cones": "Bedruckte Muster, Codes, Branding"
+        },
+        "applications": {
+            "cones": "Textilgarn, Papier, Folie"
+        }
+    },
+    "origins": {
+        "turkey": "Türkei",
+        "india": "Indien",
+        "china": "China",
+        "eu": "EU",
+        "egypt": "Ägypten",
+        "russia": "Russland",
+        "brazil": "Brasilien",
+        "nordic": "Nordische Länder",
+        "europe": "Europa",
+        "asia": "Asien",
+        "usa": "USA"
+    },
     "stockOffers": {
         "title": "Lager & Angebote",
         "subtitle": "Aktuelle Verfügbarkeit und Sonderangebote",
         "filters": {
+            "allOrigins": "Alle Herkünfte",
+            "allTypes": "Alle Typen",
             "all": "Alle Produkte",
             "prime": "Prime-Qualität",
             "stocklot": "Restposten",
             "byProduct": "Nach Produkt filtern",
-            "byOrigin": "Nach Herkunft filtern"
+            "byOrigin": "Nach Herkunft filtern",
+            "byType": "Nach Typ filtern",
+            "clear": "Filter löschen"
         },
         "table": {
             "grade": "Qualität",
@@ -242,7 +298,34 @@
             "action": "Aktion"
         },
         "requestOffer": "Angebot anfordern",
-        "tons": "Tonnen"
+        "viewAll": "Alle Angebote ansehen",
+        "empty": "Keine Angebote gefunden, die Ihren Filtern entsprechen.",
+        "tons": "Tonnen",
+        "availability": {
+            "readyToShip": "Versandbereit",
+            "inProduction14Days": "In Produktion - 14 Tage",
+            "in2Weeks": "In 2 Wochen"
+        },
+        "items": {
+            "so2024001": {
+                "gradeName": "GC1 Duplexkarton"
+            },
+            "so2024002": {
+                "gradeName": "TL3 Testliner"
+            },
+            "so2024003": {
+                "gradeName": "GD2 graue Rückseite"
+            },
+            "so2024004": {
+                "gradeName": "White Top Kraftliner"
+            },
+            "so2024005": {
+                "gradeName": "Wellenstoff Medium"
+            },
+            "so2024006": {
+                "gradeName": "Gestrichener Triplexkarton"
+            }
+        }
     },
     "contact": {
         "title": "Kontakt aufnehmen",
@@ -262,7 +345,10 @@
             "submit": "Anfrage senden",
             "submitting": "Wird gesendet...",
             "success": "Danke! Wir werden uns innerhalb von 24 Stunden bei Ihnen melden.",
-            "error": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder senden Sie uns direkt eine E-Mail."
+            "error": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder senden Sie uns direkt eine E-Mail.",
+            "sendAnother": "Weitere Nachricht senden",
+            "other": "Andere",
+            "quantityPlaceholder": "z. B. 100"
         },
         "info": {
             "headquarters": {
@@ -282,7 +368,10 @@
                 }
             },
             "direct": {
-                "title": "Direkter Kontakt"
+                "title": "Direkter Kontakt",
+                "email": "E-Mail",
+                "phone": "Telefon",
+                "phoneTr": "Telefon TR"
             }
         }
     },
@@ -435,7 +524,34 @@
     },
     "legal": {
         "privacy": {
-            "title": "Datenschutzerklärung"
+            "title": "Datenschutzerklärung",
+            "lastUpdated": "Zuletzt aktualisiert: Dezember 2024",
+            "sections": {
+                "data": {
+                    "title": "Welche Daten wir erfassen",
+                    "body": "Wir erfassen Informationen, die Sie uns direkt bereitstellen, einschließlich Name, E-Mail-Adresse, Unternehmensdaten und Anfrageinformationen, wenn Sie uns kontaktieren."
+                },
+                "use": {
+                    "title": "Wie wir Daten verwenden",
+                    "body": "Ihre Daten werden ausschließlich verwendet, um Ihre Anfragen zu beantworten und Angebote bereitzustellen. Wir verkaufen oder teilen Ihre Informationen nicht mit Dritten."
+                },
+                "protection": {
+                    "title": "Datenschutz",
+                    "body": "Wir setzen branchenübliche Sicherheitsmaßnahmen ein, um Ihre Daten zu schützen."
+                },
+                "rights": {
+                    "title": "Ihre Rechte",
+                    "body": "Sie haben das Recht, auf Ihre personenbezogenen Daten zuzugreifen, sie zu korrigieren oder löschen zu lassen. Kontaktieren Sie uns unter privacy@papermarketworld.com."
+                },
+                "cookies": {
+                    "title": "Cookies",
+                    "body": "Wir verwenden notwendige Cookies für die Funktionalität der Website. Tracking-Cookies werden nicht verwendet."
+                },
+                "contact": {
+                    "title": "Kontakt",
+                    "body": "Bei Datenschutzfragen: privacy@papermarketworld.com"
+                }
+            }
         }
     },
     "comparison": {
@@ -460,7 +576,10 @@
         "port": "Lieferhafen",
         "estimatedTotal": "Geschätzte Summe",
         "basePrice": "Grundpreis + Logistik",
-        "submit": "Offizielles Angebot anfordern"
+        "submit": "Offizielles Angebot anfordern",
+        "standardRange": "Standardbereich",
+        "portPlaceholder": "z. B. Istanbul, Hamburg",
+        "included": "Inklusive"
     },
     "datatable": {
         "search": "Suchen...",
@@ -517,6 +636,7 @@
         }
     },
     "chat": {
+        "agentName": "Support-Mitarbeiter",
         "online": "Online",
         "offline": "Offline",
         "welcomeTitle": "Wie können wir helfen?",
@@ -527,6 +647,19 @@
         "callUs": "Rufen Sie uns an",
         "emailUs": "E-Mail",
         "liveChat": "Live-Chat",
+        "close": "Schließen",
+        "namePlaceholder": "Max Mustermann",
+        "emailPlaceholder": "max@example.com",
+        "messagePlaceholder": "Wie können wir Ihnen helfen?",
+        "poweredBy": "Bereitgestellt von"
+    },
+    "accordion": {
+        "searchPlaceholder": "FAQs durchsuchen...",
+        "noResults": "Keine Ergebnisse für „{query}“ gefunden"
+    },
+    "modal": {
+        "confirm": "Bestätigen",
+        "cancel": "Abbrechen",
         "close": "Schließen"
     },
     "upload": {
@@ -544,6 +677,8 @@
         }
     },
     "tracker": {
+        "title": "Bestellung verfolgen",
+        "subtitle": "Echtzeit-Updates zum Status Ihrer Sendung",
         "estimatedDelivery": "Voraussichtliche Lieferung",
         "stages": {
             "placed": "Bestellung aufgegeben",
@@ -551,6 +686,9 @@
             "quality": "Qualitätskontrolle",
             "shipped": "Versandt",
             "delivered": "Zugestellt"
+        },
+        "descriptions": {
+            "production": "Produktion im Werk läuft"
         },
         "documents": {
             "invoice": "Rechnung",

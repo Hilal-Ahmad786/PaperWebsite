@@ -2,8 +2,11 @@ import { useTranslations } from 'next-intl';
 import { OrderStatusTracker } from '@/components/ui/OrderStatusTracker';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function TrackOrderPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations();
 
     // Mock order data
@@ -14,32 +17,32 @@ export default function TrackOrderPage({ params: { locale } }: { params: { local
         stages: [
             {
                 id: 1,
-                title: 'Order Placed',
+                title: t('tracker.stages.placed'),
                 date: '2024-03-01',
                 status: 'complete' as const,
             },
             {
                 id: 2,
-                title: 'In Production',
+                title: t('tracker.stages.production'),
                 date: '2024-03-05',
                 status: 'current' as const,
-                description: 'Production in progress at mill'
+                description: t('tracker.descriptions.production')
             },
             {
                 id: 3,
-                title: 'Quality Check',
+                title: t('tracker.stages.quality'),
                 date: '2024-03-20',
                 status: 'pending' as const,
             },
             {
                 id: 4,
-                title: 'Shipped',
+                title: t('tracker.stages.shipped'),
                 date: '2024-03-25',
                 status: 'pending' as const,
             },
             {
                 id: 5,
-                title: 'Delivered',
+                title: t('tracker.stages.delivered'),
                 date: '2024-04-15',
                 status: 'pending' as const,
             }
@@ -53,16 +56,16 @@ export default function TrackOrderPage({ params: { locale } }: { params: { local
                     <div className="flex justify-center mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: 'Track Order', href: `/${locale}/track-order` },
+                                { label: t('nav.home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('tracker.title'), href: getLocalizedPath(currentLocale, '/track-order') },
                             ]}
                         />
                     </div>
                     <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-gradient">
-                        Track Your Order
+                        {t('tracker.title')}
                     </h1>
                     <p className="text-xl text-text-secondary">
-                        Real-time updates on your shipment status
+                        {t('tracker.subtitle')}
                     </p>
                 </div>
             </Section>

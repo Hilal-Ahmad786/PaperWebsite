@@ -33,8 +33,9 @@ export function ProductComparison({ products, onAddToCart }: ProductComparisonPr
 
     const getSpecValue = (product: Product, key: string) => {
         const spec = product.specTable.find((s) => s.labelKey === key);
-        return spec ? spec.value : '-';
+        return spec ? (spec.valueKey ? t(spec.valueKey) : spec.value) : '-';
     };
+    const originKey = (origin: string) => origin.toLowerCase().replace(/[^a-z0-9]+/g, '');
 
     return (
         <Card className="overflow-hidden p-0 bg-background-secondary border-border-primary">
@@ -102,7 +103,7 @@ export function ProductComparison({ products, onAddToCart }: ProductComparisonPr
                             </td>
                             {products.map((product) => (
                                 <td key={product.slug} className="p-4 text-sm text-text-primary border-l border-border-primary/50">
-                                    {product.origins.join(', ')}
+                                    {product.origins.map((origin) => t(`origins.${originKey(origin)}`)).join(', ')}
                                 </td>
                             ))}
                         </tr>

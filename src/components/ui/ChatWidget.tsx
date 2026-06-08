@@ -28,12 +28,13 @@ interface ChatWidgetProps {
 }
 
 export function ChatWidget({
-    agentName = 'Support Agent',
+    agentName,
     agentAvatar,
     isOnline = true,
     onSendMessage
 }: ChatWidgetProps) {
     const t = useTranslations();
+    const displayAgentName = agentName ?? t('chat.agentName');
     const [isOpen, setIsOpen] = useState(false);
     const [isMinimized, setIsMinimized] = useState(false);
     const [hasStarted, setHasStarted] = useState(false);
@@ -127,7 +128,7 @@ export function ChatWidget({
                             <div className="relative">
                                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center overflow-hidden border border-white/30">
                                     {agentAvatar ? (
-                                        <img src={agentAvatar} alt={agentName} className="w-full h-full object-cover" />
+                                        <img src={agentAvatar} alt={displayAgentName} className="w-full h-full object-cover" />
                                     ) : (
                                         <User className="w-6 h-6" />
                                     )}
@@ -137,7 +138,7 @@ export function ChatWidget({
                                 )}
                             </div>
                             <div>
-                                <h3 className="font-bold text-sm tracking-wide">{agentName}</h3>
+                                <h3 className="font-bold text-sm tracking-wide">{displayAgentName}</h3>
                                 <p className="text-xs text-white/90 font-light">
                                     {isOnline ? t('chat.online') : t('chat.offline')}
                                 </p>
@@ -182,7 +183,7 @@ export function ChatWidget({
                                         className="w-full bg-background-tertiary border border-border-primary rounded-lg px-4 py-2.5 text-sm text-text-primary focus:border-brand-primary outline-none transition-all shadow-sm focus:shadow-md"
                                         value={formData.name}
                                         onChange={e => setFormData({ ...formData, name: e.target.value })}
-                                        placeholder="John Doe"
+                                        placeholder={t('chat.namePlaceholder')}
                                     />
                                 </div>
                                 <div className="space-y-1.5">
@@ -195,7 +196,7 @@ export function ChatWidget({
                                         className="w-full bg-background-tertiary border border-border-primary rounded-lg px-4 py-2.5 text-sm text-text-primary focus:border-brand-primary outline-none transition-all shadow-sm focus:shadow-md"
                                         value={formData.email}
                                         onChange={e => setFormData({ ...formData, email: e.target.value })}
-                                        placeholder="john@example.com"
+                                        placeholder={t('chat.emailPlaceholder')}
                                     />
                                 </div>
                                 <div className="space-y-1.5">
@@ -208,7 +209,7 @@ export function ChatWidget({
                                         className="w-full bg-background-tertiary border border-border-primary rounded-lg px-4 py-2.5 text-sm text-text-primary focus:border-brand-primary outline-none resize-none transition-all shadow-sm focus:shadow-md"
                                         value={formData.message}
                                         onChange={e => setFormData({ ...formData, message: e.target.value })}
-                                        placeholder="How can we help you?"
+                                        placeholder={t('chat.messagePlaceholder')}
                                     />
                                 </div>
                                 <Button type="submit" className="w-full bg-brand-primary hover:bg-brand-secondary text-white shadow-lg transform active:scale-[0.98] transition-all py-6">
@@ -279,7 +280,7 @@ export function ChatWidget({
                     {/* Footer */}
                     <div className="px-4 py-2 bg-background-tertiary border-t border-border-primary/50 text-center flex-shrink-0">
                         <span className="text-[10px] text-text-tertiary">
-                            Powered by <span className="font-semibold text-brand-primary">PakSoft</span>
+                            {t('chat.poweredBy')} <span className="font-semibold text-brand-primary">PakSoft</span>
                         </span>
                     </div>
                 </div>
@@ -305,9 +306,9 @@ export function ChatWidget({
                 <a
                     href="tel:+436602492186"
                     className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
-                    aria-label="Call Us"
+                    aria-label={t('chat.callUs')}
                 >
-                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">{t('chat.callUs') || 'Call Us'}</span>
+                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">{t('chat.callUs')}</span>
                     <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-transparent md:bg-brand-primary/15 flex items-center justify-center order-1 md:order-2">
                         <FaPhoneAlt className="w-5 h-5 md:w-4 md:h-4 text-brand-primary" />
                     </div>
@@ -317,9 +318,9 @@ export function ChatWidget({
                 <a
                     href="mailto:papermarketworld@gmail.com"
                     className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
-                    aria-label="Email Us"
+                    aria-label={t('chat.emailUs')}
                 >
-                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">{t('chat.emailUs') || 'Email'}</span>
+                    <span className="text-[10px] md:text-sm font-medium text-text-primary order-2 md:order-1 mt-1 md:mt-0">{t('chat.emailUs')}</span>
                     <div className="w-8 h-8 md:w-9 md:h-9 rounded-full bg-transparent md:bg-brand-primary/15 flex items-center justify-center order-1 md:order-2">
                         <FaEnvelope className="w-5 h-5 md:w-4 md:h-4 text-brand-primary" />
                     </div>
@@ -334,13 +335,13 @@ export function ChatWidget({
                             ? "md:bg-brand-primary md:border md:border-brand-primary md:hover:bg-brand-secondary text-brand-primary md:text-white"
                             : "md:bg-[#1E293B] md:border md:border-border-primary/50 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2"
                     )}
-                    aria-label="Live Chat"
+                    aria-label={t('chat.liveChat')}
                 >
                     <span className={cn(
                         "text-[10px] md:text-sm font-medium order-2 md:order-1 mt-1 md:mt-0",
                         isOpen && !isMinimized ? "text-brand-primary md:text-white" : "text-text-primary"
                     )}>
-                        {isOpen && !isMinimized ? (t('chat.close') || 'Close') : (t('chat.liveChat') || 'Live Chat')}
+                        {isOpen && !isMinimized ? t('chat.close') : t('chat.liveChat')}
                     </span>
                     <div className={cn(
                         "w-8 h-8 md:w-9 md:h-9 rounded-full flex items-center justify-center transition-colors order-1 md:order-2",

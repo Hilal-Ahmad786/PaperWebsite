@@ -1,31 +1,33 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
 
 interface FooterProps {
   locale: string;
 }
 
 export function Footer({ locale }: FooterProps) {
+  const currentLocale = locale as Locale;
   const t = useTranslations();
 
   const productLinks = [
-    { href: `/${locale}/products/duplex-board`, label: t('products.duplexBoard.name') },
-    { href: `/${locale}/products/testliner-fluting`, label: t('products.testlinerFluting.name') },
-    { href: `/${locale}/products/kraftliner-white-top`, label: t('products.kraftlinerWhiteTop.name') },
-    { href: `/${locale}/stock-offers`, label: t('nav.stockOffers') },
+    { href: getLocalizedProductPath(currentLocale, 'duplex-board'), label: t('products.duplexBoard.name') },
+    { href: getLocalizedProductPath(currentLocale, 'testliner-fluting'), label: t('products.testlinerFluting.name') },
+    { href: getLocalizedProductPath(currentLocale, 'kraftliner-white-top'), label: t('products.kraftlinerWhiteTop.name') },
+    { href: getLocalizedProductPath(currentLocale, 'paper-cones-tubes'), label: t('products.paperConesTubes.name') },
+    { href: getLocalizedPath(currentLocale, '/stock-offers'), label: t('nav.stockOffers') },
   ];
 
   const companyLinks = [
-    { href: `/${locale}/about`, label: t('nav.about') },
-    { href: `/${locale}/sustainability`, label: t('nav.sustainability') },
-    { href: `/${locale}/insights`, label: t('nav.insights') },
-    { href: `/${locale}/contact`, label: t('nav.contact') },
+    { href: getLocalizedPath(currentLocale, '/about'), label: t('nav.about') },
+    { href: getLocalizedPath(currentLocale, '/sustainability'), label: t('nav.sustainability') },
+    { href: getLocalizedPath(currentLocale, '/insights'), label: t('nav.insights') },
+    { href: getLocalizedPath(currentLocale, '/contact'), label: t('nav.contact') },
   ];
 
   const legalLinks = [
-    { href: `/${locale}/legal/privacy`, label: t('footer.privacy') },
-    { href: `/${locale}/legal/terms`, label: t('footer.terms') },
-    { href: `/${locale}/legal/imprint`, label: t('footer.imprint') },
+    { href: getLocalizedPath(currentLocale, '/legal/privacy'), label: t('footer.privacy') },
   ];
 
   return (

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
+import { ArrowRight, Boxes, Container, Cylinder, Factory, Package, PanelsTopLeft, type LucideIcon } from 'lucide-react';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
@@ -10,10 +11,23 @@ import { Button } from '@/components/ui/Button';
 import { ProductComparison } from '@/components/ui/ProductComparison';
 import { products } from '@/content/products';
 import { ProductCategory } from '@/types';
+import { IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
+
+const productIconMap: Record<string, { icon: LucideIcon; tone: IconTone }> = {
+    'duplex-board': { icon: PanelsTopLeft, tone: 'sky' },
+    'testliner-fluting': { icon: Container, tone: 'emerald' },
+    'kraftliner-white-top': { icon: Factory, tone: 'amber' },
+    'triplex-board': { icon: Boxes, tone: 'teal' },
+    'paper-cones-tubes': { icon: Cylinder, tone: 'rose' },
+};
 
 export default function ProductsPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations();
     const [activeCategory, setActiveCategory] = useState<'all' | ProductCategory>('all');
+    const originKey = (origin: string) => origin.toLowerCase().replace(/[^a-z0-9]+/g, '');
 
     const filteredProducts = activeCategory === 'all'
         ? products
@@ -33,8 +47,8 @@ export default function ProductsPage({ params: { locale } }: { params: { locale:
                     <div className="flex justify-center mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: t('products.title'), href: `/${locale}/products` },
+                                { label: t('nav.home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('products.title'), href: getLocalizedPath(currentLocale, '/products') },
                             ]}
                         />
                     </div>
@@ -65,9 +79,10 @@ export default function ProductsPage({ params: { locale } }: { params: { locale:
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     {filteredProducts.map((product) => {
                         const primarySpec = product.specTable.find(s => s.labelKey === 'specs.gsmRange') ?? product.specTable[0];
+                        const productIcon = productIconMap[product.slug] ?? { icon: Package, tone: 'emerald' as IconTone };
 
                         return (
-                            <Link key={product.slug} href={`/${locale}/products/${product.slug}`}>
+                            <Link key={product.slug} href={getLocalizedProductPath(currentLocale, product.slug)}>
                                 <Card hover className="group h-full flex flex-col overflow-hidden">
                                     {product.heroImage ? (
                                         <div className="relative -mx-8 -mt-8 mb-6 aspect-[4/3] overflow-hidden bg-background-tertiary">
@@ -78,8 +93,9 @@ export default function ProductsPage({ params: { locale } }: { params: { locale:
                                             />
                                         </div>
                                     ) : (
-                                        <div className="w-16 h-16 bg-brand-primary/10 border border-brand-primary/20 flex items-center justify-center text-3xl mb-6 rounded-sm">
-                                            📦
+                                        <div className="mb-6 flex items-center gap-4">
+                                            <IconFrame icon={productIcon.icon} tone={productIcon.tone} size="lg" />
+                                            <div className="h-px flex-1 bg-gradient-to-r from-brand-primary/45 to-transparent" />
                                         </div>
                                     )}
 
@@ -102,19 +118,20 @@ export default function ProductsPage({ params: { locale } }: { params: { locale:
                                                     {primarySpec ? t(primarySpec.labelKey) : t('comparison.label.features')}
                                                 </div>
                                                 <div className="font-mono text-text-primary">
-                                                    {primarySpec?.value}
+                                                    {primarySpec ? (primarySpec.valueKey ? t(primarySpec.valueKey) : primarySpec.value) : ''}
                                                 </div>
                                             </div>
                                             <div>
                                                 <div className="text-text-tertiary text-xs mb-1">{t('specs.origin')}</div>
                                                 <div className="font-mono text-text-primary">
-                                                    {product.origins.slice(0, 2).join(', ')}
+                                                    {product.origins.slice(0, 2).map(origin => t(`origins.${originKey(origin)}`)).join(', ')}
                                                 </div>
                                             </div>
                                         </div>
 
                                         <div className="text-brand-primary text-sm font-bold flex items-center group-hover:translate-x-2 transition-transform">
-                                            {t('common.learnMore')} →
+                                            {t('common.learnMore')}
+                                            <ArrowRight className="ml-2 h-4 w-4" aria-hidden="true" />
                                         </div>
                                     </div>
                                 </Card>

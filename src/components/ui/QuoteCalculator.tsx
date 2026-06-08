@@ -120,7 +120,7 @@ export function QuoteCalculator({ products, onSubmit }: QuoteCalculatorProps) {
                                         {gsm.trim()}
                                     </option>
                                 )) || (
-                                    <option value="standard">Standard Range</option>
+                                    <option value="standard">{t('calculator.standardRange')}</option>
                                 )}
                         </select>
                     </div>
@@ -153,7 +153,7 @@ export function QuoteCalculator({ products, onSubmit }: QuoteCalculatorProps) {
                         <input
                             type="text"
                             required
-                            placeholder="e.g. Istanbul, Hamburg"
+                            placeholder={t('calculator.portPlaceholder')}
                             className="w-full bg-background-tertiary border border-border-primary rounded-md px-4 py-2.5 text-text-primary focus:border-brand-primary focus:ring-1 focus:ring-brand-primary outline-none transition-all"
                             value={formData.port}
                             onChange={(e) => setFormData({ ...formData, port: e.target.value })}
@@ -173,7 +173,7 @@ export function QuoteCalculator({ products, onSubmit }: QuoteCalculatorProps) {
                     </div>
                     <div className="text-xs text-text-tertiary flex justify-between">
                         <span>{t('calculator.basePrice')}</span>
-                        <span>{estimatedPrice ? 'Included' : '-'}</span>
+                        <span>{estimatedPrice ? t('calculator.included') : '-'}</span>
                     </div>
                 </div>
 

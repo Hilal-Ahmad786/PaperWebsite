@@ -1,32 +1,46 @@
 import { useTranslations } from 'next-intl';
-import { FluentEmoji } from '@lobehub/fluent-emoji';
+import { BadgeDollarSign, Factory, FileCheck2, PackageSearch, Ship, type LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { HeroIconFrame, IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function ServicesPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations('services');
+    const tNav = useTranslations('nav');
 
-    const services = [
+    const services: Array<{
+        icon: LucideIcon;
+        tone: IconTone;
+        title: string;
+        description: string;
+    }> = [
         {
-            emoji: '📦', // Fallback for truck
+            icon: PackageSearch,
+            tone: 'emerald',
             title: t('items.sourcing.title'),
             description: t('items.sourcing.description'),
         },
         {
-            emoji: '🏭',
+            icon: Ship,
+            tone: 'sky',
             title: t('items.logistics.title'),
             description: t('items.logistics.description'),
         },
         {
-            emoji: '🤝',
+            icon: BadgeDollarSign,
+            tone: 'amber',
             title: t('items.financing.title'),
             description: t('items.financing.description'),
         },
         {
-            emoji: '📄',
+            icon: FileCheck2,
+            tone: 'teal',
             title: t('items.documentation.title'),
             description: t('items.documentation.description'),
         },
@@ -39,8 +53,8 @@ export default function ServicesPage({ params: { locale } }: { params: { locale:
                     <div className="mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: 'Home', href: `/${locale}` },
-                                { label: t('title'), href: `/${locale}/services` },
+                                { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('title'), href: getLocalizedPath(currentLocale, '/services') },
                             ]}
                         />
                     </div>
@@ -51,21 +65,17 @@ export default function ServicesPage({ params: { locale } }: { params: { locale:
                         {t('subtitle')}
                     </p>
                 </div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-                    <FluentEmoji emoji="🏭" type="3d" size={400} />
-                </div>
+                <HeroIconFrame icon={Factory} tone="sky" />
             </Section>
 
             <Section variant="default">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {services.map((service, index) => (
-                        <Card key={index} hover className="flex flex-col items-start p-8">
-                            <div className="mb-6 relative w-20 h-20 flex items-center justify-center">
-                                <FluentEmoji
-                                    emoji={service.emoji}
-                                    type="3d"
-                                    size={80}
-                                />
+                        <Card key={index} hover className="group relative flex flex-col items-start overflow-hidden p-8">
+                            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                            <div className="mb-6 flex w-full items-center gap-4">
+                                <IconFrame icon={service.icon} tone={service.tone} size="lg" />
+                                <div className="h-px flex-1 bg-gradient-to-r from-brand-primary/45 to-transparent" />
                             </div>
                             <h3 className="text-2xl font-bold text-text-primary mb-4">
                                 {service.title}
@@ -80,7 +90,7 @@ export default function ServicesPage({ params: { locale } }: { params: { locale:
 
             <Section variant="darker" className="text-center">
                 <h2 className="text-3xl font-bold mb-6">{t('cta.title')}</h2>
-                <Link href={`/${locale}/contact`}>
+                <Link href={getLocalizedPath(currentLocale, '/contact')}>
                     <Button variant="primary" size="lg">
                         {t('cta.button')}
                     </Button>

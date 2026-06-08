@@ -39,6 +39,7 @@ export function Breadcrumbs({
     };
 
     const displayItems = renderItems();
+    const homeHref = items[0]?.href ?? '/';
 
     return (
         <nav
@@ -49,7 +50,7 @@ export function Breadcrumbs({
                 {/* Home Icon */}
                 <li className="flex items-center">
                     <Link
-                        href="/"
+                        href={homeHref}
                         className="flex items-center hover:text-brand-primary transition-colors p-1 rounded-md hover:bg-brand-primary/10"
                         aria-label="Home"
                     >

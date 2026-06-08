@@ -1,15 +1,88 @@
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
-import { FluentEmoji } from '@lobehub/fluent-emoji';
+import {
+  ArrowRight,
+  Boxes,
+  Container,
+  Cylinder,
+  Factory,
+  FileCheck2,
+  Handshake,
+  Languages,
+  Network,
+  Package,
+  PackageCheck,
+  PanelsTopLeft,
+  TimerReset,
+  type LucideIcon,
+} from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { products } from '@/content/products';
 import { stockOffers } from '@/content/offers';
 import { HomeProductFinder } from '@/components/home/HomeProductFinder';
+import { IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
+
+const productIconMap: Record<string, { icon: LucideIcon; tone: IconTone }> = {
+  'duplex-board': { icon: PanelsTopLeft, tone: 'sky' },
+  'testliner-fluting': { icon: Container, tone: 'emerald' },
+  'kraftliner-white-top': { icon: Factory, tone: 'amber' },
+  'triplex-board': { icon: Boxes, tone: 'teal' },
+  'paper-cones-tubes': { icon: Cylinder, tone: 'rose' },
+};
 
 export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
+  const currentLocale = locale as Locale;
   const t = useTranslations();
+  const offerGradeName = (offer: typeof stockOffers[number]) => offer.gradeNameKey ? t(offer.gradeNameKey) : offer.gradeName;
+  const offerOrigin = (offer: typeof stockOffers[number]) => offer.originKey ? t(offer.originKey) : offer.originCountry;
+  const offerAvailability = (offer: typeof stockOffers[number]) => offer.availabilityKey ? t(offer.availabilityKey) : offer.availability;
+  const whyUsItems: Array<{
+    icon: LucideIcon;
+    title: string;
+    desc: string;
+    tone: IconTone;
+  }> = [
+    {
+      icon: Languages,
+      title: t('home.whyUs.multilingual'),
+      desc: t('home.whyUs.multilingualDesc'),
+      tone: 'emerald',
+    },
+    {
+      icon: Handshake,
+      title: t('home.whyUs.boutique'),
+      desc: t('home.whyUs.boutiqueDesc'),
+      tone: 'lime',
+    },
+    {
+      icon: Network,
+      title: t('home.whyUs.network'),
+      desc: t('home.whyUs.networkDesc'),
+      tone: 'sky',
+    },
+    {
+      icon: PackageCheck,
+      title: t('home.whyUs.flexible'),
+      desc: t('home.whyUs.flexibleDesc'),
+      tone: 'amber',
+    },
+    {
+      icon: FileCheck2,
+      title: t('home.whyUs.documentation'),
+      desc: t('home.whyUs.documentationDesc'),
+      tone: 'teal',
+    },
+    {
+      icon: TimerReset,
+      title: t('home.whyUs.fastResponse'),
+      desc: t('home.whyUs.fastResponseDesc'),
+      tone: 'rose',
+    },
+  ];
 
 
   return (
@@ -51,12 +124,12 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
             </p>
 
             <div className="flex flex-wrap gap-4">
-              <Link href={`/${locale}/contact`}>
+              <Link href={getLocalizedPath(currentLocale, '/contact')}>
                 <Button variant="primary" size="lg">
                   {t('home.hero.cta1')}
                 </Button>
               </Link>
-              <Link href={`/${locale}/products`}>
+              <Link href={getLocalizedPath(currentLocale, '/products')}>
                 <Button variant="secondary" size="lg">
                   {t('home.hero.cta2')}
                 </Button>
@@ -110,44 +183,49 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {products.slice(0, 3).map((product) => (
-            <Link key={product.slug} href={`/${locale}/products/${product.slug}`}>
-              <Card hover className="h-full">
-                {/* Product Icon */}
-                <div className="w-20 h-20 relative mb-6 flex items-center justify-center">
-                  <FluentEmoji emoji="📦" type="3d" size={80} />
-                </div>
+          {products.slice(0, 3).map((product) => {
+            const productIcon = productIconMap[product.slug] ?? { icon: Package, tone: 'emerald' as IconTone };
 
-                <h3 className="text-2xl font-bold text-text-primary mb-3">
-                  {t(`${product.i18nKey}.name`)}
-                </h3>
+            return (
+              <Link key={product.slug} href={getLocalizedProductPath(currentLocale, product.slug)}>
+                <Card hover className="group h-full">
+                  <div className="mb-6 flex items-center gap-4">
+                    <IconFrame icon={productIcon.icon} tone={productIcon.tone} size="lg" />
+                    <div className="h-px flex-1 bg-gradient-to-r from-brand-primary/45 to-transparent" />
+                  </div>
 
-                <p className="text-sm text-text-secondary mb-6 leading-relaxed">
-                  {t(`${product.i18nKey}.short`)}
-                </p>
+                  <h3 className="text-2xl font-bold text-text-primary mb-3">
+                    {t(`${product.i18nKey}.name`)}
+                  </h3>
 
-                {/* Specs */}
-                <div className="grid grid-cols-3 gap-4 font-mono text-xs">
-                  {product.specTable.slice(0, 3).map((spec, index) => (
-                    <div key={index}>
-                      <div className="text-text-tertiary mb-1">
-                        {t(spec.labelKey)}
+                  <p className="text-sm text-text-secondary mb-6 leading-relaxed">
+                    {t(`${product.i18nKey}.short`)}
+                  </p>
+
+                  {/* Specs */}
+                  <div className="grid grid-cols-3 gap-4 font-mono text-xs">
+                    {product.specTable.slice(0, 3).map((spec, index) => (
+                      <div key={index}>
+                        <div className="text-text-tertiary mb-1">
+                          {t(spec.labelKey)}
+                        </div>
+                        <div className="text-brand-primary font-semibold">
+                          {spec.value}
+                        </div>
                       </div>
-                      <div className="text-brand-primary font-semibold">
-                        {spec.value}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </Card>
-            </Link>
-          ))}
+                    ))}
+                  </div>
+                </Card>
+              </Link>
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
-          <Link href={`/${locale}/products`}>
+          <Link href={getLocalizedPath(currentLocale, '/products')}>
             <Button variant="secondary" size="lg">
-              {t('common.viewProducts')} →
+              {t('common.viewProducts')}
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Button>
           </Link>
         </div>
@@ -170,10 +248,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-xs uppercase tracking-wider text-text-tertiary mb-1">
-                    {offer.type}
+                    {t(`stockOffers.filters.${offer.type}`)}
                   </div>
                   <h3 className="text-xl font-bold text-text-primary">
-                    {offer.gradeName}
+                    {offerGradeName(offer)}
                   </h3>
                 </div>
                 <div className="px-3 py-1 bg-brand-primary/10 border border-brand-primary/30 text-brand-primary text-xs font-bold">
@@ -183,34 +261,34 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
 
               <div className="space-y-2 text-sm mb-6">
                 <div className="flex justify-between">
-                  <span className="text-text-tertiary">GSM:</span>
+                  <span className="text-text-tertiary">{t('stockOffers.table.gsm')}:</span>
                   <span className="text-text-primary font-semibold font-mono">
                     {offer.gsmRange}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-tertiary">Origin:</span>
+                  <span className="text-text-tertiary">{t('stockOffers.table.origin')}:</span>
                   <span className="text-text-primary font-semibold">
-                    {offer.originCountry}
+                    {offerOrigin(offer)}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-tertiary">Port:</span>
+                  <span className="text-text-tertiary">{t('stockOffers.table.port')}:</span>
                   <span className="text-text-primary font-semibold">
                     {offer.port}
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-text-tertiary">Status:</span>
+                  <span className="text-text-tertiary">{t('stockOffers.table.availability')}:</span>
                   <span className="text-brand-primary font-semibold">
-                    {offer.availability}
+                    {offerAvailability(offer)}
                   </span>
                 </div>
               </div>
 
-              <Link href={`/${locale}/contact?offer=${offer.id}`}>
+              <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { offer: offer.id })}>
                 <Button variant="secondary" className="w-full" size="sm">
-                  Request This Offer
+                  {t('stockOffers.requestOffer')}
                 </Button>
               </Link>
             </Card>
@@ -218,9 +296,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
         </div>
 
         <div className="text-center mt-12">
-          <Link href={`/${locale}/stock-offers`}>
+          <Link href={getLocalizedPath(currentLocale, '/stock-offers')}>
             <Button variant="primary" size="lg">
-              View All Offers →
+              {t('stockOffers.viewAll')}
+              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Button>
           </Link>
         </div>
@@ -235,48 +314,29 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {[
-            {
-              emoji: '🌍',
-              title: t('home.whyUs.multilingual'),
-              desc: t('home.whyUs.multilingualDesc'),
-            },
-            {
-              emoji: '🤝',
-              title: t('home.whyUs.boutique'),
-              desc: t('home.whyUs.boutiqueDesc'),
-            },
-            {
-              emoji: '🏭',
-              title: t('home.whyUs.network'),
-              desc: t('home.whyUs.networkDesc'),
-            },
-            {
-              emoji: '📦',
-              title: t('home.whyUs.flexible'),
-              desc: t('home.whyUs.flexibleDesc'),
-            },
-            {
-              emoji: '📄',
-              title: t('home.whyUs.documentation'),
-              desc: t('home.whyUs.documentationDesc'),
-            },
-            {
-              emoji: '⚡',
-              title: t('home.whyUs.fastResponse'),
-              desc: t('home.whyUs.fastResponseDesc'),
-            },
-          ].map((item, index) => (
-            <Card key={index} className="text-center flex flex-col items-center">
-              <div className="relative w-16 h-16 mb-4 flex items-center justify-center">
-                <FluentEmoji emoji={item.emoji} type="3d" size={64} />
-              </div>
-              <h3 className="text-xl font-bold text-text-primary mb-2">
-                {item.title}
-              </h3>
-              <p className="text-sm text-text-secondary">{item.desc}</p>
-            </Card>
-          ))}
+          {whyUsItems.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <Card
+                key={index}
+                hover
+                className="group relative overflow-hidden text-left"
+              >
+                <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-primary/60 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+                <div className="mb-6 flex items-center gap-4">
+                  <IconFrame icon={Icon} tone={item.tone} />
+                  <div className="h-px flex-1 bg-gradient-to-r from-brand-primary/45 to-transparent" />
+                </div>
+                <h3 className="mb-2 text-xl font-bold text-text-primary">
+                  {item.title}
+                </h3>
+                <p className="text-sm leading-relaxed text-text-secondary">
+                  {item.desc}
+                </p>
+              </Card>
+            );
+          })}
         </div>
       </Section>
 
@@ -288,9 +348,10 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
         <p className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto">
           {t('home.finalCta.subtitle')}
         </p>
-        <Link href={`/${locale}/contact`}>
+        <Link href={getLocalizedPath(currentLocale, '/contact')}>
           <Button variant="primary" size="lg">
-            {t('common.getQuote')} →
+            {t('common.getQuote')}
+            <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
           </Button>
         </Link>
       </Section>

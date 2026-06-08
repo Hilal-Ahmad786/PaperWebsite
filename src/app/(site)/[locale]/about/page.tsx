@@ -1,15 +1,42 @@
 import { useTranslations } from 'next-intl';
-import { FluentEmoji } from '@lobehub/fluent-emoji';
+import { BriefcaseBusiness, Handshake, Network, TimerReset, Users, type LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
-import Link from 'next/link';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Accordion } from '@/components/ui/Accordion';
+import { HeroIconFrame, IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
 
 export default function AboutPage({ params: { locale } }: { params: { locale: string } }) {
+    const currentLocale = locale as Locale;
     const t = useTranslations('about');
     const tNav = useTranslations('nav');
+    const stats: Array<{
+        icon: LucideIcon;
+        tone: IconTone;
+        value: string;
+        label: string;
+    }> = [
+        {
+            icon: BriefcaseBusiness,
+            tone: 'emerald',
+            value: '10+',
+            label: t('stats.experience'),
+        },
+        {
+            icon: Network,
+            tone: 'sky',
+            value: '50+',
+            label: t('stats.partners'),
+        },
+        {
+            icon: TimerReset,
+            tone: 'rose',
+            value: '24/7',
+            label: t('stats.support'),
+        },
+    ];
 
     return (
         <>
@@ -18,8 +45,8 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
                     <div className="mb-8">
                         <Breadcrumbs
                             items={[
-                                { label: tNav('home'), href: `/${locale}` },
-                                { label: t('title'), href: `/${locale}/about` },
+                                { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
+                                { label: t('title'), href: getLocalizedPath(currentLocale, '/about') },
                             ]}
                         />
                     </div>
@@ -30,9 +57,7 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
                         {t('subtitle')}
                     </p>
                 </div>
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 opacity-20 pointer-events-none">
-                    <FluentEmoji emoji="👥" type="3d" size={400} />
-                </div>
+                <HeroIconFrame icon={Users} tone="sky" />
             </Section>
 
             <Section variant="default">
@@ -47,12 +72,8 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
                             {t('vision.description')}
                         </p>
                     </div>
-                    <div className="relative h-[400px] w-full flex items-center justify-center">
-                        <FluentEmoji
-                            emoji="🤝"
-                            type="3d"
-                            size={300}
-                        />
+                    <div className="relative flex h-[400px] w-full items-center justify-center">
+                        <IconFrame icon={Handshake} tone="emerald" size="hero" className="rotate-2" iconClassName="stroke-[1.15]" />
                     </div>
                 </div>
             </Section>
@@ -62,18 +83,15 @@ export default function AboutPage({ params: { locale } }: { params: { locale: st
                     <h2 className="text-3xl font-bold">{t('whyChooseUs')}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <Card className="p-6 text-center">
-                        <div className="text-4xl font-bold text-brand-primary mb-2">10+</div>
-                        <div className="text-text-secondary">{t('stats.experience')}</div>
-                    </Card>
-                    <Card className="p-6 text-center">
-                        <div className="text-4xl font-bold text-brand-primary mb-2">50+</div>
-                        <div className="text-text-secondary">{t('stats.partners')}</div>
-                    </Card>
-                    <Card className="p-6 text-center">
-                        <div className="text-4xl font-bold text-brand-primary mb-2">24/7</div>
-                        <div className="text-text-secondary">{t('stats.support')}</div>
-                    </Card>
+                    {stats.map((stat) => (
+                        <Card key={stat.label} className="p-6 text-center">
+                            <div className="mb-4 flex justify-center">
+                                <IconFrame icon={stat.icon} tone={stat.tone} size="sm" />
+                            </div>
+                            <div className="text-4xl font-bold text-brand-primary mb-2">{stat.value}</div>
+                            <div className="text-text-secondary">{stat.label}</div>
+                        </Card>
+                    ))}
                 </div>
             </Section>
 
