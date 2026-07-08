@@ -47,7 +47,7 @@ export function Header({ locale }: HeaderProps) {
 
   return (
     <header className="sticky top-0 z-[999] bg-background-secondary/80 backdrop-blur-xl border-b border-border-primary">
-      <div className="container mx-auto px-4 lg:px-6 max-w-screen-2xl">
+      <div className="container mx-auto px-6 lg:px-10 max-w-screen-2xl">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link

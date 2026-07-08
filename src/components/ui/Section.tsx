@@ -15,7 +15,7 @@ export function Section({
   ...props
 }: SectionProps) {
   const content = container ? (
-    <div className="container mx-auto px-4 lg:px-6 max-w-screen-2xl">{children}</div>
+    <div className="container mx-auto px-6 lg:px-10 max-w-screen-2xl">{children}</div>
   ) : (
     children
   );
