@@ -166,48 +166,103 @@
             }
         },
         "paperConesTubes": {
-            "name": "Papierkonen & Spulhülsen",
-            "short": "Maßgefertigte Papierkonen und Wickelhülsen für Textilgarn, Papier, Folie und technische Anwendungen",
-            "description": "Anpassbare Papierkonen und Spulhülsen für Textil- und industrielle Wickelanwendungen. Lieferbar mit natürlicher, farbiger, bedruckter und Velvet-/Flocking-Ausführung, einschließlich maßbezogener Produktion und Musteroptionen.",
+            "name": "Garnhülsen & Konushülsen aus Papier",
+            "short": "Papierhülsen für die Textilindustrie – Garn-, Konus-, Kreuzspul- und Färbehülsen, natur, gefärbt, bedruckt und nach Maß.",
+            "subline": "Papierhülsen für Textil- und Wickelanwendungen – konische Hülsen, Spul-, Kreuzspul- und Färbehülsen. Natur, gefärbt, bedruckt und Velvet/Flocking. Kundenspezifische Maße und Muster verfügbar.",
+            "description": "Als Lieferant und Beschaffungspartner liefern wir Papierhülsen für Textil- und Wickelanwendungen: Garnhülsen, Konushülsen (konische Hülsen), Kreuzspulhülsen, Färbehülsen und Spezialhülsen. Verfügbar in Natur, gefärbt, bedruckt sowie mit Velvet-/Flocking-Spitze – auf Wunsch nach Ihren Maßen und mit Muster. Beschaffung aus der EU und der Türkei.",
+            "metaTitle": "Garnhülsen & Konushülsen aus Papier | Textilhülsen Lieferant",
+            "metaDescription": "Papierhülsen für die Textilindustrie: Garn-, Konus-, Kreuzspul- & Färbehülsen. Bedruckt, gefärbt, nach Maß. Aus EU & Türkei. Jetzt Angebot anfordern.",
+            "headings": {
+                "specs": "Technische Spezifikationen der Papierhülsen",
+                "applications": "Anwendungen – Garnwicklung, Spinnerei & Weberei",
+                "types": "Hülsentypen für die Textilindustrie",
+                "comparison": "Papierhülsen vs. Kunststoffhülsen",
+                "custom": "Bedruckte & individuelle Hülsen nach Maß"
+            },
+            "types": {
+                "intro": "Wir beschaffen das passende Hülsenformat für Ihren Prozess – von der Spinnerei über die Spulerei bis zur Garnfärbung."
+            },
+            "huelseTypes": {
+                "konus": {
+                    "name": "Konushülsen / konische Hülsen",
+                    "desc": "Für Kreuzspulen sowie Web- und Strickgarne. Die konische Form sorgt für einen gleichmäßigen Garnabzug in der Weiterverarbeitung."
+                },
+                "garn": {
+                    "name": "Garnhülsen",
+                    "desc": "Träger für Spinnerei und Zwirnerei – maßlich stabil für eine saubere und gleichmäßige Bewicklung."
+                },
+                "kreuzspul": {
+                    "name": "Kreuzspulhülsen",
+                    "desc": "Für automatische Spulmaschinen ausgelegt, mit gleichbleibenden Maßen für hohe Laufruhe."
+                },
+                "faerbe": {
+                    "name": "Färbehülsen",
+                    "desc": "Perforierte Hülsen für die Garnfärbung, die ein gleichmäßiges Durchdringen der Färbeflotte ermöglichen. {{TODO: nur wenn wir Färbehülsen führen}}"
+                },
+                "naehgarn": {
+                    "name": "Nähgarnhülsen / Spulhülsen",
+                    "desc": "Für Nähgarn und technische Garne – in unterschiedlichen Längen und Durchmessern verfügbar."
+                },
+                "spezial": {
+                    "name": "Spezialhülsen",
+                    "desc": "Sonderformen und individuelle Abmessungen nach Kundenwunsch."
+                }
+            },
+            "comparison": {
+                "intro": "Papierhülsen sind in vielen Textilprozessen die nachhaltigere und prozesssichere Alternative zu Kunststoffhülsen.",
+                "points": {
+                    "recyclable": "Vollständig recycelbar und aus nachwachsendem Rohstoff.",
+                    "contaminationFree": "Kontaminationsfrei – keine Kunststoffrückstände im Faserkreislauf.",
+                    "dyeProcess": "Für Färbeprozesse geeignet (perforierte Färbehülsen).",
+                    "disposal": "Einfache, sortenreine Entsorgung über den Altpapierkreislauf."
+                },
+                "sustainabilityHeading": "Nachhaltigkeit – 100 % recycelbare Papierhülsen",
+                "sustainabilityBody": "Unsere Papierhülsen bestehen aus recycelbarem Material und lassen sich am Ende ihres Lebenszyklus sortenrein entsorgen. So reduzieren Sie Kunststoff in Ihrer Lieferkette.",
+                "sustainabilityLink": "Mehr zur Nachhaltigkeit"
+            },
+            "custom": {
+                "body": "Wir liefern Papierhülsen nach Ihren Vorgaben: bedruckt mit Logo, Codes oder Farbringen zur Garn-Identifikation, eingefärbt oder mit Velvet-/Flocking-Spitze. Maße, Farben und Bedruckung stimmen wir auf Ihre Maschinen und Ihr Programm ab – Muster auf Anfrage."
+            },
+            "b2bNote": "Verkauf ausschließlich an Gewerbetreibende (B2B).",
             "apps": {
-                "textileYarn": "Textilgarn-Wicklung",
-                "paperFoil": "Papier-, Film- & Folienwicklung",
-                "technicalTextiles": "Technische Textilanwendungen",
-                "brandedCones": "Bedruckte & gebrandete Konenprogramme"
+                "textileYarn": "Garnwicklung in Spinnerei & Zwirnerei",
+                "paperFoil": "Wickelanwendungen für Papier, Folie & technische Bänder",
+                "technicalTextiles": "Technische Textilien & Spezialgarne",
+                "brandedCones": "Bedruckte & gebrandete Hülsenprogramme"
             },
             "industries": {
-                "textileMills": "Textilwerke",
-                "yarnProducers": "Garnhersteller",
-                "converters": "Industrielle Verarbeiter"
+                "textileMills": "Textilwerke & Webereien",
+                "yarnProducers": "Garnhersteller & Spinnereien",
+                "converters": "Garnfärbereien & Verarbeiter"
             },
             "gallery": {
                 "cover": {
-                    "alt": "Katalogcover mit Papierkonen und Spulhülsen",
-                    "caption": "Produktfamilie mit Konen, Hülsen und Garnwickelformaten"
+                    "alt": "Garnhülsen und Konushülsen aus Papier für die Textilindustrie",
+                    "caption": "Produktfamilie mit Garn-, Konus- und Kreuzspulhülsen"
                 },
                 "flyer": {
-                    "alt": "Deutscher Produktflyer für Papierkonen und Spulhülsen",
+                    "alt": "Produktflyer Papierhülsen – Garn-, Konus- und Kreuzspulhülsen",
                     "caption": "Produktflyer mit Qualitäts-, Liefer- und Anpassungsvorteilen"
                 },
                 "measurements": {
-                    "alt": "Papierkonen-Muster mit handschriftlichen Maßangaben",
-                    "caption": "Musterkonen mit Produktionsmaßen und Kantenmarkierungen"
+                    "alt": "Konushülse Muster mit Maßangaben – Länge und Durchmesser",
+                    "caption": "Musterhülsen mit Produktionsmaßen und Kantenmarkierungen"
                 },
                 "measurementsDetail": {
-                    "alt": "Nahaufnahme beschrifteter Papierkonen und Spulhülsen",
-                    "caption": "Mustersatz mit Konenabmessungen und bedruckten Markierungen"
+                    "alt": "Garnhülsen und Spulhülsen mit Abmessungen und Markierungen",
+                    "caption": "Mustersatz mit Hülsenabmessungen und bedruckten Markierungen"
                 },
                 "colorRings": {
-                    "alt": "Papierkonen-Muster mit farbigen Ringen und Spitzenmarkierungen",
-                    "caption": "Konenform und Farbringoptionen zur Identifikation"
+                    "alt": "Farbige Konushülsen mit Farbringen zur Garn-Identifikation",
+                    "caption": "Hülsenform und Farbringoptionen zur Identifikation"
                 },
                 "flockedColors": {
-                    "alt": "Katalogseite mit Flocking-Farben für Papierkonenspitzen",
+                    "alt": "Velvet-/Flocking-Spitzen für Papierhülsen – Farbkatalog",
                     "caption": "Farbkatalog für Velvet-/Flocking-Spitzen"
                 },
                 "patternCatalog": {
-                    "alt": "Katalogseite mit Flocking-Mustern für Papierkonen",
-                    "caption": "Musterkatalog für bedruckte und geflockte Konenanpassungen"
+                    "alt": "Bedruckte und geflockte Garnhülsen – Mustervarianten",
+                    "caption": "Musterkatalog für bedruckte und geflockte Hülsen"
                 }
             }
         }
@@ -229,7 +284,14 @@
         "dimensions": "Abmessungen",
         "surfaceOptions": "Oberflächenoptionen",
         "printOptions": "Druckoptionen",
-        "applications": "Anwendungen"
+        "applications": "Anwendungen",
+        "taper": "Konuswinkel / Taper",
+        "length": "Länge",
+        "innerDiameter": "Innendurchmesser",
+        "wallThickness": "Wandstärke",
+        "surfaceFinish": "Oberfläche",
+        "moq": "Mindestbestellmenge (MOQ)",
+        "norm": "Norm"
     },
     "specValues": {
         "backColor": {
@@ -245,13 +307,19 @@
             "doubleCoated": "Doppelt gestrichen"
         },
         "productTypes": {
-            "paperConesTubes": "Konen, Spulhülsen, Spezialkonen"
+            "paperConesTubes": "Garnhülsen, Konushülsen, Kreuzspulhülsen, Färbehülsen"
         },
         "dimensions": {
             "custom": "Kundenspezifische Längen und Durchmesser"
         },
         "surfaceOptions": {
             "cones": "Natur, farbig, Velvet/Flocking"
+        },
+        "surfaceFinish": {
+            "cones": "glatt, gerillt, geprägt"
+        },
+        "origin": {
+            "euTurkey": "EU / Türkei"
         },
         "printOptions": {
             "cones": "Bedruckte Muster, Codes, Branding"
@@ -348,7 +416,11 @@
             "error": "Senden fehlgeschlagen. Bitte versuchen Sie es erneut oder senden Sie uns direkt eine E-Mail.",
             "sendAnother": "Weitere Nachricht senden",
             "other": "Andere",
-            "quantityPlaceholder": "z. B. 100"
+            "quantityPlaceholder": "z. B. 100",
+            "vatId": "USt-IdNr. / UID",
+            "vatIdPlaceholder": "z. B. ATU12345678",
+            "huelseType": "Hülsentyp",
+            "huelseTypePlaceholder": "Hülsentyp auswählen"
         },
         "info": {
             "headquarters": {
@@ -552,7 +624,35 @@
                     "body": "Bei Datenschutzfragen: privacy@papermarketworld.com"
                 }
             }
+        },
+        "imprint": {
+            "title": "Impressum",
+            "disclosure": "Angaben gemäß § 5 ECG (Österreich) und § 5 DDG (Deutschland)",
+            "fields": {
+                "company": { "label": "Firmenname", "value": "{{TODO: vollständiger Firmenname laut Firmenbuch}}" },
+                "legalForm": { "label": "Rechtsform", "value": "{{TODO: z. B. GmbH}}" },
+                "address": { "label": "Anschrift", "value": "{{TODO: Straße und Hausnummer, PLZ, Wien, Österreich}}" },
+                "representative": { "label": "Vertretungsberechtigte Person", "value": "{{TODO: Geschäftsführer:in}}" },
+                "register": { "label": "Firmenbuchnummer", "value": "{{TODO: FN xxxxxx x}}" },
+                "court": { "label": "Firmenbuchgericht", "value": "{{TODO: zuständiges Firmenbuchgericht}}" },
+                "vatId": { "label": "UID / USt-IdNr.", "value": "{{TODO: ATU xxxxxxxx}}" },
+                "email": { "label": "E-Mail", "value": "info@papermarketworld.com {{TODO: bestätigen}}" },
+                "phone": { "label": "Telefon", "value": "+43 660 249 21 86" }
+            },
+            "liability": {
+                "title": "Haftung für Inhalte",
+                "body": "Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen."
+            },
+            "dispute": {
+                "title": "Online-Streitbeilegung",
+                "body": "Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr. Zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle sind wir nicht verpflichtet und grundsätzlich nicht bereit. Hinweis: Verkauf ausschließlich an Gewerbetreibende (B2B)."
+            }
         }
+    },
+    "thankYou": {
+        "title": "Vielen Dank für Ihre Anfrage",
+        "subtitle": "Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.",
+        "backHome": "Zurück zur Startseite"
     },
     "comparison": {
         "label": {

@@ -1,9 +1,25 @@
 import { useTranslations } from 'next-intl';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { staticAlternates } from '@/lib/seo';
 import { OrderStatusTracker } from '@/components/ui/OrderStatusTracker';
 import { Section } from '@/components/ui/Section';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale });
+  return {
+    title: t('tracker.title'),
+    description: t('tracker.subtitle'),
+    alternates: staticAlternates(locale as Locale, '/track-order'),
+  };
+}
 
 export default function TrackOrderPage({ params: { locale } }: { params: { locale: string } }) {
     const currentLocale = locale as Locale;

@@ -1,14 +1,21 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
-import { useTranslations } from 'next-intl';
-import { useSearchParams } from 'next/navigation';
+import { useTranslations, useLocale } from 'next-intl';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/Button';
 import { products } from '@/content/products';
+import { type Locale } from '@/i18n';
+import { getLocalizedPath } from '@/routing';
+import { trackContactSubmit } from '@/lib/analytics';
+
+const HUELSE_TYPES = ['konus', 'garn', 'kreuzspul', 'faerbe', 'naehgarn', 'spezial'] as const;
 
 export function ContactForm() {
     const t = useTranslations('contact.form');
     const tAll = useTranslations();
+    const locale = useLocale() as Locale;
+    const router = useRouter();
     const searchParams = useSearchParams();
     const initialProduct = searchParams.get('product') || '';
     const initialOffer = searchParams.get('offer') || '';
@@ -31,7 +38,15 @@ export function ContactForm() {
 
             if (!response.ok) throw new Error('Failed to send');
 
+            // PRIMARY conversion event, then redirect to the thank-you page
+            // for reliable conversion firing.
+            trackContactSubmit({
+                product: String(data.product || ''),
+                huelseType: String(data.huelseType || ''),
+                quantity: String(data.quantity || ''),
+            });
             setStatus('success');
+            router.push(getLocalizedPath(locale, '/thank-you'));
         } catch (error) {
             console.error(error);
             setStatus('error');
@@ -136,6 +151,40 @@ export function ContactForm() {
                         placeholder={t('quantityPlaceholder')}
                         className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
                     />
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <label htmlFor="vatId" className="block text-sm font-medium text-text-secondary mb-2">
+                        {t('vatId')}
+                    </label>
+                    <input
+                        type="text"
+                        id="vatId"
+                        name="vatId"
+                        placeholder={t('vatIdPlaceholder')}
+                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
+                    />
+                </div>
+                <div>
+                    <label htmlFor="huelseType" className="block text-sm font-medium text-text-secondary mb-2">
+                        {t('huelseType')}
+                    </label>
+                    <select
+                        id="huelseType"
+                        name="huelseType"
+                        defaultValue=""
+                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors appearance-none"
+                    >
+                        <option value="">{t('huelseTypePlaceholder')}</option>
+                        {HUELSE_TYPES.map((type) => (
+                            <option key={type} value={type}>
+                                {tAll(`products.paperConesTubes.huelseTypes.${type}.name`)}
+                            </option>
+                        ))}
+                        <option value="other">{t('other')}</option>
+                    </select>
                 </div>
             </div>
 

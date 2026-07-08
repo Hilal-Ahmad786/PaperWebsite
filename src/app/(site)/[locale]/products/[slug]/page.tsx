@@ -1,15 +1,56 @@
+import type { Metadata } from 'next';
 import { useTranslations } from 'next-intl';
+import { getTranslations } from 'next-intl/server';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { ArrowDown, Check, Factory } from 'lucide-react';
+import { ArrowDown, ArrowRight, Check, Factory, Layers, Leaf, Recycle } from 'lucide-react';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { ImageGallery } from '@/components/ui/ImageGallery';
+import { ProductJsonLd } from '@/components/seo/JsonLd';
 import { getProductBySlug } from '@/content/products';
 import { type Locale } from '@/i18n';
 import { getCanonicalProductSlug, getLocalizedPath, getLocalizedProductPath } from '@/routing';
+import { SITE_NAME, SITE_URL, ogLocale, productAlternates } from '@/lib/seo';
+
+export async function generateMetadata({
+    params: { locale, slug },
+}: {
+    params: { locale: string; slug: string };
+}): Promise<Metadata> {
+    const currentLocale = locale as Locale;
+    const canonicalSlug = getCanonicalProductSlug(currentLocale, slug);
+    const product = getProductBySlug(canonicalSlug);
+    if (!product) return {};
+
+    const t = await getTranslations({ locale: currentLocale });
+    const name = t(`${product.i18nKey}.name`);
+    const title = t.has(`${product.i18nKey}.metaTitle`)
+        ? t(`${product.i18nKey}.metaTitle`)
+        : `${name} | ${SITE_NAME}`;
+    const description = t.has(`${product.i18nKey}.metaDescription`)
+        ? t(`${product.i18nKey}.metaDescription`)
+        : t(`${product.i18nKey}.short`);
+    const alternates = productAlternates(currentLocale, canonicalSlug);
+    const image = product.heroImage?.src;
+
+    return {
+        title: { absolute: title },
+        description,
+        alternates,
+        openGraph: {
+            type: 'website',
+            siteName: SITE_NAME,
+            title,
+            description,
+            url: alternates.canonical as string,
+            locale: ogLocale(currentLocale),
+            images: image ? [`${SITE_URL}${image}`] : undefined,
+        },
+    };
+}
 
 export default function ProductPage({ params: { locale, slug } }: { params: { locale: string; slug: string } }) {
     const currentLocale = locale as Locale;
@@ -31,6 +72,13 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
 
     return (
         <>
+            <ProductJsonLd
+                name={t(`${product.i18nKey}.name`)}
+                description={t(`${product.i18nKey}.description`)}
+                image={heroImage?.src ?? (product.images?.[0]?.src ?? '')}
+                url={`${SITE_URL}${getLocalizedProductPath(currentLocale, product.slug)}`}
+                category={t(`products.categories.${product.category}`)}
+            />
             {/* Hero Section */}
             <Section variant="dark" className="py-20 lg:py-32">
                 <div className={heroImage ? "grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-12 lg:gap-16 items-center" : "max-w-4xl"}>
@@ -51,7 +99,7 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                             {t(`${product.i18nKey}.name`)}
                         </h1>
                         <p className="text-xl lg:text-2xl text-text-secondary mb-10 leading-relaxed max-w-3xl">
-                            {t(`${product.i18nKey}.description`)}
+                            {product.subtitleKey ? t(product.subtitleKey) : t(`${product.i18nKey}.description`)}
                         </p>
                         <div className="flex flex-wrap gap-4">
                             <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}>
@@ -83,7 +131,7 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
             <Section variant="default" id="specs">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
                     <div>
-                        <h2 className="text-3xl font-bold mb-8 text-text-primary">{t('products.detail.technicalSpecs')}</h2>
+                        <h2 className="text-3xl font-bold mb-8 text-text-primary">{t(product.specsHeadingKey ?? 'products.detail.technicalSpecs')}</h2>
                         <Card className="p-0 overflow-hidden">
                             <div className="divide-y divide-border-secondary">
                                 {product.specTable.map((spec, index) => (
@@ -112,7 +160,7 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                     <div className="space-y-12">
                         {/* Applications */}
                         <div>
-                            <h2 className="text-3xl font-bold mb-8 text-text-primary">{t('products.detail.applications')}</h2>
+                            <h2 className="text-3xl font-bold mb-8 text-text-primary">{t(product.applicationsHeadingKey ?? 'products.detail.applications')}</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 {product.applications.map((app) => (
                                     <div key={app} className="flex items-center gap-3 p-4 bg-background-secondary border border-border-secondary rounded-sm">
@@ -138,6 +186,88 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                     </div>
                 </div>
             </Section>
+
+            {/* Hülsentypen für die Textilindustrie */}
+            {product.huelseTypes && product.huelseTypes.length > 0 && (
+                <Section variant="darker">
+                    <div className="max-w-3xl mb-12">
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-4 text-text-primary">
+                            {t('products.paperConesTubes.headings.types')}
+                        </h2>
+                        <p className="text-text-secondary text-lg">
+                            {t('products.paperConesTubes.types.intro')}
+                        </p>
+                    </div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {product.huelseTypes.map((type) => (
+                            <Card key={type.nameKey} className="p-6 h-full">
+                                <div className="flex items-center gap-3 mb-3">
+                                    <Layers className="h-5 w-5 shrink-0 text-brand-primary" aria-hidden="true" />
+                                    <h3 className="text-lg font-bold text-text-primary">{t(type.nameKey)}</h3>
+                                </div>
+                                <p className="text-text-secondary leading-relaxed">{t(type.descKey)}</p>
+                            </Card>
+                        ))}
+                    </div>
+                </Section>
+            )}
+
+            {/* Papierhülsen vs. Kunststoffhülsen */}
+            {product.comparison && (
+                <Section variant="default">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+                        <div>
+                            <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-text-primary">
+                                {t('products.paperConesTubes.headings.comparison')}
+                            </h2>
+                            <p className="text-text-secondary text-lg mb-8 leading-relaxed">
+                                {t(product.comparison.introKey)}
+                            </p>
+                            <ul className="space-y-4">
+                                {product.comparison.pointKeys.map((pointKey) => (
+                                    <li key={pointKey} className="flex items-start gap-3">
+                                        <Check className="h-5 w-5 shrink-0 mt-0.5 text-brand-primary" aria-hidden="true" />
+                                        <span className="text-text-primary">{t(pointKey)}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <Card className="p-8 h-full">
+                            <div className="flex items-center gap-3 mb-4">
+                                <Recycle className="h-6 w-6 shrink-0 text-brand-primary" aria-hidden="true" />
+                                <h4 className="text-xl font-bold text-text-primary">
+                                    {t(product.comparison.sustainabilityHeadingKey)}
+                                </h4>
+                            </div>
+                            <p className="text-text-secondary leading-relaxed mb-6">
+                                {t(product.comparison.sustainabilityBodyKey)}
+                            </p>
+                            <Link
+                                href={getLocalizedPath(currentLocale, '/sustainability')}
+                                className="inline-flex items-center gap-2 text-brand-primary font-semibold hover:gap-3 transition-all"
+                            >
+                                <Leaf className="h-4 w-4" aria-hidden="true" />
+                                {t(product.comparison.sustainabilityLinkLabelKey)}
+                                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                            </Link>
+                        </Card>
+                    </div>
+                </Section>
+            )}
+
+            {/* Bedruckte & individuelle Hülsen nach Maß */}
+            {product.customSectionKey && (
+                <Section variant="darker">
+                    <div className="max-w-3xl">
+                        <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-text-primary">
+                            {t('products.paperConesTubes.headings.custom')}
+                        </h2>
+                        <p className="text-text-secondary text-lg leading-relaxed">
+                            {t(product.customSectionKey)}
+                        </p>
+                    </div>
+                </Section>
+            )}
 
             {galleryImages.length > 0 && (
                 <Section variant="darker">
@@ -166,6 +296,9 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                         {t('products.detail.ctaButton', { product: t(`${product.i18nKey}.name`) })}
                     </Button>
                 </Link>
+                {product.b2bNoteKey && (
+                    <p className="mt-6 text-sm text-text-tertiary">{t(product.b2bNoteKey)}</p>
+                )}
             </Section>
         </>
     );

@@ -19,16 +19,19 @@ export async function POST(request: Request) {
 
         const msg = {
             to: process.env.CONTACT_EMAIL,
+            // {{TODO: Domain-Absenderadresse bestätigen (info@/noreply@papermarketworld.com)}}
             from: 'noreply@papermarketworld.com',
             subject: `New Contact Form: ${data.name} - ${data.company}`,
             text: `
                 Name: ${data.name}
                 Company: ${data.company}
+                VAT ID: ${data.vatId || 'N/A'}
                 Email: ${data.email}
                 Phone: ${data.phone || 'N/A'}
                 Product: ${data.product || 'N/A'}
+                Hülsentyp: ${data.huelseType || 'N/A'}
                 Quantity: ${data.quantity || 'N/A'}
-                
+
                 Message:
                 ${data.message}
             `,
@@ -36,9 +39,11 @@ export async function POST(request: Request) {
                 <h2>New Contact Form Submission</h2>
                 <p><strong>Name:</strong> ${data.name}</p>
                 <p><strong>Company:</strong> ${data.company}</p>
+                <p><strong>VAT ID:</strong> ${data.vatId || 'N/A'}</p>
                 <p><strong>Email:</strong> ${data.email}</p>
                 <p><strong>Phone:</strong> ${data.phone || 'N/A'}</p>
                 <p><strong>Product:</strong> ${data.product || 'N/A'}</p>
+                <p><strong>Hülsentyp:</strong> ${data.huelseType || 'N/A'}</p>
                 <p><strong>Quantity:</strong> ${data.quantity || 'N/A'}</p>
                 <p><strong>Message:</strong></p>
                 <p>${data.message}</p>

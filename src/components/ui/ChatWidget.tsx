@@ -12,6 +12,10 @@ import {
 import { FaWhatsapp, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/Button';
+import { trackContactClick } from '@/lib/analytics';
+
+// {{TODO: Domain-E-Mail bestätigen (info@papermarketworld.com)}}
+const CONTACT_EMAIL = 'info@papermarketworld.com';
 
 interface Message {
     id: string;
@@ -293,6 +297,7 @@ export function ChatWidget({
                     href="https://wa.me/436602492186"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => trackContactClick('whatsapp')}
                     className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
                     aria-label="WhatsApp"
                 >
@@ -305,6 +310,7 @@ export function ChatWidget({
                 {/* Phone */}
                 <a
                     href="tel:+436602492186"
+                    onClick={() => trackContactClick('tel')}
                     className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
                     aria-label={t('chat.callUs')}
                 >
@@ -316,7 +322,8 @@ export function ChatWidget({
 
                 {/* Email */}
                 <a
-                    href="mailto:papermarketworld@gmail.com"
+                    href={`mailto:${CONTACT_EMAIL}`}
+                    onClick={() => trackContactClick('mailto')}
                     className="group flex flex-col md:flex-row items-center justify-center md:justify-between md:w-44 p-1 md:py-2 md:pl-5 md:pr-1.5 md:bg-[#1E293B] md:border md:border-border-primary/50 rounded-lg md:rounded-full cursor-pointer transition-all duration-200 md:hover:bg-brand-primary/10 md:hover:border-brand-primary md:hover:-translate-x-2 md:shadow-lg"
                     aria-label={t('chat.emailUs')}
                 >

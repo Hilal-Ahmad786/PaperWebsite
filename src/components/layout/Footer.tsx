@@ -2,6 +2,10 @@ import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
+import { TrackedContactLink } from '@/components/ui/TrackedContactLink';
+
+// {{TODO: Domain-E-Mail bestätigen (info@papermarketworld.com)}}
+const CONTACT_EMAIL = 'info@papermarketworld.com';
 
 interface FooterProps {
   locale: string;
@@ -27,6 +31,7 @@ export function Footer({ locale }: FooterProps) {
   ];
 
   const legalLinks = [
+    { href: getLocalizedPath(currentLocale, '/legal/imprint'), label: t('footer.imprint') },
     { href: getLocalizedPath(currentLocale, '/legal/privacy'), label: t('footer.privacy') },
   ];
 
@@ -44,15 +49,15 @@ export function Footer({ locale }: FooterProps) {
             </p>
 
             <div className="space-y-2">
-              <a href="mailto:papermarketworld@gmail.com" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors font-medium">
-                papermarketworld@gmail.com
-              </a>
-              <a href="tel:+436602492186" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors">
+              <TrackedContactLink href={`mailto:${CONTACT_EMAIL}`} channel="mailto" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors font-medium">
+                {CONTACT_EMAIL}
+              </TrackedContactLink>
+              <TrackedContactLink href="tel:+436602492186" channel="tel" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors">
                 AT: +43 660 249 21 86
-              </a>
-              <a href="tel:+905347749744" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors">
+              </TrackedContactLink>
+              <TrackedContactLink href="tel:+905347749744" channel="tel" className="block text-sm text-text-secondary hover:text-brand-primary transition-colors">
                 TR: +90 534 774 97 44
-              </a>
+              </TrackedContactLink>
             </div>
           </div>
 

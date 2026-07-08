@@ -1,42 +1,66 @@
 import { MarketIndex } from '@/types';
 
-// In production, this would come from an API or CMS
-// For now, these are sample/placeholder values
-export const marketIndices: MarketIndex[] = [
+const manualUpdatedAt = '2026-06-08';
+
+export const paperMarketIndicators: MarketIndex[] = [
   {
     label: 'NBSK PULP',
-    value: '$1,200',
-    change: '▲ 2.3%',
-    isUp: true,
+    value: '$1,200/MT',
+    change: 'Indicative',
+    trend: 'neutral',
+    source: 'Supplier benchmark',
+    updatedAt: manualUpdatedAt,
   },
   {
     label: 'TESTLINER EU',
-    value: '€650',
-    change: '▼ 0.8%',
-    isUp: false,
+    value: '€650/MT',
+    change: 'Indicative',
+    trend: 'neutral',
+    source: 'Supplier benchmark',
+    updatedAt: manualUpdatedAt,
   },
   {
     label: 'KRAFTLINER',
-    value: '$890',
-    change: '▲ 1.2%',
-    isUp: true,
-  },
-  {
-    label: 'FREIGHT INDEX',
-    value: '$3,200',
-    change: '▲ 5.1%',
-    isUp: true,
+    value: '$890/MT',
+    change: 'Indicative',
+    trend: 'neutral',
+    source: 'Supplier benchmark',
+    updatedAt: manualUpdatedAt,
   },
   {
     label: 'DUPLEX BOARD TR',
-    value: '₺12,500',
-    change: '▲ 0.5%',
-    isUp: true,
+    value: '₺12,500/MT',
+    change: 'Indicative',
+    trend: 'neutral',
+    source: 'Supplier benchmark',
+    updatedAt: manualUpdatedAt,
   },
   {
-    label: 'TRİPLEXBOARD',
-    value: '¥4,200',
-    change: '▼ 1.3%',
-    isUp: false,
+    label: 'CONTAINER MARKET',
+    value: '$3,200/FEU',
+    change: 'Indicative',
+    trend: 'neutral',
+    source: 'Freight benchmark',
+    updatedAt: manualUpdatedAt,
   },
+];
+
+export const marketIndices: MarketIndex[] = [
+  {
+    label: 'USD/TRY',
+    value: '₺46.08',
+    change: 'Daily FX',
+    trend: 'neutral',
+    source: 'Frankfurter',
+    updatedAt: '2026-06-05',
+  },
+  {
+    label: 'EUR/USD',
+    value: '$1.1640',
+    change: 'Daily FX',
+    trend: 'neutral',
+    source: 'Frankfurter',
+    updatedAt: '2026-06-05',
+  },
+  ...paperMarketIndicators,
 ];

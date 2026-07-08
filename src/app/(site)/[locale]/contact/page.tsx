@@ -1,10 +1,26 @@
 import { useTranslations } from 'next-intl';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { staticAlternates } from '@/lib/seo';
 import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/ui/ContactForm';
 import { Card } from '@/components/ui/Card';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale });
+  return {
+    title: t('contact.title'),
+    description: t('contact.subtitle'),
+    alternates: staticAlternates(locale as Locale, '/contact'),
+  };
+}
 
 export default function ContactPage({ params: { locale } }: { params: { locale: string } }) {
     const currentLocale = locale as Locale;

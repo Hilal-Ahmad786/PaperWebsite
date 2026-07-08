@@ -1,4 +1,7 @@
 import { useTranslations } from 'next-intl';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { staticAlternates } from '@/lib/seo';
 import Link from 'next/link';
 import {
   ArrowRight,
@@ -33,6 +36,16 @@ const productIconMap: Record<string, { icon: LucideIcon; tone: IconTone }> = {
   'triplex-board': { icon: Boxes, tone: 'teal' },
   'paper-cones-tubes': { icon: Cylinder, tone: 'rose' },
 };
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  return {
+    alternates: staticAlternates(locale as Locale, '/'),
+  };
+}
 
 export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const currentLocale = locale as Locale;

@@ -20,6 +20,23 @@ export interface ProductImage {
   captionKey?: string;
 }
 
+// Optional rich "landing page" content used for SEM/Ads landing pages
+// (currently the paper cones / Hülsen page). Each field is gated by
+// presence in the product page renderer, so non-landing products are
+// unaffected and the existing design is preserved.
+export interface HuelseType {
+  nameKey: string;
+  descKey: string;
+}
+
+export interface ProductComparison {
+  introKey: string;
+  pointKeys: string[];
+  sustainabilityHeadingKey: string;
+  sustainabilityBodyKey: string;
+  sustainabilityLinkLabelKey: string;
+}
+
 export interface Product {
   slug: ProductSlug;
   i18nKey: string; // e.g., "products.duplexBoard"
@@ -30,6 +47,14 @@ export interface Product {
   typicalIndustries: string[]; // translation keys
   heroImage?: ProductImage;
   images?: ProductImage[];
+  // --- Optional landing-page content (Ads target pages) ---
+  subtitleKey?: string; // hero subline under the H1
+  specsHeadingKey?: string; // override for the specs H2
+  applicationsHeadingKey?: string; // override for the applications H2
+  huelseTypes?: HuelseType[]; // "Hülsentypen für die Textilindustrie"
+  comparison?: ProductComparison; // "Papierhülsen vs. Kunststoffhülsen"
+  customSectionKey?: string; // "Bedruckte & individuelle Hülsen nach Maß"
+  b2bNoteKey?: string; // B2B sales filter line near CTA
 }
 
 // Stock Offer Types
@@ -83,7 +108,10 @@ export interface MarketIndex {
   label: string;
   value: string;
   change: string;
-  isUp: boolean;
+  isUp?: boolean;
+  trend?: 'up' | 'down' | 'neutral';
+  source?: string;
+  updatedAt?: string;
 }
 
 // Contact Form Types

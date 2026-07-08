@@ -1,0 +1,799 @@
+{
+  "nav": {
+    "products": "Productos",
+    "services": "Servicios",
+    "regions": "Regiones",
+    "sustainability": "Sostenibilidad",
+    "insights": "Análisis",
+    "stockOffers": "Existencias y ofertas",
+    "about": "Acerca de",
+    "contact": "Contacto",
+    "getQuote": "Solicitar presupuesto",
+    "home": "Inicio"
+  },
+  "common": {
+    "getQuote": "Solicitar presupuesto",
+    "viewProducts": "Ver productos",
+    "learnMore": "Más información",
+    "readMore": "Leer más",
+    "contactUs": "Contáctenos",
+    "sendMessage": "Enviar mensaje",
+    "loading": "Cargando...",
+    "error": "Se ha producido un error",
+    "back": "Atrás",
+    "next": "Siguiente"
+  },
+  "home": {
+    "hero": {
+      "title": "Comercio global de papel",
+      "titleHighlight": "Diseñado para escalar",
+      "subtitle": "Conectamos Europa, Turquía y Asia mediante el abastecimiento preciso de cartón dúplex y cartón para embalaje. Datos de mercado en tiempo real. Logística transparente. Sin intermediarios.",
+      "cta1": "Solicitar presupuesto",
+      "cta2": "Ver productos"
+    },
+    "stats": {
+      "suppliers": "Proveedores activos",
+      "countries": "Países atendidos",
+      "volume": "Toneladas comercializadas al mes",
+      "uptime": "Seguimiento del mercado"
+    },
+    "whoWeServe": {
+      "title": "A quién servimos",
+      "converters": "Transformadores de embalaje",
+      "printers": "Plantas de cajas e imprentas",
+      "traders": "Comerciantes y mayoristas"
+    },
+    "products": {
+      "title": "Líneas de productos principales",
+      "subtitle": "Calidades especializadas para aplicaciones de embalaje, impresión e industriales"
+    },
+    "regions": {
+      "title": "Red global",
+      "subtitle": "Atendemos tres continentes con soporte multilingüe"
+    },
+    "whyUs": {
+      "title": "Por qué trabajar con nosotros",
+      "multilingual": "Soporte multilingüe",
+      "multilingualDesc": "Equipo que habla EN, TR, DE, AR",
+      "boutique": "Boutique y ágiles",
+      "boutiqueDesc": "Empresa familiar, atención personalizada",
+      "network": "Sólida red de fábricas",
+      "networkDesc": "Conexiones en Turquía, India, China y la UE",
+      "flexible": "Cantidades mínimas flexibles",
+      "flexibleDesc": "Contenedores de prueba disponibles",
+      "documentation": "Documentación completa",
+      "documentationDesc": "Soporte logístico y de cumplimiento normativo",
+      "fastResponse": "Respuesta rápida",
+      "fastResponseDesc": "Presupuestos en 24 horas"
+    },
+    "productFinder": {
+      "title": "Encuentre su papel ideal",
+      "subtitle": "Utilice nuestro buscador inteligente de productos para descubrir las mejores calidades para su aplicación específica."
+    },
+    "stockOffers": {
+      "title": "Existencias y ofertas actuales",
+      "subtitle": "Disponibilidad limitada en estas calidades"
+    },
+    "finalCta": {
+      "title": "¿Listo para abastecer su próximo contenedor?",
+      "subtitle": "Envíenos sus requisitos. Le responderemos con opciones, precios y plazos de entrega en un plazo de 24 horas."
+    }
+  },
+  "products": {
+    "title": "Nuestros productos",
+    "subtitle": "Calidades especializadas para aplicaciones de embalaje, impresión e industriales",
+    "categories": {
+      "board": "Cartón",
+      "containerboard": "Cartón para embalaje",
+      "converted": "Productos de papel transformado"
+    },
+    "gallery": {
+      "title": "Galería de productos",
+      "subtitle": "Referencias visuales de formatos, acabados, colores y opciones de personalización de los productos."
+    },
+    "detail": {
+      "technicalSpecs": "Especificaciones técnicas",
+      "origins": "Orígenes",
+      "applications": "Aplicaciones",
+      "typicalIndustries": "Industrias típicas",
+      "specsAnchor": "Especificaciones",
+      "ctaTitle": "¿Necesita {product}?",
+      "ctaSubtitle": "Podemos abastecer esta calidad desde múltiples orígenes para adaptarnos a sus requisitos y presupuesto específicos.",
+      "ctaButton": "Solicitar un presupuesto de {product}"
+    },
+    "duplexBoard": {
+      "name": "Cartón dúplex",
+      "short": "Calidades premium de reverso gris y blanco para embalaje de bienes de consumo, cosméticos y productos farmacéuticos",
+      "description": "Cartón dúplex de calidad premium con reverso gris o blanco. Ideal para embalaje de bienes de consumo, estuches de cosméticos, cartonajes farmacéuticos y embalaje de electrónica. Disponible en las calidades GC1, GC2 y GD2.",
+      "apps": {
+        "fmcg": "Embalaje de bienes de consumo",
+        "cosmetics": "Estuches de cosmética y belleza",
+        "pharma": "Cartonajes farmacéuticos",
+        "electronics": "Embalaje de electrónica"
+      },
+      "industries": {
+        "packaging": "Transformadores de embalaje",
+        "printing": "Imprentas comerciales",
+        "converting": "Plantas de transformación"
+      }
+    },
+    "testlinerFluting": {
+      "name": "Testliner y Fluting",
+      "short": "Cartón para embalaje reciclado para aplicaciones de cartón ondulado con calidad constante y precios competitivos",
+      "description": "Cartón para embalaje reciclado en las calidades TL1, TL2, TL3 y Fluting Medium. Perfecto para embalaje de comercio electrónico, cajas industriales y embalaje agrícola. Una opción sostenible con un 60-100 % de contenido reciclado.",
+      "apps": {
+        "ecommerce": "Envíos de comercio electrónico",
+        "shipping": "Cajas de envío generales",
+        "industrial": "Embalaje industrial",
+        "agriculture": "Cajas agrícolas"
+      },
+      "industries": {
+        "boxPlants": "Plantas de fabricación de cajas",
+        "corrugated": "Fabricantes de cartón ondulado",
+        "converters": "Transformadores de embalaje"
+      }
+    },
+    "kraftlinerWhiteTop": {
+      "name": "Kraftliner y White Top",
+      "short": "Linerboard de fibra virgen con resistencia superior y alto índice de estallido para aplicaciones exigentes",
+      "description": "Kraftliner de fibra virgen y linerboard White Top con una resistencia excepcional. Alto índice de estallido (3,5-5,5 kPa·m²/g) para aplicaciones de embalaje de alta resistencia, de exportación y premium.",
+      "apps": {
+        "heavy": "Embalaje de alta resistencia",
+        "export": "Cajas de calidad para exportación",
+        "premium": "Embalaje premium",
+        "frozen": "Cajas para alimentos congelados"
+      },
+      "industries": {
+        "corrugated": "Fabricantes de cartón ondulado",
+        "export": "Embalaje para exportación",
+        "food": "Embalaje alimentario"
+      }
+    },
+    "triplexBoard": {
+      "name": "TRİPLEXBOARD",
+      "short": "Cartón reciclado multicapa de alto rendimiento para embalaje",
+      "description": "Cartón triplex de calidad premium con capa superior blanca y reverso gris. Excelente rigidez e imprimibilidad para soluciones de embalaje. Ideal para bienes de consumo, embalaje alimentario y cartonajes industriales. Una opción sostenible y rentable.",
+      "apps": {
+        "fmcg": "Embalaje de bienes de consumo",
+        "pharma": "Estuches farmacéuticos",
+        "cosmetics": "Embalaje de cosmética",
+        "confectionery": "Cajas de confitería"
+      },
+      "industries": {
+        "packaging": "Transformadores de embalaje",
+        "printing": "Impresión comercial",
+        "luxury": "Bienes de consumo"
+      }
+    },
+    "paperConesTubes": {
+      "name": "Conos y tubos de papel para textil",
+      "short": "Conos y tubos de papel para la industria textil: tubos para hilo, cónicos, de bobinado cruzado y de teñido; naturales, teñidos, impresos y a medida.",
+      "subline": "Conos y tubos de papel para aplicaciones textiles y de bobinado: conos cónicos, tubos de husada, de bobinado cruzado y de teñido. Naturales, teñidos, impresos y con punta aterciopelada/flocada. Medidas personalizadas y muestras disponibles.",
+      "description": "Como proveedor y socio de abastecimiento suministramos conos y tubos de papel para aplicaciones textiles y de bobinado: conos de papel para hilo, conos cónicos, tubos de bobinado cruzado, tubos de papel para teñido y conos especiales. Disponibles en natural, teñidos, impresos y con punta aterciopelada/flocada, fabricados según sus dimensiones y con muestras a petición. Abastecidos desde la UE y Turquía.",
+      "metaTitle": "Conos y tubos de papel para textil | Proveedor de conos de papel",
+      "metaDescription": "Conos y tubos de papel para la industria textil: tubos para hilo, cónicos, de bobinado cruzado y de teñido. Impresos, teñidos, a medida. Desde la UE y Turquía. Solicite un presupuesto.",
+      "headings": {
+        "specs": "Especificaciones técnicas de los conos de papel",
+        "applications": "Aplicaciones: bobinado de hilo, hilatura y tejeduría",
+        "types": "Tipos de conos y tubos para la industria textil",
+        "comparison": "Conos de papel frente a conos de plástico",
+        "custom": "Conos impresos y personalizados a medida"
+      },
+      "types": {
+        "intro": "Abastecemos el formato de cono o tubo adecuado para su proceso, desde la hilatura y el bobinado hasta el teñido del hilo."
+      },
+      "huelseTypes": {
+        "konus": {
+          "name": "Conos cónicos",
+          "desc": "Para bobinas cruzadas, así como para hilos de tejeduría y de punto. La forma cónica garantiza un desenrollado del hilo suave y uniforme en el procesamiento posterior."
+        },
+        "garn": {
+          "name": "Conos y tubos para hilo",
+          "desc": "Soportes para hilatura y torsión, dimensionalmente estables para un bobinado limpio y uniforme."
+        },
+        "kreuzspul": {
+          "name": "Tubos de bobinado cruzado",
+          "desc": "Diseñados para máquinas de bobinado automáticas, con dimensiones constantes para un funcionamiento fluido."
+        },
+        "faerbe": {
+          "name": "Tubos de teñido",
+          "desc": "Tubos perforados para el teñido del hilo que permiten que el baño de tinte penetre de manera uniforme. {{TODO: only if we carry dye tubes}}"
+        },
+        "naehgarn": {
+          "name": "Conos para hilo de coser / tubos de husada",
+          "desc": "Para hilo de coser e hilos técnicos, disponibles en diversas longitudes y diámetros."
+        },
+        "spezial": {
+          "name": "Conos especiales",
+          "desc": "Formas especiales y dimensiones personalizadas según sus especificaciones."
+        }
+      },
+      "comparison": {
+        "intro": "En muchos procesos textiles, los conos de papel son la alternativa más sostenible y segura para el proceso frente a los conos de plástico.",
+        "points": {
+          "recyclable": "Totalmente reciclables y fabricados a partir de una materia prima renovable.",
+          "contaminationFree": "Libres de contaminación: sin residuos de plástico en el ciclo de la fibra.",
+          "dyeProcess": "Aptos para procesos de teñido (tubos de teñido perforados).",
+          "disposal": "Eliminación sencilla y en un solo flujo a través del ciclo del papel usado."
+        },
+        "sustainabilityHeading": "Sostenibilidad: conos de papel 100 % reciclables",
+        "sustainabilityBody": "Nuestros conos de papel están fabricados con material reciclable y pueden eliminarse en un solo flujo al final de su ciclo de vida, lo que le ayuda a reducir el plástico en su cadena de suministro.",
+        "sustainabilityLink": "Más sobre sostenibilidad"
+      },
+      "custom": {
+        "body": "Suministramos conos de papel según sus especificaciones: impresos con logotipo, códigos o anillos de color para la identificación del hilo, teñidos o con punta aterciopelada/flocada. Adaptamos las dimensiones, los colores y la impresión a sus máquinas y programa; muestras a petición."
+      },
+      "b2bNote": "Venta exclusivamente a clientes empresariales (B2B).",
+      "apps": {
+        "textileYarn": "Bobinado de hilo en hilatura y torsión",
+        "paperFoil": "Aplicaciones de bobinado para papel, lámina y cintas técnicas",
+        "technicalTextiles": "Textiles técnicos e hilos especiales",
+        "brandedCones": "Programas de conos impresos y personalizados"
+      },
+      "industries": {
+        "textileMills": "Fábricas textiles y plantas de tejeduría",
+        "yarnProducers": "Fabricantes de hilo e hilanderías",
+        "converters": "Tintorerías de hilo y transformadores"
+      },
+      "gallery": {
+        "cover": {
+          "alt": "Conos de papel para hilo y cónicos para la industria textil",
+          "caption": "Vista general de la familia de productos con tubos para hilo, cónicos y de bobinado cruzado"
+        },
+        "flyer": {
+          "alt": "Folleto de producto de conos de papel: tubos para hilo, cónicos y de bobinado cruzado",
+          "caption": "Folleto de producto que destaca las ventajas de calidad, entrega y personalización"
+        },
+        "measurements": {
+          "alt": "Muestra de cono de papel cónico con medidas: longitud y diámetro",
+          "caption": "Conos de muestra con medidas de producción y marcas de borde"
+        },
+        "measurementsDetail": {
+          "alt": "Conos para hilo y tubos de husada con dimensiones y marcas",
+          "caption": "Conjunto de muestras detallado que muestra las dimensiones de los conos y las marcas impresas"
+        },
+        "colorRings": {
+          "alt": "Conos de papel cónicos de colores con anillos para la identificación del hilo",
+          "caption": "Opciones de forma del cono y anillos de color para la identificación"
+        },
+        "flockedColors": {
+          "alt": "Puntas aterciopeladas/flocadas para conos de papel: catálogo de colores",
+          "caption": "Catálogo de colores de puntas aterciopeladas/flocadas"
+        },
+        "patternCatalog": {
+          "alt": "Conos de papel para hilo impresos y flocados: variaciones de patrones",
+          "caption": "Catálogo de patrones para conos impresos y flocados"
+        }
+      }
+    }
+  },
+  "specs": {
+    "gsmRange": "Rango de gramaje (GSM)",
+    "grades": "Calidades",
+    "backColor": "Color del reverso",
+    "reelWidth": "Ancho de bobina",
+    "coreSize": "Tamaño del mandril",
+    "recycledContent": "Contenido reciclado",
+    "type": "Tipo",
+    "burstIndex": "Índice de estallido",
+    "coating": "Recubrimiento",
+    "brightness": "Blancura",
+    "origin": "Origen",
+    "leadTime": "Plazo de entrega",
+    "productTypes": "Tipos de producto",
+    "dimensions": "Dimensiones",
+    "surfaceOptions": "Opciones de superficie",
+    "printOptions": "Opciones de impresión",
+    "applications": "Aplicaciones",
+    "taper": "Conicidad / Ángulo del cono",
+    "length": "Longitud",
+    "innerDiameter": "Diámetro interior",
+    "wallThickness": "Espesor de pared",
+    "surfaceFinish": "Acabado de superficie",
+    "moq": "Cantidad mínima de pedido (MOQ)",
+    "norm": "Norma"
+  },
+  "specValues": {
+    "backColor": {
+      "greyWhite": "Gris / Blanco"
+    },
+    "grades": {
+      "testlinerFluting": "TL1, TL2, TL3, Fluting"
+    },
+    "type": {
+      "virginFiber": "Fibra virgen"
+    },
+    "coating": {
+      "doubleCoated": "Doble estucado"
+    },
+    "productTypes": {
+      "paperConesTubes": "Conos para hilo, conos cónicos, tubos de bobinado cruzado, tubos de teñido"
+    },
+    "dimensions": {
+      "custom": "Longitudes y diámetros personalizados"
+    },
+    "surfaceOptions": {
+      "cones": "Natural, coloreado, aterciopelado/flocado"
+    },
+    "surfaceFinish": {
+      "cones": "liso, ranurado, gofrado"
+    },
+    "origin": {
+      "euTurkey": "UE / Turquía"
+    },
+    "printOptions": {
+      "cones": "Patrones impresos, códigos, personalización de marca"
+    },
+    "applications": {
+      "cones": "Hilo textil, papel, lámina"
+    }
+  },
+  "origins": {
+    "turkey": "Turquía",
+    "india": "India",
+    "china": "China",
+    "eu": "UE",
+    "egypt": "Egipto",
+    "russia": "Rusia",
+    "brazil": "Brasil",
+    "nordic": "Países nórdicos",
+    "europe": "Europa",
+    "asia": "Asia",
+    "usa": "EE. UU."
+  },
+  "stockOffers": {
+    "title": "Existencias y ofertas",
+    "subtitle": "Disponibilidad actual y ofertas especiales",
+    "filters": {
+      "allOrigins": "Todos los orígenes",
+      "allTypes": "Todos los tipos",
+      "all": "Todos los productos",
+      "prime": "Calidad prime",
+      "stocklot": "Lotes de existencias",
+      "byProduct": "Filtrar por producto",
+      "byOrigin": "Filtrar por origen",
+      "byType": "Filtrar por tipo",
+      "clear": "Borrar filtros"
+    },
+    "table": {
+      "grade": "Calidad",
+      "gsm": "GSM",
+      "quantity": "Cantidad",
+      "origin": "Origen",
+      "port": "Puerto",
+      "availability": "Disponibilidad",
+      "type": "Tipo",
+      "action": "Acción"
+    },
+    "requestOffer": "Solicitar esta oferta",
+    "viewAll": "Ver todas las ofertas",
+    "empty": "No se encontraron ofertas que coincidan con sus filtros.",
+    "tons": "toneladas",
+    "availability": {
+      "readyToShip": "Listo para enviar",
+      "inProduction14Days": "En producción - 14 días",
+      "in2Weeks": "En 2 semanas"
+    },
+    "items": {
+      "so2024001": {
+        "gradeName": "Cartón dúplex GC1"
+      },
+      "so2024002": {
+        "gradeName": "Testliner TL3"
+      },
+      "so2024003": {
+        "gradeName": "GD2 reverso gris"
+      },
+      "so2024004": {
+        "gradeName": "White Top Kraftliner"
+      },
+      "so2024005": {
+        "gradeName": "Fluting Medium"
+      },
+      "so2024006": {
+        "gradeName": "Cartón triplex estucado"
+      }
+    }
+  },
+  "contact": {
+    "title": "Póngase en contacto",
+    "subtitle": "Envíenos sus requisitos. Le responderemos en un plazo de 24 horas.",
+    "form": {
+      "name": "Nombre completo",
+      "company": "Nombre de la empresa",
+      "country": "País",
+      "email": "Dirección de correo electrónico",
+      "phone": "Teléfono / WhatsApp",
+      "product": "Producto de interés",
+      "productPlaceholder": "Seleccione un producto",
+      "gsmRange": "Rango de gramaje (GSM)",
+      "quantity": "Cantidad (toneladas)",
+      "destinationPort": "Puerto de destino",
+      "message": "Mensaje / Requisitos",
+      "submit": "Enviar solicitud",
+      "submitting": "Enviando...",
+      "success": "¡Gracias! Le responderemos en un plazo de 24 horas.",
+      "error": "Error al enviar. Inténtelo de nuevo o escríbanos directamente por correo electrónico.",
+      "sendAnother": "Enviar otro mensaje",
+      "other": "Otro",
+      "quantityPlaceholder": "p. ej. 100",
+      "vatId": "Número de IVA",
+      "vatIdPlaceholder": "p. ej. ATU12345678",
+      "huelseType": "Tipo de cono / tubo",
+      "huelseTypePlaceholder": "Seleccione un tipo"
+    },
+    "info": {
+      "headquarters": {
+        "title": "Sede central",
+        "address": {
+          "line1": "Paper Market World GmbH",
+          "line2": "Kärntner Ring 5-7",
+          "line3": "1010 Viena, Austria"
+        }
+      },
+      "regional": {
+        "title": "Oficina regional",
+        "address": {
+          "line1": "PMW Turquía",
+          "line2": "Maslak Mah. Büyükdere Cad.",
+          "line3": "34398 Estambul, Turquía"
+        }
+      },
+      "direct": {
+        "title": "Contacto directo",
+        "email": "Correo electrónico",
+        "phone": "Teléfono",
+        "phoneTr": "Teléfono TR"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Comercio especializado de papel y cartón entre Europa, Turquía y Asia. Empresa familiar. Multilingüe. Transparente.",
+    "products": "Productos",
+    "company": "Empresa",
+    "legal": "Aviso legal",
+    "privacy": "Política de privacidad",
+    "terms": "Condiciones del servicio",
+    "imprint": "Aviso legal",
+    "rights": "Todos los derechos reservados",
+    "locations": "Viena, Austria | Estambul, Turquía",
+    "developedBy": "Desarrollado por"
+  },
+  "services": {
+    "title": "Nuestros servicios",
+    "subtitle": "Soluciones integrales de comercio de papel adaptadas a las necesidades de su negocio.",
+    "items": {
+      "sourcing": {
+        "title": "Abastecimiento global",
+        "description": "Acceso a calidades de papel premium de los principales fabricantes de todo el mundo."
+      },
+      "logistics": {
+        "title": "Logística y envíos",
+        "description": "Soluciones logísticas integrales que garantizan la entrega puntual en su puerto."
+      },
+      "financing": {
+        "title": "Financiación comercial",
+        "description": "Condiciones de pago flexibles y opciones de financiación para compradores cualificados."
+      },
+      "documentation": {
+        "title": "Documentación",
+        "description": "Gestión completa de la documentación aduanera y los trámites de cumplimiento normativo."
+      }
+    },
+    "cta": {
+      "title": "¿Necesita una solución personalizada?",
+      "button": "Contáctenos"
+    }
+  },
+  "regions": {
+    "title": "Alcance global",
+    "subtitle": "Conectamos los mercados de papel entre continentes con eficiencia y fiabilidad.",
+    "items": {
+      "middleEast": {
+        "name": "Oriente Medio",
+        "description": "Atendemos los principales mercados de los EAU, Arabia Saudita, Catar y más allá.",
+        "stats": "Más de 15 países"
+      },
+      "europe": {
+        "name": "Europa",
+        "description": "Conectamos a los fabricantes europeos con la demanda global.",
+        "stats": "Más de 20 socios"
+      },
+      "asia": {
+        "name": "Asia",
+        "description": "Abastecemos productos de papel de alta calidad de las principales fábricas asiáticas.",
+        "stats": "Alto volumen"
+      },
+      "africa": {
+        "name": "África",
+        "description": "Ampliamos nuestro alcance a los mercados emergentes de todo el continente.",
+        "stats": "Mercado en crecimiento"
+      }
+    },
+    "cta": {
+      "title": "Amplíe su mercado",
+      "button": "Colabore con nosotros"
+    }
+  },
+  "sustainability": {
+    "title": "Sostenibilidad",
+    "subtitle": "Comprometidos con prácticas respetuosas con el medio ambiente y el abastecimiento responsable de papel.",
+    "items": {
+      "recycled": {
+        "title": "Materiales reciclados",
+        "description": "Priorizamos a los proveedores que utilizan contenido reciclado y prácticas de silvicultura sostenible."
+      },
+      "impact": {
+        "title": "Impacto global",
+        "description": "Reducimos la huella de carbono mediante una logística optimizada y el abastecimiento regional."
+      },
+      "partnerships": {
+        "title": "Alianzas éticas",
+        "description": "Trabajamos exclusivamente con socios que cumplen estrictas normas medioambientales."
+      }
+    }
+  },
+  "insights": {
+    "title": "Análisis del mercado",
+    "subtitle": "Manténgase a la vanguardia con las últimas noticias, tendencias y análisis del mundo del papel.",
+    "items": {
+      "trends": {
+        "title": "Tendencias del mercado global del papel 2024",
+        "summary": "Análisis de las fluctuaciones de precios y los cambios en la demanda en la industria papelera mundial.",
+        "category": "Análisis de mercado"
+      },
+      "packaging": {
+        "title": "Soluciones de embalaje sostenible",
+        "summary": "Cómo la transición hacia el embalaje ecológico está transformando el mercado.",
+        "category": "Sostenibilidad"
+      },
+      "logistics": {
+        "title": "Desafíos y oportunidades logísticas",
+        "summary": "Cómo navegar por el panorama actual del transporte marítimo y el flete global.",
+        "category": "Logística"
+      }
+    }
+  },
+  "about": {
+    "title": "Acerca de nosotros",
+    "subtitle": "Su socio de confianza en la industria del comercio global de papel.",
+    "mission": {
+      "title": "Nuestra misión",
+      "description": "En Paper Market World, nos esforzamos por acortar la distancia entre los fabricantes y los consumidores de productos de papel de todo el mundo. Nuestra misión es ofrecer soluciones comerciales ágiles, eficientes y transparentes que permitan a las empresas prosperar."
+    },
+    "vision": {
+      "title": "Nuestra visión",
+      "description": "Ser la plataforma digital líder mundial para el comercio de papel, estableciendo el estándar de calidad, fiabilidad e innovación del sector."
+    },
+    "whyChooseUs": "¿Por qué elegirnos?",
+    "stats": {
+      "experience": "Años de experiencia",
+      "partners": "Socios globales",
+      "support": "Soporte"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "subtitle": "Preguntas habituales sobre nuestros servicios y el proceso comercial.",
+      "items": {
+        "moq": {
+          "question": "¿Cuáles son sus cantidades mínimas de pedido (MOQ)?",
+          "answer": "Nuestra MOQ estándar es un contenedor de 20 pies (aprox. 15-18 toneladas). No obstante, para nuevos clientes, podemos estudiar pedidos de prueba o contenedores mixtos según la calidad."
+        },
+        "payment": {
+          "question": "¿Qué condiciones de pago aceptan?",
+          "answer": "Normalmente trabajamos con L/C (carta de crédito) a la vista, CAD (pago contra documentos) o TT (transferencia telegráfica). Es posible ofrecer condiciones de crédito a socios a largo plazo, sujeto a la aprobación del seguro."
+        },
+        "logistics": {
+          "question": "¿Se encargan de la logística y el despacho de aduanas?",
+          "answer": "Sí, ofrecemos soluciones logísticas integrales. Nos encargamos del envío, el seguro y toda la documentación de exportación. El despacho de aduanas de importación suele ser responsabilidad del comprador, pero proporcionamos todo el soporte y la documentación necesarios."
+        },
+        "samples": {
+          "question": "¿Pueden proporcionar muestras antes de realizar el pedido?",
+          "answer": "Por supuesto. Podemos enviar muestras A4 por mensajería para verificar la calidad. Para bobinas de prueba de mayor tamaño, póngase en contacto con nuestro equipo de ventas."
+        }
+      }
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Política de privacidad",
+      "lastUpdated": "Última actualización: diciembre de 2024",
+      "sections": {
+        "data": {
+          "title": "Datos que recopilamos",
+          "body": "Recopilamos la información que usted nos proporciona directamente, incluidos el nombre, el correo electrónico, los datos de la empresa y la información de la consulta cuando se pone en contacto con nosotros."
+        },
+        "use": {
+          "title": "Cómo utilizamos los datos",
+          "body": "Sus datos se utilizan únicamente para responder a sus consultas y proporcionar presupuestos. No vendemos ni compartimos su información con terceros."
+        },
+        "protection": {
+          "title": "Protección de datos",
+          "body": "Aplicamos medidas de seguridad conformes a los estándares del sector para proteger sus datos."
+        },
+        "rights": {
+          "title": "Sus derechos",
+          "body": "Usted tiene derecho a acceder a sus datos personales, corregirlos o eliminarlos. Contáctenos en privacy@papermarketworld.com."
+        },
+        "cookies": {
+          "title": "Cookies",
+          "body": "Utilizamos cookies esenciales para el funcionamiento del sitio. No se utilizan cookies de seguimiento."
+        },
+        "contact": {
+          "title": "Contacto",
+          "body": "Para consultas sobre privacidad: privacy@papermarketworld.com"
+        }
+      }
+    },
+    "imprint": {
+      "title": "Aviso legal",
+      "disclosure": "Información conforme al § 5 ECG (Austria) y al § 5 DDG (Alemania)",
+      "fields": {
+        "company": { "label": "Nombre de la empresa", "value": "{{TODO: vollständiger Firmenname laut Firmenbuch}}" },
+        "legalForm": { "label": "Forma jurídica", "value": "{{TODO: z. B. GmbH}}" },
+        "address": { "label": "Dirección", "value": "{{TODO: Straße und Hausnummer, PLZ, Wien, Österreich}}" },
+        "representative": { "label": "Representante autorizado", "value": "{{TODO: Geschäftsführer:in}}" },
+        "register": { "label": "Número de registro mercantil", "value": "{{TODO: FN xxxxxx x}}" },
+        "court": { "label": "Tribunal de registro", "value": "{{TODO: zuständiges Firmenbuchgericht}}" },
+        "vatId": { "label": "Número de IVA", "value": "{{TODO: ATU xxxxxxxx}}" },
+        "email": { "label": "Correo electrónico", "value": "info@papermarketworld.com {{TODO: bestätigen}}" },
+        "phone": { "label": "Teléfono", "value": "+43 660 249 21 86" }
+      },
+      "liability": {
+        "title": "Responsabilidad por los contenidos",
+        "body": "Los contenidos de este sitio web se han elaborado con el mayor cuidado posible. No obstante, no asumimos ninguna responsabilidad por la exactitud, integridad o actualidad de los contenidos."
+      },
+      "dispute": {
+        "title": "Resolución de litigios en línea",
+        "body": "La Comisión Europea proporciona una plataforma para la resolución de litigios en línea (RLL): https://ec.europa.eu/consumers/odr. No estamos obligados ni dispuestos a participar en procedimientos de resolución de litigios ante una junta de arbitraje de consumo. Nota: venta exclusivamente a clientes empresariales (B2B)."
+      }
+    }
+  },
+  "thankYou": {
+    "title": "Gracias por su consulta",
+    "subtitle": "Hemos recibido su solicitud y nos pondremos en contacto con usted en un plazo de 24 horas.",
+    "backHome": "Volver al inicio"
+  },
+  "comparison": {
+    "label": {
+      "features": "Características",
+      "gsm": "Rango de gramaje (GSM)",
+      "grades": "Calidades",
+      "origin": "Origen",
+      "price": "Indicador de precio",
+      "applications": "Aplicaciones principales"
+    },
+    "addToQuote": "Añadir al presupuesto"
+  },
+  "calculator": {
+    "title": "Estimador de precios instantáneo",
+    "subtitle": "Obtenga un presupuesto preliminar para sus necesidades de papel",
+    "product": "Producto",
+    "selectProduct": "Seleccione un producto",
+    "gsm": "Rango de gramaje (GSM)",
+    "selectGsm": "Seleccione GSM",
+    "quantity": "Cantidad (toneladas)",
+    "port": "Puerto de entrega",
+    "estimatedTotal": "Total estimado",
+    "basePrice": "Precio base + logística",
+    "submit": "Solicitar presupuesto formal",
+    "standardRange": "Rango estándar",
+    "portPlaceholder": "p. ej. Estambul, Hamburgo",
+    "included": "Incluido"
+  },
+  "datatable": {
+    "search": "Buscar...",
+    "export": "Exportar CSV",
+    "noData": "No se encontraron datos",
+    "rowsPerPage": "Filas por página:",
+    "showing": "Mostrando {start}-{end} de {total}"
+  },
+  "finder": {
+    "step": "Paso {current} de {total}",
+    "finish": "Ver resultados",
+    "step1": {
+      "title": "¿Qué está buscando?"
+    },
+    "step2": {
+      "title": "Especificaciones técnicas",
+      "gsmRange": "Rango de gramaje (GSM) preferido",
+      "quality": "Clase de calidad"
+    },
+    "step3": {
+      "title": "Origen y presupuesto",
+      "budget": "Rango de presupuesto"
+    },
+    "results": {
+      "matchFound": "{count} coincidencias encontradas",
+      "subtitle": "Según sus requisitos",
+      "reset": "Empezar de nuevo",
+      "viewDetails": "Ver detalles",
+      "match": "Coincidencia"
+    },
+    "options": {
+      "fmcg": "Bienes de consumo y embalaje",
+      "pharma": "Productos farmacéuticos",
+      "ecommerce": "Comercio electrónico",
+      "industrial": "Industrial"
+    },
+    "grades": {
+      "virgin": "Fibra virgen",
+      "recycled": "Reciclado",
+      "mixed": "Mixto",
+      "coated": "Estucado",
+      "uncoated": "Sin estucar"
+    },
+    "origins": {
+      "turkey": "Turquía",
+      "europe": "Europa",
+      "asia": "Asia",
+      "usa": "EE. UU."
+    },
+    "budgets": {
+      "economy": "Económico",
+      "standard": "Estándar",
+      "premium": "Premium"
+    }
+  },
+  "chat": {
+    "agentName": "Agente de soporte",
+    "online": "En línea",
+    "offline": "Desconectado",
+    "welcomeTitle": "¿Cómo podemos ayudarle?",
+    "welcomeSubtitle": "Déjenos un mensaje y le responderemos en breve.",
+    "startChat": "Iniciar chat",
+    "placeholder": "Escriba un mensaje...",
+    "agentResponse": "¡Gracias por su mensaje! Un agente le atenderá en breve.",
+    "callUs": "Llámenos",
+    "emailUs": "Correo electrónico",
+    "liveChat": "Chat en vivo",
+    "close": "Cerrar",
+    "namePlaceholder": "Juan Pérez",
+    "emailPlaceholder": "juan@ejemplo.com",
+    "messagePlaceholder": "¿Cómo podemos ayudarle?",
+    "poweredBy": "Con la tecnología de"
+  },
+  "accordion": {
+    "searchPlaceholder": "Buscar preguntas frecuentes...",
+    "noResults": "No se encontraron resultados para «{query}»"
+  },
+  "modal": {
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "close": "Cerrar"
+  },
+  "upload": {
+    "dropzone": {
+      "title": "Haga clic para subir o arrastre y suelte",
+      "subtitle": "PDF, PNG, JPG o XLSX (máx. {max}MB)"
+    },
+    "status": {
+      "completed": "Completado",
+      "uploading": "Subiendo..."
+    },
+    "error": {
+      "size": "El tamaño del archivo supera el límite de {size}MB",
+      "type": "Tipo de archivo no válido"
+    }
+  },
+  "tracker": {
+    "title": "Seguimiento de su pedido",
+    "subtitle": "Actualizaciones en tiempo real sobre el estado de su envío",
+    "estimatedDelivery": "Entrega estimada",
+    "stages": {
+      "placed": "Pedido realizado",
+      "production": "En producción",
+      "quality": "Control de calidad",
+      "shipped": "Enviado",
+      "delivered": "Entregado"
+    },
+    "descriptions": {
+      "production": "Producción en curso en la fábrica"
+    },
+    "documents": {
+      "invoice": "Factura",
+      "packingList": "Lista de embalaje",
+      "other": "Documento"
+    }
+  }
+}

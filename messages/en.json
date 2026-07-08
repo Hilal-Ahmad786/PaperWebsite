@@ -166,48 +166,103 @@
       }
     },
     "paperConesTubes": {
-      "name": "Paper Cones & Spool Tubes",
-      "short": "Custom paper cones and winding tubes for textile yarn, paper, foil and technical applications",
-      "description": "Customizable paper cones and spool tubes for textile and industrial winding applications. Available with natural, colored, printed and velvet/flocked finishes, including size-specific production and pattern options.",
+      "name": "Textile Paper Cones & Yarn Tubes",
+      "short": "Paper cones and tubes for the textile industry – yarn, conical, cheese-winding and dye tubes; natural, dyed, printed and made to size.",
+      "subline": "Paper cones and tubes for textile and winding applications – conical cones, spool, cheese-winding and dye tubes. Natural, dyed, printed and velvet/flocked. Custom sizes and samples available.",
+      "description": "As a supplier and sourcing partner we provide paper cones and tubes for textile and winding applications: yarn paper cones, conical (taper) cones, cheese-winding tubes, paper dye tubes and specialty cones. Available natural, dyed, printed and with a velvet/flocked tip – made to your dimensions with samples on request. Sourced from the EU and Turkey.",
+      "metaTitle": "Textile Paper Cones & Yarn Tubes | Paper Cone Supplier",
+      "metaDescription": "Paper cones & tubes for the textile industry: yarn, conical, cheese-winding & dye tubes. Printed, dyed, custom-made. From the EU & Turkey. Request a quote.",
+      "headings": {
+        "specs": "Technical Specifications of the Paper Cones",
+        "applications": "Applications – Yarn Winding, Spinning & Weaving",
+        "types": "Cone & Tube Types for the Textile Industry",
+        "comparison": "Paper Cones vs. Plastic Cones",
+        "custom": "Printed & Custom Cones Made to Size"
+      },
+      "types": {
+        "intro": "We source the right cone or tube format for your process – from spinning and winding through to yarn dyeing."
+      },
+      "huelseTypes": {
+        "konus": {
+          "name": "Conical Cones / Taper Cones",
+          "desc": "For cheese packages as well as weaving and knitting yarns. The conical shape ensures smooth, even yarn unwinding in downstream processing."
+        },
+        "garn": {
+          "name": "Yarn Cones / Tubes",
+          "desc": "Carriers for spinning and twisting – dimensionally stable for clean, even winding."
+        },
+        "kreuzspul": {
+          "name": "Cheese-Winding Tubes",
+          "desc": "Designed for automatic winding machines, with consistent dimensions for smooth running."
+        },
+        "faerbe": {
+          "name": "Dye Tubes",
+          "desc": "Perforated tubes for yarn dyeing that allow the dye liquor to penetrate evenly. {{TODO: only if we carry dye tubes}}"
+        },
+        "naehgarn": {
+          "name": "Sewing Thread Cones / Spool Tubes",
+          "desc": "For sewing thread and technical yarns – available in various lengths and diameters."
+        },
+        "spezial": {
+          "name": "Specialty Cones",
+          "desc": "Special shapes and custom dimensions to your specification."
+        }
+      },
+      "comparison": {
+        "intro": "In many textile processes paper cones are the more sustainable and process-safe alternative to plastic cones.",
+        "points": {
+          "recyclable": "Fully recyclable and made from a renewable raw material.",
+          "contaminationFree": "Contamination-free – no plastic residue in the fibre cycle.",
+          "dyeProcess": "Suitable for dyeing processes (perforated dye tubes).",
+          "disposal": "Easy, single-stream disposal via the waste-paper cycle."
+        },
+        "sustainabilityHeading": "Sustainability – 100% recyclable paper cones",
+        "sustainabilityBody": "Our paper cones are made from recyclable material and can be disposed of as a single stream at the end of their life cycle, helping you reduce plastic in your supply chain.",
+        "sustainabilityLink": "More on sustainability"
+      },
+      "custom": {
+        "body": "We supply paper cones to your specification: printed with logo, codes or colour rings for yarn identification, dyed or with a velvet/flocked tip. We match dimensions, colours and print to your machines and programme – samples on request."
+      },
+      "b2bNote": "Sold to business customers (B2B) only.",
       "apps": {
-        "textileYarn": "Textile Yarn Winding",
-        "paperFoil": "Paper, Film & Foil Winding",
-        "technicalTextiles": "Technical Textile Applications",
+        "textileYarn": "Yarn Winding in Spinning & Twisting",
+        "paperFoil": "Winding Applications for Paper, Foil & Technical Tapes",
+        "technicalTextiles": "Technical Textiles & Specialty Yarns",
         "brandedCones": "Printed & Branded Cone Programs"
       },
       "industries": {
-        "textileMills": "Textile Mills",
-        "yarnProducers": "Yarn Producers",
-        "converters": "Industrial Converters"
+        "textileMills": "Textile Mills & Weaving Plants",
+        "yarnProducers": "Yarn Producers & Spinning Mills",
+        "converters": "Yarn Dye Houses & Converters"
       },
       "gallery": {
         "cover": {
-          "alt": "Paper cones and spool tubes product family catalog cover",
-          "caption": "Product family overview with cones, tubes and yarn winding formats"
+          "alt": "Yarn and conical paper cones for the textile industry",
+          "caption": "Product family overview with yarn, conical and cheese-winding tubes"
         },
         "flyer": {
-          "alt": "German product flyer for paper cones and spool tubes",
+          "alt": "Product flyer paper cones – yarn, conical and cheese-winding tubes",
           "caption": "Product flyer highlighting quality, delivery and customization benefits"
         },
         "measurements": {
-          "alt": "Paper cone samples with handwritten measurement labels",
-          "caption": "Sample cones with production measurements and edge marking options"
+          "alt": "Conical paper cone sample with measurements – length and diameter",
+          "caption": "Sample cones with production measurements and edge markings"
         },
         "measurementsDetail": {
-          "alt": "Close view of labeled paper cones and spool tubes",
+          "alt": "Yarn cones and spool tubes with dimensions and markings",
           "caption": "Detailed sample set showing cone dimensions and printed markings"
         },
         "colorRings": {
-          "alt": "Paper cone samples with colored rings and tip markings",
+          "alt": "Colored conical paper cones with rings for yarn identification",
           "caption": "Cone shape and color-ring options for identification"
         },
         "flockedColors": {
-          "alt": "Catalog page of flocked paper cone tip colors",
+          "alt": "Velvet/flocked tips for paper cones – color catalog",
           "caption": "Velvet/flocked tip color catalog"
         },
         "patternCatalog": {
-          "alt": "Catalog page of flocked paper cone pattern designs",
-          "caption": "Pattern catalog for printed and flocked cone customization"
+          "alt": "Printed and flocked yarn paper cones – pattern variations",
+          "caption": "Pattern catalog for printed and flocked cones"
         }
       }
     }
@@ -229,7 +284,14 @@
     "dimensions": "Dimensions",
     "surfaceOptions": "Surface Options",
     "printOptions": "Print Options",
-    "applications": "Applications"
+    "applications": "Applications",
+    "taper": "Taper / Cone Angle",
+    "length": "Length",
+    "innerDiameter": "Inner Diameter",
+    "wallThickness": "Wall Thickness",
+    "surfaceFinish": "Surface Finish",
+    "moq": "Minimum Order Quantity (MOQ)",
+    "norm": "Standard"
   },
   "specValues": {
     "backColor": {
@@ -245,13 +307,19 @@
       "doubleCoated": "Double Coated"
     },
     "productTypes": {
-      "paperConesTubes": "Cones, spool tubes, specialty cones"
+      "paperConesTubes": "Yarn cones, conical cones, cheese-winding tubes, dye tubes"
     },
     "dimensions": {
       "custom": "Custom lengths and diameters"
     },
     "surfaceOptions": {
       "cones": "Natural, colored, velvet/flocked"
+    },
+    "surfaceFinish": {
+      "cones": "smooth, grooved, embossed"
+    },
+    "origin": {
+      "euTurkey": "EU / Turkey"
     },
     "printOptions": {
       "cones": "Printed patterns, codes, branding"
@@ -348,7 +416,11 @@
       "error": "Failed to send. Please try again or email us directly.",
       "sendAnother": "Send Another Message",
       "other": "Other",
-      "quantityPlaceholder": "e.g. 100"
+      "quantityPlaceholder": "e.g. 100",
+      "vatId": "VAT ID",
+      "vatIdPlaceholder": "e.g. ATU12345678",
+      "huelseType": "Cone / Tube Type",
+      "huelseTypePlaceholder": "Select type"
     },
     "info": {
       "headquarters": {
@@ -552,7 +624,35 @@
           "body": "For privacy questions: privacy@papermarketworld.com"
         }
       }
+    },
+    "imprint": {
+      "title": "Imprint / Legal Notice",
+      "disclosure": "Information pursuant to § 5 ECG (Austria) and § 5 DDG (Germany)",
+      "fields": {
+        "company": { "label": "Company name", "value": "{{TODO: vollständiger Firmenname laut Firmenbuch}}" },
+        "legalForm": { "label": "Legal form", "value": "{{TODO: z. B. GmbH}}" },
+        "address": { "label": "Address", "value": "{{TODO: Straße und Hausnummer, PLZ, Wien, Österreich}}" },
+        "representative": { "label": "Authorised representative", "value": "{{TODO: Geschäftsführer:in}}" },
+        "register": { "label": "Company register number", "value": "{{TODO: FN xxxxxx x}}" },
+        "court": { "label": "Register court", "value": "{{TODO: zuständiges Firmenbuchgericht}}" },
+        "vatId": { "label": "VAT ID", "value": "{{TODO: ATU xxxxxxxx}}" },
+        "email": { "label": "Email", "value": "info@papermarketworld.com {{TODO: bestätigen}}" },
+        "phone": { "label": "Phone", "value": "+43 660 249 21 86" }
+      },
+      "liability": {
+        "title": "Liability for content",
+        "body": "The contents of this website have been prepared with the greatest possible care. However, we assume no liability for the accuracy, completeness or timeliness of the content."
+      },
+      "dispute": {
+        "title": "Online dispute resolution",
+        "body": "The European Commission provides a platform for online dispute resolution (ODR): https://ec.europa.eu/consumers/odr. We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer arbitration board. Note: sold to business customers (B2B) only."
+      }
     }
+  },
+  "thankYou": {
+    "title": "Thank you for your enquiry",
+    "subtitle": "We have received your request and will get back to you within 24 hours.",
+    "backHome": "Back to home"
   },
   "comparison": {
     "label": {

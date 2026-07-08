@@ -1,699 +1,826 @@
 {
-    "nav": {
-        "products": "Ürünler",
-        "services": "Hizmetler",
-        "regions": "Bölgeler",
-        "sustainability": "Sürdürülebilirlik",
-        "insights": "İçgörüler",
-        "stockOffers": "Stok & Teklifler",
-        "about": "Hakkımızda",
-        "contact": "İletişim",
-        "getQuote": "Teklif Al",
-        "home": "Anasayfa"
+  "nav": {
+    "products": "Ürünler",
+    "services": "Hizmetler",
+    "regions": "Bölgeler",
+    "sustainability": "Sürdürülebilirlik",
+    "insights": "İçgörüler",
+    "stockOffers": "Stok & Teklifler",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "getQuote": "Teklif Al",
+    "home": "Anasayfa"
+  },
+  "common": {
+    "getQuote": "Teklif İste",
+    "viewProducts": "Ürünleri Gör",
+    "learnMore": "Daha Fazla Bilgi",
+    "readMore": "Devamını Oku",
+    "contactUs": "Bize Ulaşın",
+    "sendMessage": "Mesaj Gönder",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "back": "Geri",
+    "next": "İleri"
+  },
+  "home": {
+    "hero": {
+      "title": "Küresel Kağıt Ticareti",
+      "titleHighlight": "Ölçeklenebilir Çözümler",
+      "subtitle": "Avrupa, Türkiye ve Asya'yı hassas kaynak kullanımıyla birbirine bağlıyoruz. Gerçek zamanlı piyasa verileri. Şeffaf lojistik. Sıfır aracı.",
+      "cta1": "Teklif İste",
+      "cta2": "Ürünleri İncele"
     },
-    "common": {
-        "getQuote": "Teklif İste",
-        "viewProducts": "Ürünleri Gör",
-        "learnMore": "Daha Fazla Bilgi",
-        "readMore": "Devamını Oku",
-        "contactUs": "Bize Ulaşın",
-        "sendMessage": "Mesaj Gönder",
-        "loading": "Yükleniyor...",
-        "error": "Bir hata oluştu",
-        "back": "Geri",
-        "next": "İleri"
+    "stats": {
+      "suppliers": "Aktif Tedarikçi",
+      "countries": "Hizmet Verilen Ülke",
+      "volume": "Aylık Tonaj",
+      "uptime": "Piyasa Takibi"
     },
-    "home": {
-        "hero": {
-            "title": "Küresel Kağıt Ticareti",
-            "titleHighlight": "Ölçeklenebilir Çözümler",
-            "subtitle": "Avrupa, Türkiye ve Asya'yı hassas kaynak kullanımıyla birbirine bağlıyoruz. Gerçek zamanlı piyasa verileri. Şeffaf lojistik. Sıfır aracı.",
-            "cta1": "Teklif İste",
-            "cta2": "Ürünleri İncele"
-        },
-        "stats": {
-            "suppliers": "Aktif Tedarikçi",
-            "countries": "Hizmet Verilen Ülke",
-            "volume": "Aylık Tonaj",
-            "uptime": "Piyasa Takibi"
-        },
-        "whoWeServe": {
-            "title": "Kimlere Hizmet Veriyoruz",
-            "converters": "Ambalaj Dönüştürücüler",
-            "printers": "Kutu Fabrikaları & Matbaalar",
-            "traders": "Tüccarlar & Toptancılar"
-        },
-        "products": {
-            "title": "Temel Ürün Grupları",
-            "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler"
-        },
-        "regions": {
-            "title": "Küresel Ağ",
-            "subtitle": "Üç kıtada çok dilli destek ile hizmet"
-        },
-        "whyUs": {
-            "title": "Neden Bizimle Çalışmalısınız",
-            "multilingual": "Çok Dilli Destek",
-            "multilingualDesc": "TR, EN, DE, AR konuşan ekip",
-            "boutique": "Butik & İlgili",
-            "boutiqueDesc": "Aile şirketi, kişisel ilgi",
-            "network": "Güçlü Fabrika Ağı",
-            "networkDesc": "Türkiye, Hindistan, Çin, AB bağlantıları",
-            "flexible": "Esnek Minimum Sipariş",
-            "flexibleDesc": "Test konteynerleri mevcut",
-            "documentation": "Tam Dokümantasyon",
-            "documentationDesc": "Lojistik & uyumluluk desteği",
-            "fastResponse": "Hızlı Yanıt",
-            "fastResponseDesc": "24 saat içinde teklif dönüşü"
-        },
-        "productFinder": {
-            "title": "Mükemmel Kağıdınızı Bulun",
-            "subtitle": "Özel uygulamanız için en iyi kaliteleri keşfetmek üzere akıllı ürün bulucumuzu kullanın."
-        },
-        "stockOffers": {
-            "title": "Güncel Stok & Teklifler",
-            "subtitle": "Bu kalitelerde sınırlı stok"
-        },
-        "finalCta": {
-            "title": "Bir Sonraki Konteynerinizi Tedarik Etmeye Hazır mısınız?",
-            "subtitle": "Gereksinimlerinizi bize gönderin. Seçenekler, fiyatlandırma ve teslim süreleri ile 24 saat içinde yanıt verelim."
-        }
+    "whoWeServe": {
+      "title": "Kimlere Hizmet Veriyoruz",
+      "converters": "Ambalaj Dönüştürücüler",
+      "printers": "Kutu Fabrikaları & Matbaalar",
+      "traders": "Tüccarlar & Toptancılar"
     },
     "products": {
-        "title": "Ürünlerimiz",
-        "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler",
-        "categories": {
-            "board": "Karton",
-            "containerboard": "Oluklu Mukavva Hammaddesi",
-            "converted": "Dönüştürülmüş Kağıt Ürünleri"
-        },
-        "gallery": {
-            "title": "Ürün Galerisi",
-            "subtitle": "Ürün formları, yüzeyler, renkler ve özelleştirme seçenekleri için görsel referanslar."
-        },
-        "detail": {
-            "technicalSpecs": "Teknik Özellikler",
-            "origins": "Menşeler",
-            "applications": "Uygulamalar",
-            "typicalIndustries": "Tipik Sektörler",
-            "specsAnchor": "Özellikler",
-            "ctaTitle": "{product} mi arıyorsunuz?",
-            "ctaSubtitle": "Bu kaliteyi özel gereksinimlerinize ve bütçenize uygun şekilde farklı menşelerden tedarik edebiliriz.",
-            "ctaButton": "{product} için Teklif İste"
-        },
-        "duplexBoard": {
-            "name": "Duplex Board",
-            "short": "FMCG, kozmetik ve ilaç ambalajları için premium gri ve beyaz arka yüzeyli kaliteler",
-            "description": "Gri veya beyaz arka yüzeyli premium kalite duplex board. FMCG ambalajları, kozmetik kutuları, ilaç kartonları ve elektronik ambalajları için idealdir. GC1, GC2 ve GD2 kalitelerinde mevcuttur.",
-            "apps": {
-                "fmcg": "FMCG Ambalajları",
-                "cosmetics": "Kozmetik & Güzellik Kutuları",
-                "pharma": "İlaç Kartonları",
-                "electronics": "Elektronik Ambalajları"
-            },
-            "industries": {
-                "packaging": "Ambalaj Dönüştürücüler",
-                "printing": "Ticari Matbaalar",
-                "converting": "Dönüştürme Tesisleri"
-            }
-        },
-        "testlinerFluting": {
-            "name": "Testliner & Fluting",
-            "short": "Tutarlı kalite ve rekabetçi fiyatlandırma ile oluklu mukavva uygulamaları için geri dönüştürülmüş konteyner kartonu",
-            "description": "TL1, TL2, TL3 ve Fluting Medium kalitelerinde geri dönüştürülmüş konteyner kartonu. E-ticaret ambalajları, endüstriyel kutular ve tarımsal ambalajlar için mükemmeldir. %60-100 geri dönüştürülmüş içerik ile sürdürülebilir seçim.",
-            "apps": {
-                "ecommerce": "E-ticaret Gönderimi",
-                "shipping": "Genel Nakliye Kutuları",
-                "industrial": "Endüstriyel Ambalaj",
-                "agriculture": "Tarımsal Kutular"
-            },
-            "industries": {
-                "boxPlants": "Kutu Üretim Tesisleri",
-                "corrugated": "Oluklu Mukavva Üreticileri",
-                "converters": "Ambalaj Dönüştürücüler"
-            }
-        },
-        "kraftlinerWhiteTop": {
-            "name": "Kraftliner & White Top",
-            "short": "Zorlu uygulamalar için üstün mukavemet ve yüksek patlama indeksine sahip bakir elyaf linerboard",
-            "description": "Olağanüstü mukavemete sahip bakir elyaf kraftliner ve beyaz üst linerboard. Ağır hizmet, ihracat ve premium ambalaj uygulamaları için yüksek patlama indeksi (3.5-5.5 kPa·m²/g).",
-            "apps": {
-                "heavy": "Ağır Hizmet Ambalajları",
-                "export": "İhracat Sınıfı Kutular",
-                "premium": "Premium Ambalaj",
-                "frozen": "Dondurulmuş Gıda Kutuları"
-            },
-            "industries": {
-                "corrugated": "Oluklu Mukavva Üreticileri",
-                "export": "İhracat Ambalajları",
-                "food": "Gıda Ambalajları"
-            }
-        },
-        "triplexBoard": {
-            "name": "TRİPLEXBOARD",
-            "short": "Ambalaj için yüksek performanslı çok katlı geri dönüştürülmüş karton",
-            "description": "Beyaz üst ve gri arka yüzeyli premium kalite triplex karton. Ambalaj çözümleri için mükemmel sertlik ve basılabilirlik. FMCG, gıda ambalajı ve endüstriyel kartonlar için ideal. Uygun maliyetli sürdürülebilir seçenek.",
-            "apps": {
-                "fmcg": "FMCG Ambalajları",
-                "pharma": "İlaç Kutuları",
-                "cosmetics": "Kozmetik Ambalajları",
-                "confectionery": "Şekerleme Kutuları"
-            },
-            "industries": {
-                "packaging": "Ambalaj Dönüştürücüler",
-                "printing": "Ticari Baskı",
-                "luxury": "Tüketim Malları"
-            }
-        },
-        "paperConesTubes": {
-            "name": "Kağıt Koniler & Masura Hülseleri",
-            "short": "Tekstil ipliği, kağıt, folyo ve teknik uygulamalar için özel kağıt koniler ve sarım hülseleri",
-            "description": "Tekstil ve endüstriyel sarım uygulamaları için özelleştirilebilir kağıt koniler ve masura hülseleri. Doğal, renkli, baskılı ve velvet/flok kaplamalı yüzeylerle; ölçüye özel üretim ve desen seçenekleriyle sunulur.",
-            "apps": {
-                "textileYarn": "Tekstil İpliği Sarımı",
-                "paperFoil": "Kağıt, Film & Folyo Sarımı",
-                "technicalTextiles": "Teknik Tekstil Uygulamaları",
-                "brandedCones": "Baskılı & Markalı Koni Programları"
-            },
-            "industries": {
-                "textileMills": "Tekstil Fabrikaları",
-                "yarnProducers": "İplik Üreticileri",
-                "converters": "Endüstriyel Dönüştürücüler"
-            },
-            "gallery": {
-                "cover": {
-                    "alt": "Kağıt koniler ve masura hülseleri ürün ailesi katalog kapağı",
-                    "caption": "Koniler, hülseler ve iplik sarım formatlarıyla ürün ailesi görünümü"
-                },
-                "flyer": {
-                    "alt": "Kağıt koniler ve masura hülseleri için Almanca ürün broşürü",
-                    "caption": "Kalite, teslimat ve özelleştirme avantajlarını gösteren ürün broşürü"
-                },
-                "measurements": {
-                    "alt": "El yazısı ölçü etiketli kağıt koni numuneleri",
-                    "caption": "Üretim ölçüleri ve kenar işaretleme seçenekleriyle numune koniler"
-                },
-                "measurementsDetail": {
-                    "alt": "Etiketli kağıt koniler ve masura hülselerinin yakın görünümü",
-                    "caption": "Koni ölçüleri ve baskılı işaretleri gösteren detaylı numune seti"
-                },
-                "colorRings": {
-                    "alt": "Renkli halkalı ve uç işaretli kağıt koni numuneleri",
-                    "caption": "Tanımlama için koni formu ve renkli halka seçenekleri"
-                },
-                "flockedColors": {
-                    "alt": "Flok kaplamalı kağıt koni uç renkleri katalog sayfası",
-                    "caption": "Velvet/flok uç renk kataloğu"
-                },
-                "patternCatalog": {
-                    "alt": "Flok kaplamalı kağıt koni desenleri katalog sayfası",
-                    "caption": "Baskılı ve flok koni özelleştirmeleri için desen kataloğu"
-                }
-            }
-        }
-    },
-    "specs": {
-        "gsmRange": "GSM Aralığı",
-        "grades": "Kaliteler",
-        "backColor": "Arka Renk",
-        "reelWidth": "Bobin Genişliği",
-        "coreSize": "Masura Boyutu",
-        "recycledContent": "Geri Dönüştürülmüş İçerik",
-        "type": "Tip",
-        "burstIndex": "Patlama İndeksi",
-        "coating": "Kaplama",
-        "brightness": "Parlaklık",
-        "origin": "Menşei",
-        "leadTime": "Teslim Süresi",
-        "productTypes": "Ürün Tipleri",
-        "dimensions": "Ölçüler",
-        "surfaceOptions": "Yüzey Seçenekleri",
-        "printOptions": "Baskı Seçenekleri",
-        "applications": "Uygulamalar"
-    },
-    "specValues": {
-        "backColor": {
-            "greyWhite": "Gri / Beyaz"
-        },
-        "grades": {
-            "testlinerFluting": "TL1, TL2, TL3, Fluting"
-        },
-        "type": {
-            "virginFiber": "Bakir Elyaf"
-        },
-        "coating": {
-            "doubleCoated": "Çift Kaplamalı"
-        },
-        "productTypes": {
-            "paperConesTubes": "Koniler, masura hülseleri, özel koniler"
-        },
-        "dimensions": {
-            "custom": "Özel uzunluk ve çaplar"
-        },
-        "surfaceOptions": {
-            "cones": "Doğal, renkli, velvet/flok"
-        },
-        "printOptions": {
-            "cones": "Baskılı desenler, kodlar, markalama"
-        },
-        "applications": {
-            "cones": "Tekstil ipliği, kağıt, folyo"
-        }
-    },
-    "origins": {
-        "turkey": "Türkiye",
-        "india": "Hindistan",
-        "china": "Çin",
-        "eu": "AB",
-        "egypt": "Mısır",
-        "russia": "Rusya",
-        "brazil": "Brezilya",
-        "nordic": "Nordik ülkeler",
-        "europe": "Avrupa",
-        "asia": "Asya",
-        "usa": "ABD"
-    },
-    "stockOffers": {
-        "title": "Stok & Teklifler",
-        "subtitle": "Güncel stok durumu ve özel teklifler",
-        "filters": {
-            "allOrigins": "Tüm Menşeler",
-            "allTypes": "Tüm Tipler",
-            "all": "Tüm Ürünler",
-            "prime": "Birinci Kalite",
-            "stocklot": "Stok Fazlası",
-            "byProduct": "Ürüne Göre Filtrele",
-            "byOrigin": "Menşeiye Göre Filtrele",
-            "byType": "Tipe Göre Filtrele",
-            "clear": "Filtreleri Temizle"
-        },
-        "table": {
-            "grade": "Kalite",
-            "gsm": "GSM",
-            "quantity": "Miktar",
-            "origin": "Menşei",
-            "port": "Liman",
-            "availability": "Durum",
-            "type": "Tip",
-            "action": "İşlem"
-        },
-        "requestOffer": "Teklif İste",
-        "viewAll": "Tüm Teklifleri Gör",
-        "empty": "Filtrelerinize uygun teklif bulunamadı.",
-        "tons": "ton",
-        "availability": {
-            "readyToShip": "Sevkiyata Hazır",
-            "inProduction14Days": "Üretimde - 14 gün",
-            "in2Weeks": "2 hafta içinde"
-        },
-        "items": {
-            "so2024001": {
-                "gradeName": "GC1 Duplex Board"
-            },
-            "so2024002": {
-                "gradeName": "TL3 Testliner"
-            },
-            "so2024003": {
-                "gradeName": "GD2 Gri Arka"
-            },
-            "so2024004": {
-                "gradeName": "White Top Kraftliner"
-            },
-            "so2024005": {
-                "gradeName": "Fluting Medium"
-            },
-            "so2024006": {
-                "gradeName": "Kaplamalı Triplex Board"
-            }
-        }
-    },
-    "contact": {
-        "title": "İletişime Geçin",
-        "subtitle": "İhtiyaçlarınızı bize iletin. 24 saat içinde dönüş yapalım.",
-        "form": {
-            "name": "Ad Soyad",
-            "company": "Şirket Adı",
-            "country": "Ülke",
-            "email": "E-posta Adresi",
-            "phone": "Telefon / WhatsApp",
-            "product": "İlgilendiğiniz Ürün",
-            "productPlaceholder": "Ürün seçiniz",
-            "gsmRange": "GSM Aralığı",
-            "quantity": "Miktar (ton)",
-            "destinationPort": "Varış Limanı",
-            "message": "Mesaj / Gereksinimler",
-            "submit": "Gönder",
-            "submitting": "Gönderiliyor...",
-            "success": "Teşekkürler! 24 saat içinde size dönüş yapacağız.",
-            "error": "Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.",
-            "sendAnother": "Başka Mesaj Gönder",
-            "other": "Diğer",
-            "quantityPlaceholder": "örn. 100"
-        },
-        "info": {
-            "headquarters": {
-                "title": "Genel Merkez",
-                "address": {
-                    "line1": "Paper Market World GmbH",
-                    "line2": "Kärntner Ring 5-7",
-                    "line3": "1010 Viyana, Avusturya"
-                }
-            },
-            "regional": {
-                "title": "Bölge Ofisi",
-                "address": {
-                    "line1": "PMW Türkiye",
-                    "line2": "Maslak Mah. Büyükdere Cad.",
-                    "line3": "34398 İstanbul, Türkiye"
-                }
-            },
-            "direct": {
-                "title": "Doğrudan İletişim",
-                "email": "E-posta",
-                "phone": "Telefon",
-                "phoneTr": "Telefon TR"
-            }
-        }
-    },
-    "footer": {
-        "tagline": "Avrupa, Türkiye ve Asya arasında uzmanlaşmış kağıt ve karton ticareti. Aile şirketi. Çok dilli. Şeffaf.",
-        "products": "Ürünler",
-        "company": "Şirket",
-        "legal": "Yasal",
-        "privacy": "Gizlilik Politikası",
-        "terms": "Kullanım Koşulları",
-        "imprint": "Künye",
-        "rights": "Tüm hakları saklıdır",
-        "locations": "Viyana, Avusturya | İstanbul, Türkiye",
-        "developedBy": "Geliştiren"
-    },
-    "services": {
-        "title": "Hizmetlerimiz",
-        "subtitle": "İş ihtiyaçlarınıza özel kapsamlı kağıt ticareti çözümleri.",
-        "items": {
-            "sourcing": {
-                "title": "Küresel Tedarik",
-                "description": "Dünya çapındaki en iyi üreticilerden premium kağıt kalitelerine erişim."
-            },
-            "logistics": {
-                "title": "Lojistik & Nakliye",
-                "description": "Limanınıza zamanında teslimat sağlayan uçtan uca lojistik çözümleri."
-            },
-            "financing": {
-                "title": "Ticaret Finansmanı",
-                "description": "Nitelikli alıcılar için esnek ödeme koşulları ve finansman seçenekleri."
-            },
-            "documentation": {
-                "title": "Dokümantasyon",
-                "description": "Gümrük belgeleri ve uyumluluk evraklarının tam yönetimi."
-            }
-        },
-        "cta": {
-            "title": "Özel Bir Çözüme mi İhtiyacınız Var?",
-            "button": "Bize Ulaşın"
-        }
+      "title": "Temel Ürün Grupları",
+      "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler"
     },
     "regions": {
-        "title": "Küresel Erişim",
-        "subtitle": "Kağıt pazarlarını kıtalar arasında verimlilik ve güvenilirlikle birbirine bağlıyoruz.",
-        "items": {
-            "middleEast": {
-                "name": "Orta Doğu",
-                "description": "BAE, Suudi Arabistan, Katar ve ötesindeki büyük pazarlara hizmet veriyoruz.",
-                "stats": "15+ Ülke"
-            },
-            "europe": {
-                "name": "Avrupa",
-                "description": "Avrupalı üreticileri küresel taleple buluşturuyoruz.",
-                "stats": "20+ Ortak"
-            },
-            "asia": {
-                "name": "Asya",
-                "description": "Önde gelen Asya fabrikalarından yüksek kaliteli kağıt ürünleri tedarik ediyoruz.",
-                "stats": "Yüksek Hacim"
-            },
-            "africa": {
-                "name": "Afrika",
-                "description": "Kıta genelindeki gelişmekte olan pazarlara erişimimizi genişletiyoruz.",
-                "stats": "Büyüyen Pazar"
-            }
-        },
-        "cta": {
-            "title": "Pazarınızı Genişletin",
-            "button": "Bizimle Ortak Olun"
-        }
+      "title": "Küresel Ağ",
+      "subtitle": "Üç kıtada çok dilli destek ile hizmet"
     },
-    "sustainability": {
-        "title": "Sürdürülebilirlik",
-        "subtitle": "Çevre dostu uygulamalara ve sorumlu kağıt tedarikine bağlıyız.",
-        "items": {
-            "recycled": {
-                "title": "Geri Dönüştürülmüş Malzemeler",
-                "description": "Geri dönüştürülmüş içerik ve sürdürülebilir ormancılık uygulamaları kullanan tedarikçilere öncelik veriyoruz."
-            },
-            "impact": {
-                "title": "Küresel Etki",
-                "description": "Optimize edilmiş lojistik ve bölgesel tedarik yoluyla karbon ayak izini azaltıyoruz."
-            },
-            "partnerships": {
-                "title": "Etik Ortaklıklar",
-                "description": "Yalnızca katı çevre standartlarına uyan ortaklarla çalışıyoruz."
-            }
-        }
+    "whyUs": {
+      "title": "Neden Bizimle Çalışmalısınız",
+      "multilingual": "Çok Dilli Destek",
+      "multilingualDesc": "TR, EN, DE, AR konuşan ekip",
+      "boutique": "Butik & İlgili",
+      "boutiqueDesc": "Aile şirketi, kişisel ilgi",
+      "network": "Güçlü Fabrika Ağı",
+      "networkDesc": "Türkiye, Hindistan, Çin, AB bağlantıları",
+      "flexible": "Esnek Minimum Sipariş",
+      "flexibleDesc": "Test konteynerleri mevcut",
+      "documentation": "Tam Dokümantasyon",
+      "documentationDesc": "Lojistik & uyumluluk desteği",
+      "fastResponse": "Hızlı Yanıt",
+      "fastResponseDesc": "24 saat içinde teklif dönüşü"
     },
-    "insights": {
-        "title": "Pazar İçgörüleri",
-        "subtitle": "Kağıt dünyasından en son haberler, trendler ve analizlerle önde olun.",
-        "items": {
-            "trends": {
-                "title": "Küresel Kağıt Pazarı Trendleri 2024",
-                "summary": "Küresel kağıt endüstrisindeki fiyat dalgalanmaları ve talep değişimlerinin analizi.",
-                "category": "Pazar Analizi"
-            },
-            "packaging": {
-                "title": "Sürdürülebilir Ambalaj Çözümleri",
-                "summary": "Çevre dostu ambalaja geçişin pazarı nasıl yeniden şekillendirdiği.",
-                "category": "Sürdürülebilirlik"
-            },
-            "logistics": {
-                "title": "Lojistik Zorluklar & Fırsatlar",
-                "summary": "Küresel nakliye ve navlun dünyasının mevcut durumunu yönetmek.",
-                "category": "Lojistik"
-            }
-        }
+    "productFinder": {
+      "title": "Mükemmel Kağıdınızı Bulun",
+      "subtitle": "Özel uygulamanız için en iyi kaliteleri keşfetmek üzere akıllı ürün bulucumuzu kullanın."
     },
-    "about": {
-        "title": "Hakkımızda",
-        "subtitle": "Küresel kağıt ticareti endüstrisindeki güvenilir ortağınız.",
-        "mission": {
-            "title": "Misyonumuz",
-            "description": "Paper Market World olarak, küresel ölçekte kağıt ürünleri üreticileri ve tüketicileri arasındaki boşluğu doldurmayı hedefliyoruz. Misyonumuz, işletmelerin büyümesini sağlayan sorunsuz, verimli ve şeffaf ticaret çözümleri sunmaktır."
-        },
-        "vision": {
-            "title": "Vizyonumuz",
-            "description": "Endüstride kalite, güvenilirlik ve inovasyon standartlarını belirleyen, dünyanın önde gelen dijital kağıt ticaret platformu olmak."
-        },
-        "stats": {
-            "experience": "Yıllık Deneyim",
-            "partners": "Küresel Ortak",
-            "support": "Destek"
-        },
-        "whyChooseUs": "Neden Bizi Seçmelisiniz?",
-        "faq": {
-            "title": "Sıkça Sorulan Sorular",
-            "subtitle": "Hizmetlerimiz ve ticaret süreci hakkında sık sorulan sorular.",
-            "items": {
-                "moq": {
-                    "question": "Minimum sipariş miktarınız (MOQ) nedir?",
-                    "answer": "Standart MOQ'umuz bir 20ft konteynerdir (yaklaşık 15-18 ton). Ancak, yeni müşteriler için kaliteye bağlı olarak deneme siparişleri veya karma konteynerler görüşebiliriz."
-                },
-                "payment": {
-                    "question": "Hangi ödeme koşullarını kabul ediyorsunuz?",
-                    "answer": "Genellikle görüldüğünde Akreditif (L/C), Vesaik Mukabili (CAD) veya Peşin Ödeme (TT) ile çalışıyoruz. Sigorta onayına tabi olarak uzun vadeli ortaklar için vadeli ödeme koşulları mevcut olabilir."
-                },
-                "logistics": {
-                    "question": "Lojistik ve gümrük işlemlerini hallediyor musunuz?",
-                    "answer": "Evet, uçtan uca lojistik çözümleri sunuyoruz. Nakliye, sigorta ve tüm ihracat belgelerini hallediyoruz. İthalat gümrük işlemleri genellikle alıcının sorumluluğundadır, ancak gerekli tüm destek ve evrakları sağlıyoruz."
-                },
-                "samples": {
-                    "question": "Sipariş vermeden önce numune sağlayabilir misiniz?",
-                    "answer": "Kesinlikle. Kalite kontrolü için kurye ile A4 numuneler gönderebiliriz. Daha büyük deneme bobinleri için lütfen satış ekibimizle iletişime geçin."
-                }
-            }
-        }
+    "stockOffers": {
+      "title": "Güncel Stok & Teklifler",
+      "subtitle": "Bu kalitelerde sınırlı stok"
     },
-    "legal": {
-        "privacy": {
-            "title": "Gizlilik Politikası",
-            "lastUpdated": "Son güncelleme: Aralık 2024",
-            "sections": {
-                "data": {
-                    "title": "Topladığımız Veriler",
-                    "body": "Bize doğrudan sağladığınız ad, e-posta, şirket bilgileri ve bizimle iletişime geçtiğinizde paylaştığınız talep bilgilerini toplarız."
-                },
-                "use": {
-                    "title": "Verileri Nasıl Kullanırız",
-                    "body": "Verileriniz yalnızca taleplerinize yanıt vermek ve teklif sunmak için kullanılır. Bilgilerinizi üçüncü taraflarla satmayız veya paylaşmayız."
-                },
-                "protection": {
-                    "title": "Veri Koruma",
-                    "body": "Verilerinizi korumak için sektör standardı güvenlik önlemleri uygularız."
-                },
-                "rights": {
-                    "title": "Haklarınız",
-                    "body": "Kişisel verilerinize erişme, düzeltme veya silme hakkına sahipsiniz. Bize privacy@papermarketworld.com adresinden ulaşabilirsiniz."
-                },
-                "cookies": {
-                    "title": "Çerezler",
-                    "body": "Site işlevselliği için zorunlu çerezleri kullanırız. Takip çerezleri kullanılmaz."
-                },
-                "contact": {
-                    "title": "İletişim",
-                    "body": "Gizlilik soruları için: privacy@papermarketworld.com"
-                }
-            }
-        }
-    },
-    "comparison": {
-        "label": {
-            "features": "Özellikler",
-            "gsm": "GSM Aralığı",
-            "grades": "Kaliteler",
-            "origin": "Menşei",
-            "price": "Fiyat Göstergesi",
-            "applications": "Temel Uygulamalar"
-        },
-        "addToQuote": "Teklife Ekle"
-    },
-    "calculator": {
-        "title": "Anlık Fiyat Tahmini",
-        "subtitle": "Kağıt ihtiyaçlarınız için ön teklif alın",
-        "product": "Ürün",
-        "selectProduct": "Bir ürün seçin",
-        "gsm": "GSM Aralığı",
-        "selectGsm": "GSM Seçin",
-        "quantity": "Miktar (Ton)",
-        "port": "Teslimat Limanı",
-        "estimatedTotal": "Tahmini Toplam",
-        "basePrice": "Baz Fiyat + Lojistik",
-        "submit": "Resmi Teklif İste",
-        "standardRange": "Standart Aralık",
-        "portPlaceholder": "örn. İstanbul, Hamburg",
-        "included": "Dahil"
-    },
-    "datatable": {
-        "search": "Ara...",
-        "export": "CSV Dışa Aktar",
-        "noData": "Veri bulunamadı",
-        "rowsPerPage": "Sayfa başına satır:",
-        "showing": "{total} kayıttan {start}-{end} arası gösteriliyor"
-    },
-    "finder": {
-        "step": "Adım {current} / {total}",
-        "finish": "Sonuçları Gör",
-        "step1": {
-            "title": "Ne arıyorsunuz?"
-        },
-        "step2": {
-            "title": "Teknik Özellikler",
-            "gsmRange": "Tercih Edilen GSM Aralığı",
-            "quality": "Kalite Sınıfı"
-        },
-        "step3": {
-            "title": "Menşei ve Bütçe",
-            "budget": "Bütçe Aralığı"
-        },
-        "results": {
-            "matchFound": "{count} Eşleşme Bulundu",
-            "subtitle": "İhtiyaçlarınıza göre",
-            "reset": "Baştan Başla",
-            "viewDetails": "Detayları Gör",
-            "match": "Eşleşme"
-        },
-        "options": {
-            "fmcg": "Hızlı Tüketim & Ambalaj",
-            "pharma": "İlaç Sektörü",
-            "ecommerce": "E-ticaret",
-            "industrial": "Endüstriyel"
-        },
-        "grades": {
-            "virgin": "Bakır Elyaf",
-            "recycled": "Geri Dönüştürülmüş",
-            "mixed": "Karışık",
-            "coated": "Kuşe",
-            "uncoated": "Kuşesiz"
-        },
-        "origins": {
-            "turkey": "Türkiye",
-            "europe": "Avrupa",
-            "asia": "Asya",
-            "usa": "ABD"
-        },
-        "budgets": {
-            "economy": "Ekonomik",
-            "standard": "Standart",
-            "premium": "Premium"
-        }
-    },
-    "chat": {
-        "agentName": "Destek Temsilcisi",
-        "online": "Çevrimiçi",
-        "offline": "Çevrimdışı",
-        "welcomeTitle": "Nasıl yardımcı olabiliriz?",
-        "welcomeSubtitle": "Bize bir mesaj bırakın, en kısa sürede size geri dönelim.",
-        "startChat": "Sohbeti Başlat",
-        "placeholder": "Bir mesaj yazın...",
-        "agentResponse": "Mesajınız için teşekkürler! Bir temsilci kısa süre içinde sizinle ilgilenecek.",
-        "callUs": "Bizi Arayın",
-        "emailUs": "E-posta",
-        "liveChat": "Canlı Sohbet",
-        "close": "Kapat",
-        "namePlaceholder": "Ad Soyad",
-        "emailPlaceholder": "ad@example.com",
-        "messagePlaceholder": "Size nasıl yardımcı olabiliriz?",
-        "poweredBy": "Altyapı"
-    },
-    "accordion": {
-        "searchPlaceholder": "SSS içinde ara...",
-        "noResults": "“{query}” için sonuç bulunamadı"
-    },
-    "modal": {
-        "confirm": "Onayla",
-        "cancel": "İptal",
-        "close": "Kapat"
-    },
-    "upload": {
-        "dropzone": {
-            "title": "Yüklemek için tıklayın veya sürükleyip bırakın",
-            "subtitle": "PDF, PNG, JPG veya XLSX (maks. {max}MB)"
-        },
-        "status": {
-            "completed": "Tamamlandı",
-            "uploading": "Yükleniyor..."
-        },
-        "error": {
-            "size": "Dosya boyutu {size}MB sınırını aşıyor",
-            "type": "Geçersiz dosya türü"
-        }
-    },
-    "tracker": {
-        "title": "Siparişinizi Takip Edin",
-        "subtitle": "Sevkiyat durumunuzla ilgili gerçek zamanlı güncellemeler",
-        "estimatedDelivery": "Tahmini Teslimat",
-        "stages": {
-            "placed": "Sipariş Alındı",
-            "production": "Üretimde",
-            "quality": "Kalite Kontrol",
-            "shipped": "Kargolandı",
-            "delivered": "Teslim Edildi"
-        },
-        "descriptions": {
-            "production": "Fabrikada üretim devam ediyor"
-        },
-        "documents": {
-            "invoice": "Fatura",
-            "packingList": "Çeki Listesi",
-            "other": "Belge"
-        }
+    "finalCta": {
+      "title": "Bir Sonraki Konteynerinizi Tedarik Etmeye Hazır mısınız?",
+      "subtitle": "Gereksinimlerinizi bize gönderin. Seçenekler, fiyatlandırma ve teslim süreleri ile 24 saat içinde yanıt verelim."
     }
+  },
+  "products": {
+    "title": "Ürünlerimiz",
+    "subtitle": "Ambalaj, baskı ve endüstriyel uygulamalar için özel kaliteler",
+    "categories": {
+      "board": "Karton",
+      "containerboard": "Oluklu Mukavva Hammaddesi",
+      "converted": "Dönüştürülmüş Kağıt Ürünleri"
+    },
+    "gallery": {
+      "title": "Ürün Galerisi",
+      "subtitle": "Ürün formları, yüzeyler, renkler ve özelleştirme seçenekleri için görsel referanslar."
+    },
+    "detail": {
+      "technicalSpecs": "Teknik Özellikler",
+      "origins": "Menşeler",
+      "applications": "Uygulamalar",
+      "typicalIndustries": "Tipik Sektörler",
+      "specsAnchor": "Özellikler",
+      "ctaTitle": "{product} mi arıyorsunuz?",
+      "ctaSubtitle": "Bu kaliteyi özel gereksinimlerinize ve bütçenize uygun şekilde farklı menşelerden tedarik edebiliriz.",
+      "ctaButton": "{product} için Teklif İste"
+    },
+    "duplexBoard": {
+      "name": "Duplex Board",
+      "short": "FMCG, kozmetik ve ilaç ambalajları için premium gri ve beyaz arka yüzeyli kaliteler",
+      "description": "Gri veya beyaz arka yüzeyli premium kalite duplex board. FMCG ambalajları, kozmetik kutuları, ilaç kartonları ve elektronik ambalajları için idealdir. GC1, GC2 ve GD2 kalitelerinde mevcuttur.",
+      "apps": {
+        "fmcg": "FMCG Ambalajları",
+        "cosmetics": "Kozmetik & Güzellik Kutuları",
+        "pharma": "İlaç Kartonları",
+        "electronics": "Elektronik Ambalajları"
+      },
+      "industries": {
+        "packaging": "Ambalaj Dönüştürücüler",
+        "printing": "Ticari Matbaalar",
+        "converting": "Dönüştürme Tesisleri"
+      }
+    },
+    "testlinerFluting": {
+      "name": "Testliner & Fluting",
+      "short": "Tutarlı kalite ve rekabetçi fiyatlandırma ile oluklu mukavva uygulamaları için geri dönüştürülmüş konteyner kartonu",
+      "description": "TL1, TL2, TL3 ve Fluting Medium kalitelerinde geri dönüştürülmüş konteyner kartonu. E-ticaret ambalajları, endüstriyel kutular ve tarımsal ambalajlar için mükemmeldir. %60-100 geri dönüştürülmüş içerik ile sürdürülebilir seçim.",
+      "apps": {
+        "ecommerce": "E-ticaret Gönderimi",
+        "shipping": "Genel Nakliye Kutuları",
+        "industrial": "Endüstriyel Ambalaj",
+        "agriculture": "Tarımsal Kutular"
+      },
+      "industries": {
+        "boxPlants": "Kutu Üretim Tesisleri",
+        "corrugated": "Oluklu Mukavva Üreticileri",
+        "converters": "Ambalaj Dönüştürücüler"
+      }
+    },
+    "kraftlinerWhiteTop": {
+      "name": "Kraftliner & White Top",
+      "short": "Zorlu uygulamalar için üstün mukavemet ve yüksek patlama indeksine sahip bakir elyaf linerboard",
+      "description": "Olağanüstü mukavemete sahip bakir elyaf kraftliner ve beyaz üst linerboard. Ağır hizmet, ihracat ve premium ambalaj uygulamaları için yüksek patlama indeksi (3.5-5.5 kPa·m²/g).",
+      "apps": {
+        "heavy": "Ağır Hizmet Ambalajları",
+        "export": "İhracat Sınıfı Kutular",
+        "premium": "Premium Ambalaj",
+        "frozen": "Dondurulmuş Gıda Kutuları"
+      },
+      "industries": {
+        "corrugated": "Oluklu Mukavva Üreticileri",
+        "export": "İhracat Ambalajları",
+        "food": "Gıda Ambalajları"
+      }
+    },
+    "triplexBoard": {
+      "name": "TRİPLEXBOARD",
+      "short": "Ambalaj için yüksek performanslı çok katlı geri dönüştürülmüş karton",
+      "description": "Beyaz üst ve gri arka yüzeyli premium kalite triplex karton. Ambalaj çözümleri için mükemmel sertlik ve basılabilirlik. FMCG, gıda ambalajı ve endüstriyel kartonlar için ideal. Uygun maliyetli sürdürülebilir seçenek.",
+      "apps": {
+        "fmcg": "FMCG Ambalajları",
+        "pharma": "İlaç Kutuları",
+        "cosmetics": "Kozmetik Ambalajları",
+        "confectionery": "Şekerleme Kutuları"
+      },
+      "industries": {
+        "packaging": "Ambalaj Dönüştürücüler",
+        "printing": "Ticari Baskı",
+        "luxury": "Tüketim Malları"
+      }
+    },
+    "paperConesTubes": {
+      "name": "Tekstil Kağıt Masuralar & Konik Masuralar",
+      "short": "Tekstil sanayisi için kağıt masuralar – iplik, konik, çapraz bobin ve boya masuraları; natürel, renkli, baskılı ve ölçüye özel.",
+      "subline": "Tekstil ve sarım uygulamaları için kağıt masuralar – konik masuralar, bobin, çapraz bobin ve boya masuraları. Natürel, renkli, baskılı ve velvet/flok uçlu. Ölçüye özel boyutlar ve numune mevcuttur.",
+      "description": "Tedarikçi ve tedarik ortağı olarak tekstil ve sarım uygulamaları için kağıt masuralar tedarik ediyoruz: iplik masuraları, konik masuralar, çapraz bobin masuraları, boya masuraları ve özel masuralar. Natürel, renkli, baskılı ve velvet/flok uçlu seçenekleriyle; talebe göre sizin ölçülerinizde ve numuneli olarak sunulur. AB ve Türkiye'den tedarik.",
+      "metaTitle": "Tekstil Kağıt Masura & Konik Masura | Masura Tedarikçisi",
+      "metaDescription": "Tekstil sanayisi için kağıt masuralar: iplik, konik, çapraz bobin ve boya masuraları. Baskılı, renkli, ölçüye özel. AB ve Türkiye'den. Hemen teklif alın.",
+      "headings": {
+        "specs": "Kağıt Masuraların Teknik Özellikleri",
+        "applications": "Uygulamalar – İplik Sarımı, İplikhane & Dokuma",
+        "types": "Tekstil Sanayisi için Masura Tipleri",
+        "comparison": "Kağıt Masura mı, Plastik Masura mı?",
+        "custom": "Baskılı & Ölçüye Özel Masuralar"
+      },
+      "types": {
+        "intro": "Sürecinize uygun masura formatını tedarik ediyoruz – iplikhaneden bobin dairesine, iplik boyamadan dokumaya kadar."
+      },
+      "huelseTypes": {
+        "konus": {
+          "name": "Konik Masuralar",
+          "desc": "Çapraz bobinler ile dokuma ve örme iplikleri için. Konik form, sonraki işlemlerde ipliğin düzgün ve eşit çözülmesini sağlar."
+        },
+        "garn": {
+          "name": "İplik Masuraları",
+          "desc": "İplikhane ve büküm için taşıyıcı – temiz ve düzgün sarım için ölçüsel olarak stabil."
+        },
+        "kreuzspul": {
+          "name": "Çapraz Bobin Masuraları",
+          "desc": "Otomatik bobin makineleri için tasarlanmış, yüksek çalışma stabilitesi için sabit ölçülere sahip."
+        },
+        "faerbe": {
+          "name": "Boya Masuraları",
+          "desc": "İplik boyama için delikli masuralar; boya banyosunun eşit şekilde nüfuz etmesini sağlar. {{TODO: yalnızca boya masurası tedarik ediyorsak}}"
+        },
+        "naehgarn": {
+          "name": "Dikiş İpliği Masuraları / Bobin Masuraları",
+          "desc": "Dikiş ipliği ve teknik iplikler için – farklı uzunluk ve çaplarda mevcuttur."
+        },
+        "spezial": {
+          "name": "Özel Masuralar",
+          "desc": "Müşteri talebine göre özel formlar ve özel ölçüler."
+        }
+      },
+      "comparison": {
+        "intro": "Kağıt masuralar, birçok tekstil sürecinde plastik masuralara kıyasla daha sürdürülebilir ve süreç açısından daha güvenli bir alternatiftir.",
+        "points": {
+          "recyclable": "Tamamen geri dönüştürülebilir ve yenilenebilir hammaddeden üretilir.",
+          "contaminationFree": "Kontaminasyonsuz – elyaf döngüsünde plastik kalıntısı bırakmaz.",
+          "dyeProcess": "Boyama süreçleri için uygundur (delikli boya masuraları).",
+          "disposal": "Atık kağıt döngüsü üzerinden kolay ve tek cins olarak bertaraf edilebilir."
+        },
+        "sustainabilityHeading": "Sürdürülebilirlik – %100 geri dönüştürülebilir kağıt masuralar",
+        "sustainabilityBody": "Kağıt masuralarımız geri dönüştürülebilir malzemeden üretilir ve ömrünün sonunda tek cins olarak bertaraf edilebilir. Böylece tedarik zincirinizdeki plastiği azaltırsınız.",
+        "sustainabilityLink": "Sürdürülebilirlik hakkında daha fazlası"
+      },
+      "custom": {
+        "body": "Kağıt masuraları sizin spesifikasyonlarınıza göre tedarik ediyoruz: logo, kod veya iplik tanımlama için renk halkalarıyla baskılı, renkli ya da velvet/flok uçlu. Ölçü, renk ve baskıyı makinelerinize ve programınıza göre belirliyoruz – numune talep üzerine."
+      },
+      "b2bNote": "Satış yalnızca ticari işletmelere yapılır (B2B).",
+      "apps": {
+        "textileYarn": "İplikhane & Bükümhanede İplik Sarımı",
+        "paperFoil": "Kağıt, Folyo & Teknik Bantlar için Sarım Uygulamaları",
+        "technicalTextiles": "Teknik Tekstiller & Özel İplikler",
+        "brandedCones": "Baskılı & Markalı Masura Programları"
+      },
+      "industries": {
+        "textileMills": "Tekstil Fabrikaları & Dokuma İşletmeleri",
+        "yarnProducers": "İplik Üreticileri & İplikhaneler",
+        "converters": "İplik Boyahaneleri & İşleyiciler"
+      },
+      "gallery": {
+        "cover": {
+          "alt": "Tekstil sanayisi için kağıt iplik masuraları ve konik masuralar",
+          "caption": "İplik, konik ve çapraz bobin masuralarından oluşan ürün ailesi"
+        },
+        "flyer": {
+          "alt": "Kağıt masura ürün broşürü – iplik, konik ve çapraz bobin masuraları",
+          "caption": "Kalite, teslimat ve özelleştirme avantajlarını gösteren ürün broşürü"
+        },
+        "measurements": {
+          "alt": "Ölçü bilgili konik masura numunesi – uzunluk ve çap",
+          "caption": "Üretim ölçüleri ve kenar işaretleriyle numune masuralar"
+        },
+        "measurementsDetail": {
+          "alt": "Ölçü ve işaretli iplik masuraları ve bobin masuraları",
+          "caption": "Masura ölçüleri ve baskılı işaretleri gösteren numune seti"
+        },
+        "colorRings": {
+          "alt": "İplik tanımlama için renk halkalı renkli konik masuralar",
+          "caption": "Tanımlama için masura formu ve renk halkası seçenekleri"
+        },
+        "flockedColors": {
+          "alt": "Kağıt masuralar için velvet/flok uçları – renk kataloğu",
+          "caption": "Velvet/flok uçları için renk kataloğu"
+        },
+        "patternCatalog": {
+          "alt": "Baskılı ve flok iplik masuraları – desen varyasyonları",
+          "caption": "Baskılı ve flok masuralar için desen kataloğu"
+        }
+      }
+    }
+  },
+  "specs": {
+    "gsmRange": "GSM Aralığı",
+    "grades": "Kaliteler",
+    "backColor": "Arka Renk",
+    "reelWidth": "Bobin Genişliği",
+    "coreSize": "Masura Boyutu",
+    "recycledContent": "Geri Dönüştürülmüş İçerik",
+    "type": "Tip",
+    "burstIndex": "Patlama İndeksi",
+    "coating": "Kaplama",
+    "brightness": "Parlaklık",
+    "origin": "Menşei",
+    "leadTime": "Teslim Süresi",
+    "productTypes": "Ürün Tipleri",
+    "dimensions": "Ölçüler",
+    "surfaceOptions": "Yüzey Seçenekleri",
+    "printOptions": "Baskı Seçenekleri",
+    "applications": "Uygulamalar",
+    "taper": "Koniklik / Tapa",
+    "length": "Uzunluk",
+    "innerDiameter": "İç Çap",
+    "wallThickness": "Cidar Kalınlığı",
+    "surfaceFinish": "Yüzey",
+    "moq": "Minimum Sipariş Miktarı (MOQ)",
+    "norm": "Norm"
+  },
+  "specValues": {
+    "backColor": {
+      "greyWhite": "Gri / Beyaz"
+    },
+    "grades": {
+      "testlinerFluting": "TL1, TL2, TL3, Fluting"
+    },
+    "type": {
+      "virginFiber": "Bakir Elyaf"
+    },
+    "coating": {
+      "doubleCoated": "Çift Kaplamalı"
+    },
+    "productTypes": {
+      "paperConesTubes": "İplik masuraları, konik masuralar, çapraz bobin masuraları, boya masuraları"
+    },
+    "dimensions": {
+      "custom": "Özel uzunluk ve çaplar"
+    },
+    "surfaceOptions": {
+      "cones": "Doğal, renkli, velvet/flok"
+    },
+    "surfaceFinish": {
+      "cones": "Düz, yivli, kabartmalı"
+    },
+    "origin": {
+      "euTurkey": "AB / Türkiye"
+    },
+    "printOptions": {
+      "cones": "Baskılı desenler, kodlar, markalama"
+    },
+    "applications": {
+      "cones": "Tekstil ipliği, kağıt, folyo"
+    }
+  },
+  "origins": {
+    "turkey": "Türkiye",
+    "india": "Hindistan",
+    "china": "Çin",
+    "eu": "AB",
+    "egypt": "Mısır",
+    "russia": "Rusya",
+    "brazil": "Brezilya",
+    "nordic": "Nordik ülkeler",
+    "europe": "Avrupa",
+    "asia": "Asya",
+    "usa": "ABD"
+  },
+  "stockOffers": {
+    "title": "Stok & Teklifler",
+    "subtitle": "Güncel stok durumu ve özel teklifler",
+    "filters": {
+      "allOrigins": "Tüm Menşeler",
+      "allTypes": "Tüm Tipler",
+      "all": "Tüm Ürünler",
+      "prime": "Birinci Kalite",
+      "stocklot": "Stok Fazlası",
+      "byProduct": "Ürüne Göre Filtrele",
+      "byOrigin": "Menşeiye Göre Filtrele",
+      "byType": "Tipe Göre Filtrele",
+      "clear": "Filtreleri Temizle"
+    },
+    "table": {
+      "grade": "Kalite",
+      "gsm": "GSM",
+      "quantity": "Miktar",
+      "origin": "Menşei",
+      "port": "Liman",
+      "availability": "Durum",
+      "type": "Tip",
+      "action": "İşlem"
+    },
+    "requestOffer": "Teklif İste",
+    "viewAll": "Tüm Teklifleri Gör",
+    "empty": "Filtrelerinize uygun teklif bulunamadı.",
+    "tons": "ton",
+    "availability": {
+      "readyToShip": "Sevkiyata Hazır",
+      "inProduction14Days": "Üretimde - 14 gün",
+      "in2Weeks": "2 hafta içinde"
+    },
+    "items": {
+      "so2024001": {
+        "gradeName": "GC1 Duplex Board"
+      },
+      "so2024002": {
+        "gradeName": "TL3 Testliner"
+      },
+      "so2024003": {
+        "gradeName": "GD2 Gri Arka"
+      },
+      "so2024004": {
+        "gradeName": "White Top Kraftliner"
+      },
+      "so2024005": {
+        "gradeName": "Fluting Medium"
+      },
+      "so2024006": {
+        "gradeName": "Kaplamalı Triplex Board"
+      }
+    }
+  },
+  "contact": {
+    "title": "İletişime Geçin",
+    "subtitle": "İhtiyaçlarınızı bize iletin. 24 saat içinde dönüş yapalım.",
+    "form": {
+      "name": "Ad Soyad",
+      "company": "Şirket Adı",
+      "country": "Ülke",
+      "email": "E-posta Adresi",
+      "phone": "Telefon / WhatsApp",
+      "product": "İlgilendiğiniz Ürün",
+      "productPlaceholder": "Ürün seçiniz",
+      "gsmRange": "GSM Aralığı",
+      "quantity": "Miktar (ton)",
+      "destinationPort": "Varış Limanı",
+      "message": "Mesaj / Gereksinimler",
+      "submit": "Gönder",
+      "submitting": "Gönderiliyor...",
+      "success": "Teşekkürler! 24 saat içinde size dönüş yapacağız.",
+      "error": "Gönderilemedi. Lütfen tekrar deneyin veya doğrudan e-posta gönderin.",
+      "sendAnother": "Başka Mesaj Gönder",
+      "other": "Diğer",
+      "quantityPlaceholder": "örn. 100",
+      "vatId": "Vergi Kimlik No",
+      "vatIdPlaceholder": "örn. ATU12345678",
+      "huelseType": "Koni / Boru Tipi",
+      "huelseTypePlaceholder": "Tip seçin"
+    },
+    "info": {
+      "headquarters": {
+        "title": "Genel Merkez",
+        "address": {
+          "line1": "Paper Market World GmbH",
+          "line2": "Kärntner Ring 5-7",
+          "line3": "1010 Viyana, Avusturya"
+        }
+      },
+      "regional": {
+        "title": "Bölge Ofisi",
+        "address": {
+          "line1": "PMW Türkiye",
+          "line2": "Maslak Mah. Büyükdere Cad.",
+          "line3": "34398 İstanbul, Türkiye"
+        }
+      },
+      "direct": {
+        "title": "Doğrudan İletişim",
+        "email": "E-posta",
+        "phone": "Telefon",
+        "phoneTr": "Telefon TR"
+      }
+    }
+  },
+  "footer": {
+    "tagline": "Avrupa, Türkiye ve Asya arasında uzmanlaşmış kağıt ve karton ticareti. Aile şirketi. Çok dilli. Şeffaf.",
+    "products": "Ürünler",
+    "company": "Şirket",
+    "legal": "Yasal",
+    "privacy": "Gizlilik Politikası",
+    "terms": "Kullanım Koşulları",
+    "imprint": "Künye",
+    "rights": "Tüm hakları saklıdır",
+    "locations": "Viyana, Avusturya | İstanbul, Türkiye",
+    "developedBy": "Geliştiren"
+  },
+  "services": {
+    "title": "Hizmetlerimiz",
+    "subtitle": "İş ihtiyaçlarınıza özel kapsamlı kağıt ticareti çözümleri.",
+    "items": {
+      "sourcing": {
+        "title": "Küresel Tedarik",
+        "description": "Dünya çapındaki en iyi üreticilerden premium kağıt kalitelerine erişim."
+      },
+      "logistics": {
+        "title": "Lojistik & Nakliye",
+        "description": "Limanınıza zamanında teslimat sağlayan uçtan uca lojistik çözümleri."
+      },
+      "financing": {
+        "title": "Ticaret Finansmanı",
+        "description": "Nitelikli alıcılar için esnek ödeme koşulları ve finansman seçenekleri."
+      },
+      "documentation": {
+        "title": "Dokümantasyon",
+        "description": "Gümrük belgeleri ve uyumluluk evraklarının tam yönetimi."
+      }
+    },
+    "cta": {
+      "title": "Özel Bir Çözüme mi İhtiyacınız Var?",
+      "button": "Bize Ulaşın"
+    }
+  },
+  "regions": {
+    "title": "Küresel Erişim",
+    "subtitle": "Kağıt pazarlarını kıtalar arasında verimlilik ve güvenilirlikle birbirine bağlıyoruz.",
+    "items": {
+      "middleEast": {
+        "name": "Orta Doğu",
+        "description": "BAE, Suudi Arabistan, Katar ve ötesindeki büyük pazarlara hizmet veriyoruz.",
+        "stats": "15+ Ülke"
+      },
+      "europe": {
+        "name": "Avrupa",
+        "description": "Avrupalı üreticileri küresel taleple buluşturuyoruz.",
+        "stats": "20+ Ortak"
+      },
+      "asia": {
+        "name": "Asya",
+        "description": "Önde gelen Asya fabrikalarından yüksek kaliteli kağıt ürünleri tedarik ediyoruz.",
+        "stats": "Yüksek Hacim"
+      },
+      "africa": {
+        "name": "Afrika",
+        "description": "Kıta genelindeki gelişmekte olan pazarlara erişimimizi genişletiyoruz.",
+        "stats": "Büyüyen Pazar"
+      }
+    },
+    "cta": {
+      "title": "Pazarınızı Genişletin",
+      "button": "Bizimle Ortak Olun"
+    }
+  },
+  "sustainability": {
+    "title": "Sürdürülebilirlik",
+    "subtitle": "Çevre dostu uygulamalara ve sorumlu kağıt tedarikine bağlıyız.",
+    "items": {
+      "recycled": {
+        "title": "Geri Dönüştürülmüş Malzemeler",
+        "description": "Geri dönüştürülmüş içerik ve sürdürülebilir ormancılık uygulamaları kullanan tedarikçilere öncelik veriyoruz."
+      },
+      "impact": {
+        "title": "Küresel Etki",
+        "description": "Optimize edilmiş lojistik ve bölgesel tedarik yoluyla karbon ayak izini azaltıyoruz."
+      },
+      "partnerships": {
+        "title": "Etik Ortaklıklar",
+        "description": "Yalnızca katı çevre standartlarına uyan ortaklarla çalışıyoruz."
+      }
+    }
+  },
+  "insights": {
+    "title": "Pazar İçgörüleri",
+    "subtitle": "Kağıt dünyasından en son haberler, trendler ve analizlerle önde olun.",
+    "items": {
+      "trends": {
+        "title": "Küresel Kağıt Pazarı Trendleri 2024",
+        "summary": "Küresel kağıt endüstrisindeki fiyat dalgalanmaları ve talep değişimlerinin analizi.",
+        "category": "Pazar Analizi"
+      },
+      "packaging": {
+        "title": "Sürdürülebilir Ambalaj Çözümleri",
+        "summary": "Çevre dostu ambalaja geçişin pazarı nasıl yeniden şekillendirdiği.",
+        "category": "Sürdürülebilirlik"
+      },
+      "logistics": {
+        "title": "Lojistik Zorluklar & Fırsatlar",
+        "summary": "Küresel nakliye ve navlun dünyasının mevcut durumunu yönetmek.",
+        "category": "Lojistik"
+      }
+    }
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "subtitle": "Küresel kağıt ticareti endüstrisindeki güvenilir ortağınız.",
+    "mission": {
+      "title": "Misyonumuz",
+      "description": "Paper Market World olarak, küresel ölçekte kağıt ürünleri üreticileri ve tüketicileri arasındaki boşluğu doldurmayı hedefliyoruz. Misyonumuz, işletmelerin büyümesini sağlayan sorunsuz, verimli ve şeffaf ticaret çözümleri sunmaktır."
+    },
+    "vision": {
+      "title": "Vizyonumuz",
+      "description": "Endüstride kalite, güvenilirlik ve inovasyon standartlarını belirleyen, dünyanın önde gelen dijital kağıt ticaret platformu olmak."
+    },
+    "whyChooseUs": "Neden Bizi Seçmelisiniz?",
+    "stats": {
+      "experience": "Yıllık Deneyim",
+      "partners": "Küresel Ortak",
+      "support": "Destek"
+    },
+    "faq": {
+      "title": "Sıkça Sorulan Sorular",
+      "subtitle": "Hizmetlerimiz ve ticaret süreci hakkında sık sorulan sorular.",
+      "items": {
+        "moq": {
+          "question": "Minimum sipariş miktarınız (MOQ) nedir?",
+          "answer": "Standart MOQ'umuz bir 20ft konteynerdir (yaklaşık 15-18 ton). Ancak, yeni müşteriler için kaliteye bağlı olarak deneme siparişleri veya karma konteynerler görüşebiliriz."
+        },
+        "payment": {
+          "question": "Hangi ödeme koşullarını kabul ediyorsunuz?",
+          "answer": "Genellikle görüldüğünde Akreditif (L/C), Vesaik Mukabili (CAD) veya Peşin Ödeme (TT) ile çalışıyoruz. Sigorta onayına tabi olarak uzun vadeli ortaklar için vadeli ödeme koşulları mevcut olabilir."
+        },
+        "logistics": {
+          "question": "Lojistik ve gümrük işlemlerini hallediyor musunuz?",
+          "answer": "Evet, uçtan uca lojistik çözümleri sunuyoruz. Nakliye, sigorta ve tüm ihracat belgelerini hallediyoruz. İthalat gümrük işlemleri genellikle alıcının sorumluluğundadır, ancak gerekli tüm destek ve evrakları sağlıyoruz."
+        },
+        "samples": {
+          "question": "Sipariş vermeden önce numune sağlayabilir misiniz?",
+          "answer": "Kesinlikle. Kalite kontrolü için kurye ile A4 numuneler gönderebiliriz. Daha büyük deneme bobinleri için lütfen satış ekibimizle iletişime geçin."
+        }
+      }
+    }
+  },
+  "legal": {
+    "privacy": {
+      "title": "Gizlilik Politikası",
+      "lastUpdated": "Son güncelleme: Aralık 2024",
+      "sections": {
+        "data": {
+          "title": "Topladığımız Veriler",
+          "body": "Bize doğrudan sağladığınız ad, e-posta, şirket bilgileri ve bizimle iletişime geçtiğinizde paylaştığınız talep bilgilerini toplarız."
+        },
+        "use": {
+          "title": "Verileri Nasıl Kullanırız",
+          "body": "Verileriniz yalnızca taleplerinize yanıt vermek ve teklif sunmak için kullanılır. Bilgilerinizi üçüncü taraflarla satmayız veya paylaşmayız."
+        },
+        "protection": {
+          "title": "Veri Koruma",
+          "body": "Verilerinizi korumak için sektör standardı güvenlik önlemleri uygularız."
+        },
+        "rights": {
+          "title": "Haklarınız",
+          "body": "Kişisel verilerinize erişme, düzeltme veya silme hakkına sahipsiniz. Bize privacy@papermarketworld.com adresinden ulaşabilirsiniz."
+        },
+        "cookies": {
+          "title": "Çerezler",
+          "body": "Site işlevselliği için zorunlu çerezleri kullanırız. Takip çerezleri kullanılmaz."
+        },
+        "contact": {
+          "title": "İletişim",
+          "body": "Gizlilik soruları için: privacy@papermarketworld.com"
+        }
+      }
+    },
+    "imprint": {
+      "title": "Künye / Yasal Bildirim",
+      "disclosure": "§ 5 ECG (Avusturya) ve § 5 DDG (Almanya) uyarınca bilgiler",
+      "fields": {
+        "company": {
+          "label": "Şirket adı",
+          "value": "{{TODO: vollständiger Firmenname laut Firmenbuch}}"
+        },
+        "legalForm": {
+          "label": "Hukuki şekil",
+          "value": "{{TODO: z. B. GmbH}}"
+        },
+        "address": {
+          "label": "Adres",
+          "value": "{{TODO: Straße und Hausnummer, PLZ, Wien, Österreich}}"
+        },
+        "representative": {
+          "label": "Yetkili temsilci",
+          "value": "{{TODO: Geschäftsführer:in}}"
+        },
+        "register": {
+          "label": "Ticaret sicil numarası",
+          "value": "{{TODO: FN xxxxxx x}}"
+        },
+        "court": {
+          "label": "Sicil mahkemesi",
+          "value": "{{TODO: zuständiges Firmenbuchgericht}}"
+        },
+        "vatId": {
+          "label": "Vergi Kimlik No",
+          "value": "{{TODO: ATU xxxxxxxx}}"
+        },
+        "email": {
+          "label": "E-posta",
+          "value": "info@papermarketworld.com {{TODO: bestätigen}}"
+        },
+        "phone": {
+          "label": "Telefon",
+          "value": "+43 660 249 21 86"
+        }
+      },
+      "liability": {
+        "title": "İçerik sorumluluğu",
+        "body": "Bu web sitesinin içerikleri mümkün olan en büyük özenle hazırlanmıştır. Ancak içeriğin doğruluğu, eksiksizliği ve güncelliği konusunda hiçbir sorumluluk üstlenmeyiz."
+      },
+      "dispute": {
+        "title": "Çevrimiçi uyuşmazlık çözümü",
+        "body": "Avrupa Komisyonu, çevrimiçi uyuşmazlık çözümü (ODR) için bir platform sağlar: https://ec.europa.eu/consumers/odr. Bir tüketici hakem heyeti önünde uyuşmazlık çözüm sürecine katılmak zorunda değiliz ve buna istekli de değiliz. Not: yalnızca ticari müşterilere (B2B) satış yapılır."
+      }
+    }
+  },
+  "thankYou": {
+    "title": "Talebiniz için teşekkürler",
+    "subtitle": "Talebinizi aldık ve 24 saat içinde size geri döneceğiz.",
+    "backHome": "Ana sayfaya dön"
+  },
+  "comparison": {
+    "label": {
+      "features": "Özellikler",
+      "gsm": "GSM Aralığı",
+      "grades": "Kaliteler",
+      "origin": "Menşei",
+      "price": "Fiyat Göstergesi",
+      "applications": "Temel Uygulamalar"
+    },
+    "addToQuote": "Teklife Ekle"
+  },
+  "calculator": {
+    "title": "Anlık Fiyat Tahmini",
+    "subtitle": "Kağıt ihtiyaçlarınız için ön teklif alın",
+    "product": "Ürün",
+    "selectProduct": "Bir ürün seçin",
+    "gsm": "GSM Aralığı",
+    "selectGsm": "GSM Seçin",
+    "quantity": "Miktar (Ton)",
+    "port": "Teslimat Limanı",
+    "estimatedTotal": "Tahmini Toplam",
+    "basePrice": "Baz Fiyat + Lojistik",
+    "submit": "Resmi Teklif İste",
+    "standardRange": "Standart Aralık",
+    "portPlaceholder": "örn. İstanbul, Hamburg",
+    "included": "Dahil"
+  },
+  "datatable": {
+    "search": "Ara...",
+    "export": "CSV Dışa Aktar",
+    "noData": "Veri bulunamadı",
+    "rowsPerPage": "Sayfa başına satır:",
+    "showing": "{total} kayıttan {start}-{end} arası gösteriliyor"
+  },
+  "finder": {
+    "step": "Adım {current} / {total}",
+    "finish": "Sonuçları Gör",
+    "step1": {
+      "title": "Ne arıyorsunuz?"
+    },
+    "step2": {
+      "title": "Teknik Özellikler",
+      "gsmRange": "Tercih Edilen GSM Aralığı",
+      "quality": "Kalite Sınıfı"
+    },
+    "step3": {
+      "title": "Menşei ve Bütçe",
+      "budget": "Bütçe Aralığı"
+    },
+    "results": {
+      "matchFound": "{count} Eşleşme Bulundu",
+      "subtitle": "İhtiyaçlarınıza göre",
+      "reset": "Baştan Başla",
+      "viewDetails": "Detayları Gör",
+      "match": "Eşleşme"
+    },
+    "options": {
+      "fmcg": "Hızlı Tüketim & Ambalaj",
+      "pharma": "İlaç Sektörü",
+      "ecommerce": "E-ticaret",
+      "industrial": "Endüstriyel"
+    },
+    "grades": {
+      "virgin": "Bakır Elyaf",
+      "recycled": "Geri Dönüştürülmüş",
+      "mixed": "Karışık",
+      "coated": "Kuşe",
+      "uncoated": "Kuşesiz"
+    },
+    "origins": {
+      "turkey": "Türkiye",
+      "europe": "Avrupa",
+      "asia": "Asya",
+      "usa": "ABD"
+    },
+    "budgets": {
+      "economy": "Ekonomik",
+      "standard": "Standart",
+      "premium": "Premium"
+    }
+  },
+  "chat": {
+    "agentName": "Destek Temsilcisi",
+    "online": "Çevrimiçi",
+    "offline": "Çevrimdışı",
+    "welcomeTitle": "Nasıl yardımcı olabiliriz?",
+    "welcomeSubtitle": "Bize bir mesaj bırakın, en kısa sürede size geri dönelim.",
+    "startChat": "Sohbeti Başlat",
+    "placeholder": "Bir mesaj yazın...",
+    "agentResponse": "Mesajınız için teşekkürler! Bir temsilci kısa süre içinde sizinle ilgilenecek.",
+    "callUs": "Bizi Arayın",
+    "emailUs": "E-posta",
+    "liveChat": "Canlı Sohbet",
+    "close": "Kapat",
+    "namePlaceholder": "Ad Soyad",
+    "emailPlaceholder": "ad@example.com",
+    "messagePlaceholder": "Size nasıl yardımcı olabiliriz?",
+    "poweredBy": "Altyapı"
+  },
+  "accordion": {
+    "searchPlaceholder": "SSS içinde ara...",
+    "noResults": "“{query}” için sonuç bulunamadı"
+  },
+  "modal": {
+    "confirm": "Onayla",
+    "cancel": "İptal",
+    "close": "Kapat"
+  },
+  "upload": {
+    "dropzone": {
+      "title": "Yüklemek için tıklayın veya sürükleyip bırakın",
+      "subtitle": "PDF, PNG, JPG veya XLSX (maks. {max}MB)"
+    },
+    "status": {
+      "completed": "Tamamlandı",
+      "uploading": "Yükleniyor..."
+    },
+    "error": {
+      "size": "Dosya boyutu {size}MB sınırını aşıyor",
+      "type": "Geçersiz dosya türü"
+    }
+  },
+  "tracker": {
+    "title": "Siparişinizi Takip Edin",
+    "subtitle": "Sevkiyat durumunuzla ilgili gerçek zamanlı güncellemeler",
+    "estimatedDelivery": "Tahmini Teslimat",
+    "stages": {
+      "placed": "Sipariş Alındı",
+      "production": "Üretimde",
+      "quality": "Kalite Kontrol",
+      "shipped": "Kargolandı",
+      "delivered": "Teslim Edildi"
+    },
+    "descriptions": {
+      "production": "Fabrikada üretim devam ediyor"
+    },
+    "documents": {
+      "invoice": "Fatura",
+      "packingList": "Çeki Listesi",
+      "other": "Belge"
+    }
+  }
 }

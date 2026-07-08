@@ -1,4 +1,7 @@
 import { useTranslations } from 'next-intl';
+import type { Metadata } from 'next';
+import { getTranslations } from 'next-intl/server';
+import { staticAlternates } from '@/lib/seo';
 import { BadgeDollarSign, Factory, FileCheck2, PackageSearch, Ship, type LucideIcon } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
@@ -8,6 +11,19 @@ import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { HeroIconFrame, IconFrame, type IconTone } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
+
+export async function generateMetadata({
+  params: { locale },
+}: {
+  params: { locale: string };
+}): Promise<Metadata> {
+  const t = await getTranslations({ locale });
+  return {
+    title: t('services.title'),
+    description: t('services.subtitle'),
+    alternates: staticAlternates(locale as Locale, '/services'),
+  };
+}
 
 export default function ServicesPage({ params: { locale } }: { params: { locale: string } }) {
     const currentLocale = locale as Locale;
