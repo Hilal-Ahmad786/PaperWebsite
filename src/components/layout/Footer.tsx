@@ -37,7 +37,7 @@ export function Footer({ locale }: FooterProps) {
 
   return (
     <footer className="bg-background-secondary border-t border-border-primary">
-      <div className="container mx-auto px-6 lg:px-8 max-w-7xl py-16">
+      <div className="container mx-auto px-4 lg:px-6 max-w-screen-2xl py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
           <div>
