@@ -1,0 +1,31 @@
+// Admin i18n dictionary for the "audit" module. Keys are full dotted paths.
+export const audit = {
+  en: {
+    'audit.title': 'Audit log',
+    'audit.subtitleShort': 'Recent administrative activity',
+    'audit.subtitle': 'The 200 most recent administrative actions.',
+    'audit.notConfigured': 'Connect a database to view the audit trail.',
+    'audit.empty': 'No audit entries yet.',
+    'audit.when': 'When',
+    'audit.actor': 'Actor',
+    'audit.action': 'Action',
+    'audit.entity': 'Entity',
+    'audit.summary': 'Summary',
+    'audit.ip': 'IP',
+    'audit.system': 'system',
+  } as Record<string, string>,
+  tr: {
+    'audit.title': 'Denetim günlüğü',
+    'audit.subtitleShort': 'Son yönetimsel etkinlikler',
+    'audit.subtitle': 'En son 200 yönetimsel işlem.',
+    'audit.notConfigured': 'Denetim kaydını görüntülemek için bir veritabanı bağlayın.',
+    'audit.empty': 'Henüz denetim kaydı yok.',
+    'audit.when': 'Ne zaman',
+    'audit.actor': 'İşlemi yapan',
+    'audit.action': 'İşlem',
+    'audit.entity': 'Varlık',
+    'audit.summary': 'Özet',
+    'audit.ip': 'IP',
+    'audit.system': 'sistem',
+  } as Record<string, string>,
+};

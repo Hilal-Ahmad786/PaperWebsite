@@ -4,6 +4,7 @@ import { Languages } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
 import { SITE_LOCALES } from '@/lib/admin/localized';
 import { PageTitle, DataTable, Th, Td, StatCard } from '@/components/admin/bits';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -30,6 +31,7 @@ function loadCatalog(locale: string): Record<string, string> {
 
 export default async function TranslationsPage() {
   await requirePermission('translations.read');
+  const { t } = await getAdminT();
 
   const source = loadCatalog('en');
   const sourceKeys = Object.keys(source);
@@ -55,30 +57,30 @@ export default async function TranslationsPage() {
   return (
     <>
       <PageTitle
-        title="Translations"
-        subtitle="Localization coverage across the site message catalogs."
+        title={t('translations.title')}
+        subtitle={t('translations.subtitle')}
       />
 
       <p className="mb-6 max-w-2xl text-sm text-slate-500">
-        Message catalogs live in <code className="rounded bg-slate-100 px-1 py-0.5 text-xs">messages/*.json</code>.
-        English (<code className="rounded bg-slate-100 px-1 py-0.5 text-xs">messages/en.json</code>) is the source of
-        truth; each locale below is compared against its leaf keys.
+        {t('translations.catalogsIntro')}<code className="rounded bg-slate-100 px-1 py-0.5 text-xs">messages/*.json</code>
+        {t('translations.catalogsMid1')}<code className="rounded bg-slate-100 px-1 py-0.5 text-xs">messages/en.json</code>
+        {t('translations.catalogsMid2')}
       </p>
 
       <div className="mb-6 grid gap-4 sm:grid-cols-3">
-        <StatCard label="Source keys (en)" value={totalKeys} icon={Languages} accent />
-        <StatCard label="Locales" value={targetLocales.length} />
-        <StatCard label="Average coverage" value={`${avgCoverage}%`} />
+        <StatCard label={t('translations.sourceKeys')} value={totalKeys} icon={Languages} accent />
+        <StatCard label={t('translations.locales')} value={targetLocales.length} />
+        <StatCard label={t('translations.avgCoverage')} value={`${avgCoverage}%`} />
       </div>
 
       <DataTable
         head={
           <>
-            <Th>Locale</Th>
-            <Th>Keys</Th>
-            <Th>Translated</Th>
-            <Th>Missing</Th>
-            <Th>Coverage</Th>
+            <Th>{t('translations.locale')}</Th>
+            <Th>{t('translations.keys')}</Th>
+            <Th>{t('translations.translated')}</Th>
+            <Th>{t('translations.missing')}</Th>
+            <Th>{t('translations.coverage')}</Th>
           </>
         }
       >

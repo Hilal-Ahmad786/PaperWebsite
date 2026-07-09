@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { desc, eq, isNull } from 'drizzle-orm';
 import { UserPlus } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { users, userRoles, roles } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
@@ -14,13 +15,14 @@ export default async function UsersPage({
   searchParams: Promise<{ ok?: string; error?: string }>;
 }) {
   await requirePermission('users.manage');
+  const { t } = await getAdminT();
   const sp = await searchParams;
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Users" subtitle="Admin accounts and their roles" />
-        <NotConfigured message="Connect a database to manage admin users and roles." />
+        <PageTitle title={t('users.title')} subtitle={t('users.subtitle')} />
+        <NotConfigured message={t('users.notConfigured')} />
       </>
     );
   }
@@ -46,27 +48,27 @@ export default async function UsersPage({
   return (
     <>
       <PageTitle
-        title="Users"
-        subtitle="Admin accounts and their roles"
+        title={t('users.title')}
+        subtitle={t('users.subtitle')}
         action={
           <LinkButton href="/admin/users/new">
-            <UserPlus size={16} /> New user
+            <UserPlus size={16} /> {t('users.new')}
           </LinkButton>
         }
       />
       <Flash ok={sp.ok} error={sp.error} />
 
       {rows.length === 0 ? (
-        <EmptyState message="No users yet." />
+        <EmptyState message={t('users.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>Name</Th>
-              <Th>Email</Th>
-              <Th>Roles</Th>
-              <Th>Active</Th>
-              <Th>Last login</Th>
+              <Th>{t('common.name')}</Th>
+              <Th>{t('common.email')}</Th>
+              <Th>{t('users.roles')}</Th>
+              <Th>{t('users.active')}</Th>
+              <Th>{t('users.lastLogin')}</Th>
             </>
           }
         >
@@ -88,12 +90,12 @@ export default async function UsersPage({
               </Td>
               <Td>
                 {u.isActive ? (
-                  <Badge value="available" label="Active" />
+                  <Badge value="available" label={t('users.active')} />
                 ) : (
-                  <Badge value="lost" label="Inactive" />
+                  <Badge value="lost" label={t('users.inactive')} />
                 )}
               </Td>
-              <Td>{u.lastLoginAt ? u.lastLoginAt.toLocaleString() : 'Never'}</Td>
+              <Td>{u.lastLoginAt ? u.lastLoginAt.toLocaleString() : t('users.never')}</Td>
             </tr>
           ))}
         </DataTable>

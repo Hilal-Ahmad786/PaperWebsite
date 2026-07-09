@@ -5,6 +5,7 @@ import { productOverrides } from '@/db/schema';
 import { products } from '@/content/products';
 import { pickLocalized } from '@/lib/admin/localized';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, Flash } from '@/components/admin/bits';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -15,12 +16,13 @@ export default async function ProductsPage({
 }) {
   await requirePermission('products.read');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Products" subtitle="Catalog overrides for the static product list" />
-        <NotConfigured message="Connect a database to override product copy, imagery, ordering and visibility." />
+        <PageTitle title={t('products.title')} subtitle={t('products.subtitle')} />
+        <NotConfigured message={t('products.notConfigured')} />
       </>
     );
   }
@@ -30,17 +32,17 @@ export default async function ProductsPage({
 
   return (
     <>
-      <PageTitle title="Products" subtitle="Catalog overrides for the static product list" />
+      <PageTitle title={t('products.title')} subtitle={t('products.subtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
       <DataTable
         head={
           <>
-            <Th>Slug</Th>
-            <Th>Name</Th>
-            <Th>Category</Th>
-            <Th>Hidden?</Th>
-            <Th>Sort</Th>
+            <Th>{t('products.slug')}</Th>
+            <Th>{t('common.name')}</Th>
+            <Th>{t('common.category')}</Th>
+            <Th>{t('products.hiddenQ')}</Th>
+            <Th>{t('common.sort')}</Th>
           </>
         }
       >
@@ -59,7 +61,7 @@ export default async function ProductsPage({
               </Td>
               <Td>{name || <span className="text-slate-400">{p.slug}</span>}</Td>
               <Td>{o?.category || p.category}</Td>
-              <Td>{o?.isHidden ? <Badge value="hidden" /> : <span className="text-slate-400">—</span>}</Td>
+              <Td>{o?.isHidden ? <Badge value="hidden" label={t('products.hidden')} /> : <span className="text-slate-400">—</span>}</Td>
               <Td>{o?.sortOrder ?? 0}</Td>
             </tr>
           );

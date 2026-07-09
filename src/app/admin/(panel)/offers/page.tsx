@@ -6,6 +6,7 @@ import { isDbConfigured, db } from '@/db';
 import { stockOffers } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
 import { pickLocalized } from '@/lib/admin/localized';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,12 +20,13 @@ export default async function OffersPage({
 }) {
   const user = await requirePermission('offers.read');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Stock offers" subtitle="Spot lots surfaced on the public stock-offers page" />
-        <NotConfigured message="Connect a database to start managing stock offers." />
+        <PageTitle title={t('offers.title')} subtitle={t('offers.subtitle')} />
+        <NotConfigured message={t('offers.notConfigured')} />
       </>
     );
   }
@@ -48,12 +50,12 @@ export default async function OffersPage({
   return (
     <>
       <PageTitle
-        title="Stock offers"
-        subtitle="Spot lots surfaced on the public stock-offers page"
+        title={t('offers.title')}
+        subtitle={t('offers.subtitle')}
         action={
           canWrite ? (
             <LinkButton href="/admin/offers/new">
-              <Plus size={16} /> New offer
+              <Plus size={16} /> {t('offers.newOffer')}
             </LinkButton>
           ) : undefined
         }
@@ -61,31 +63,31 @@ export default async function OffersPage({
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="mb-4 flex flex-wrap gap-2">
-        <FilterPill href="/admin/offers" active={!activeStatus} label="All" />
+        <FilterPill href="/admin/offers" active={!activeStatus} label={t('common.all')} />
         {STATUSES.map((s) => (
           <FilterPill
             key={s}
             href={`/admin/offers?status=${s}`}
             active={activeStatus === s}
-            label={`${s} (${countByStatus[s] ?? 0})`}
+            label={`${t(`offers.status.${s}`)} (${countByStatus[s] ?? 0})`}
           />
         ))}
       </div>
 
       {rows.length === 0 ? (
-        <EmptyState message="No offers match this filter." />
+        <EmptyState message={t('offers.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>Title</Th>
-              <Th>Grade</Th>
-              <Th>GSM</Th>
-              <Th>Qty (tons)</Th>
-              <Th>Location</Th>
-              <Th>Price</Th>
-              <Th>Status</Th>
-              <Th>Sort</Th>
+              <Th>{t('common.title')}</Th>
+              <Th>{t('offers.grade')}</Th>
+              <Th>{t('offers.gsm')}</Th>
+              <Th>{t('offers.qtyTons')}</Th>
+              <Th>{t('offers.location')}</Th>
+              <Th>{t('offers.price')}</Th>
+              <Th>{t('common.status')}</Th>
+              <Th>{t('common.sort')}</Th>
             </>
           }
         >
@@ -102,7 +104,7 @@ export default async function OffersPage({
               <Td>{o.location ?? '—'}</Td>
               <Td>{o.price ?? '—'}</Td>
               <Td>
-                <Badge value={o.status} />
+                <Badge value={o.status} label={t(`offers.status.${o.status}`)} />
               </Td>
               <Td>{o.sortOrder}</Td>
             </tr>

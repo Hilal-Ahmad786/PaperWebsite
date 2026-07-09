@@ -1,0 +1,33 @@
+// Admin i18n dictionary for the "media" module. Keys are full dotted paths.
+export const media = {
+  en: {
+    'media.title': 'Media library',
+    'media.subtitle': 'Uploaded images and documents',
+    'media.notConfigured': 'Connect a database to store and manage media assets.',
+    'media.empty': 'No media uploaded yet.',
+    'media.file': 'File',
+    'media.confirmDelete': 'Delete {name}? This cannot be undone.',
+    'media.chooseFile': 'Choose a file to upload.',
+    'media.uploadFailedStatus': 'Upload failed ({status}).',
+    'media.uploadFailed': 'Upload failed. Please try again.',
+    'media.uploading': 'Uploading…',
+    'media.upload': 'Upload',
+    'media.copied': 'Copied',
+    'media.copyUrl': 'Copy URL',
+  } as Record<string, string>,
+  tr: {
+    'media.title': 'Medya kütüphanesi',
+    'media.subtitle': 'Yüklenen görseller ve belgeler',
+    'media.notConfigured': 'Medya varlıklarını depolamak ve yönetmek için bir veritabanı bağlayın.',
+    'media.empty': 'Henüz medya yüklenmedi.',
+    'media.file': 'Dosya',
+    'media.confirmDelete': '{name} silinsin mi? Bu işlem geri alınamaz.',
+    'media.chooseFile': 'Yüklenecek bir dosya seçin.',
+    'media.uploadFailedStatus': 'Yükleme başarısız oldu ({status}).',
+    'media.uploadFailed': 'Yükleme başarısız oldu. Lütfen tekrar deneyin.',
+    'media.uploading': 'Yükleniyor…',
+    'media.upload': 'Yükle',
+    'media.copied': 'Kopyalandı',
+    'media.copyUrl': 'URL’yi kopyala',
+  } as Record<string, string>,
+};

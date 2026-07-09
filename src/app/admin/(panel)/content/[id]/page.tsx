@@ -13,6 +13,7 @@ import {
   publishContent,
   unpublishContent,
 } from '@/lib/admin/content-actions';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -29,6 +30,7 @@ export default async function EditContentPage({
   const user = await requirePermission('content.read');
   const { id } = await params;
   const sp = await searchParams;
+  const { t } = await getAdminT();
   const db = requireDb();
 
   const [entry] = await db.select().from(contentEntries).where(eq(contentEntries.id, id)).limit(1);
@@ -43,12 +45,12 @@ export default async function EditContentPage({
         href="/admin/content"
         className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700"
       >
-        <ArrowLeft size={16} /> Back to content
+        <ArrowLeft size={16} /> {t('content.back')}
       </Link>
       <PageTitle
         title={entry.title.en || entry.slug}
-        subtitle={`Last updated ${entry.updatedAt.toLocaleString()}`}
-        action={<Badge value={entry.status} />}
+        subtitle={t('content.lastUpdated', { date: entry.updatedAt.toLocaleString() })}
+        action={<Badge value={entry.status} label={t(`content.status.${entry.status}`)} />}
       />
       <Flash ok={sp.ok} error={sp.error} />
 
@@ -61,50 +63,50 @@ export default async function EditContentPage({
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div>
                     <label className={labelClass} htmlFor="type">
-                      Type
+                      {t('common.type')}
                     </label>
                     <select id="type" name="type" defaultValue={entry.type} className={inputClass}>
-                      {TYPES.map((t) => (
-                        <option key={t} value={t} className="capitalize">
-                          {t}
+                      {TYPES.map((ty) => (
+                        <option key={ty} value={ty} className="capitalize">
+                          {t(`content.type.${ty}`)}
                         </option>
                       ))}
                     </select>
                   </div>
-                  <Field label="Slug" name="slug" defaultValue={entry.slug} required />
+                  <Field label={t('content.slug')} name="slug" defaultValue={entry.slug} required />
                 </div>
 
-                <LocalizedField label="Title" prefix="title" value={entry.title} required />
-                <LocalizedField label="Excerpt" prefix="excerpt" value={entry.excerpt} />
-                <LocalizedField label="Body" prefix="body" value={entry.body} textarea />
+                <LocalizedField label={t('common.title')} prefix="title" value={entry.title} required />
+                <LocalizedField label={t('content.excerpt')} prefix="excerpt" value={entry.excerpt} />
+                <LocalizedField label={t('content.body')} prefix="body" value={entry.body} textarea />
 
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <Field label="Cover image URL" name="coverImage" defaultValue={entry.coverImage ?? ''} placeholder="https://…" />
-                  <Field label="Tags (comma-separated)" name="tags" defaultValue={entry.tags.join(', ')} />
+                  <Field label={t('content.coverImage')} name="coverImage" defaultValue={entry.coverImage ?? ''} placeholder="https://…" />
+                  <Field label={t('content.tags')} name="tags" defaultValue={entry.tags.join(', ')} />
                 </div>
 
                 <div>
                   <label className={labelClass} htmlFor="status">
-                    Status
+                    {t('common.status')}
                   </label>
                   <select id="status" name="status" defaultValue={entry.status} className={inputClass}>
                     {STATUSES.map((s) => (
                       <option key={s} value={s} className="capitalize">
-                        {s}
+                        {t(`content.status.${s}`)}
                       </option>
                     ))}
                   </select>
                 </div>
 
-                <LocalizedField label="SEO title" prefix="seoTitle" value={entry.seoTitle} />
-                <LocalizedField label="SEO description" prefix="seoDescription" value={entry.seoDescription} />
+                <LocalizedField label={t('content.seoTitle')} prefix="seoTitle" value={entry.seoTitle} />
+                <LocalizedField label={t('content.seoDescription')} prefix="seoDescription" value={entry.seoDescription} />
 
                 <div className="flex justify-end">
-                  <SubmitButton>Save changes</SubmitButton>
+                  <SubmitButton>{t('common.saveChanges')}</SubmitButton>
                 </div>
               </form>
             ) : (
-              <p className="text-sm text-slate-400">You have read-only access to this content.</p>
+              <p className="text-sm text-slate-400">{t('content.readOnly')}</p>
             )}
           </Card>
         </div>
@@ -112,25 +114,25 @@ export default async function EditContentPage({
         <div className="space-y-6">
           {canPublish && (
             <Card className="p-6">
-              <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Publishing</h2>
+              <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('content.publishing')}</h2>
               {entry.status === 'published' ? (
                 <>
                   <p className="mb-4 text-sm text-slate-500">
-                    Published {entry.publishedAt ? entry.publishedAt.toLocaleString() : ''}. Unpublish to return it to draft.
+                    {t('content.publishedInfo', { date: entry.publishedAt ? entry.publishedAt.toLocaleString() : '' })}
                   </p>
                   <form action={unpublishContent}>
                     <input type="hidden" name="id" value={entry.id} />
                     <SubmitButton variant="secondary" className="w-full">
-                      Unpublish
+                      {t('content.unpublish')}
                     </SubmitButton>
                   </form>
                 </>
               ) : (
                 <>
-                  <p className="mb-4 text-sm text-slate-500">Make this content live on the public site.</p>
+                  <p className="mb-4 text-sm text-slate-500">{t('content.publishInfo')}</p>
                   <form action={publishContent}>
                     <input type="hidden" name="id" value={entry.id} />
-                    <SubmitButton className="w-full">Publish</SubmitButton>
+                    <SubmitButton className="w-full">{t('content.publish')}</SubmitButton>
                   </form>
                 </>
               )}
@@ -139,8 +141,8 @@ export default async function EditContentPage({
 
           {editable && (
             <Card className="p-6">
-              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">Danger zone</h2>
-              <p className="mb-4 text-sm text-slate-500">Permanently remove this content entry.</p>
+              <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('common.dangerZone')}</h2>
+              <p className="mb-4 text-sm text-slate-500">{t('content.deleteInfo')}</p>
               <DeleteButton
                 action={async () => {
                   'use server';
@@ -148,7 +150,8 @@ export default async function EditContentPage({
                   fd.set('id', entry.id);
                   await deleteContent(fd);
                 }}
-                confirm="Delete this content permanently?"
+                confirm={t('content.confirmDelete')}
+                label={t('common.delete')}
               />
             </Card>
           )}

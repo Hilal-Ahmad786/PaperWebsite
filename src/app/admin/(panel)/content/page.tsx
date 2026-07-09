@@ -6,6 +6,7 @@ import { isDbConfigured, db } from '@/db';
 import { contentEntries } from '@/db/schema';
 import { pickLocalized } from '@/lib/admin/localized';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,12 +20,13 @@ export default async function ContentPage({
 }) {
   const user = await requirePermission('content.read');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Content" subtitle="Insights, pages and FAQs" />
-        <NotConfigured message="Connect a database to start managing insights, pages and FAQs." />
+        <PageTitle title={t('content.title')} subtitle={t('content.subtitle')} />
+        <NotConfigured message={t('content.notConfigured')} />
       </>
     );
   }
@@ -46,12 +48,12 @@ export default async function ContentPage({
   return (
     <>
       <PageTitle
-        title="Content"
-        subtitle="Insights, pages and FAQs"
+        title={t('content.title')}
+        subtitle={t('content.subtitle')}
         action={
           can(user, 'content.write') ? (
             <LinkButton href="/admin/content/new">
-              <Plus size={16} /> New insight
+              <Plus size={16} /> {t('content.newInsight')}
             </LinkButton>
           ) : undefined
         }
@@ -59,27 +61,27 @@ export default async function ContentPage({
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="mb-4 flex flex-wrap gap-2">
-        <FilterPill href="/admin/content" active={!activeStatus} label="All" />
+        <FilterPill href="/admin/content" active={!activeStatus} label={t('common.all')} />
         {STATUSES.map((s) => (
           <FilterPill
             key={s}
             href={`/admin/content?status=${s}`}
             active={activeStatus === s}
-            label={`${s} (${countByStatus[s] ?? 0})`}
+            label={`${t(`content.status.${s}`)} (${countByStatus[s] ?? 0})`}
           />
         ))}
       </div>
 
       {rows.length === 0 ? (
-        <EmptyState message="No content matches this filter." />
+        <EmptyState message={t('content.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>Title</Th>
-              <Th>Type</Th>
-              <Th>Status</Th>
-              <Th>Updated</Th>
+              <Th>{t('common.title')}</Th>
+              <Th>{t('common.type')}</Th>
+              <Th>{t('common.status')}</Th>
+              <Th>{t('common.updatedAt')}</Th>
             </>
           }
         >
@@ -93,9 +95,9 @@ export default async function ContentPage({
                   {pickLocalized(c.title) || c.slug}
                 </Link>
               </Td>
-              <Td className="capitalize">{c.type}</Td>
+              <Td className="capitalize">{t(`content.type.${c.type}`)}</Td>
               <Td>
-                <Badge value={c.status} />
+                <Badge value={c.status} label={t(`content.status.${c.status}`)} />
               </Td>
               <Td>{c.updatedAt.toLocaleDateString()}</Td>
             </tr>

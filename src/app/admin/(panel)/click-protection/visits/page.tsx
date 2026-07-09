@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured } from '@/db';
 import { PageTitle, NotConfigured, DataTable, Th, Td, EmptyState, Flash } from '@/components/admin/bits';
 import { listVisits } from '@/db/repo/click-protection';
@@ -14,14 +15,14 @@ function scoreColor(score: number): string {
   return 'text-slate-700';
 }
 
-function YesNo({ value }: { value?: boolean | null }) {
+function YesNo({ value, yes, no }: { value?: boolean | null; yes: string; no: string }) {
   return (
     <span
       className={`inline-flex items-center rounded px-1.5 py-0.5 text-xs font-medium ring-1 ring-inset ${
         value ? 'bg-emerald-50 text-emerald-700 ring-emerald-600/20' : 'bg-slate-100 text-slate-500 ring-slate-500/20'
       }`}
     >
-      {value ? 'yes' : 'no'}
+      {value ? yes : no}
     </span>
   );
 }
@@ -32,13 +33,14 @@ export default async function VisitsPage({
   searchParams: Promise<{ minScore?: string; gclidOnly?: string; ok?: string; error?: string }>;
 }) {
   await requirePermission('clickprotection.read');
+  const { t } = await getAdminT();
   const sp = await searchParams;
 
   if (!isDbConfigured) {
     return (
       <>
-        <PageTitle title="Visits" subtitle="Raw scored visit log" />
-        <NotConfigured message="Connect a database to inspect the visit log." />
+        <PageTitle title={t('cp.visits.title')} subtitle={t('cp.visits.subtitle')} />
+        <NotConfigured message={t('cp.visits.notConfigured')} />
       </>
     );
   }
@@ -63,30 +65,30 @@ export default async function VisitsPage({
   return (
     <>
       <Link href="/admin/click-protection" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to overview
+        <ArrowLeft size={16} /> {t('cp.backToOverview')}
       </Link>
-      <PageTitle title="Visits" subtitle="Raw scored visit log" />
+      <PageTitle title={t('cp.visits.title')} subtitle={t('cp.visits.subtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="mb-4 flex flex-wrap gap-2">
-        <Toggle href={buildHref({ gclidOnly: !gclidOnly })} active={gclidOnly} label="Paid clicks only" />
-        <Toggle href={buildHref({ minScore: !minScoreOn })} active={minScoreOn} label={`Score ≥ ${FRAUD_THRESHOLDS.flagged}`} />
+        <Toggle href={buildHref({ gclidOnly: !gclidOnly })} active={gclidOnly} label={t('cp.paidClicksOnly')} />
+        <Toggle href={buildHref({ minScore: !minScoreOn })} active={minScoreOn} label={t('cp.scoreAtLeast', { score: FRAUD_THRESHOLDS.flagged })} />
       </div>
 
       {rows.length === 0 ? (
-        <EmptyState message="No visits match this filter." />
+        <EmptyState message={t('cp.visits.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>Time</Th>
-              <Th>IP</Th>
-              <Th>Score</Th>
-              <Th>Paid</Th>
-              <Th>Country</Th>
-              <Th>Device</Th>
-              <Th>Engagement</Th>
-              <Th>Converted</Th>
+              <Th>{t('cp.col.time')}</Th>
+              <Th>{t('cp.col.ip')}</Th>
+              <Th>{t('cp.col.score')}</Th>
+              <Th>{t('cp.col.paid')}</Th>
+              <Th>{t('cp.col.country')}</Th>
+              <Th>{t('cp.col.device')}</Th>
+              <Th>{t('cp.col.engagement')}</Th>
+              <Th>{t('cp.col.converted')}</Th>
             </>
           }
         >
@@ -105,7 +107,7 @@ export default async function VisitsPage({
                 <span className={`font-semibold ${scoreColor(v.fraudScore)}`}>{v.fraudScore}</span>
               </Td>
               <Td>
-                <YesNo value={!!v.gclid} />
+                <YesNo value={!!v.gclid} yes={t('common.yes')} no={t('common.no')} />
               </Td>
               <Td>{v.country ?? '—'}</Td>
               <Td className="max-w-[160px] truncate text-xs text-slate-500">
@@ -115,7 +117,7 @@ export default async function VisitsPage({
                 {v.timeOnPage != null ? `${v.timeOnPage}s` : '—'} · {v.maxScrollDepth ?? 0}% · mouse {v.mouseMoved ? '✓' : '✗'}
               </Td>
               <Td>
-                <YesNo value={v.converted} />
+                <YesNo value={v.converted} yes={t('common.yes')} no={t('common.no')} />
               </Td>
             </tr>
           ))}

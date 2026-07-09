@@ -5,6 +5,7 @@ import { PageTitle, Card, Flash, Field, NotConfigured } from '@/components/admin
 import { SubmitButton } from '@/components/admin/form-controls';
 import { SEO_SETTING_KEYS } from '@/lib/admin/settings-keys';
 import { saveSeoSettings } from '@/lib/admin/settings-actions';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -19,12 +20,13 @@ export default async function SeoPage({
 }) {
   const user = await requirePermission('seo.read');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="SEO" subtitle="Global search & social defaults" />
-        <NotConfigured message="Connect a database to manage SEO settings." />
+        <PageTitle title={t('seo.title')} subtitle={t('seo.subtitleShort')} />
+        <NotConfigured message={t('seo.notConfigured')} />
       </>
     );
   }
@@ -35,32 +37,31 @@ export default async function SeoPage({
 
   return (
     <>
-      <PageTitle title="SEO" subtitle="Global search & social defaults used across the public site." />
+      <PageTitle title={t('seo.title')} subtitle={t('seo.subtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
       <Card className="max-w-2xl p-6">
         <p className="mb-5 rounded-lg border border-slate-200 bg-slate-50 p-3 text-xs text-slate-500">
-          The GA4 Measurement ID and Google Tag Manager container ID entered here are the values the public
-          site reads for analytics and tag management.
+          {t('seo.infoNote')}
         </p>
         <form action={saveSeoSettings} className="space-y-4">
           {SEO_SETTING_KEYS.map((s) => (
             <Field key={s.key} label={s.label} name={s.key} defaultValue={values.get(s.key) ?? ''} />
           ))}
           {canWrite ? (
-            <SubmitButton>Save SEO settings</SubmitButton>
+            <SubmitButton>{t('seo.saveSettings')}</SubmitButton>
           ) : (
             <button
               type="button"
               disabled
               className="inline-flex h-10 cursor-not-allowed items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 text-sm font-semibold text-white opacity-60"
             >
-              Save SEO settings
+              {t('seo.saveSettings')}
             </button>
           )}
         </form>
         {!canWrite && (
-          <p className="mt-3 text-sm text-slate-400">You have read-only access to SEO settings.</p>
+          <p className="mt-3 text-sm text-slate-400">{t('seo.readOnly')}</p>
         )}
       </Card>
     </>

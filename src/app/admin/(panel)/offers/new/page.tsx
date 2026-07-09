@@ -5,6 +5,7 @@ import { products } from '@/content/products';
 import { PageTitle, Card, Flash, Field, LocalizedField, inputClass, labelClass } from '@/components/admin/bits';
 import { SubmitButton } from '@/components/admin/form-controls';
 import { createOffer } from '@/lib/admin/offer-actions';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,22 +18,23 @@ export default async function NewOfferPage({
 }) {
   await requirePermission('offers.write');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   return (
     <>
       <Link href="/admin/offers" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to offers
+        <ArrowLeft size={16} /> {t('offers.back')}
       </Link>
-      <PageTitle title="New offer" subtitle="Create a spot lot for the stock-offers page" />
+      <PageTitle title={t('offers.newOffer')} subtitle={t('offers.newSubtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
       <Card className="max-w-3xl p-6">
         <form action={createOffer} className="space-y-5">
-          <LocalizedField label="Title" prefix="title" required />
+          <LocalizedField label={t('common.title')} prefix="title" required />
 
           <div>
             <label className={labelClass} htmlFor="productSlug">
-              Product slug
+              {t('offers.productSlug')}
             </label>
             <input
               id="productSlug"
@@ -49,34 +51,34 @@ export default async function NewOfferPage({
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2">
-            <Field label="Grade" name="grade" placeholder="e.g. GC1" />
-            <Field label="GSM" name="gsm" placeholder="e.g. 250" />
-            <Field label="Quantity (tons)" name="quantityTons" placeholder="e.g. 24" />
-            <Field label="Location" name="location" placeholder="e.g. Izmir, TR" />
-            <Field label="Price" name="price" placeholder="e.g. €640/MT" />
-            <Field label="Incoterms" name="incoterms" placeholder="e.g. FCA" />
+            <Field label={t('offers.grade')} name="grade" placeholder="e.g. GC1" />
+            <Field label={t('offers.gsm')} name="gsm" placeholder="e.g. 250" />
+            <Field label={t('offers.quantityTons')} name="quantityTons" placeholder="e.g. 24" />
+            <Field label={t('offers.location')} name="location" placeholder="e.g. Izmir, TR" />
+            <Field label={t('offers.price')} name="price" placeholder="e.g. €640/MT" />
+            <Field label={t('offers.incoterms')} name="incoterms" placeholder="e.g. FCA" />
           </div>
 
-          <Field label="Image URL" name="image" placeholder="https://…" />
+          <Field label={t('offers.imageUrl')} name="image" placeholder="https://…" />
 
           <div className="grid gap-5 sm:grid-cols-2">
             <div>
               <label className={labelClass} htmlFor="status">
-                Status
+                {t('common.status')}
               </label>
               <select id="status" name="status" defaultValue="available" className={inputClass}>
                 {STATUSES.map((s) => (
                   <option key={s} value={s} className="capitalize">
-                    {s}
+                    {t(`offers.status.${s}`)}
                   </option>
                 ))}
               </select>
             </div>
-            <Field label="Sort order" name="sortOrder" type="number" defaultValue="0" />
+            <Field label={t('common.sortOrder')} name="sortOrder" type="number" defaultValue="0" />
           </div>
 
           <div className="flex gap-3">
-            <SubmitButton>Create offer</SubmitButton>
+            <SubmitButton>{t('offers.createOffer')}</SubmitButton>
           </div>
         </form>
       </Card>

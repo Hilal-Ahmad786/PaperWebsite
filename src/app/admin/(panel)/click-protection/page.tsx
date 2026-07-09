@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { MousePointerClick, ShieldAlert, Euro, Target, Percent, Fingerprint, Play } from 'lucide-react';
 import { requirePermission, can } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured } from '@/db';
 import { PageTitle, StatCard, Card, NotConfigured, Flash, LinkButton, inputClass, labelClass } from '@/components/admin/bits';
 import { SubmitButton } from '@/components/admin/form-controls';
@@ -15,13 +16,14 @@ export default async function ClickProtectionPage({
   searchParams: Promise<{ ok?: string; error?: string }>;
 }) {
   const user = await requirePermission('clickprotection.read');
+  const { t } = await getAdminT();
   const sp = await searchParams;
 
   if (!isDbConfigured) {
     return (
       <>
-        <PageTitle title="Click Protection" subtitle="Detect and block fraudulent paid-ad clicks" />
-        <NotConfigured message="Connect a database to start scoring paid-ad visits for click fraud." />
+        <PageTitle title={t('cp.title')} subtitle={t('cp.subtitle')} />
+        <NotConfigured message={t('cp.notConfigured.dashboard')} />
       </>
     );
   }
@@ -32,60 +34,59 @@ export default async function ClickProtectionPage({
 
   return (
     <>
-      <PageTitle title="Click Protection" subtitle="Detect and block fraudulent paid-ad clicks" />
+      <PageTitle title={t('cp.title')} subtitle={t('cp.subtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="mb-6 flex flex-wrap gap-2">
         <LinkButton href="/admin/click-protection/flagged" variant="secondary">
-          Flagged IPs
+          {t('cp.tab.flagged')}
         </LinkButton>
         <LinkButton href="/admin/click-protection/visits" variant="secondary">
-          Visits
+          {t('cp.tab.visits')}
         </LinkButton>
         <LinkButton href="/admin/click-protection/refund" variant="secondary">
-          Refund report
+          {t('cp.tab.refund')}
         </LinkButton>
       </div>
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-3">
-        <StatCard label="Ad clicks (30d)" value={stats?.adClicks.d30 ?? 0} icon={MousePointerClick} accent
-          hint={`${stats?.adClicks.d7 ?? 0} in 7d · ${stats?.adClicks.d1 ?? 0} today`} />
-        <StatCard label="Flagged clicks (30d)" value={stats?.flaggedClicks ?? 0} icon={ShieldAlert} />
-        <StatCard label="Est. wasted spend" value={`€${(stats?.estimatedWastedSpend ?? 0).toFixed(2)}`} icon={Euro}
-          hint={`at €${avgCpc.toFixed(2)} avg CPC`} />
-        <StatCard label="Ad conversion rate" value={`${stats?.adConversionRate ?? 0}%`} icon={Target} />
-        <StatCard label="% flagged" value={`${stats?.pctFlagged ?? 0}%`} icon={Percent} />
-        <StatCard label="Flagged IPs" value={stats?.flaggedIpsCount ?? 0} icon={Fingerprint} />
+        <StatCard label={t('cp.stat.adClicks')} value={stats?.adClicks.d30 ?? 0} icon={MousePointerClick} accent
+          hint={t('cp.stat.adClicksHint', { d7: stats?.adClicks.d7 ?? 0, d1: stats?.adClicks.d1 ?? 0 })} />
+        <StatCard label={t('cp.stat.flaggedClicks')} value={stats?.flaggedClicks ?? 0} icon={ShieldAlert} />
+        <StatCard label={t('cp.stat.wastedSpend')} value={`€${(stats?.estimatedWastedSpend ?? 0).toFixed(2)}`} icon={Euro}
+          hint={t('cp.stat.wastedSpendHint', { cpc: avgCpc.toFixed(2) })} />
+        <StatCard label={t('cp.stat.convRate')} value={`${stats?.adConversionRate ?? 0}%`} icon={Target} />
+        <StatCard label={t('cp.stat.pctFlagged')} value={`${stats?.pctFlagged ?? 0}%`} icon={Percent} />
+        <StatCard label={t('cp.stat.flaggedIps')} value={stats?.flaggedIpsCount ?? 0} icon={Fingerprint} />
       </div>
 
       <div className="mt-6 grid gap-6 lg:grid-cols-3">
         <Card className="p-6 lg:col-span-2">
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">How it works</h2>
+          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('cp.howItWorks')}</h2>
           <p className="text-sm leading-relaxed text-slate-600">
-            This module scores paid-ad (gclid) visits for click fraud using device fingerprints, IP intelligence
-            (datacenter / VPN / proxy) and behavioral signals. IPs that cross the fraud threshold are flagged and can
-            be exported for a Google Ads IP-exclusion upload or an invalid-click refund claim. Detection runs
-            automatically via <code className="rounded bg-slate-100 px-1 py-0.5 text-xs">/api/cron/click-protection</code>{' '}
-            (set <code className="rounded bg-slate-100 px-1 py-0.5 text-xs">CRON_SECRET</code> and add a Vercel cron), or
-            on demand below.
+            {t('cp.explainer.p1')}
+            <code className="rounded bg-slate-100 px-1 py-0.5 text-xs">/api/cron/click-protection</code>
+            {t('cp.explainer.p2')}
+            <code className="rounded bg-slate-100 px-1 py-0.5 text-xs">CRON_SECRET</code>
+            {t('cp.explainer.p3')}
           </p>
         </Card>
 
         <Card className="p-6">
-          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">Detection</h2>
+          <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('cp.detection')}</h2>
           <p className="mb-4 text-sm text-slate-600">
-            Last run: <span className="font-medium text-slate-800">{lastRun?.toLocaleString() ?? 'never'}</span>
+            {t('cp.lastRun')} <span className="font-medium text-slate-800">{lastRun?.toLocaleString() ?? t('cp.never')}</span>
           </p>
           {canWrite ? (
             <div className="space-y-5">
               <form action={runJobNow}>
                 <SubmitButton className="w-full">
-                  <Play size={16} /> Run detection now
+                  <Play size={16} /> {t('cp.runDetection')}
                 </SubmitButton>
               </form>
               <form action={saveAvgCpc} className="space-y-2 border-t border-slate-100 pt-4">
                 <label className={labelClass} htmlFor="avgCpc">
-                  Average CPC (€)
+                  {t('cp.avgCpc')}
                 </label>
                 <div className="flex gap-2">
                   <input
@@ -98,20 +99,20 @@ export default async function ClickProtectionPage({
                     placeholder="0.00"
                     className={inputClass}
                   />
-                  <SubmitButton variant="secondary">Save</SubmitButton>
+                  <SubmitButton variant="secondary">{t('common.save')}</SubmitButton>
                 </div>
               </form>
             </div>
           ) : (
-            <p className="text-sm text-slate-400">You have read-only access.</p>
+            <p className="text-sm text-slate-400">{t('common.readOnly')}</p>
           )}
         </Card>
       </div>
 
       <p className="mt-6 text-xs text-slate-400">
-        Need the raw feed? See the{' '}
+        {t('cp.rawFeed.pre')}{' '}
         <Link href="/admin/click-protection/visits" className="text-emerald-600 hover:text-emerald-700">
-          visits log
+          {t('cp.rawFeed.link')}
         </Link>
         .
       </p>

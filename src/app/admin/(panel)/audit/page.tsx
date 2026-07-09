@@ -1,5 +1,6 @@
 import { desc, eq } from 'drizzle-orm';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { auditLogs, users } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, EmptyState } from '@/components/admin/bits';
@@ -8,12 +9,13 @@ export const dynamic = 'force-dynamic';
 
 export default async function AuditPage() {
   await requirePermission('audit.read');
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Audit log" subtitle="Recent administrative activity" />
-        <NotConfigured message="Connect a database to view the audit trail." />
+        <PageTitle title={t('audit.title')} subtitle={t('audit.subtitleShort')} />
+        <NotConfigured message={t('audit.notConfigured')} />
       </>
     );
   }
@@ -36,27 +38,27 @@ export default async function AuditPage() {
 
   return (
     <>
-      <PageTitle title="Audit log" subtitle="The 200 most recent administrative actions." />
+      <PageTitle title={t('audit.title')} subtitle={t('audit.subtitle')} />
 
       {rows.length === 0 ? (
-        <EmptyState message="No audit entries yet." />
+        <EmptyState message={t('audit.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>When</Th>
-              <Th>Actor</Th>
-              <Th>Action</Th>
-              <Th>Entity</Th>
-              <Th>Summary</Th>
-              <Th>IP</Th>
+              <Th>{t('audit.when')}</Th>
+              <Th>{t('audit.actor')}</Th>
+              <Th>{t('audit.action')}</Th>
+              <Th>{t('audit.entity')}</Th>
+              <Th>{t('audit.summary')}</Th>
+              <Th>{t('audit.ip')}</Th>
             </>
           }
         >
           {rows.map((r) => (
             <tr key={r.id} className="hover:bg-slate-50">
               <Td className="whitespace-nowrap">{r.createdAt.toLocaleString()}</Td>
-              <Td>{r.actor ?? 'system'}</Td>
+              <Td>{r.actor ?? t('audit.system')}</Td>
               <Td>
                 <span className="font-mono text-xs text-slate-600">{r.action}</span>
               </Td>

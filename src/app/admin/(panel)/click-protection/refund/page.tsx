@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft, Download } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured } from '@/db';
 import { PageTitle, Card, NotConfigured, DataTable, Th, Td, EmptyState, LinkButton } from '@/components/admin/bits';
 import { getRefundRows } from '@/db/repo/click-protection';
@@ -16,12 +17,13 @@ function scoreColor(score: number): string {
 
 export default async function RefundReportPage() {
   await requirePermission('clickprotection.read');
+  const { t } = await getAdminT();
 
   if (!isDbConfigured) {
     return (
       <>
-        <PageTitle title="Refund report" subtitle="Invalid-click refund candidates" />
-        <NotConfigured message="Connect a database to build the refund report." />
+        <PageTitle title={t('cp.refund.title')} subtitle={t('cp.refund.subtitle')} />
+        <NotConfigured message={t('cp.refund.notConfigured')} />
       </>
     );
   }
@@ -31,15 +33,15 @@ export default async function RefundReportPage() {
   return (
     <>
       <Link href="/admin/click-protection" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to overview
+        <ArrowLeft size={16} /> {t('cp.backToOverview')}
       </Link>
       <PageTitle
-        title="Refund report"
-        subtitle="Invalid-click refund candidates"
+        title={t('cp.refund.title')}
+        subtitle={t('cp.refund.subtitle')}
         action={
           rows.length > 0 ? (
             <LinkButton href="/admin/click-protection/refund/export" variant="secondary">
-              <Download size={16} /> Export CSV
+              <Download size={16} /> {t('common.exportCsv')}
             </LinkButton>
           ) : undefined
         }
@@ -47,24 +49,22 @@ export default async function RefundReportPage() {
 
       <Card className="mb-6 p-6">
         <p className="text-sm leading-relaxed text-slate-600">
-          These IPs scored at or above the fraud threshold (≥ {FRAUD_THRESHOLDS.flagged}) and are suitable evidence for a
-          Google Ads invalid-click refund claim. Export the list and attach it to your claim alongside the affected
-          campaign / date range.
+          {t('cp.refund.explainer', { threshold: FRAUD_THRESHOLDS.flagged })}
         </p>
       </Card>
 
       {rows.length === 0 ? (
-        <EmptyState message="No IPs currently meet the refund threshold." />
+        <EmptyState message={t('cp.refund.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>IP</Th>
-              <Th>Total clicks</Th>
-              <Th>Score</Th>
-              <Th>Country</Th>
-              <Th>ISP</Th>
-              <Th>Last seen</Th>
+              <Th>{t('cp.col.ip')}</Th>
+              <Th>{t('cp.detail.totalClicks')}</Th>
+              <Th>{t('cp.col.score')}</Th>
+              <Th>{t('cp.col.country')}</Th>
+              <Th>{t('cp.col.isp')}</Th>
+              <Th>{t('cp.col.lastSeen')}</Th>
             </>
           }
         >

@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft, ShieldCheck } from 'lucide-react';
 import { requirePermission, can } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured } from '@/db';
 import { PageTitle, Card, Flash, Badge, inputClass, labelClass } from '@/components/admin/bits';
 import { SubmitButton } from '@/components/admin/form-controls';
@@ -26,6 +27,7 @@ export default async function FlaggedIpDetailPage({
   searchParams: Promise<{ ok?: string; error?: string }>;
 }) {
   const user = await requirePermission('clickprotection.read');
+  const { t } = await getAdminT();
   const { ip: rawIp } = await params;
   const sp = await searchParams;
   const ip = decodeURIComponent(rawIp);
@@ -33,7 +35,7 @@ export default async function FlaggedIpDetailPage({
   if (!isDbConfigured) {
     return (
       <>
-        <PageTitle title={ip} subtitle="Flagged IP" />
+        <PageTitle title={ip} subtitle={t('cp.detail.subtitleShort')} />
         <Flash ok={sp.ok} error={sp.error} />
       </>
     );
@@ -44,31 +46,32 @@ export default async function FlaggedIpDetailPage({
 
   const canWrite = can(user, 'clickprotection.write');
 
+  const yn = (v?: boolean | null) => (v ? t('common.yes') : t('common.no'));
   const details: [string, string | number | null | undefined][] = [
-    ['Total clicks', row.totalClicks],
-    ['Total conversions', row.totalConversions],
-    ['Country', row.country],
-    ['ISP', row.isp],
-    ['Datacenter', row.isDatacenter ? 'yes' : 'no'],
-    ['VPN', row.isVpn ? 'yes' : 'no'],
-    ['Proxy', row.isProxy ? 'yes' : 'no'],
-    ['Manually reviewed', row.manuallyReviewed ? 'yes' : 'no'],
-    ['First seen', row.firstSeen?.toLocaleString()],
-    ['Last seen', row.lastSeen?.toLocaleString()],
+    [t('cp.detail.totalClicks'), row.totalClicks],
+    [t('cp.detail.totalConversions'), row.totalConversions],
+    [t('cp.col.country'), row.country],
+    [t('cp.col.isp'), row.isp],
+    [t('cp.detail.datacenter'), yn(row.isDatacenter)],
+    [t('cp.detail.vpn'), yn(row.isVpn)],
+    [t('cp.detail.proxy'), yn(row.isProxy)],
+    [t('cp.detail.manuallyReviewed'), yn(row.manuallyReviewed)],
+    [t('cp.detail.firstSeen'), row.firstSeen?.toLocaleString()],
+    [t('cp.col.lastSeen'), row.lastSeen?.toLocaleString()],
   ];
 
   return (
     <>
       <Link href="/admin/click-protection/flagged" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to flagged IPs
+        <ArrowLeft size={16} /> {t('cp.backToFlagged')}
       </Link>
       <PageTitle
         title={ip}
-        subtitle="Flagged IP record"
+        subtitle={t('cp.detail.subtitle')}
         action={
           <div className="flex items-center gap-3">
             <span className={`text-2xl font-bold ${scoreColor(row.fraudScore)}`}>{row.fraudScore}</span>
-            <Badge value={row.status} />
+            <Badge value={row.status} label={t(`cp.status.${row.status}`)} />
           </div>
         }
       />
@@ -77,7 +80,7 @@ export default async function FlaggedIpDetailPage({
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
           <Card className="p-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Details</h2>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('common.details')}</h2>
             <dl className="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-2">
               {details.map(([k, v]) => (
                 <div key={k}>
@@ -89,9 +92,9 @@ export default async function FlaggedIpDetailPage({
           </Card>
 
           <Card className="p-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Fraud reasons</h2>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('cp.fraudReasons')}</h2>
             {!row.reasons || row.reasons.length === 0 ? (
-              <p className="text-sm text-slate-400">No signals recorded.</p>
+              <p className="text-sm text-slate-400">{t('cp.noSignals')}</p>
             ) : (
               <ul className="space-y-2">
                 {row.reasons.map((reason, i) => (
@@ -107,54 +110,54 @@ export default async function FlaggedIpDetailPage({
 
         <div className="space-y-6">
           <Card className="p-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Review</h2>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('cp.review')}</h2>
             {canWrite ? (
               <div className="space-y-5">
                 <form action={setIpStatus} className="space-y-3">
                   <input type="hidden" name="ip" value={ip} />
                   <div>
                     <label className={labelClass} htmlFor="status">
-                      Status
+                      {t('common.status')}
                     </label>
                     <select id="status" name="status" defaultValue={row.status} className={inputClass}>
                       {STATUSES.map((s) => (
                         <option key={s} value={s} className="capitalize">
-                          {s}
+                          {t(`cp.status.${s}`)}
                         </option>
                       ))}
                     </select>
                   </div>
-                  <SubmitButton className="w-full">Save status</SubmitButton>
+                  <SubmitButton className="w-full">{t('cp.saveStatus')}</SubmitButton>
                 </form>
 
                 <form action={whitelistIp} className="border-t border-slate-100 pt-4">
                   <input type="hidden" name="ip" value={ip} />
                   <SubmitButton variant="secondary" className="w-full">
-                    <ShieldCheck size={16} /> Whitelist this IP
+                    <ShieldCheck size={16} /> {t('cp.whitelist')}
                   </SubmitButton>
                 </form>
 
                 <form action={addIpNote} className="space-y-2 border-t border-slate-100 pt-4">
                   <input type="hidden" name="ip" value={ip} />
                   <label className={labelClass} htmlFor="note">
-                    Notes
+                    {t('cp.notes')}
                   </label>
                   <textarea
                     id="note"
                     name="note"
                     defaultValue={row.notes ?? ''}
                     rows={4}
-                    placeholder="Why was this reviewed?"
+                    placeholder={t('cp.notesPlaceholder')}
                     className={`${inputClass} h-auto py-2`}
                   />
                   <SubmitButton variant="secondary" className="w-full">
-                    Save note
+                    {t('cp.saveNote')}
                   </SubmitButton>
                 </form>
               </div>
             ) : (
               <>
-                <p className="text-sm text-slate-400">You have read-only access.</p>
+                <p className="text-sm text-slate-400">{t('common.readOnly')}</p>
                 {row.notes && (
                   <p className="mt-3 whitespace-pre-wrap border-t border-slate-100 pt-3 text-sm text-slate-700">{row.notes}</p>
                 )}

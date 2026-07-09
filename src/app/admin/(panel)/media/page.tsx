@@ -6,6 +6,7 @@ import { PageTitle, NotConfigured, EmptyState, Flash, Card } from '@/components/
 import { DeleteButton } from '@/components/admin/form-controls';
 import { MediaUploader, CopyUrlButton } from '@/components/admin/media-uploader';
 import { deleteMedia } from '@/lib/admin/media-actions';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,28 +25,40 @@ export default async function MediaPage({
 }) {
   const user = await requirePermission('media.read');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Media library" subtitle="Uploaded images and documents" />
-        <NotConfigured message="Connect a database to store and manage media assets." />
+        <PageTitle title={t('media.title')} subtitle={t('media.subtitle')} />
+        <NotConfigured message={t('media.notConfigured')} />
       </>
     );
   }
 
   const canWrite = can(user, 'media.write');
   const assets = await db.select().from(mediaAssets).orderBy(desc(mediaAssets.createdAt)).limit(200);
+  const copyLabels = { copyUrl: t('media.copyUrl'), copied: t('media.copied') };
 
   return (
     <>
-      <PageTitle title="Media library" subtitle="Uploaded images and documents" />
+      <PageTitle title={t('media.title')} subtitle={t('media.subtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
-      {canWrite && <MediaUploader />}
+      {canWrite && (
+        <MediaUploader
+          labels={{
+            upload: t('media.upload'),
+            uploading: t('media.uploading'),
+            chooseFile: t('media.chooseFile'),
+            uploadFailed: t('media.uploadFailed'),
+            uploadFailedStatus: t('media.uploadFailedStatus'),
+          }}
+        />
+      )}
 
       {assets.length === 0 ? (
-        <EmptyState message="No media uploaded yet." />
+        <EmptyState message={t('media.empty')} />
       ) : (
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {assets.map((asset) => {
@@ -62,7 +75,7 @@ export default async function MediaPage({
                     />
                   ) : (
                     <div className="flex h-full w-full items-center justify-center text-xs font-medium uppercase text-slate-400">
-                      {asset.contentType ?? 'File'}
+                      {asset.contentType ?? t('media.file')}
                     </div>
                   )}
                 </div>
@@ -74,7 +87,7 @@ export default async function MediaPage({
                     <p className="mt-0.5 text-xs text-slate-400">{formatBytes(asset.size)}</p>
                   </div>
                   <div className="flex flex-wrap items-center gap-2">
-                    <CopyUrlButton url={asset.url} />
+                    <CopyUrlButton url={asset.url} labels={copyLabels} />
                     {canWrite && (
                       <DeleteButton
                         action={async () => {
@@ -83,7 +96,7 @@ export default async function MediaPage({
                           fd.set('id', asset.id);
                           await deleteMedia(fd);
                         }}
-                        confirm={`Delete ${asset.filename}? This cannot be undone.`}
+                        confirm={t('media.confirmDelete', { name: asset.filename })}
                       />
                     )}
                   </div>

@@ -6,7 +6,16 @@ import { Check, Copy, Loader2, Upload } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { inputClass } from '@/components/admin/bits';
 
-export function MediaUploader() {
+export type MediaUploaderLabels = {
+  upload: string;
+  uploading: string;
+  chooseFile: string;
+  uploadFailed: string;
+  /** Template containing a {status} placeholder. */
+  uploadFailedStatus: string;
+};
+
+export function MediaUploader({ labels }: { labels: MediaUploaderLabels }) {
   const router = useRouter();
   const inputRef = useRef<HTMLInputElement>(null);
   const [uploading, setUploading] = useState(false);
@@ -17,7 +26,7 @@ export function MediaUploader() {
     setError(null);
     const file = inputRef.current?.files?.[0];
     if (!file) {
-      setError('Choose a file to upload.');
+      setError(labels.chooseFile);
       return;
     }
 
@@ -29,13 +38,13 @@ export function MediaUploader() {
       const res = await fetch('/api/admin/media/upload', { method: 'POST', body });
       const data = await res.json().catch(() => null);
       if (!res.ok) {
-        setError(data?.error ?? `Upload failed (${res.status}).`);
+        setError(data?.error ?? labels.uploadFailedStatus.replace('{status}', String(res.status)));
         return;
       }
       if (inputRef.current) inputRef.current.value = '';
       router.refresh();
     } catch {
-      setError('Upload failed. Please try again.');
+      setError(labels.uploadFailed);
     } finally {
       setUploading(false);
     }
@@ -60,7 +69,7 @@ export function MediaUploader() {
           className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-emerald-600 px-4 text-sm font-semibold text-white transition-colors hover:bg-emerald-700 disabled:opacity-60"
         >
           {uploading ? <Loader2 size={16} className="animate-spin" /> : <Upload size={16} />}
-          {uploading ? 'Uploading…' : 'Upload'}
+          {uploading ? labels.uploading : labels.upload}
         </button>
       </form>
       {error && <p className="mt-3 text-sm font-medium text-red-600">{error}</p>}
@@ -68,7 +77,9 @@ export function MediaUploader() {
   );
 }
 
-export function CopyUrlButton({ url }: { url: string }) {
+export type CopyUrlLabels = { copyUrl: string; copied: string };
+
+export function CopyUrlButton({ url, labels }: { url: string; labels: CopyUrlLabels }) {
   const [copied, setCopied] = useState(false);
 
   async function onCopy() {
@@ -88,7 +99,7 @@ export function CopyUrlButton({ url }: { url: string }) {
       className="inline-flex h-9 items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-50"
     >
       {copied ? <Check size={15} className="text-emerald-600" /> : <Copy size={15} />}
-      {copied ? 'Copied' : 'Copy URL'}
+      {copied ? labels.copied : labels.copyUrl}
     </button>
   );
 }

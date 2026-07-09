@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured } from '@/db';
 import { PageTitle, Card, Badge } from '@/components/admin/bits';
 import { getVisit } from '@/db/repo/click-protection';
@@ -14,18 +15,15 @@ function scoreColor(score: number): string {
   return 'text-slate-700';
 }
 
-function yesNo(v?: boolean | null): string {
-  return v ? 'yes' : 'no';
-}
-
 export default async function VisitDetailPage({ params }: { params: Promise<{ id: string }> }) {
   await requirePermission('clickprotection.read');
+  const { t } = await getAdminT();
   const { id } = await params;
 
   if (!isDbConfigured) {
     return (
       <>
-        <PageTitle title="Visit" subtitle="Scored visit" />
+        <PageTitle title={t('cp.visits.detailTitle')} subtitle={t('cp.visits.detailSubtitle')} />
       </>
     );
   }
@@ -33,15 +31,17 @@ export default async function VisitDetailPage({ params }: { params: Promise<{ id
   const v = await getVisit(id);
   if (!v) notFound();
 
+  const yesNo = (val?: boolean | null): string => (val ? t('common.yes') : t('common.no'));
+
   const network: [string, string | number | null | undefined][] = [
-    ['IP address', v.ipAddress],
-    ['Country', v.country],
-    ['ISP', v.isp],
-    ['Datacenter', yesNo(v.isDatacenter)],
-    ['VPN', yesNo(v.isVpn)],
-    ['Proxy', yesNo(v.isProxy)],
-    ['Referrer', v.referrer],
-    ['Landing page', v.landingPage],
+    [t('cp.detail.ipAddress'), v.ipAddress],
+    [t('cp.col.country'), v.country],
+    [t('cp.col.isp'), v.isp],
+    [t('cp.detail.datacenter'), yesNo(v.isDatacenter)],
+    [t('cp.detail.vpn'), yesNo(v.isVpn)],
+    [t('cp.detail.proxy'), yesNo(v.isProxy)],
+    [t('cp.detail.referrer'), v.referrer],
+    [t('cp.detail.landingPage'), v.landingPage],
   ];
 
   const ad: [string, string | number | null | undefined][] = [
@@ -56,43 +56,43 @@ export default async function VisitDetailPage({ params }: { params: Promise<{ id
   ];
 
   const device: [string, string | number | null | undefined][] = [
-    ['Session ID', v.sessionId],
-    ['Fingerprint', v.fingerprintHash],
-    ['Screen', v.screen],
-    ['Platform', v.platform],
-    ['Timezone', v.timezone],
-    ['Language', v.language],
-    ['CPU cores', v.hardwareConcurrency],
-    ['Canvas', yesNo(v.hasCanvas)],
+    [t('cp.detail.sessionId'), v.sessionId],
+    [t('cp.detail.fingerprint'), v.fingerprintHash],
+    [t('cp.detail.screen'), v.screen],
+    [t('cp.detail.platform'), v.platform],
+    [t('cp.detail.timezone'), v.timezone],
+    [t('cp.detail.language'), v.language],
+    [t('cp.detail.cpuCores'), v.hardwareConcurrency],
+    [t('cp.detail.canvas'), yesNo(v.hasCanvas)],
   ];
 
   const engagement: [string, string | number | null | undefined][] = [
-    ['Time on page', v.timeOnPage != null ? `${v.timeOnPage}s` : null],
-    ['Max scroll depth', v.maxScrollDepth != null ? `${v.maxScrollDepth}%` : null],
-    ['Mouse moved', yesNo(v.mouseMoved)],
-    ['Click count', v.clickCount],
-    ['Converted', yesNo(v.converted)],
+    [t('cp.detail.timeOnPage'), v.timeOnPage != null ? `${v.timeOnPage}s` : null],
+    [t('cp.detail.maxScrollDepth'), v.maxScrollDepth != null ? `${v.maxScrollDepth}%` : null],
+    [t('cp.detail.mouseMoved'), yesNo(v.mouseMoved)],
+    [t('cp.detail.clickCount'), v.clickCount],
+    [t('cp.col.converted'), yesNo(v.converted)],
   ];
 
   const sections: [string, [string, string | number | null | undefined][]][] = [
-    ['Network & IP intel', network],
-    ['Ad / campaign', ad],
-    ['Device fingerprint', device],
-    ['Engagement', engagement],
+    [t('cp.section.network'), network],
+    [t('cp.section.ad'), ad],
+    [t('cp.section.device'), device],
+    [t('cp.section.engagement'), engagement],
   ];
 
   return (
     <>
       <Link href="/admin/click-protection/visits" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to visits
+        <ArrowLeft size={16} /> {t('cp.backToVisits')}
       </Link>
       <PageTitle
         title={v.ipAddress}
-        subtitle={`Visit ${v.createdAt.toLocaleString()}`}
+        subtitle={t('cp.visits.visitAt', { time: v.createdAt.toLocaleString() })}
         action={
           <div className="flex items-center gap-3">
             <span className={`text-2xl font-bold ${scoreColor(v.fraudScore)}`}>{v.fraudScore}</span>
-            {v.gclid ? <Badge value="flagged" label="paid" /> : <Badge value="draft" label="organic" />}
+            {v.gclid ? <Badge value="flagged" label={t('cp.paid')} /> : <Badge value="draft" label={t('cp.organic')} />}
           </div>
         }
       />
@@ -113,14 +113,14 @@ export default async function VisitDetailPage({ params }: { params: Promise<{ id
         ))}
 
         <Card className="p-6 lg:col-span-2">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">User agent</h2>
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('cp.section.userAgent')}</h2>
           <p className="break-words font-mono text-xs text-slate-700">{v.userAgent ?? '—'}</p>
         </Card>
 
         <Card className="p-6 lg:col-span-2">
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Fraud reasons</h2>
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('cp.fraudReasons')}</h2>
           {!v.fraudReasons || v.fraudReasons.length === 0 ? (
-            <p className="text-sm text-slate-400">No signals recorded.</p>
+            <p className="text-sm text-slate-400">{t('cp.noSignals')}</p>
           ) : (
             <ul className="space-y-2">
               {v.fraudReasons.map((reason, i) => (

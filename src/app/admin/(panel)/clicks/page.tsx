@@ -4,31 +4,33 @@ import { requirePermission } from '@/lib/auth/guard';
 import { isDbConfigured, db } from '@/db';
 import { analyticsEvents } from '@/db/schema';
 import { PageTitle, StatCard, NotConfigured, DataTable, Th, Td, EmptyState } from '@/components/admin/bits';
+import { getAdminT, type Translator } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
-const TYPE_LABELS: Record<string, string> = {
-  page_view: 'Page views',
-  phone_click: 'Phone clicks',
-  whatsapp_click: 'WhatsApp clicks',
-  email_click: 'Email clicks',
-  quote_click: 'Quote clicks',
-  offer_request: 'Offer requests',
-  form_submit: 'Form submits',
-};
+const KNOWN_TYPES = new Set([
+  'page_view',
+  'phone_click',
+  'whatsapp_click',
+  'email_click',
+  'quote_click',
+  'offer_request',
+  'form_submit',
+]);
 
-function typeLabel(type: string): string {
-  return TYPE_LABELS[type] ?? type;
+function typeLabel(t: Translator, type: string): string {
+  return KNOWN_TYPES.has(type) ? t(`clicks.type.${type}`) : type;
 }
 
 export default async function ClicksPage() {
   await requirePermission('clicks.view');
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Button Clicks" subtitle="Call-to-action engagement from the website" />
-        <NotConfigured message="Connect a database to capture and report on button clicks." />
+        <PageTitle title={t('clicks.title')} subtitle={t('clicks.subtitleShort')} />
+        <NotConfigured message={t('clicks.notConfigured')} />
       </>
     );
   }
@@ -62,32 +64,32 @@ export default async function ClicksPage() {
 
   return (
     <>
-      <PageTitle title="Button Clicks" subtitle="Call-to-action engagement from the website (last 30 days)" />
+      <PageTitle title={t('clicks.title')} subtitle={t('clicks.subtitle')} />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard label="Page views" value={pageViews} icon={Eye} accent />
-        <StatCard label="Phone clicks" value={phoneClicks} icon={Phone} />
-        <StatCard label="WhatsApp clicks" value={whatsappClicks} icon={MessageCircle} />
-        <StatCard label="Form submits" value={formSubmits} icon={Send} />
+        <StatCard label={t('clicks.type.page_view')} value={pageViews} icon={Eye} accent />
+        <StatCard label={t('clicks.type.phone_click')} value={phoneClicks} icon={Phone} />
+        <StatCard label={t('clicks.type.whatsapp_click')} value={whatsappClicks} icon={MessageCircle} />
+        <StatCard label={t('clicks.type.form_submit')} value={formSubmits} icon={Send} />
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-3">
         <div className="lg:col-span-1">
-          <h2 className="mb-3 text-lg font-semibold text-slate-900">Clicks by type</h2>
+          <h2 className="mb-3 text-lg font-semibold text-slate-900">{t('clicks.byType')}</h2>
           {byType.length === 0 ? (
-            <EmptyState message="No events recorded yet." />
+            <EmptyState message={t('clicks.noEvents')} />
           ) : (
             <DataTable
               head={
                 <>
-                  <Th>Type</Th>
-                  <Th>Count</Th>
+                  <Th>{t('common.type')}</Th>
+                  <Th>{t('clicks.count')}</Th>
                 </>
               }
             >
               {byType.map((r) => (
                 <tr key={r.type} className="hover:bg-slate-50">
-                  <Td>{typeLabel(r.type)}</Td>
+                  <Td>{typeLabel(t, r.type)}</Td>
                   <Td className="font-semibold text-slate-900">{Number(r.n)}</Td>
                 </tr>
               ))}
@@ -96,23 +98,23 @@ export default async function ClicksPage() {
         </div>
 
         <div className="lg:col-span-2">
-          <h2 className="mb-3 text-lg font-semibold text-slate-900">Recent clicks</h2>
+          <h2 className="mb-3 text-lg font-semibold text-slate-900">{t('clicks.recent')}</h2>
           {recent.length === 0 ? (
-            <EmptyState message="No clicks recorded yet." />
+            <EmptyState message={t('clicks.noClicks')} />
           ) : (
             <DataTable
               head={
                 <>
-                  <Th>Type</Th>
-                  <Th>Path</Th>
-                  <Th>Country</Th>
-                  <Th>When</Th>
+                  <Th>{t('common.type')}</Th>
+                  <Th>{t('clicks.path')}</Th>
+                  <Th>{t('clicks.country')}</Th>
+                  <Th>{t('clicks.when')}</Th>
                 </>
               }
             >
               {recent.map((e) => (
                 <tr key={e.id} className="hover:bg-slate-50">
-                  <Td className="font-medium text-slate-900">{typeLabel(e.type)}</Td>
+                  <Td className="font-medium text-slate-900">{typeLabel(t, e.type)}</Td>
                   <Td className="max-w-[220px] truncate">{e.path ?? '—'}</Td>
                   <Td>{e.country ?? '—'}</Td>
                   <Td>{e.createdAt.toLocaleString()}</Td>

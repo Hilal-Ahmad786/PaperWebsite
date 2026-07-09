@@ -1,4 +1,5 @@
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { siteSettings } from '@/db/schema';
 import { PageTitle, Card, Flash, Field, NotConfigured } from '@/components/admin/bits';
@@ -18,13 +19,14 @@ export default async function SettingsPage({
   searchParams: Promise<{ ok?: string; error?: string }>;
 }) {
   await requirePermission('settings.manage');
+  const { t } = await getAdminT();
   const sp = await searchParams;
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Settings" subtitle="Brand & contact information" />
-        <NotConfigured message="Connect a database to manage site settings." />
+        <PageTitle title={t('settings.title')} subtitle={t('settings.subtitleShort')} />
+        <NotConfigured message={t('settings.notConfigured')} />
       </>
     );
   }
@@ -34,7 +36,7 @@ export default async function SettingsPage({
 
   return (
     <>
-      <PageTitle title="Settings" subtitle="Brand & contact information used across the public site." />
+      <PageTitle title={t('settings.title')} subtitle={t('settings.subtitle')} />
       <Flash ok={sp.ok} error={sp.error} />
 
       <Card className="max-w-2xl p-6">
@@ -42,7 +44,7 @@ export default async function SettingsPage({
           {BRAND_SETTING_KEYS.map((s) => (
             <Field key={s.key} label={s.label} name={s.key} defaultValue={values.get(s.key) ?? ''} />
           ))}
-          <SubmitButton>Save settings</SubmitButton>
+          <SubmitButton>{t('settings.save')}</SubmitButton>
         </form>
       </Card>
     </>

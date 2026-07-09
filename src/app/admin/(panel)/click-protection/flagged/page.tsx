@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { ArrowLeft, Download, Search } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured } from '@/db';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
 import { listFlaggedIps } from '@/db/repo/click-protection';
@@ -22,13 +23,14 @@ export default async function FlaggedIpsPage({
   searchParams: Promise<{ status?: string; search?: string; ok?: string; error?: string }>;
 }) {
   await requirePermission('clickprotection.read');
+  const { t } = await getAdminT();
   const sp = await searchParams;
 
   if (!isDbConfigured) {
     return (
       <>
-        <PageTitle title="Flagged IPs" subtitle="Reviewable per-IP fraud records" />
-        <NotConfigured message="Connect a database to review flagged IPs." />
+        <PageTitle title={t('cp.flagged.title')} subtitle={t('cp.flagged.subtitle')} />
+        <NotConfigured message={t('cp.flagged.notConfigured')} />
       </>
     );
   }
@@ -40,27 +42,27 @@ export default async function FlaggedIpsPage({
   return (
     <>
       <Link href="/admin/click-protection" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to overview
+        <ArrowLeft size={16} /> {t('cp.backToOverview')}
       </Link>
       <PageTitle
-        title="Flagged IPs"
-        subtitle="Reviewable per-IP fraud records"
+        title={t('cp.flagged.title')}
+        subtitle={t('cp.flagged.subtitle')}
         action={
           <LinkButton href="/admin/click-protection/flagged/export" variant="secondary">
-            <Download size={16} /> Export exclusion list
+            <Download size={16} /> {t('cp.exportExclusion')}
           </LinkButton>
         }
       />
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="mb-4 flex flex-wrap items-center gap-2">
-        <FilterPill href="/admin/click-protection/flagged" active={!activeStatus} label="All" />
+        <FilterPill href="/admin/click-protection/flagged" active={!activeStatus} label={t('common.all')} />
         {STATUSES.map((s) => (
           <FilterPill
             key={s}
             href={`/admin/click-protection/flagged?status=${s}`}
             active={activeStatus === s}
-            label={s}
+            label={t(`cp.status.${s}`)}
           />
         ))}
         <form action="/admin/click-protection/flagged" method="get" className="ml-auto flex items-center gap-2">
@@ -70,7 +72,7 @@ export default async function FlaggedIpsPage({
             <input
               name="search"
               defaultValue={search ?? ''}
-              placeholder="Search IP…"
+              placeholder={t('cp.searchIp')}
               className="h-10 w-56 rounded-lg border border-slate-300 bg-white pl-9 pr-3 text-sm text-slate-900 placeholder:text-slate-400 focus:border-emerald-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
             />
           </div>
@@ -78,20 +80,20 @@ export default async function FlaggedIpsPage({
       </div>
 
       {rows.length === 0 ? (
-        <EmptyState message="No IPs match this filter." />
+        <EmptyState message={t('cp.flagged.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>IP</Th>
-              <Th>Score</Th>
-              <Th>Clicks</Th>
-              <Th>Conv.</Th>
-              <Th>Country</Th>
-              <Th>ISP</Th>
-              <Th>Flags</Th>
-              <Th>Status</Th>
-              <Th>Last seen</Th>
+              <Th>{t('cp.col.ip')}</Th>
+              <Th>{t('cp.col.score')}</Th>
+              <Th>{t('cp.col.clicks')}</Th>
+              <Th>{t('cp.col.conversions')}</Th>
+              <Th>{t('cp.col.country')}</Th>
+              <Th>{t('cp.col.isp')}</Th>
+              <Th>{t('cp.col.flags')}</Th>
+              <Th>{t('common.status')}</Th>
+              <Th>{t('cp.col.lastSeen')}</Th>
             </>
           }
         >
@@ -116,7 +118,7 @@ export default async function FlaggedIpsPage({
                 <IntelChips isDatacenter={r.isDatacenter} isVpn={r.isVpn} isProxy={r.isProxy} />
               </Td>
               <Td>
-                <Badge value={r.status} />
+                <Badge value={r.status} label={t(`cp.status.${r.status}`)} />
               </Td>
               <Td>{r.lastSeen?.toLocaleDateString() ?? '—'}</Td>
             </tr>

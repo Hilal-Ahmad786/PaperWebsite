@@ -27,6 +27,8 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { logout } from '@/lib/auth/actions';
+import { setAdminLocale } from '@/lib/admin/i18n/actions';
+import type { AdminLocale } from '@/lib/admin/i18n';
 
 const ICONS: Record<string, LucideIcon> = {
   dashboard: LayoutDashboard,
@@ -58,12 +60,18 @@ export function AdminShell({
   userName,
   userEmail,
   roleLabel,
+  locale,
+  adminLabel,
+  logoutLabel,
   children,
 }: {
   nav: NavItem[];
   userName: string;
   userEmail: string;
   roleLabel: string;
+  locale: AdminLocale;
+  adminLabel: string;
+  logoutLabel: string;
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
@@ -80,7 +88,7 @@ export function AdminShell({
         </span>
         <span className="text-[15px] font-bold text-white">Paper Market</span>
         <span className="ml-1 rounded bg-white/10 px-1.5 py-0.5 text-[10px] font-medium text-white/70">
-          Admin
+          {adminLabel}
         </span>
       </div>
       <nav className="flex-1 space-y-0.5 overflow-y-auto p-3">
@@ -139,6 +147,23 @@ export function AdminShell({
           </button>
 
           <div className="ml-auto flex items-center gap-3">
+            {/* Language toggle (EN / TR) */}
+            <div className="flex overflow-hidden rounded-md border border-slate-300 text-xs font-semibold">
+              {(['en', 'tr'] as const).map((l) => (
+                <button
+                  key={l}
+                  type="button"
+                  onClick={() => setAdminLocale(l)}
+                  className={cn(
+                    'px-2.5 py-1.5 uppercase transition-colors',
+                    locale === l ? 'bg-emerald-600 text-white' : 'bg-white text-slate-500 hover:bg-slate-50'
+                  )}
+                >
+                  {l}
+                </button>
+              ))}
+            </div>
+
             <div className="hidden flex-col items-end leading-tight sm:flex">
               <span className="text-sm font-semibold text-slate-900">{userName}</span>
               <span className="text-xs text-slate-500">
@@ -151,7 +176,7 @@ export function AdminShell({
                 className="flex items-center gap-1.5 rounded-md border border-slate-300 px-3 py-2 text-sm font-medium text-slate-700 hover:bg-slate-50"
               >
                 <LogOut size={16} />
-                <span className="hidden sm:inline">Logout</span>
+                <span className="hidden sm:inline">{logoutLabel}</span>
               </button>
             </form>
           </div>

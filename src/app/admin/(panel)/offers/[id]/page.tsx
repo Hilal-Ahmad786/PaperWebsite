@@ -10,6 +10,7 @@ import { PageTitle, Card, Flash, Badge, Field, LocalizedField, inputClass, label
 import { SubmitButton, DeleteButton } from '@/components/admin/form-controls';
 import { pickLocalized } from '@/lib/admin/localized';
 import { updateOffer, deleteOffer } from '@/lib/admin/offer-actions';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -25,6 +26,7 @@ export default async function EditOfferPage({
   const user = await requirePermission('offers.read');
   const { id } = await params;
   const sp = await searchParams;
+  const { t } = await getAdminT();
   const db = requireDb();
 
   const [offer] = await db.select().from(stockOffers).where(eq(stockOffers.id, id)).limit(1);
@@ -35,12 +37,12 @@ export default async function EditOfferPage({
   return (
     <>
       <Link href="/admin/offers" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to offers
+        <ArrowLeft size={16} /> {t('offers.back')}
       </Link>
       <PageTitle
-        title={pickLocalized(offer.title) || 'Untitled offer'}
-        subtitle={`Updated ${offer.updatedAt.toLocaleString()}`}
-        action={<Badge value={offer.status} />}
+        title={pickLocalized(offer.title) || t('offers.untitled')}
+        subtitle={t('offers.updatedAt', { date: offer.updatedAt.toLocaleString() })}
+        action={<Badge value={offer.status} label={t(`offers.status.${offer.status}`)} />}
       />
       <Flash ok={sp.ok} error={sp.error} />
 
@@ -48,11 +50,11 @@ export default async function EditOfferPage({
         {editable ? (
           <form action={updateOffer} className="space-y-5">
             <input type="hidden" name="id" value={offer.id} />
-            <LocalizedField label="Title" prefix="title" value={offer.title} required />
+            <LocalizedField label={t('common.title')} prefix="title" value={offer.title} required />
 
             <div>
               <label className={labelClass} htmlFor="productSlug">
-                Product slug
+                {t('offers.productSlug')}
               </label>
               <input
                 id="productSlug"
@@ -70,45 +72,45 @@ export default async function EditOfferPage({
             </div>
 
             <div className="grid gap-5 sm:grid-cols-2">
-              <Field label="Grade" name="grade" defaultValue={offer.grade ?? ''} />
-              <Field label="GSM" name="gsm" defaultValue={offer.gsm ?? ''} />
-              <Field label="Quantity (tons)" name="quantityTons" defaultValue={offer.quantityTons ?? ''} />
-              <Field label="Location" name="location" defaultValue={offer.location ?? ''} />
-              <Field label="Price" name="price" defaultValue={offer.price ?? ''} />
-              <Field label="Incoterms" name="incoterms" defaultValue={offer.incoterms ?? ''} />
+              <Field label={t('offers.grade')} name="grade" defaultValue={offer.grade ?? ''} />
+              <Field label={t('offers.gsm')} name="gsm" defaultValue={offer.gsm ?? ''} />
+              <Field label={t('offers.quantityTons')} name="quantityTons" defaultValue={offer.quantityTons ?? ''} />
+              <Field label={t('offers.location')} name="location" defaultValue={offer.location ?? ''} />
+              <Field label={t('offers.price')} name="price" defaultValue={offer.price ?? ''} />
+              <Field label={t('offers.incoterms')} name="incoterms" defaultValue={offer.incoterms ?? ''} />
             </div>
 
-            <Field label="Image URL" name="image" defaultValue={offer.image ?? ''} placeholder="https://…" />
+            <Field label={t('offers.imageUrl')} name="image" defaultValue={offer.image ?? ''} placeholder="https://…" />
 
             <div className="grid gap-5 sm:grid-cols-2">
               <div>
                 <label className={labelClass} htmlFor="status">
-                  Status
+                  {t('common.status')}
                 </label>
                 <select id="status" name="status" defaultValue={offer.status} className={inputClass}>
                   {STATUSES.map((s) => (
                     <option key={s} value={s} className="capitalize">
-                      {s}
+                      {t(`offers.status.${s}`)}
                     </option>
                   ))}
                 </select>
               </div>
-              <Field label="Sort order" name="sortOrder" type="number" defaultValue={String(offer.sortOrder)} />
+              <Field label={t('common.sortOrder')} name="sortOrder" type="number" defaultValue={String(offer.sortOrder)} />
             </div>
 
             <div className="flex gap-3">
-              <SubmitButton>Save changes</SubmitButton>
+              <SubmitButton>{t('common.saveChanges')}</SubmitButton>
             </div>
           </form>
         ) : (
-          <p className="text-sm text-slate-400">You have read-only access to this offer.</p>
+          <p className="text-sm text-slate-400">{t('offers.readOnly')}</p>
         )}
       </Card>
 
       {editable && (
         <Card className="mt-6 max-w-3xl p-6">
-          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">Danger zone</h2>
-          <p className="mb-4 text-sm text-slate-500">Permanently remove this stock offer.</p>
+          <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('common.dangerZone')}</h2>
+          <p className="mb-4 text-sm text-slate-500">{t('offers.deleteInfo')}</p>
           <DeleteButton
             action={async () => {
               'use server';
@@ -116,7 +118,8 @@ export default async function EditOfferPage({
               fd.set('id', offer.id);
               await deleteOffer(fd);
             }}
-            confirm="Delete this offer permanently?"
+            confirm={t('offers.confirmDelete')}
+            label={t('common.delete')}
           />
         </Card>
       )}

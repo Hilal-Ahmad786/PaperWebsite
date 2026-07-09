@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { and, desc, eq, sql } from 'drizzle-orm';
 import { Download } from 'lucide-react';
 import { requirePermission, can } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { leads } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
@@ -17,13 +18,14 @@ export default async function LeadsPage({
   searchParams: Promise<{ stage?: string; ok?: string; error?: string }>;
 }) {
   const user = await requirePermission('leads.read');
+  const { t } = await getAdminT();
   const sp = await searchParams;
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Inquiries" subtitle="Inbound sales inquiries from the website" />
-        <NotConfigured message="Connect a database to start capturing and managing inquiries." />
+        <PageTitle title={t('leads.title')} subtitle={t('leads.subtitle')} />
+        <NotConfigured message={t('leads.notConfigured')} />
       </>
     );
   }
@@ -45,12 +47,12 @@ export default async function LeadsPage({
   return (
     <>
       <PageTitle
-        title="Inquiries"
-        subtitle="Inbound sales inquiries from the website"
+        title={t('leads.title')}
+        subtitle={t('leads.subtitle')}
         action={
           can(user, 'leads.export') ? (
             <LinkButton href="/admin/leads/export" variant="secondary">
-              <Download size={16} /> Export CSV
+              <Download size={16} /> {t('common.exportCsv')}
             </LinkButton>
           ) : undefined
         }
@@ -58,30 +60,30 @@ export default async function LeadsPage({
       <Flash ok={sp.ok} error={sp.error} />
 
       <div className="mb-4 flex flex-wrap gap-2">
-        <FilterPill href="/admin/leads" active={!activeStage} label="All" />
+        <FilterPill href="/admin/leads" active={!activeStage} label={t('common.all')} />
         {STAGES.map((s) => (
           <FilterPill
             key={s}
             href={`/admin/leads?stage=${s}`}
             active={activeStage === s}
-            label={`${s} (${countByStage[s] ?? 0})`}
+            label={`${t(`leads.stage.${s}`)} (${countByStage[s] ?? 0})`}
           />
         ))}
       </div>
 
       {rows.length === 0 ? (
-        <EmptyState message="No inquiries match this filter." />
+        <EmptyState message={t('leads.noMatch')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>Name</Th>
-              <Th>Company</Th>
-              <Th>Email</Th>
-              <Th>Product</Th>
-              <Th>Stage</Th>
-              <Th>Priority</Th>
-              <Th>Received</Th>
+              <Th>{t('common.name')}</Th>
+              <Th>{t('leads.col.company')}</Th>
+              <Th>{t('common.email')}</Th>
+              <Th>{t('leads.col.product')}</Th>
+              <Th>{t('leads.col.stage')}</Th>
+              <Th>{t('leads.col.priority')}</Th>
+              <Th>{t('common.received')}</Th>
             </>
           }
         >
@@ -98,7 +100,7 @@ export default async function LeadsPage({
               <Td>
                 <Badge value={l.stage} />
               </Td>
-              <Td className="capitalize">{l.priority}</Td>
+              <Td className="capitalize">{t(`leads.priority.${l.priority}`)}</Td>
               <Td>{l.createdAt.toLocaleDateString()}</Td>
             </tr>
           ))}

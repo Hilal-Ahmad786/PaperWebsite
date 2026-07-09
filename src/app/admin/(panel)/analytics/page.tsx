@@ -4,17 +4,19 @@ import { requirePermission } from '@/lib/auth/guard';
 import { isDbConfigured, db } from '@/db';
 import { analyticsEvents } from '@/db/schema';
 import { PageTitle, StatCard, NotConfigured, Card, DataTable, Th, Td, EmptyState } from '@/components/admin/bits';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
 export default async function AnalyticsPage() {
   await requirePermission('analytics.view');
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Analytics" subtitle="First-party traffic and engagement events" />
-        <NotConfigured message="Connect a database to capture and view analytics events." />
+        <PageTitle title={t('analytics.title')} subtitle={t('analytics.subtitle')} />
+        <NotConfigured message={t('analytics.notConfigured')} />
       </>
     );
   }
@@ -49,26 +51,26 @@ export default async function AnalyticsPage() {
 
   return (
     <>
-      <PageTitle title="Analytics" subtitle="First-party traffic and engagement events" />
+      <PageTitle title={t('analytics.title')} subtitle={t('analytics.subtitle')} />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard label="Total events" value={total} icon={Activity} accent />
-        <StatCard label="Page views" value={pageViews} icon={Eye} />
-        <StatCard label="Form submits" value={formSubmits} icon={MousePointerClick} />
-        <StatCard label="Last 7 days" value={lastWeek} icon={CalendarClock} />
+        <StatCard label={t('analytics.totalEvents')} value={total} icon={Activity} accent />
+        <StatCard label={t('analytics.pageViews')} value={pageViews} icon={Eye} />
+        <StatCard label={t('analytics.formSubmits')} value={formSubmits} icon={MousePointerClick} />
+        <StatCard label={t('analytics.last7Days')} value={lastWeek} icon={CalendarClock} />
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">
         <div>
-          <h2 className="mb-3 text-lg font-semibold text-slate-900">Top pages</h2>
+          <h2 className="mb-3 text-lg font-semibold text-slate-900">{t('analytics.topPages')}</h2>
           {topPages.length === 0 ? (
-            <EmptyState message="No page views recorded yet." />
+            <EmptyState message={t('analytics.noPageViews')} />
           ) : (
             <DataTable
               head={
                 <>
-                  <Th>Path</Th>
-                  <Th className="text-right">Views</Th>
+                  <Th>{t('analytics.path')}</Th>
+                  <Th className="text-right">{t('analytics.views')}</Th>
                 </>
               }
             >
@@ -83,18 +85,18 @@ export default async function AnalyticsPage() {
         </div>
 
         <div>
-          <h2 className="mb-3 text-lg font-semibold text-slate-900">Recent events</h2>
+          <h2 className="mb-3 text-lg font-semibold text-slate-900">{t('analytics.recentEvents')}</h2>
           {recent.length === 0 ? (
-            <EmptyState message="No events recorded yet." />
+            <EmptyState message={t('analytics.noEvents')} />
           ) : (
             <DataTable
               head={
                 <>
-                  <Th>Type</Th>
-                  <Th>Path</Th>
-                  <Th>Locale</Th>
-                  <Th>Country</Th>
-                  <Th>When</Th>
+                  <Th>{t('common.type')}</Th>
+                  <Th>{t('analytics.path')}</Th>
+                  <Th>{t('analytics.locale')}</Th>
+                  <Th>{t('analytics.country')}</Th>
+                  <Th>{t('analytics.when')}</Th>
                 </>
               }
             >
@@ -113,12 +115,13 @@ export default async function AnalyticsPage() {
       </div>
 
       <Card className="mt-6 p-5">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">How events are captured</h2>
+        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">{t('analytics.howCaptured')}</h2>
         <p className="mt-2 text-sm text-slate-500">
-          Events are recorded via the public tracking endpoint at{' '}
-          <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">POST /api/track</code>, which
-          accepts a JSON body of <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">{'{ type, path, locale, referrer, metadata }'}</code>.
-          For third-party measurement, GA4 / GTM containers can be configured in the SEO settings.
+          {t('analytics.captureIntro')}
+          <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">POST /api/track</code>
+          {t('analytics.captureBody')}
+          <code className="rounded bg-slate-100 px-1.5 py-0.5 text-xs text-slate-700">{'{ type, path, locale, referrer, metadata }'}</code>
+          {t('analytics.captureOutro')}
         </p>
       </Card>
     </>

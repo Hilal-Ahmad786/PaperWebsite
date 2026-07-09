@@ -6,6 +6,7 @@ import { isDbConfigured, db } from '@/db';
 import { marketIndices } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
 import { pickLocalized } from '@/lib/admin/localized';
+import { getAdminT } from '@/lib/admin/i18n';
 
 export const dynamic = 'force-dynamic';
 
@@ -22,12 +23,13 @@ export default async function MarketPage({
 }) {
   const user = await requirePermission('market.read');
   const sp = await searchParams;
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Market indices" subtitle="Editable market data shown in the public ticker" />
-        <NotConfigured message="Connect a database to start managing market indices." />
+        <PageTitle title={t('market.title')} subtitle={t('market.subtitle')} />
+        <NotConfigured message={t('market.notConfigured')} />
       </>
     );
   }
@@ -39,12 +41,12 @@ export default async function MarketPage({
   return (
     <>
       <PageTitle
-        title="Market indices"
-        subtitle="Editable market data shown in the public ticker"
+        title={t('market.title')}
+        subtitle={t('market.subtitle')}
         action={
           canWrite ? (
             <LinkButton href="/admin/market/new">
-              <Plus size={16} /> New index
+              <Plus size={16} /> {t('market.newIndex')}
             </LinkButton>
           ) : undefined
         }
@@ -52,20 +54,20 @@ export default async function MarketPage({
       <Flash ok={sp.ok} error={sp.error} />
 
       {rows.length === 0 ? (
-        <EmptyState message="No market indices yet." />
+        <EmptyState message={t('market.empty')} />
       ) : (
         <DataTable
           head={
             <>
-              <Th>Code</Th>
-              <Th>Label</Th>
-              <Th>Value</Th>
-              <Th>Unit</Th>
-              <Th>Change %</Th>
-              <Th>Trend</Th>
-              <Th>Region</Th>
-              <Th>Active?</Th>
-              <Th>Sort</Th>
+              <Th>{t('market.code')}</Th>
+              <Th>{t('market.label')}</Th>
+              <Th>{t('market.value')}</Th>
+              <Th>{t('market.unit')}</Th>
+              <Th>{t('market.changePct')}</Th>
+              <Th>{t('market.trend')}</Th>
+              <Th>{t('market.region')}</Th>
+              <Th>{t('market.activeQ')}</Th>
+              <Th>{t('common.sort')}</Th>
             </>
           }
         >
@@ -87,7 +89,7 @@ export default async function MarketPage({
                 </Td>
                 <Td>{m.region ?? '—'}</Td>
                 <Td>
-                  <Badge value={m.isActive ? 'available' : 'hidden'} label={m.isActive ? 'Active' : 'Inactive'} />
+                  <Badge value={m.isActive ? 'available' : 'hidden'} label={m.isActive ? t('market.active') : t('market.inactive')} />
                 </Td>
                 <Td>{m.sortOrder}</Td>
               </tr>

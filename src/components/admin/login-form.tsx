@@ -7,7 +7,11 @@ import { login, type LoginResult } from '@/lib/auth/actions';
 import { SubmitButton } from './form-controls';
 import { inputClass, labelClass } from './bits';
 
-export function LoginForm() {
+export function LoginForm({
+  labels,
+}: {
+  labels: { email: string; password: string; signIn: string };
+}) {
   const uid = useId();
   const [state, action] = useFormState<LoginResult | null, FormData>(login, null);
 
@@ -21,13 +25,13 @@ export function LoginForm() {
       )}
       <div>
         <label htmlFor={`${uid}-email`} className={labelClass}>
-          Email
+          {labels.email}
         </label>
         <input id={`${uid}-email`} name="email" type="email" autoComplete="email" required className={inputClass} />
       </div>
       <div>
         <label htmlFor={`${uid}-password`} className={labelClass}>
-          Password
+          {labels.password}
         </label>
         <input
           id={`${uid}-password`}
@@ -38,7 +42,7 @@ export function LoginForm() {
           className={inputClass}
         />
       </div>
-      <SubmitButton className="w-full">Sign in</SubmitButton>
+      <SubmitButton className="w-full">{labels.signIn}</SubmitButton>
     </form>
   );
 }

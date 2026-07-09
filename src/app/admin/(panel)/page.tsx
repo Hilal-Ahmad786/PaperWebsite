@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { desc, gte, sql } from 'drizzle-orm';
 import { Inbox, FileText, Tag, Image as ImageIcon, TrendingUp, Users } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { leads, contentEntries, stockOffers, mediaAssets, users, marketIndices } from '@/db/schema';
 import { PageTitle, StatCard, NotConfigured, DataTable, Th, Td, Badge, EmptyState } from '@/components/admin/bits';
@@ -10,12 +11,13 @@ export const dynamic = 'force-dynamic';
 
 export default async function DashboardPage() {
   await requirePermission('dashboard.view');
+  const { t } = await getAdminT();
 
   if (!isDbConfigured || !db) {
     return (
       <>
-        <PageTitle title="Dashboard" subtitle="Overview of inquiries, content and activity" />
-        <NotConfigured message="Connect a database (set DATABASE_URL), then run the migrations and seed to populate the dashboard." />
+        <PageTitle title={t('dashboard.title')} subtitle={t('dashboard.subtitle')} />
+        <NotConfigured message={t('dashboard.notConfigured')} />
       </>
     );
   }
@@ -61,36 +63,36 @@ export default async function DashboardPage() {
 
   return (
     <>
-      <PageTitle title="Dashboard" subtitle="Overview of inquiries, content and activity" />
+      <PageTitle title={t('dashboard.title')} subtitle={t('dashboard.subtitle')} />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
-        <StatCard label="Total inquiries" value={leadTotal} icon={Inbox} accent hint={`${leadWeek} in the last 7 days`} />
-        <StatCard label="New / unhandled" value={leadNew} icon={Inbox} />
-        <StatCard label="Published insights" value={insightPublished} icon={FileText} />
-        <StatCard label="Available offers" value={offersAvailable} icon={Tag} />
-        <StatCard label="Market indices" value={indicesCount} icon={TrendingUp} />
-        <StatCard label="Media assets" value={mediaCount} icon={ImageIcon} />
-        <StatCard label="Admin users" value={userCount} icon={Users} />
+        <StatCard label={t('dashboard.totalInquiries')} value={leadTotal} icon={Inbox} accent hint={t('dashboard.inLast7Days', { count: leadWeek })} />
+        <StatCard label={t('dashboard.newUnhandled')} value={leadNew} icon={Inbox} />
+        <StatCard label={t('dashboard.publishedInsights')} value={insightPublished} icon={FileText} />
+        <StatCard label={t('dashboard.availableOffers')} value={offersAvailable} icon={Tag} />
+        <StatCard label={t('dashboard.marketIndices')} value={indicesCount} icon={TrendingUp} />
+        <StatCard label={t('dashboard.mediaAssets')} value={mediaCount} icon={ImageIcon} />
+        <StatCard label={t('dashboard.adminUsers')} value={userCount} icon={Users} />
       </div>
 
       <div className="mt-8">
         <div className="mb-3 flex items-center justify-between">
-          <h2 className="text-lg font-semibold text-slate-900">Latest inquiries</h2>
+          <h2 className="text-lg font-semibold text-slate-900">{t('dashboard.latestInquiries')}</h2>
           <Link href="/admin/leads" className="text-sm font-medium text-emerald-600 hover:text-emerald-700">
-            View all →
+            {t('common.viewAll')} →
           </Link>
         </div>
         {recentLeads.length === 0 ? (
-          <EmptyState message="No inquiries yet." />
+          <EmptyState message={t('dashboard.noInquiries')} />
         ) : (
           <DataTable
             head={
               <>
-                <Th>Name</Th>
-                <Th>Company</Th>
-                <Th>Product</Th>
-                <Th>Stage</Th>
-                <Th>Received</Th>
+                <Th>{t('common.name')}</Th>
+                <Th>{t('leads.col.company')}</Th>
+                <Th>{t('leads.col.product')}</Th>
+                <Th>{t('leads.col.stage')}</Th>
+                <Th>{t('common.received')}</Th>
               </>
             }
           >

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { asc, eq } from 'drizzle-orm';
 import { ArrowLeft } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { requireDb } from '@/db';
 import { users, userRoles, roles } from '@/db/schema';
 import { PageTitle, Card, Flash, Field, inputClass, labelClass } from '@/components/admin/bits';
@@ -20,6 +21,7 @@ export default async function UserDetailPage({
   searchParams: Promise<{ ok?: string; error?: string }>;
 }) {
   const actor = await requirePermission('users.manage');
+  const { t } = await getAdminT();
   const { id } = await params;
   const sp = await searchParams;
   const db = requireDb();
@@ -36,7 +38,7 @@ export default async function UserDetailPage({
   return (
     <>
       <Link href="/admin/users" className="mb-4 inline-flex items-center gap-1.5 text-sm text-slate-500 hover:text-slate-700">
-        <ArrowLeft size={16} /> Back to users
+        <ArrowLeft size={16} /> {t('users.backToUsers')}
       </Link>
       <PageTitle title={user.name} subtitle={user.email} />
       <Flash ok={sp.ok} error={sp.error} />
@@ -44,13 +46,13 @@ export default async function UserDetailPage({
       <div className="grid gap-6 lg:grid-cols-3">
         <div className="space-y-6 lg:col-span-2">
           <Card className="p-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Account</h2>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('users.account')}</h2>
             <form action={updateUser} className="space-y-4">
               <input type="hidden" name="id" value={user.id} />
-              <Field label="Name" name="name" defaultValue={user.name} required />
+              <Field label={t('common.name')} name="name" defaultValue={user.name} required />
               <div>
                 <label className={labelClass} htmlFor="locale">
-                  Locale
+                  {t('users.locale')}
                 </label>
                 <select id="locale" name="locale" defaultValue={user.locale} className={inputClass}>
                   {SITE_LOCALES.map((loc) => (
@@ -67,11 +69,11 @@ export default async function UserDetailPage({
                   defaultChecked={user.isActive}
                   className="h-4 w-4 rounded border-slate-300 text-emerald-600 focus:ring-emerald-500/20"
                 />
-                Active
+                {t('users.active')}
               </label>
 
               <fieldset className="rounded-lg border border-slate-200 p-4">
-                <legend className="px-1 text-sm font-medium text-slate-700">Roles</legend>
+                <legend className="px-1 text-sm font-medium text-slate-700">{t('users.roles')}</legend>
                 <div className="grid gap-2 sm:grid-cols-2">
                   {allRoles.map((r) => (
                     <label key={r.id} className="flex items-center gap-2 text-sm text-slate-700">
@@ -89,43 +91,43 @@ export default async function UserDetailPage({
               </fieldset>
 
               <Field
-                label="Reset password"
+                label={t('users.resetPassword')}
                 name="password"
                 type="password"
-                placeholder="Leave blank to keep current password"
+                placeholder={t('users.resetPasswordPlaceholder')}
               />
 
-              <SubmitButton>Save changes</SubmitButton>
+              <SubmitButton>{t('common.saveChanges')}</SubmitButton>
             </form>
           </Card>
         </div>
 
         <div className="space-y-6">
           <Card className="p-6">
-            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">Info</h2>
+            <h2 className="mb-4 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('users.info')}</h2>
             <dl className="space-y-3 text-sm">
               <div>
-                <dt className="text-xs font-medium text-slate-400">Status</dt>
-                <dd className="text-slate-800">{user.isActive ? 'Active' : 'Inactive'}</dd>
+                <dt className="text-xs font-medium text-slate-400">{t('common.status')}</dt>
+                <dd className="text-slate-800">{user.isActive ? t('users.active') : t('users.inactive')}</dd>
               </div>
               <div>
-                <dt className="text-xs font-medium text-slate-400">Last login</dt>
-                <dd className="text-slate-800">{user.lastLoginAt ? user.lastLoginAt.toLocaleString() : 'Never'}</dd>
+                <dt className="text-xs font-medium text-slate-400">{t('users.lastLogin')}</dt>
+                <dd className="text-slate-800">{user.lastLoginAt ? user.lastLoginAt.toLocaleString() : t('users.never')}</dd>
               </div>
               <div>
-                <dt className="text-xs font-medium text-slate-400">Created</dt>
+                <dt className="text-xs font-medium text-slate-400">{t('common.created')}</dt>
                 <dd className="text-slate-800">{user.createdAt.toLocaleString()}</dd>
               </div>
             </dl>
           </Card>
 
           <Card className="p-6">
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">Danger zone</h2>
+            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('common.dangerZone')}</h2>
             {isSelf ? (
-              <p className="text-sm text-slate-400">You cannot delete your own account.</p>
+              <p className="text-sm text-slate-400">{t('users.selfDeleteNote')}</p>
             ) : (
               <>
-                <p className="mb-4 text-sm text-slate-500">Deactivate and remove this user account.</p>
+                <p className="mb-4 text-sm text-slate-500">{t('users.deleteNote')}</p>
                 <DeleteButton
                   action={async () => {
                     'use server';
@@ -133,7 +135,7 @@ export default async function UserDetailPage({
                     fd.set('id', user.id);
                     await deleteUser(fd);
                   }}
-                  confirm="Delete this user? Their account will be deactivated."
+                  confirm={t('users.confirmDelete')}
                 />
               </>
             )}

@@ -1,6 +1,7 @@
 import { eq, sql } from 'drizzle-orm';
 import { ShieldCheck } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
+import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { roles as rolesTable, userRoles } from '@/db/schema';
 import { PERMISSIONS, ROLES, permissionsForRole, type PermissionCode } from '@/lib/auth/rbac';
@@ -27,6 +28,7 @@ function groupByPrefix(codes: PermissionCode[]): Record<string, PermissionCode[]
 
 export default async function RolesPage() {
   await requirePermission('users.manage');
+  const { t } = await getAdminT();
 
   let userCountByRole: Record<string, number> = {};
   if (isDbConfigured && db) {
@@ -43,8 +45,8 @@ export default async function RolesPage() {
   return (
     <>
       <PageTitle
-        title="Roles & permissions"
-        subtitle="Reference view of the roles defined in the application and the permissions each grants."
+        title={t('roles.title')}
+        subtitle={t('roles.subtitle')}
       />
 
       <div className="grid gap-6 lg:grid-cols-2">
@@ -65,13 +67,13 @@ export default async function RolesPage() {
                   </div>
                 </div>
                 {isDbConfigured && (
-                  <span className="text-xs text-slate-400">{userCountByRole[role.code] ?? 0} users</span>
+                  <span className="text-xs text-slate-400">{t('roles.usersCount', { count: userCountByRole[role.code] ?? 0 })}</span>
                 )}
               </div>
               <p className="mt-3 text-sm text-slate-500">{role.description}</p>
               <div className="mt-4 space-y-3">
                 {isWildcard && (
-                  <p className="text-xs font-medium text-emerald-600">Grants every permission (*).</p>
+                  <p className="text-xs font-medium text-emerald-600">{t('roles.wildcard')}</p>
                 )}
                 {Object.entries(groups).map(([prefix, codes]) => (
                   <div key={prefix}>
@@ -90,12 +92,12 @@ export default async function RolesPage() {
       </div>
 
       <div className="mt-8">
-        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">All permissions</h2>
+        <h2 className="mb-3 text-sm font-semibold uppercase tracking-wide text-slate-500">{t('roles.allPermissions')}</h2>
         <DataTable
           head={
             <>
-              <Th>Code</Th>
-              <Th>Description</Th>
+              <Th>{t('roles.code')}</Th>
+              <Th>{t('roles.description')}</Th>
             </>
           }
         >
