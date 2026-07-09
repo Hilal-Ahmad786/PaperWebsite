@@ -24,6 +24,9 @@ export const PERMISSIONS = {
   'seo.read': 'View SEO settings',
   'seo.write': 'Edit SEO settings',
   'analytics.view': 'View analytics',
+  'clicks.view': 'View the button-clicks report',
+  'clickprotection.read': 'View ad click-fraud protection',
+  'clickprotection.write': 'Manage flagged IPs / run detection',
   'users.manage': 'Manage users & roles',
   'settings.manage': 'Manage site settings',
   'audit.read': 'View audit log',
@@ -69,6 +72,7 @@ export const ROLES: RoleDef[] = [
       'seo.read',
       'seo.write',
       'analytics.view',
+      'clicks.view',
     ],
   },
   {
@@ -81,6 +85,7 @@ export const ROLES: RoleDef[] = [
       'leads.write',
       'leads.export',
       'analytics.view',
+      'clicks.view',
     ],
   },
   {

@@ -2,6 +2,15 @@
 
 import type { ReactNode } from 'react';
 import { trackContactClick, type ContactChannel } from '@/lib/analytics';
+import { beaconTrack } from '@/lib/tracking/beacon';
+
+const CHANNEL_EVENT: Record<string, string> = {
+  whatsapp: 'whatsapp_click',
+  phone: 'phone_click',
+  tel: 'phone_click',
+  email: 'email_click',
+  mail: 'email_click',
+};
 
 interface TrackedContactLinkProps {
   href: string;
@@ -30,7 +39,10 @@ export function TrackedContactLink({
       className={className}
       target={target}
       rel={rel}
-      onClick={() => trackContactClick(channel)}
+      onClick={() => {
+        trackContactClick(channel);
+        beaconTrack(CHANNEL_EVENT[channel] ?? `${channel}_click`, { location: 'contact_link' });
+      }}
     >
       {children}
     </a>

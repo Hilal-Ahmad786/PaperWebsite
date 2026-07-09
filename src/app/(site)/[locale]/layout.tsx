@@ -11,6 +11,7 @@ import { ChatWidget } from '@/components/ui/ChatWidget';
 import { ToastContainer } from '@/components/ui/Toast';
 import { OrganizationJsonLd } from '@/components/seo/JsonLd';
 import { ConsentModeDefault } from '@/components/analytics/ConsentMode';
+import { SiteTracking } from '@/components/tracking/SiteTracking';
 import { UsercentricsCmp } from '@/components/analytics/UsercentricsCmp';
 import {
   GoogleTagManager,
@@ -82,6 +83,7 @@ export default async function LocaleLayout({
           <Footer locale={locale} />
           <ChatWidget />
           <ToastContainer />
+          <SiteTracking />
         </NextIntlClientProvider>
       </body>
     </html>

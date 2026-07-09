@@ -4,3 +4,4 @@ export * from './crm';
 export * from './cms';
 export * from './settings';
 export * from './audit';
+export * from './click-protection';

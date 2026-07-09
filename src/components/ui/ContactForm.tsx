@@ -8,6 +8,8 @@ import { products } from '@/content/products';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
 import { trackContactSubmit } from '@/lib/analytics';
+import { beaconTrack } from '@/lib/tracking/beacon';
+import { TurnstileWidget } from '@/components/ui/TurnstileWidget';
 
 const HUELSE_TYPES = ['konus', 'garn', 'kreuzspul', 'faerbe', 'naehgarn', 'spezial'] as const;
 
@@ -27,7 +29,10 @@ export function ContactForm() {
         setStatus('submitting');
 
         const formData = new FormData(e.currentTarget);
-        const data = Object.fromEntries(formData.entries());
+        const data = Object.fromEntries(formData.entries()) as Record<string, string>;
+        // Attach the current locale and the Turnstile token (if the widget rendered).
+        data.locale = locale;
+        data.turnstileToken = String(data['cf-turnstile-response'] ?? '');
 
         try {
             const response = await fetch('/api/contact', {
@@ -45,6 +50,8 @@ export function ContactForm() {
                 huelseType: String(data.huelseType || ''),
                 quantity: String(data.quantity || ''),
             });
+            // First-party conversion beacon (admin "Button clicks" + lead protection).
+            beaconTrack('form_submit', { location: 'contact_form' });
             setStatus('success');
             router.push(getLocalizedPath(locale, '/thank-you'));
         } catch (error) {
@@ -204,6 +211,15 @@ export function ContactForm() {
                     className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
                 ></textarea>
             </div>
+
+            {/* Honeypot: hidden from real users; bots that fill it are dropped. */}
+            <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
+                <label htmlFor="website">Leave this field empty</label>
+                <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
+
+            {/* Bot protection (renders only when NEXT_PUBLIC_TURNSTILE_SITE_KEY is set). */}
+            <TurnstileWidget />
 
             {status === 'error' && (
                 <div className="text-red-500 text-sm">{t('error')}</div>

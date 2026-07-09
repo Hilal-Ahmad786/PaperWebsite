@@ -35,3 +35,7 @@ export const contentType = pgEnum('content_type', ['insight', 'page', 'faq']);
 export const mediaVisibility = pgEnum('media_visibility', ['public', 'private']);
 
 export const stockOfferStatus = pgEnum('stock_offer_status', ['available', 'reserved', 'sold', 'hidden']);
+
+/** Click-fraud protection: lifecycle of a tracked IP. `whitelisted` = real-lead
+ *  IP that must never be flagged/excluded. */
+export const flaggedIpStatus = pgEnum('flagged_ip_status', ['watching', 'flagged', 'excluded', 'whitelisted']);

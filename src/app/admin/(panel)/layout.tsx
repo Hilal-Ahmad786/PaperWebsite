@@ -13,6 +13,8 @@ const NAV: { key: string; label: string; href: string; perm: PermissionCode }[] 
   { key: 'translations', label: 'Translations', href: '/admin/translations', perm: 'translations.read' },
   { key: 'seo', label: 'SEO', href: '/admin/seo', perm: 'seo.read' },
   { key: 'analytics', label: 'Analytics', href: '/admin/analytics', perm: 'analytics.view' },
+  { key: 'clicks', label: 'Button Clicks', href: '/admin/clicks', perm: 'clicks.view' },
+  { key: 'clickprotection', label: 'Click Protection', href: '/admin/click-protection', perm: 'clickprotection.read' },
   { key: 'users', label: 'Users', href: '/admin/users', perm: 'users.manage' },
   { key: 'roles', label: 'Roles', href: '/admin/roles', perm: 'users.manage' },
   { key: 'settings', label: 'Settings', href: '/admin/settings', perm: 'settings.manage' },

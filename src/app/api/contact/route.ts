@@ -1,15 +1,36 @@
 import { NextResponse } from 'next/server';
 import { isDbConfigured, db } from '@/db';
 import { leads } from '@/db/schema';
+import { verifyTurnstile } from '@/lib/security/turnstile';
 
 export async function POST(request: Request) {
     try {
         const data = await request.json();
 
+        // Honeypot: real users never fill this hidden field. If present, silently
+        // accept (so the bot thinks it succeeded) but drop the submission.
+        if (typeof data.website === 'string' && data.website.trim() !== '') {
+            return NextResponse.json({ success: true });
+        }
+
         // Validate required fields
         if (!data.name || !data.email || !data.message) {
             return NextResponse.json(
                 { error: 'Missing required fields' },
+                { status: 400 }
+            );
+        }
+
+        // Bot protection: verify the Cloudflare Turnstile token (no-op unless
+        // TURNSTILE_SECRET is configured).
+        const ip = request.headers.get('x-forwarded-for')?.split(',')[0]?.trim() ?? null;
+        const humanVerified = await verifyTurnstile(
+            typeof data.turnstileToken === 'string' ? data.turnstileToken : null,
+            ip
+        );
+        if (!humanVerified) {
+            return NextResponse.json(
+                { error: 'Verification failed. Please try again.' },
                 { status: 400 }
             );
         }
