@@ -25,7 +25,8 @@ export default function middleware(request: NextRequest) {
 
 export const config = {
   // Match all pathnames except for
-  // - … if they start with `/api`, `/_next` or `/_vercel`
+  // - … if they start with `/api`, `/admin`, `/_next` or `/_vercel`
   // - … the ones containing a dot (e.g. `favicon.ico`)
-  matcher: ['/((?!api|_next|_vercel|.*\\..*).*)']
+  // `/admin` is intentionally excluded so the admin panel is NOT locale-prefixed.
+  matcher: ['/((?!api|admin|_next|_vercel|.*\\..*).*)']
 };

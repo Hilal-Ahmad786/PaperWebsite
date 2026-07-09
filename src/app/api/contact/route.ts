@@ -1,4 +1,6 @@
 import { NextResponse } from 'next/server';
+import { isDbConfigured, db } from '@/db';
+import { leads } from '@/db/schema';
 
 export async function POST(request: Request) {
     try {
@@ -10,6 +12,28 @@ export async function POST(request: Request) {
                 { error: 'Missing required fields' },
                 { status: 400 }
             );
+        }
+
+        // Persist the inquiry so it appears in the admin panel (best-effort).
+        if (isDbConfigured && db) {
+            try {
+                await db.insert(leads).values({
+                    name: String(data.name),
+                    email: String(data.email),
+                    company: data.company ? String(data.company) : null,
+                    phone: data.phone ? String(data.phone) : null,
+                    country: data.country ? String(data.country) : null,
+                    vatId: data.vatId ? String(data.vatId) : null,
+                    product: data.product ? String(data.product) : null,
+                    quantity: data.quantity ? String(data.quantity) : null,
+                    message: String(data.message),
+                    locale: data.locale ? String(data.locale) : null,
+                    source: 'website_form',
+                    meta: { huelseType: data.huelseType ?? null },
+                });
+            } catch (dbError) {
+                console.error('Failed to store lead:', dbError);
+            }
         }
 
         // SendGrid Integration (uncomment when ready)
