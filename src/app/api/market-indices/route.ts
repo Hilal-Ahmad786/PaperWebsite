@@ -1,8 +1,12 @@
 import { NextResponse } from 'next/server';
-import { marketIndices, paperMarketIndicators } from '@/content/market-indices';
+import { marketIndices } from '@/content/market-indices';
+import { getPaperMarketIndicators } from '@/lib/public-data';
 import { MarketIndex } from '@/types';
 
-export const revalidate = 60 * 60 * 12;
+// DB-managed indices must be read per-request, so this route can't be
+// statically cached for a fixed window; it manages its own Cache-Control.
+export const revalidate = 0;
+const FX_REVALIDATE = 60 * 60 * 12;
 
 type FrankfurterResponse = {
   amount: number;
@@ -86,15 +90,15 @@ function buildFxIndicators(data: FrankfurterResponse): MarketIndex[] | null {
 
 export async function GET() {
   try {
-    const response = await fetch(
-      'https://api.frankfurter.dev/v1/latest?base=USD&symbols=EUR,TRY',
-      {
-        next: { revalidate },
+    const [response, paperIndicators] = await Promise.all([
+      fetch('https://api.frankfurter.dev/v1/latest?base=USD&symbols=EUR,TRY', {
+        next: { revalidate: FX_REVALIDATE },
         headers: {
           Accept: 'application/json',
         },
-      },
-    );
+      }),
+      getPaperMarketIndicators(),
+    ]);
 
     if (!response.ok) {
       return getFallbackResponse();
@@ -109,7 +113,7 @@ export async function GET() {
 
     return NextResponse.json(
       {
-        indices: [...fxIndicators, ...paperMarketIndicators],
+        indices: [...fxIndicators, ...paperIndicators],
         updatedAt: data.date,
         source: 'Frankfurter daily FX with manual paper indicators',
         status: 'live',
