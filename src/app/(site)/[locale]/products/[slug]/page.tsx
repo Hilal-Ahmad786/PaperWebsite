@@ -9,6 +9,7 @@ import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { ImageGallery } from '@/components/ui/ImageGallery';
+import { HeroIconFrame } from '@/components/ui/IconFrame';
 import { ProductJsonLd } from '@/components/seo/JsonLd';
 import { getProductBySlug } from '@/content/products';
 import { type Locale } from '@/i18n';
@@ -128,6 +129,7 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                         </div>
                     )}
                 </div>
+                {!heroImage && <HeroIconFrame icon={Layers} tone="sky" />}
             </Section>
 
             {/* Specifications Section */}

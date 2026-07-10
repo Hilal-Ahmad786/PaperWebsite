@@ -7,7 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/ui/ContactForm';
 import { Card } from '@/components/ui/Card';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { HeroEmblem } from '@/components/ui/IconFrame';
+import { HeroIconFrame } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
 
@@ -31,9 +31,9 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
 
     return (
         <>
-            <Section variant="dark" className="relative overflow-hidden py-20">
-                <div className="text-center max-w-4xl mx-auto relative z-10">
-                    <div className="flex justify-center mb-8 animate-fade-in">
+            <Section variant="dark" className="relative overflow-hidden">
+                <div className="max-w-4xl relative z-10">
+                    <div className="mb-8 animate-fade-in">
                         <Breadcrumbs
                             items={[
                                 { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
@@ -41,14 +41,14 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                             ]}
                         />
                     </div>
-                    <HeroEmblem icon={Mail} />
-                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up [animation-delay:100ms]">
+                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up">
                         {t('title')}
                     </h1>
-                    <p className="text-xl text-text-secondary animate-fade-up [animation-delay:200ms]">
+                    <p className="text-xl text-text-secondary max-w-2xl animate-fade-up [animation-delay:150ms]">
                         {t('subtitle')}
                     </p>
                 </div>
+                <HeroIconFrame icon={Mail} tone="sky" />
             </Section>
 
             <Section variant="default">
