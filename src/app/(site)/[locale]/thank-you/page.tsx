@@ -28,11 +28,11 @@ export default function ThankYouPage({ params: { locale } }: { params: { locale:
     return (
         <Section variant="dark" className="py-24 lg:py-32 text-center">
             <div className="max-w-2xl mx-auto">
-                <CheckCircle2 className="h-16 w-16 mx-auto mb-8 text-brand-primary" aria-hidden="true" />
-                <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-text-primary">
+                <CheckCircle2 className="h-16 w-16 mx-auto mb-8 text-brand-primary animate-scale-in" aria-hidden="true" />
+                <h1 className="text-4xl lg:text-5xl font-extrabold mb-6 text-text-primary animate-fade-up">
                     {t('thankYou.title')}
                 </h1>
-                <p className="text-lg text-text-secondary mb-10">
+                <p className="text-lg text-text-secondary mb-10 animate-fade-up [animation-delay:150ms]">
                     {t('thankYou.subtitle')}
                 </p>
                 <Link href={getLocalizedPath(currentLocale, '/')}>

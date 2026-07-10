@@ -31,7 +31,7 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
         <>
             <Section variant="dark" className="py-20">
                 <div className="text-center max-w-4xl mx-auto">
-                    <div className="flex justify-center mb-8">
+                    <div className="flex justify-center mb-8 animate-fade-in">
                         <Breadcrumbs
                             items={[
                                 { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
@@ -39,10 +39,10 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                             ]}
                         />
                     </div>
-                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient">
+                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up">
                         {t('title')}
                     </h1>
-                    <p className="text-xl text-text-secondary">
+                    <p className="text-xl text-text-secondary animate-fade-up [animation-delay:150ms]">
                         {t('subtitle')}
                     </p>
                 </div>

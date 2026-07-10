@@ -36,11 +36,41 @@ const config: Config = {
       },
       animation: {
         'ticker-scroll': 'ticker-scroll 30s linear infinite',
+        'fade-up': 'fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'fade-down': 'fade-down 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'fade-in': 'fade-in 0.9s ease-out both',
+        'scale-in': 'scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
+        'float-slow': 'float-slow 7s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 5s ease-in-out infinite',
       },
       keyframes: {
         'ticker-scroll': {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        'fade-up': {
+          '0%': { opacity: '0', transform: 'translateY(28px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-down': {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        'fade-in': {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        'scale-in': {
+          '0%': { opacity: '0', transform: 'scale(0.94)' },
+          '100%': { opacity: '1', transform: 'scale(1)' },
+        },
+        'float-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-16px)' },
+        },
+        'glow-pulse': {
+          '0%, 100%': { opacity: '0.35' },
+          '50%': { opacity: '0.7' },
         },
       },
     },

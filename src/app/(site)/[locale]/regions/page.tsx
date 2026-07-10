@@ -71,7 +71,7 @@ export default function RegionsPage({ params: { locale } }: { params: { locale: 
         <>
             <Section variant="dark" className="relative overflow-hidden">
                 <div className="max-w-4xl relative z-10">
-                    <div className="mb-8">
+                    <div className="mb-8 animate-fade-in">
                         <Breadcrumbs
                             items={[
                                 { label: tNav('home'), href: getLocalizedPath(currentLocale, '/') },
@@ -79,10 +79,10 @@ export default function RegionsPage({ params: { locale } }: { params: { locale: 
                             ]}
                         />
                     </div>
-                    <h1 className="text-5xl font-extrabold mb-6">
+                    <h1 className="text-5xl font-extrabold mb-6 animate-fade-up">
                         <span className="text-gradient">{t('title')}</span>
                     </h1>
-                    <p className="text-xl text-text-secondary max-w-2xl">
+                    <p className="text-xl text-text-secondary max-w-2xl animate-fade-up [animation-delay:150ms]">
                         {t('subtitle')}
                     </p>
                 </div>

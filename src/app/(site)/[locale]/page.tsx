@@ -98,7 +98,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
 
     <>
       {/* Hero Section */}
-      <Section variant="dark" className="relative overflow-hidden">
+      <Section variant="dark" className="relative overflow-hidden pt-10 lg:pt-16">
         {/* Grid Pattern Background */}
         <div className="absolute inset-0 opacity-30">
           <div
@@ -113,12 +113,16 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
           />
         </div>
 
+        {/* Ambient glow */}
+        <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-primary/20 blur-3xl animate-glow-pulse" />
+        <div className="pointer-events-none absolute top-1/2 -left-32 h-80 w-80 rounded-full bg-brand-secondary/10 blur-3xl animate-float-slow" />
+
         {/* Border Top */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent" />
 
         <div className="relative z-10">
           <div className="max-w-4xl">
-            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6">
+            <h1 className="text-5xl lg:text-7xl font-extrabold leading-tight mb-6 animate-fade-up">
               <span className="text-gradient">
                 {t('home.hero.title')}
               </span>
@@ -128,11 +132,11 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
               </span>
             </h1>
 
-            <p className="text-lg lg:text-xl text-text-secondary mb-10 max-w-3xl leading-relaxed">
+            <p className="text-lg lg:text-xl text-text-secondary mb-10 max-w-3xl leading-relaxed animate-fade-up [animation-delay:150ms]">
               {t('home.hero.subtitle')}
             </p>
 
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:300ms]">
               <Link href={getLocalizedPath(currentLocale, '/contact')}>
                 <Button variant="primary" size="lg">
                   {t('home.hero.cta1')}
@@ -147,7 +151,7 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
           </div>
 
           {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-20 animate-fade-up [animation-delay:450ms]">
             {[
               { value: '500+', label: t('home.stats.suppliers') },
               { value: '23', label: t('home.stats.countries') },
