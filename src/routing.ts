@@ -76,15 +76,6 @@ export const pathnames = {
     fr: '/contact',
     es: '/contacto',
   },
-  '/track-order': {
-    en: '/track-order',
-    tr: '/sipariş-takip',
-    de: '/auftrag-verfolgen',
-    ar: '/تتبع-الطلب',
-    it: '/traccia-ordine',
-    fr: '/suivi-commande',
-    es: '/seguimiento-pedido',
-  },
   '/legal/privacy': {
     en: '/legal/privacy',
     tr: '/yasal/gizlilik',
