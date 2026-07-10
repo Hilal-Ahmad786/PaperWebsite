@@ -153,25 +153,27 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
               </Link>
             </div>
           </div>
+        </div>
+      </Section>
 
-          {/* Stats Grid */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mt-20 animate-fade-up [animation-delay:450ms]">
-            {[
-              { value: '500+', label: t('home.stats.suppliers') },
-              { value: '23', label: t('home.stats.countries') },
-              { value: '50K+', label: t('home.stats.volume') },
-              { value: '24/7', label: t('home.stats.uptime') },
-            ].map((stat, index) => (
-              <Card key={index} hover className="text-center">
-                <div className="text-4xl lg:text-5xl font-extrabold text-brand-primary font-mono mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-xs uppercase tracking-wider text-text-tertiary font-semibold">
-                  {stat.label}
-                </div>
-              </Card>
-            ))}
-          </div>
+      {/* Stats Band (under the hero) */}
+      <Section variant="dark" className="!py-12 border-t border-border-primary/60">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          {[
+            { value: '500+', label: t('home.stats.suppliers') },
+            { value: '23', label: t('home.stats.countries') },
+            { value: '50K+', label: t('home.stats.volume') },
+            { value: '24/7', label: t('home.stats.uptime') },
+          ].map((stat, index) => (
+            <Card key={index} hover className="text-center">
+              <div className="text-4xl lg:text-5xl font-extrabold text-brand-primary font-mono mb-2">
+                {stat.value}
+              </div>
+              <div className="text-xs uppercase tracking-wider text-text-tertiary font-semibold">
+                {stat.label}
+              </div>
+            </Card>
+          ))}
         </div>
       </Section>
 
