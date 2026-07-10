@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/Button';
 import { ProductComparison } from '@/components/ui/ProductComparison';
 import { products } from '@/content/products';
 import { ProductCategory } from '@/types';
-import { IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { IconFrame, HeroIconFrame, type IconTone } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
 import type { ProductOverrideView } from '@/lib/public-data';
@@ -59,8 +59,8 @@ export function ProductsView({
 
     return (
         <>
-            <Section variant="dark" className="py-20">
-                <div className="text-center max-w-4xl mx-auto">
+            <Section variant="dark" className="relative overflow-hidden py-20">
+                <div className="text-center max-w-4xl mx-auto relative z-10">
                     <div className="flex justify-center mb-8 animate-fade-in">
                         <Breadcrumbs
                             items={[
@@ -76,6 +76,7 @@ export function ProductsView({
                         {t('products.subtitle')}
                     </p>
                 </div>
+                <HeroIconFrame icon={Boxes} className="lg:hidden xl:block" />
             </Section>
 
             <Section variant="default">

@@ -80,10 +80,10 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                 category={t(`products.categories.${product.category}`)}
             />
             {/* Hero Section */}
-            <Section variant="dark" className="py-20 lg:py-32">
+            <Section variant="dark" className="pt-12 lg:pt-16 pb-20 lg:pb-28">
                 <div className={heroImage ? "grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-12 lg:gap-16 items-center" : "max-w-4xl"}>
                     <div>
-                        <div className="mb-8">
+                        <div className="mb-8 animate-fade-in">
                             <Breadcrumbs
                                 items={[
                                     { label: t('nav.home'), href: getLocalizedPath(currentLocale, '/') },
@@ -92,16 +92,16 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                                 ]}
                             />
                         </div>
-                        <div className="text-brand-primary font-mono text-sm uppercase tracking-wider mb-4">
+                        <div className="text-brand-primary font-mono text-sm uppercase tracking-wider mb-4 animate-fade-up">
                             {t(`products.categories.${product.category}`)}
                         </div>
-                        <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-text-primary">
+                        <h1 className="text-5xl lg:text-7xl font-extrabold mb-6 text-text-primary animate-fade-up [animation-delay:100ms]">
                             {t(`${product.i18nKey}.name`)}
                         </h1>
-                        <p className="text-xl lg:text-2xl text-text-secondary mb-10 leading-relaxed max-w-3xl">
+                        <p className="text-xl lg:text-2xl text-text-secondary mb-10 leading-relaxed max-w-3xl animate-fade-up [animation-delay:200ms]">
                             {product.subtitleKey ? t(product.subtitleKey) : t(`${product.i18nKey}.description`)}
                         </p>
-                        <div className="flex flex-wrap gap-4">
+                        <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:300ms]">
                             <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}>
                                 <Button variant="primary" size="lg">
                                     {t('common.getQuote')}
@@ -116,7 +116,7 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                         </div>
                     </div>
                     {heroImage && (
-                        <div className="relative mx-auto w-full max-w-[420px] overflow-hidden border border-border-primary bg-white shadow-2xl">
+                        <div className="relative mx-auto w-full max-w-[420px] overflow-hidden border border-border-primary bg-white shadow-2xl animate-scale-in [animation-delay:200ms]">
                             <img
                                 src={heroImage.src}
                                 alt={t(heroImage.altKey)}

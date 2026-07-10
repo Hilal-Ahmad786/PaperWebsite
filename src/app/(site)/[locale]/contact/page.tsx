@@ -2,10 +2,12 @@ import { useTranslations } from 'next-intl';
 import type { Metadata } from 'next';
 import { getTranslations } from 'next-intl/server';
 import { staticAlternates } from '@/lib/seo';
+import { Mail } from 'lucide-react';
 import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/ui/ContactForm';
 import { Card } from '@/components/ui/Card';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { HeroIconFrame } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
 
@@ -29,8 +31,8 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
 
     return (
         <>
-            <Section variant="dark" className="py-20">
-                <div className="text-center max-w-4xl mx-auto">
+            <Section variant="dark" className="relative overflow-hidden py-20">
+                <div className="text-center max-w-4xl mx-auto relative z-10">
                     <div className="flex justify-center mb-8 animate-fade-in">
                         <Breadcrumbs
                             items={[
@@ -46,6 +48,7 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                         {t('subtitle')}
                     </p>
                 </div>
+                <HeroIconFrame icon={Mail} className="lg:hidden xl:block" />
             </Section>
 
             <Section variant="default">
