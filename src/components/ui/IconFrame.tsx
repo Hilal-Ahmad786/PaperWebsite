@@ -87,6 +87,35 @@ export function IconFrame({
 }
 
 /**
+ * Centered, always-visible animated hero emblem: a themed icon in a glowing
+ * glass tile that floats continuously. Works on every screen size (unlike the
+ * side HeroIconFrame), so centered heroes still get clear, live motion.
+ */
+export function HeroEmblem({
+  icon: Icon,
+  className,
+}: {
+  icon: LucideIcon;
+  className?: string;
+}) {
+  return (
+    <div className={cn('mb-6 flex justify-center animate-fade-up', className)}>
+      <div className="relative animate-float-soft">
+        <div className="absolute inset-0 rounded-2xl bg-brand-primary/25 blur-2xl animate-glow-pulse" />
+        <div className="relative grid h-20 w-20 place-items-center rounded-2xl border border-white/15 bg-gradient-to-br from-brand-primary/30 to-emerald-400/10 shadow-2xl backdrop-blur-md lg:h-24 lg:w-24">
+          <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.28),transparent_60%)]" />
+          <Icon
+            className="relative h-10 w-10 text-brand-primary drop-shadow-[0_4px_16px_rgba(34,197,94,0.45)] lg:h-12 lg:w-12"
+            strokeWidth={1.5}
+            aria-hidden="true"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+/**
  * Inner-page hero visual: a small stack of drifting "paper sheets" with the
  * page's themed icon floating on top — a grounded, on-brand animation (paper
  * board) rather than an abstract spinning badge. Decorative, desktop-only.

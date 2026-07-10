@@ -7,7 +7,7 @@ import { Section } from '@/components/ui/Section';
 import { ContactForm } from '@/components/ui/ContactForm';
 import { Card } from '@/components/ui/Card';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
-import { HeroIconFrame } from '@/components/ui/IconFrame';
+import { HeroEmblem } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
 
@@ -41,14 +41,14 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                             ]}
                         />
                     </div>
-                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up">
+                    <HeroEmblem icon={Mail} />
+                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up [animation-delay:100ms]">
                         {t('title')}
                     </h1>
-                    <p className="text-xl text-text-secondary animate-fade-up [animation-delay:150ms]">
+                    <p className="text-xl text-text-secondary animate-fade-up [animation-delay:200ms]">
                         {t('subtitle')}
                     </p>
                 </div>
-                <HeroIconFrame icon={Mail} className="lg:hidden xl:block" />
             </Section>
 
             <Section variant="default">

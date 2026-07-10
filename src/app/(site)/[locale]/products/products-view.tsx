@@ -11,7 +11,7 @@ import { Button } from '@/components/ui/Button';
 import { ProductComparison } from '@/components/ui/ProductComparison';
 import { products } from '@/content/products';
 import { ProductCategory } from '@/types';
-import { IconFrame, HeroIconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { IconFrame, HeroEmblem, type IconTone } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
 import type { ProductOverrideView } from '@/lib/public-data';
@@ -69,14 +69,14 @@ export function ProductsView({
                             ]}
                         />
                     </div>
-                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up">
+                    <HeroEmblem icon={Boxes} />
+                    <h1 className="text-5xl lg:text-6xl font-extrabold mb-6 text-gradient animate-fade-up [animation-delay:100ms]">
                         {t('products.title')}
                     </h1>
-                    <p className="text-xl text-text-secondary animate-fade-up [animation-delay:150ms]">
+                    <p className="text-xl text-text-secondary animate-fade-up [animation-delay:200ms]">
                         {t('products.subtitle')}
                     </p>
                 </div>
-                <HeroIconFrame icon={Boxes} className="lg:hidden xl:block" />
             </Section>
 
             <Section variant="default">

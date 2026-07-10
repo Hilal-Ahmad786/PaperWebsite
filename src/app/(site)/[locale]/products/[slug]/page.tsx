@@ -80,8 +80,11 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                 category={t(`products.categories.${product.category}`)}
             />
             {/* Hero Section */}
-            <Section variant="dark" className="pt-12 lg:pt-16 pb-20 lg:pb-28">
-                <div className={heroImage ? "grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-12 lg:gap-16 items-center" : "max-w-4xl"}>
+            <Section variant="dark" className="relative overflow-hidden pt-12 lg:pt-16 pb-20 lg:pb-28">
+                {/* Ambient animated glow */}
+                <div className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-brand-primary/15 blur-3xl animate-glow-pulse" />
+                <div className="pointer-events-none absolute top-1/2 -left-32 h-80 w-80 rounded-full bg-brand-secondary/10 blur-3xl animate-float-slow" />
+                <div className={heroImage ? "relative z-10 grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_420px] gap-12 lg:gap-16 items-center" : "relative z-10 max-w-4xl"}>
                     <div>
                         <div className="mb-8 animate-fade-in">
                             <Breadcrumbs
