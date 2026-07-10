@@ -6,11 +6,10 @@
  */
 import { asc, desc, eq } from 'drizzle-orm';
 import { isDbConfigured, db } from '@/db';
-import { marketIndices, stockOffers as stockOffersTable, contentEntries } from '@/db/schema';
+import { marketIndices, contentEntries } from '@/db/schema';
 import { pickLocalized } from '@/lib/admin/localized';
 import { paperMarketIndicators } from '@/content/market-indices';
-import { stockOffers as staticStockOffers } from '@/content/offers';
-import type { MarketIndex, StockOffer } from '@/types';
+import type { MarketIndex } from '@/types';
 
 /** Paper market indicators — DB rows if any active, else the static list. */
 export async function getPaperMarketIndicators(): Promise<MarketIndex[]> {
@@ -32,33 +31,6 @@ export async function getPaperMarketIndicators(): Promise<MarketIndex[]> {
     }));
   } catch {
     return paperMarketIndicators;
-  }
-}
-
-/** Stock offers — DB rows (excluding hidden) if any, else the static list. */
-export async function getStockOffers(): Promise<StockOffer[]> {
-  if (!isDbConfigured || !db) return staticStockOffers;
-  try {
-    const rows = await db
-      .select()
-      .from(stockOffersTable)
-      .orderBy(asc(stockOffersTable.sortOrder), desc(stockOffersTable.createdAt));
-    const visible = rows.filter((r) => r.status !== 'hidden');
-    if (!visible.length) return staticStockOffers;
-    return visible.map((r) => ({
-      id: r.id,
-      productSlug: (r.productSlug ?? '') as StockOffer['productSlug'],
-      gradeName: r.grade ?? pickLocalized(r.title, 'en'),
-      gsmRange: r.gsm ?? '',
-      originCountry: r.location ?? '',
-      quantityTons: Number(r.quantityTons) || 0,
-      port: r.location ?? '',
-      availability: r.status,
-      type: 'prime',
-      updatedAt: r.updatedAt.toISOString(),
-    }));
-  } catch {
-    return staticStockOffers;
   }
 }
 

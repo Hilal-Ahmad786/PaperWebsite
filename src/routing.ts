@@ -58,15 +58,6 @@ export const pathnames = {
     fr: '/perspectives',
     es: '/perspectivas',
   },
-  '/stock-offers': {
-    en: '/stock-offers',
-    tr: '/stok-teklifleri',
-    de: '/lagerangebote',
-    ar: '/المخزون-والعروض',
-    it: '/offerte-stock',
-    fr: '/offres-stock',
-    es: '/ofertas-stock',
-  },
   '/about': {
     en: '/about',
     tr: '/hakkımızda',

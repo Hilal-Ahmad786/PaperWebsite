@@ -23,7 +23,6 @@ import { Button } from '@/components/ui/Button';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { products } from '@/content/products';
-import { stockOffers } from '@/content/offers';
 import { HomeProductFinder } from '@/components/home/HomeProductFinder';
 import { IconFrame, type IconTone } from '@/components/ui/IconFrame';
 import { type Locale } from '@/i18n';
@@ -50,9 +49,6 @@ export async function generateMetadata({
 export default function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const currentLocale = locale as Locale;
   const t = useTranslations();
-  const offerGradeName = (offer: typeof stockOffers[number]) => offer.gradeNameKey ? t(offer.gradeNameKey) : offer.gradeName;
-  const offerOrigin = (offer: typeof stockOffers[number]) => offer.originKey ? t(offer.originKey) : offer.originCountry;
-  const offerAvailability = (offer: typeof stockOffers[number]) => offer.availabilityKey ? t(offer.availabilityKey) : offer.availability;
   const whyUsItems: Array<{
     icon: LucideIcon;
     title: string;
@@ -238,80 +234,6 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
           <Link href={getLocalizedPath(currentLocale, '/products')}>
             <Button variant="secondary" size="lg">
               {t('common.viewProducts')}
-              <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
-            </Button>
-          </Link>
-        </div>
-      </Section>
-
-      {/* Stock Offers Preview */}
-      <Section variant="dark">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-text-primary mb-4">
-            {t('home.stockOffers.title')}
-          </h2>
-          <p className="text-lg text-text-secondary">
-            {t('home.stockOffers.subtitle')}
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {stockOffers.slice(0, 3).map((offer) => (
-            <Card key={offer.id} hover>
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <div className="text-xs uppercase tracking-wider text-text-tertiary mb-1">
-                    {t(`stockOffers.filters.${offer.type}`)}
-                  </div>
-                  <h3 className="text-xl font-bold text-text-primary">
-                    {offerGradeName(offer)}
-                  </h3>
-                </div>
-                <div className="px-3 py-1 bg-brand-primary/10 border border-brand-primary/30 text-brand-primary text-xs font-bold">
-                  {offer.quantityTons}T
-                </div>
-              </div>
-
-              <div className="space-y-2 text-sm mb-6">
-                <div className="flex justify-between">
-                  <span className="text-text-tertiary">{t('stockOffers.table.gsm')}:</span>
-                  <span className="text-text-primary font-semibold font-mono">
-                    {offer.gsmRange}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-tertiary">{t('stockOffers.table.origin')}:</span>
-                  <span className="text-text-primary font-semibold">
-                    {offerOrigin(offer)}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-tertiary">{t('stockOffers.table.port')}:</span>
-                  <span className="text-text-primary font-semibold">
-                    {offer.port}
-                  </span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-text-tertiary">{t('stockOffers.table.availability')}:</span>
-                  <span className="text-brand-primary font-semibold">
-                    {offerAvailability(offer)}
-                  </span>
-                </div>
-              </div>
-
-              <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { offer: offer.id })}>
-                <Button variant="secondary" className="w-full" size="sm">
-                  {t('stockOffers.requestOffer')}
-                </Button>
-              </Link>
-            </Card>
-          ))}
-        </div>
-
-        <div className="text-center mt-12">
-          <Link href={getLocalizedPath(currentLocale, '/stock-offers')}>
-            <Button variant="primary" size="lg">
-              {t('stockOffers.viewAll')}
               <ArrowRight className="ml-2 h-5 w-5" aria-hidden="true" />
             </Button>
           </Link>

@@ -27,7 +27,6 @@ export function Header({ locale }: HeaderProps) {
     { key: 'regions', href: '/regions' },
     { key: 'sustainability', href: '/sustainability' },
     { key: 'insights', href: '/insights' },
-    { key: 'stockOffers', href: '/stock-offers' },
     { key: 'about', href: '/about' },
     { key: 'contact', href: '/contact' },
   ];

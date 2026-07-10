@@ -20,7 +20,6 @@ export function Footer({ locale }: FooterProps) {
     { href: getLocalizedProductPath(currentLocale, 'testliner-fluting'), label: t('products.testlinerFluting.name') },
     { href: getLocalizedProductPath(currentLocale, 'kraftliner-white-top'), label: t('products.kraftlinerWhiteTop.name') },
     { href: getLocalizedProductPath(currentLocale, 'paper-cones-tubes'), label: t('products.paperConesTubes.name') },
-    { href: getLocalizedPath(currentLocale, '/stock-offers'), label: t('nav.stockOffers') },
   ];
 
   const companyLinks = [

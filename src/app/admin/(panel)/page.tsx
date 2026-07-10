@@ -1,10 +1,10 @@
 import Link from 'next/link';
 import { desc, gte, sql } from 'drizzle-orm';
-import { Inbox, FileText, Tag, Image as ImageIcon, TrendingUp, Users } from 'lucide-react';
+import { Inbox, FileText, Image as ImageIcon, TrendingUp, Users } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
 import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
-import { leads, contentEntries, stockOffers, mediaAssets, users, marketIndices } from '@/db/schema';
+import { leads, contentEntries, mediaAssets, users, marketIndices } from '@/db/schema';
 import { PageTitle, StatCard, NotConfigured, DataTable, Th, Td, Badge, EmptyState } from '@/components/admin/bits';
 
 export const dynamic = 'force-dynamic';
@@ -28,7 +28,6 @@ export default async function DashboardPage() {
     leadWeek,
     leadNew,
     insightPublished,
-    offersAvailable,
     mediaCount,
     userCount,
     indicesCount,
@@ -50,11 +49,6 @@ export default async function DashboardPage() {
       .from(contentEntries)
       .where(sql`${contentEntries.status} = 'published'`)
       .then((r) => Number(r[0]?.n ?? 0)),
-    db
-      .select({ n: sql<number>`count(*)` })
-      .from(stockOffers)
-      .where(sql`${stockOffers.status} = 'available'`)
-      .then((r) => Number(r[0]?.n ?? 0)),
     db.select({ n: sql<number>`count(*)` }).from(mediaAssets).then((r) => Number(r[0]?.n ?? 0)),
     db.select({ n: sql<number>`count(*)` }).from(users).then((r) => Number(r[0]?.n ?? 0)),
     db.select({ n: sql<number>`count(*)` }).from(marketIndices).then((r) => Number(r[0]?.n ?? 0)),
@@ -69,7 +63,6 @@ export default async function DashboardPage() {
         <StatCard label={t('dashboard.totalInquiries')} value={leadTotal} icon={Inbox} accent hint={t('dashboard.inLast7Days', { count: leadWeek })} />
         <StatCard label={t('dashboard.newUnhandled')} value={leadNew} icon={Inbox} />
         <StatCard label={t('dashboard.publishedInsights')} value={insightPublished} icon={FileText} />
-        <StatCard label={t('dashboard.availableOffers')} value={offersAvailable} icon={Tag} />
         <StatCard label={t('dashboard.marketIndices')} value={indicesCount} icon={TrendingUp} />
         <StatCard label={t('dashboard.mediaAssets')} value={mediaCount} icon={ImageIcon} />
         <StatCard label={t('dashboard.adminUsers')} value={userCount} icon={Users} />
