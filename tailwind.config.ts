@@ -41,7 +41,10 @@ const config: Config = {
         'fade-in': 'fade-in 0.9s ease-out both',
         'scale-in': 'scale-in 0.6s cubic-bezier(0.16, 1, 0.3, 1) both',
         'float-slow': 'float-slow 7s ease-in-out infinite',
+        'float-soft': 'float-slow 5.5s ease-in-out infinite',
         'glow-pulse': 'glow-pulse 5s ease-in-out infinite',
+        'spin-slow': 'spin 22s linear infinite',
+        'spin-slower': 'spin 34s linear infinite',
       },
       keyframes: {
         'ticker-scroll': {

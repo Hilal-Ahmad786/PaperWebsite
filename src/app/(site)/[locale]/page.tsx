@@ -25,6 +25,7 @@ import { Card } from '@/components/ui/Card';
 import { products } from '@/content/products';
 import { HomeProductFinder } from '@/components/home/HomeProductFinder';
 import { IconFrame, type IconTone } from '@/components/ui/IconFrame';
+import { HeroVisual } from '@/components/ui/HeroVisual';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
 
@@ -119,6 +120,9 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
 
         {/* Border Top */}
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-brand-primary/50 to-transparent" />
+
+        {/* Animated business visual (desktop) */}
+        <HeroVisual />
 
         <div className="relative z-10">
           <div className="max-w-4xl">
