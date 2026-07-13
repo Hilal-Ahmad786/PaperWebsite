@@ -420,7 +420,9 @@
       "vatId": "Vergi Kimlik No",
       "vatIdPlaceholder": "örn. ATU12345678",
       "huelseType": "Koni / Boru Tipi",
-      "huelseTypePlaceholder": "Tip seçin"
+      "huelseTypePlaceholder": "Tip seçin",
+      "heading": "Bize Mesaj Gönderin",
+      "helper": "* ile işaretli alanlar zorunludur. 24 saat içinde yanıt veriyoruz."
     },
     "info": {
       "headquarters": {

@@ -3,6 +3,7 @@
 import { useState, FormEvent } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import { products } from '@/content/products';
 import { type Locale } from '@/i18n';
@@ -12,6 +13,14 @@ import { beaconTrack } from '@/lib/tracking/beacon';
 import { TurnstileWidget } from '@/components/ui/TurnstileWidget';
 
 const HUELSE_TYPES = ['konus', 'garn', 'kreuzspul', 'faerbe', 'naehgarn', 'spezial'] as const;
+
+// Shared field styling. Inputs sit on the darkest surface (bg-background-primary)
+// so they stand out as clear, tappable wells against the lighter form card, with
+// a visible border and a green focus ring for strong contrast on the dark theme.
+const fieldClass =
+  'w-full bg-background-primary border border-white/10 text-text-primary placeholder:text-text-tertiary px-4 py-3.5 focus:outline-none focus:border-brand-primary focus:ring-2 focus:ring-brand-primary/25 transition-colors';
+const labelClass = 'block text-sm font-medium text-text-secondary mb-2';
+const req = <span className="text-brand-primary">*</span>;
 
 export function ContactForm() {
     const t = useTranslations('contact.form');
@@ -76,79 +85,62 @@ export function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-text-secondary mb-2">
-                        {t('name')} *
+                    <label htmlFor="name" className={labelClass}>
+                        {t('name')} {req}
                     </label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        required
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
-                    />
+                    <input type="text" id="name" name="name" required className={fieldClass} />
                 </div>
                 <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-text-secondary mb-2">
-                        {t('company')} *
+                    <label htmlFor="company" className={labelClass}>
+                        {t('company')} {req}
                     </label>
-                    <input
-                        type="text"
-                        id="company"
-                        name="company"
-                        required
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
-                    />
+                    <input type="text" id="company" name="company" required className={fieldClass} />
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-text-secondary mb-2">
-                        {t('email')} *
+                    <label htmlFor="email" className={labelClass}>
+                        {t('email')} {req}
                     </label>
-                    <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        required
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
-                    />
+                    <input type="email" id="email" name="email" required className={fieldClass} />
                 </div>
                 <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="phone" className={labelClass}>
                         {t('phone')}
                     </label>
-                    <input
-                        type="tel"
-                        id="phone"
-                        name="phone"
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
-                    />
+                    <input type="tel" id="phone" name="phone" className={fieldClass} />
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label htmlFor="product" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="product" className={labelClass}>
                         {t('product')}
                     </label>
-                    <select
-                        id="product"
-                        name="product"
-                        defaultValue={initialProduct}
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors appearance-none"
-                    >
-                        <option value="">{t('productPlaceholder')}</option>
-                        {products.map((p) => (
-                            <option key={p.slug} value={p.slug}>
-                                {tAll(`${p.i18nKey}.name`)}
-                            </option>
-                        ))}
-                        <option value="other">{t('other')}</option>
-                    </select>
+                    <div className="relative">
+                        <select
+                            id="product"
+                            name="product"
+                            defaultValue={initialProduct}
+                            className={`${fieldClass} appearance-none pr-11`}
+                        >
+                            <option value="">{t('productPlaceholder')}</option>
+                            {products.map((p) => (
+                                <option key={p.slug} value={p.slug}>
+                                    {tAll(`${p.i18nKey}.name`)}
+                                </option>
+                            ))}
+                            <option value="other">{t('other')}</option>
+                        </select>
+                        <ChevronDown
+                            size={18}
+                            className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-text-tertiary"
+                        />
+                    </div>
                 </div>
                 <div>
-                    <label htmlFor="quantity" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="quantity" className={labelClass}>
                         {t('quantity')}
                     </label>
                     <input
@@ -156,14 +148,14 @@ export function ContactForm() {
                         id="quantity"
                         name="quantity"
                         placeholder={t('quantityPlaceholder')}
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
+                        className={fieldClass}
                     />
                 </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label htmlFor="vatId" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="vatId" className={labelClass}>
                         {t('vatId')}
                     </label>
                     <input
@@ -171,27 +163,33 @@ export function ContactForm() {
                         id="vatId"
                         name="vatId"
                         placeholder={t('vatIdPlaceholder')}
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
+                        className={fieldClass}
                     />
                 </div>
                 <div>
-                    <label htmlFor="huelseType" className="block text-sm font-medium text-text-secondary mb-2">
+                    <label htmlFor="huelseType" className={labelClass}>
                         {t('huelseType')}
                     </label>
-                    <select
-                        id="huelseType"
-                        name="huelseType"
-                        defaultValue=""
-                        className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors appearance-none"
-                    >
-                        <option value="">{t('huelseTypePlaceholder')}</option>
-                        {HUELSE_TYPES.map((type) => (
-                            <option key={type} value={type}>
-                                {tAll(`products.paperConesTubes.huelseTypes.${type}.name`)}
-                            </option>
-                        ))}
-                        <option value="other">{t('other')}</option>
-                    </select>
+                    <div className="relative">
+                        <select
+                            id="huelseType"
+                            name="huelseType"
+                            defaultValue=""
+                            className={`${fieldClass} appearance-none pr-11`}
+                        >
+                            <option value="">{t('huelseTypePlaceholder')}</option>
+                            {HUELSE_TYPES.map((type) => (
+                                <option key={type} value={type}>
+                                    {tAll(`products.paperConesTubes.huelseTypes.${type}.name`)}
+                                </option>
+                            ))}
+                            <option value="other">{t('other')}</option>
+                        </select>
+                        <ChevronDown
+                            size={18}
+                            className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-text-tertiary"
+                        />
+                    </div>
                 </div>
             </div>
 
@@ -200,16 +198,10 @@ export function ContactForm() {
             )}
 
             <div>
-                <label htmlFor="message" className="block text-sm font-medium text-text-secondary mb-2">
-                    {t('message')} *
+                <label htmlFor="message" className={labelClass}>
+                    {t('message')} {req}
                 </label>
-                <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    className="w-full bg-background-secondary border border-border-primary text-text-primary px-4 py-3 focus:outline-none focus:border-brand-primary transition-colors"
-                ></textarea>
+                <textarea id="message" name="message" required rows={5} className={fieldClass}></textarea>
             </div>
 
             {/* Honeypot: hidden from real users; bots that fill it are dropped.
@@ -238,7 +230,7 @@ export function ContactForm() {
             <Button
                 variant="primary"
                 size="lg"
-                className="w-full md:w-auto"
+                className="w-full"
                 disabled={status === 'submitting'}
             >
                 {status === 'submitting' ? t('submitting') : t('submit')}

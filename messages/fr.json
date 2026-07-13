@@ -420,7 +420,9 @@
       "vatId": "Numéro de TVA",
       "vatIdPlaceholder": "ex. ATU12345678",
       "huelseType": "Type de cône / tube",
-      "huelseTypePlaceholder": "Sélectionner un type"
+      "huelseTypePlaceholder": "Sélectionner un type",
+      "heading": "Écrivez-nous",
+      "helper": "Les champs marqués d’un * sont obligatoires. Nous répondons sous 24 heures."
     },
     "info": {
       "headquarters": {

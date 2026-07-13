@@ -420,7 +420,9 @@
             "vatId": "USt-IdNr. / UID",
             "vatIdPlaceholder": "z. B. ATU12345678",
             "huelseType": "Hülsentyp",
-            "huelseTypePlaceholder": "Hülsentyp auswählen"
+            "huelseTypePlaceholder": "Hülsentyp auswählen",
+            "heading": "Schreiben Sie uns",
+            "helper": "Mit * markierte Felder sind Pflichtfelder. Wir antworten innerhalb von 24 Stunden."
         },
         "info": {
             "headquarters": {

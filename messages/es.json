@@ -420,7 +420,9 @@
       "vatId": "Número de IVA",
       "vatIdPlaceholder": "p. ej. ATU12345678",
       "huelseType": "Tipo de cono / tubo",
-      "huelseTypePlaceholder": "Seleccione un tipo"
+      "huelseTypePlaceholder": "Seleccione un tipo",
+      "heading": "Envíenos un mensaje",
+      "helper": "Los campos marcados con * son obligatorios. Respondemos en 24 horas."
     },
     "info": {
       "headquarters": {

@@ -420,7 +420,9 @@
       "vatId": "VAT ID",
       "vatIdPlaceholder": "e.g. ATU12345678",
       "huelseType": "Cone / Tube Type",
-      "huelseTypePlaceholder": "Select type"
+      "huelseTypePlaceholder": "Select type",
+      "heading": "Send Us a Message",
+      "helper": "Fields marked with * are required. We reply within 24 hours."
     },
     "info": {
       "headquarters": {

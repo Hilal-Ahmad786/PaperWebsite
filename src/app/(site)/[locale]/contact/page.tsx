@@ -84,11 +84,28 @@ export default function ContactPage({ params: { locale } }: { params: { locale: 
                         </Card>
                     </div>
 
-                    {/* Contact Form */}
+                    {/* Contact Form — visually elevated so it clearly leads the page */}
                     <div className="lg:col-span-2">
-                        <Card className="p-8 lg:p-12">
-                            <ContactForm />
-                        </Card>
+                        <div className="relative">
+                            {/* Ambient brand glow behind the card */}
+                            <div
+                                aria-hidden="true"
+                                className="pointer-events-none absolute -inset-2 bg-brand-primary/10 blur-3xl"
+                            />
+                            <div className="relative border border-brand-primary/40 bg-background-secondary shadow-2xl shadow-black/50">
+                                {/* Brand accent bar */}
+                                <div className="h-1.5 w-full bg-gradient-to-r from-brand-primary via-brand-secondary to-brand-tertiary" />
+                                <div className="p-8 lg:p-12">
+                                    <div className="mb-8">
+                                        <h2 className="text-2xl lg:text-3xl font-bold text-text-primary">
+                                            {t('form.heading')}
+                                        </h2>
+                                        <p className="mt-2 text-text-secondary">{t('form.helper')}</p>
+                                    </div>
+                                    <ContactForm />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </Section>

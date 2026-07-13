@@ -420,7 +420,9 @@
       "vatId": "الرقم الضريبي",
       "vatIdPlaceholder": "مثال: ATU12345678",
       "huelseType": "نوع المخروط / الأنبوب",
-      "huelseTypePlaceholder": "اختر النوع"
+      "huelseTypePlaceholder": "اختر النوع",
+      "heading": "أرسل لنا رسالة",
+      "helper": "الحقول المميزة بـ * مطلوبة. نردّ خلال 24 ساعة."
     },
     "info": {
       "headquarters": {
