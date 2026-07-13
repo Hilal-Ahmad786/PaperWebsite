@@ -8,7 +8,6 @@ const NAV: { key: string; href: string; perm: PermissionCode }[] = [
   { key: 'leads', href: '/admin/leads', perm: 'leads.read' },
   { key: 'content', href: '/admin/content', perm: 'content.read' },
   { key: 'products', href: '/admin/products', perm: 'products.read' },
-  { key: 'market', href: '/admin/market', perm: 'market.read' },
   { key: 'media', href: '/admin/media', perm: 'media.read' },
   { key: 'translations', href: '/admin/translations', perm: 'translations.read' },
   { key: 'seo', href: '/admin/seo', perm: 'seo.read' },

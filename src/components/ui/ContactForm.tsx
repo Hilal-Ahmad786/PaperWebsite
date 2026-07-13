@@ -212,10 +212,20 @@ export function ContactForm() {
                 ></textarea>
             </div>
 
-            {/* Honeypot: hidden from real users; bots that fill it are dropped. */}
+            {/* Honeypot: hidden from real users; bots that fill it are dropped.
+                Uses a neutral field name (not "website"/"email"/etc.) so browser
+                autofill and password managers don't fill it and get real users
+                mistaken for bots. */}
             <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
-                <label htmlFor="website">Leave this field empty</label>
-                <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
+                <label htmlFor="contact_hp">Leave this field empty</label>
+                <input
+                    type="text"
+                    id="contact_hp"
+                    name="contact_hp"
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                />
             </div>
 
             {/* Bot protection (renders only when NEXT_PUBLIC_TURNSTILE_SITE_KEY is set). */}

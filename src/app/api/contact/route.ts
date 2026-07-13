@@ -9,7 +9,7 @@ export async function POST(request: Request) {
 
         // Honeypot: real users never fill this hidden field. If present, silently
         // accept (so the bot thinks it succeeded) but drop the submission.
-        if (typeof data.website === 'string' && data.website.trim() !== '') {
+        if (typeof data.contact_hp === 'string' && data.contact_hp.trim() !== '') {
             return NextResponse.json({ success: true });
         }
 
@@ -35,7 +35,10 @@ export async function POST(request: Request) {
             );
         }
 
-        // Persist the inquiry so it appears in the admin panel (best-effort).
+        // Persist the inquiry so it appears in the admin panel. When a database
+        // is configured this is authoritative: if the insert fails we surface an
+        // error instead of returning a phantom success, so the visitor retries
+        // and the lead is never silently lost.
         if (isDbConfigured && db) {
             try {
                 await db.insert(leads).values({
@@ -54,6 +57,10 @@ export async function POST(request: Request) {
                 });
             } catch (dbError) {
                 console.error('Failed to store lead:', dbError);
+                return NextResponse.json(
+                    { error: 'Could not save your message. Please try again.' },
+                    { status: 500 }
+                );
             }
         }
 
