@@ -15,6 +15,8 @@ const KNOWN_TYPES = new Set([
   'email_click',
   'quote_click',
   'offer_request',
+  'form_start',
+  'spec_upload',
   'form_submit',
 ]);
 

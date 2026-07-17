@@ -16,6 +16,8 @@ const ALLOWED = new Set([
   'quote_click',
   'email_click',
   'offer_request',
+  'form_start',
+  'spec_upload',
   'form_submit',
   'page_view',
 ]);

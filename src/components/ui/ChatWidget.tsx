@@ -34,7 +34,7 @@ export function ChatWidget() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={() => {
-                        trackContactClick('whatsapp');
+                        trackContactClick({ contactMethod: 'whatsapp', clickLocation: 'floating_widget', sourceComponent: 'chat_widget' });
                         beaconTrack('whatsapp_click', { location: 'floating_widget' });
                     }}
                     className={buttonClass}
@@ -50,7 +50,7 @@ export function ChatWidget() {
                 <a
                     href={`tel:${PHONE_NUMBER}`}
                     onClick={() => {
-                        trackContactClick('tel');
+                        trackContactClick({ contactMethod: 'phone', clickLocation: 'floating_widget', sourceComponent: 'chat_widget' });
                         beaconTrack('phone_click', { location: 'floating_widget' });
                     }}
                     className={buttonClass}
@@ -66,7 +66,7 @@ export function ChatWidget() {
                 <a
                     href={`mailto:${CONTACT_EMAIL}`}
                     onClick={() => {
-                        trackContactClick('mailto');
+                        trackContactClick({ contactMethod: 'email', clickLocation: 'floating_widget', sourceComponent: 'chat_widget' });
                         beaconTrack('email_click', { location: 'floating_widget' });
                     }}
                     className={buttonClass}

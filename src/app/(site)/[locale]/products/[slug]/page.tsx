@@ -7,12 +7,14 @@ import { ArrowDown, ArrowRight, Check, Factory, Layers, Leaf, Recycle } from 'lu
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { QuoteCtaLink } from '@/components/ui/QuoteCtaLink';
 import { Card } from '@/components/ui/Card';
 import { ImageGallery } from '@/components/ui/ImageGallery';
 import { HeroIconFrame } from '@/components/ui/IconFrame';
 import { ProductJsonLd } from '@/components/seo/JsonLd';
 import { getProductBySlug } from '@/content/products';
 import { type Locale } from '@/i18n';
+import { productCategoryFromSlug } from '@/lib/analytics.shared';
 import { getCanonicalProductSlug, getLocalizedPath, getLocalizedProductPath } from '@/routing';
 import { SITE_NAME, SITE_URL, ogLocale, productAlternates } from '@/lib/seo';
 
@@ -106,11 +108,15 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                             {product.subtitleKey ? t(product.subtitleKey) : t(`${product.i18nKey}.description`)}
                         </p>
                         <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:300ms]">
-                            <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}>
+                            <QuoteCtaLink
+                                href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}
+                                ctaLocation="product_hero"
+                                productCategory={productCategoryFromSlug(product.slug)}
+                            >
                                 <Button variant="primary" size="lg">
                                     {t('common.getQuote')}
                                 </Button>
-                            </Link>
+                            </QuoteCtaLink>
                             <Link href="#specs">
                                 <Button variant="secondary" size="lg">
                                     {t('products.detail.specsAnchor')}
@@ -296,11 +302,15 @@ export default function ProductPage({ params: { locale, slug } }: { params: { lo
                 <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">
                     {t('products.detail.ctaSubtitle')}
                 </p>
-                <Link href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}>
+                <QuoteCtaLink
+                    href={getLocalizedPath(currentLocale, '/contact', undefined, { product: product.slug })}
+                    ctaLocation="product_footer_cta"
+                    productCategory={productCategoryFromSlug(product.slug)}
+                >
                     <Button variant="primary" size="lg">
                         {t('products.detail.ctaButton', { product: t(`${product.i18nKey}.name`) })}
                     </Button>
-                </Link>
+                </QuoteCtaLink>
                 {product.b2bNoteKey && (
                     <p className="mt-6 text-sm text-text-tertiary">{t(product.b2bNoteKey)}</p>
                 )}

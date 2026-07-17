@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useRef, useState, FormEvent } from 'react';
 import { useTranslations, useLocale } from 'next-intl';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/Button';
 import { products } from '@/content/products';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath } from '@/routing';
-import { trackContactSubmit } from '@/lib/analytics';
+import { productCategoryFromSlug, trackContactSubmit, trackFormStart } from '@/lib/analytics';
 import { beaconTrack } from '@/lib/tracking/beacon';
 import { TurnstileWidget } from '@/components/ui/TurnstileWidget';
 
@@ -32,6 +32,19 @@ export function ContactForm() {
     const initialOffer = searchParams.get('offer') || '';
 
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+    // Guards the diagnostic `form_start` event so it fires once per form instance.
+    const formStarted = useRef(false);
+
+    /** Fire the diagnostic `form_start` on the user's first interaction. */
+    function handleFirstInteraction() {
+        if (formStarted.current) return;
+        formStarted.current = true;
+        trackFormStart({
+            productCategory: productCategoryFromSlug(initialProduct || undefined),
+            pageLanguage: locale,
+            sourceComponent: 'contact_form',
+        });
+    }
 
     async function handleSubmit(e: FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -52,12 +65,21 @@ export function ContactForm() {
 
             if (!response.ok) throw new Error('Failed to send');
 
-            // PRIMARY conversion event, then redirect to the thank-you page
-            // for reliable conversion firing.
+            // NOTE: if a technical-drawing/spec file input is added to this form
+            // later, call `trackSpecUpload({ fileType, productCategory, pageLanguage })`
+            // from the file input's onChange — pass only the extension (e.g. 'pdf'),
+            // never the raw file name or contents.
+
+            // PRIMARY conversion event (fired only after a successful API
+            // response), then redirect to the thank-you page. The thank-you page
+            // only fires the backup `lead_thank_you_view` — never `generate_lead`
+            // again — so submissions are not double counted.
             trackContactSubmit({
-                product: String(data.product || ''),
-                huelseType: String(data.huelseType || ''),
-                quantity: String(data.quantity || ''),
+                productSelected: data.product || undefined,
+                productCategory: productCategoryFromSlug(data.product || undefined),
+                quantityRange: data.quantity || undefined,
+                pageLanguage: locale,
+                sourceComponent: 'contact_form',
             });
             // First-party conversion beacon (admin "Button clicks" + lead protection).
             beaconTrack('form_submit', { location: 'contact_form' });
@@ -82,7 +104,12 @@ export function ContactForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form
+            onSubmit={handleSubmit}
+            onFocusCapture={handleFirstInteraction}
+            onChangeCapture={handleFirstInteraction}
+            className="space-y-6"
+        >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                     <label htmlFor="name" className={labelClass}>

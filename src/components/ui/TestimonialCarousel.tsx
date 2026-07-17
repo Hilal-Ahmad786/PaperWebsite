@@ -80,7 +80,7 @@ export function TestimonialCarousel({ testimonials, autoPlay = true }: Testimoni
 
                                             <blockquote className="flex-grow mb-6">
                                                 <p className="text-text-secondary text-lg italic leading-relaxed">
-                                                    "{testimonial.quote}"
+                                                    &ldquo;{testimonial.quote}&rdquo;
                                                 </p>
                                             </blockquote>
 

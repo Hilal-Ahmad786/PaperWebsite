@@ -20,6 +20,7 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
+import { QuoteCtaLink } from '@/components/ui/QuoteCtaLink';
 import { Section } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { products } from '@/content/products';
@@ -141,11 +142,11 @@ export default function HomePage({ params: { locale } }: { params: { locale: str
             </p>
 
             <div className="flex flex-wrap gap-4 animate-fade-up [animation-delay:300ms]">
-              <Link href={getLocalizedPath(currentLocale, '/contact')}>
+              <QuoteCtaLink href={getLocalizedPath(currentLocale, '/contact')} ctaLocation="hero" productCategory="general">
                 <Button variant="primary" size="lg">
                   {t('home.hero.cta1')}
                 </Button>
-              </Link>
+              </QuoteCtaLink>
               <Link href={getLocalizedPath(currentLocale, '/products')}>
                 <Button variant="secondary" size="lg">
                   {t('home.hero.cta2')}
