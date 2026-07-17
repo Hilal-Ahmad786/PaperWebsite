@@ -32,16 +32,25 @@ export function ContactForm() {
     const initialOffer = searchParams.get('offer') || '';
 
     const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-    // Guards the diagnostic `form_start` event so it fires once per form instance.
-    const formStarted = useRef(false);
+    // Guards the diagnostic `form_start` event so it fires exactly ONCE per form
+    // session (one mount / page view) — never again on later focus, change,
+    // input, submit, validation or rerender.
+    const hasTrackedFormStart = useRef(false);
 
-    /** Fire the diagnostic `form_start` on the user's first interaction. */
-    function handleFirstInteraction() {
-        if (formStarted.current) return;
-        formStarted.current = true;
+    /**
+     * Fire the diagnostic `form_start` on the user's first interaction only.
+     * Wired to a single capture handler (`onFocusCapture`) on the <form> — focus
+     * always precedes any change/typing — and the ref makes every subsequent
+     * call a no-op, so the event can never fire twice for the same form.
+     */
+    function handleFormStart() {
+        if (hasTrackedFormStart.current) return;
+        hasTrackedFormStart.current = true;
         trackFormStart({
+            formName: 'quote_form',
             productCategory: productCategoryFromSlug(initialProduct || undefined),
             pageLanguage: locale,
+            pagePath: typeof window !== 'undefined' ? window.location.pathname : undefined,
             sourceComponent: 'contact_form',
         });
     }
@@ -106,8 +115,7 @@ export function ContactForm() {
     return (
         <form
             onSubmit={handleSubmit}
-            onFocusCapture={handleFirstInteraction}
-            onChangeCapture={handleFirstInteraction}
+            onFocusCapture={handleFormStart}
             className="space-y-6"
         >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
