@@ -6,6 +6,8 @@ import { getAdminT } from '@/lib/admin/i18n';
 import { isDbConfigured, db } from '@/db';
 import { leads } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
+import { DeleteButton } from '@/components/admin/form-controls';
+import { deleteLead } from '@/lib/admin/lead-actions';
 
 export const dynamic = 'force-dynamic';
 
@@ -43,6 +45,7 @@ export default async function LeadsPage({
     .from(leads)
     .groupBy(leads.stage);
   const countByStage = Object.fromEntries(counts.map((c) => [c.stage, Number(c.n)]));
+  const canDelete = can(user, 'leads.delete');
 
   return (
     <>
@@ -84,6 +87,7 @@ export default async function LeadsPage({
               <Th>{t('leads.col.stage')}</Th>
               <Th>{t('leads.col.priority')}</Th>
               <Th>{t('common.received')}</Th>
+              {canDelete && <Th className="text-right">{t('common.delete')}</Th>}
             </>
           }
         >
@@ -102,6 +106,22 @@ export default async function LeadsPage({
               </Td>
               <Td className="capitalize">{t(`leads.priority.${l.priority}`)}</Td>
               <Td>{l.createdAt.toLocaleDateString()}</Td>
+              {canDelete && (
+                <Td className="text-right">
+                  <div className="flex justify-end">
+                    <DeleteButton
+                      action={async () => {
+                        'use server';
+                        const fd = new FormData();
+                        fd.set('id', l.id);
+                        await deleteLead(fd);
+                      }}
+                      confirm={t('leads.deleteConfirm')}
+                      label={t('common.delete')}
+                    />
+                  </div>
+                </Td>
+              )}
             </tr>
           ))}
         </DataTable>
