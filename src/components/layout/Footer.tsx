@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { type Locale } from '@/i18n';
 import { getLocalizedPath, getLocalizedProductPath } from '@/routing';
 import { TrackedContactLink } from '@/components/ui/TrackedContactLink';
+import { CookieSettingsLink } from '@/components/tracking/CookieSettingsLink';
 
 // {{TODO: Domain-E-Mail bestätigen (info@papermarketworld.com)}}
 const CONTACT_EMAIL = 'info@papermarketworld.com';
@@ -114,6 +115,9 @@ export function Footer({ locale }: FooterProps) {
                   </Link>
                 </li>
               ))}
+              <li>
+                <CookieSettingsLink className="text-sm text-text-tertiary hover:text-brand-primary transition-colors text-left" />
+              </li>
             </ul>
           </div>
         </div>

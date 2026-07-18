@@ -11,7 +11,7 @@ import { ToastContainer } from '@/components/ui/Toast';
 import { OrganizationJsonLd } from '@/components/seo/JsonLd';
 import { ConsentModeDefault } from '@/components/analytics/ConsentMode';
 import { SiteTracking } from '@/components/tracking/SiteTracking';
-import { UsercentricsCmp } from '@/components/analytics/UsercentricsCmp';
+import { CookieConsentBanner } from '@/components/tracking/CookieConsentBanner';
 import {
   GoogleTagManager,
   GoogleTagManagerNoScript,
@@ -73,7 +73,6 @@ export default async function LocaleLayout({
       </head>
       <body className="bg-background-primary text-text-primary">
         <GoogleTagManagerNoScript />
-        <UsercentricsCmp />
         <GoogleTagManager />
         <NextIntlClientProvider messages={messages}>
           <Header locale={locale} />
@@ -82,6 +81,7 @@ export default async function LocaleLayout({
           <ChatWidget />
           <ToastContainer />
           <SiteTracking />
+          <CookieConsentBanner />
         </NextIntlClientProvider>
       </body>
     </html>

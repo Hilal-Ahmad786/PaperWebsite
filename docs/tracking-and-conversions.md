@@ -25,14 +25,16 @@ Orchestration lives in `src/app/(site)/[locale]/layout.tsx`.
 
 ```
 <head>
-  ConsentModeDefault      (beforeInteractive)  → consent = denied by default
+  ConsentModeDefault      (beforeInteractive)  → consent = denied by default;
+                                                 defines window.gtag; re-applies
+                                                 a saved "granted" choice
 </head>
 <body>
   GoogleTagManagerNoScript                     → <noscript> fallback
-  UsercentricsCmp         (afterInteractive)   → banner; flips consent on choice
   GoogleTagManager        (afterInteractive)   → loads the container
   ...
   SiteTracking                                 → first-party page_view + fraud tracker
+  CookieConsentBanner                          → first-party banner; flips consent on choice
 </body>
 ```
 
@@ -41,17 +43,33 @@ Orchestration lives in `src/app/(site)/[locale]/layout.tsx`.
 ## 2. Consent Mode loading order
 
 `src/components/analytics/ConsentMode.tsx` runs **before everything else**
-(`strategy="beforeInteractive"`, in `<head>`). It sets Google Consent Mode v2
-defaults to **denied** for all ad/analytics storage, grants only
-`security_storage`, and sets `wait_for_update: 500`, `url_passthrough`,
-`ads_data_redaction`.
+(`strategy="beforeInteractive"`, in `<head>`). It:
 
-`src/components/analytics/UsercentricsCmp.tsx` (gated by
-`NEXT_PUBLIC_USERCENTRICS_SETTINGS_ID`) shows the certified banner. When the user
-accepts/rejects, Usercentrics emits `gtag('consent','update', …)` to flip the
-signals. Until then, Google tags run in cookieless modeling mode in the EEA.
+- sets Google Consent Mode v2 defaults to **denied** for `analytics_storage`,
+  `ad_storage`, `ad_user_data`, `ad_personalization`; **granted** for
+  `functionality_storage` + `security_storage`;
+- sets `wait_for_update: 500`, `url_passthrough: true`, `ads_data_redaction: true`;
+- exposes `window.gtag` for client components;
+- re-applies a previously saved `granted` choice from `localStorage`
+  (`pmw_consent`) **before GTM loads**, so returning visitors who already
+  accepted are tracked from the first pageview.
 
-Order guarantee: **ConsentMode → Usercentrics → GTM**. Never reorder these.
+Consent is then managed by our **own first-party banner**,
+`src/components/tracking/CookieConsentBanner.tsx` (no third-party CMP). Helpers
+live in `src/lib/consent.ts`:
+
+- **Accept all** → `gtag('consent','update', { analytics_storage, ad_storage,
+  ad_user_data, ad_personalization = 'granted' })`, saves `pmw_consent=granted`.
+- **Reject non-essential** → same signals set to `'denied'`, saves
+  `pmw_consent=denied`.
+- The banner shows only when no choice is saved; it re-opens via the footer
+  **Cookie settings** link (`CookieSettingsLink`), which clears the choice and
+  dispatches `pmw:open-consent`.
+
+Until the visitor accepts, Google tags run in cookieless modeling mode.
+
+Order guarantee: **ConsentMode → GTM**; the banner updates consent at runtime.
+Never reorder ConsentMode after GTM.
 
 ---
 
@@ -249,8 +267,8 @@ Admin surfaces: **Analytics** (`/admin/analytics`) and **Button Clicks**
 
 ## 10. Testing checklist (GTM Preview + Tag Assistant)
 
-Set `NEXT_PUBLIC_GTM_ID` locally (and optionally
-`NEXT_PUBLIC_USERCENTRICS_SETTINGS_ID`), then run `npm run dev`.
+Set `NEXT_PUBLIC_GTM_ID` locally, then run `npm run dev`. Consent is handled by
+the built-in first-party banner — no CMP env var is needed.
 
 **dataLayer / GTM Preview**
 
@@ -267,12 +285,19 @@ Set `NEXT_PUBLIC_GTM_ID` locally (and optionally
 - [ ] No payload contains email, phone, name, message, company, file name, IP or
       fingerprint. Inspect `window.dataLayer` in the console.
 
-**Consent Mode v2**
+**Consent Mode v2 (first-party banner)**
 
-- [ ] Before accepting the banner, consent defaults are `denied` (Tag Assistant →
-      Consent tab). Tags run in modeling mode.
-- [ ] After Accept, `ad_storage` / `analytics_storage` flip to `granted`.
-- [ ] After Reject, they stay `denied`.
+- [ ] With no saved choice, the cookie banner appears at the bottom.
+- [ ] Before accepting, consent defaults are `denied` for ad/analytics (Tag
+      Assistant → Consent tab). Tags run in modeling mode.
+- [ ] After **Accept all**, `ad_storage` / `analytics_storage` /
+      `ad_user_data` / `ad_personalization` flip to `granted`; GA4 Realtime
+      receives events; the banner does not reappear.
+- [ ] After **Reject non-essential**, they stay `denied`.
+- [ ] Reload after a choice: the banner does **not** reappear, and a saved
+      `granted` choice is re-applied before GTM loads.
+- [ ] Footer **Cookie settings** link clears the choice and re-opens the banner.
+- [ ] No Usercentrics / third-party CMP script loads (check the Network tab).
 
 **First-party (admin)**
 
@@ -283,7 +308,8 @@ Set `NEXT_PUBLIC_GTM_ID` locally (and optionally
 **Resilience**
 
 - [ ] With `NEXT_PUBLIC_GTM_ID` unset: no GTM loads, no console errors, site works.
-- [ ] With `NEXT_PUBLIC_USERCENTRICS_SETTINGS_ID` unset: no banner, no errors.
+      The cookie banner still appears and saves the choice (Consent Mode updates
+      apply once GTM is later configured).
 - [ ] `npm run type-check`, `npm run lint`, `npm run build` all pass.
 
 ---
@@ -294,8 +320,8 @@ See `.env.example`. Tracking-relevant:
 
 - `NEXT_PUBLIC_GTM_ID` — GTM container (e.g. `GTM-XXXXXXX`). Optional; no GTM
   until set.
-- `NEXT_PUBLIC_USERCENTRICS_SETTINGS_ID` — consent banner. Optional; no banner
-  until set.
+- Consent is handled by the built-in first-party banner — **no CMP env var**.
+  `NEXT_PUBLIC_USERCENTRICS_SETTINGS_ID` has been removed.
 - `CRON_SECRET` — first-party IP hashing pepper + cron auth.
 - `IPINFO_TOKEN`, `CLICK_PROTECTION_INTERNAL_IPS` — optional click-protection
   tuning.
