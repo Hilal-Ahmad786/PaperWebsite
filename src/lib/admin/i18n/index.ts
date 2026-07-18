@@ -18,6 +18,7 @@ import { users } from './dict/users';
 import { roles } from './dict/roles';
 import { settings } from './dict/settings';
 import { audit } from './dict/audit';
+import { daterange } from './dict/daterange';
 
 export const ADMIN_LOCALES = ['en', 'tr'] as const;
 export type AdminLocale = (typeof ADMIN_LOCALES)[number];
@@ -46,6 +47,7 @@ const MODULES: Dict[] = [
   roles,
   settings,
   audit,
+  daterange,
 ];
 
 function merge(locale: AdminLocale): Record<string, string> {

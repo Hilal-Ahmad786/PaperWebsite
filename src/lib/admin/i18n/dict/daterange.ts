@@ -1,0 +1,33 @@
+// Admin i18n dictionary for the shared date-range filter. Keys are full paths.
+export const daterange = {
+  en: {
+    'daterange.label': 'Date range',
+    'daterange.today': 'Today',
+    'daterange.yesterday': 'Yesterday',
+    'daterange.7d': 'Last 7 days',
+    'daterange.14d': 'Last 14 days',
+    'daterange.1m': 'Last month',
+    'daterange.1y': 'Last year',
+    'daterange.all': 'All time',
+    'daterange.custom': 'Custom',
+    'daterange.from': 'From',
+    'daterange.to': 'To',
+    'daterange.apply': 'Apply',
+    'daterange.inRange': 'In selected range',
+  } as Record<string, string>,
+  tr: {
+    'daterange.label': 'Tarih aralığı',
+    'daterange.today': 'Bugün',
+    'daterange.yesterday': 'Dün',
+    'daterange.7d': 'Son 7 gün',
+    'daterange.14d': 'Son 14 gün',
+    'daterange.1m': 'Son 1 ay',
+    'daterange.1y': 'Son 1 yıl',
+    'daterange.all': 'Tüm zamanlar',
+    'daterange.custom': 'Özel',
+    'daterange.from': 'Başlangıç',
+    'daterange.to': 'Bitiş',
+    'daterange.apply': 'Uygula',
+    'daterange.inRange': 'Seçili aralıkta',
+  } as Record<string, string>,
+};

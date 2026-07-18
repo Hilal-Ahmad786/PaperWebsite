@@ -1,16 +1,25 @@
-import { desc, eq, gte, sql } from 'drizzle-orm';
-import { Activity, Eye, MousePointerClick, CalendarClock } from 'lucide-react';
+import { and, desc, eq, gte, inArray, lte, sql } from 'drizzle-orm';
+import { Activity, Eye, MousePointerClick, PhoneCall } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
 import { isDbConfigured, db } from '@/db';
 import { analyticsEvents } from '@/db/schema';
 import { PageTitle, StatCard, NotConfigured, Card, DataTable, Th, Td, EmptyState } from '@/components/admin/bits';
 import { getAdminT } from '@/lib/admin/i18n';
+import { DateRangeFilter } from '@/components/admin/DateRangeFilter';
+import { resolveDateRange } from '@/lib/admin/date-range';
 
 export const dynamic = 'force-dynamic';
 
-export default async function AnalyticsPage() {
+const CONTACT_CLICK_TYPES = ['phone_click', 'whatsapp_click', 'email_click'];
+
+export default async function AnalyticsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ range?: string; from?: string; to?: string }>;
+}) {
   await requirePermission('analytics.view');
   const { t } = await getAdminT();
+  const sp = await searchParams;
 
   if (!isDbConfigured || !db) {
     return (
@@ -21,43 +30,56 @@ export default async function AnalyticsPage() {
     );
   }
 
-  const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);
-  const [total, pageViews, formSubmits, lastWeek, topPages, recent] = await Promise.all([
-    db.select({ n: sql<number>`count(*)` }).from(analyticsEvents).then((r) => Number(r[0]?.n ?? 0)),
+  const range = resolveDateRange(sp, 'all');
+  const dateCond = and(
+    range.from ? gte(analyticsEvents.createdAt, range.from) : undefined,
+    range.to ? lte(analyticsEvents.createdAt, range.to) : undefined,
+  );
+
+  const [total, pageViews, formSubmits, contactClicks, topPages, recent] = await Promise.all([
+    db.select({ n: sql<number>`count(*)` }).from(analyticsEvents).where(dateCond).then((r) => Number(r[0]?.n ?? 0)),
     db
       .select({ n: sql<number>`count(*)` })
       .from(analyticsEvents)
-      .where(eq(analyticsEvents.type, 'page_view'))
+      .where(and(eq(analyticsEvents.type, 'page_view'), dateCond))
       .then((r) => Number(r[0]?.n ?? 0)),
     db
       .select({ n: sql<number>`count(*)` })
       .from(analyticsEvents)
-      .where(eq(analyticsEvents.type, 'form_submit'))
+      .where(and(eq(analyticsEvents.type, 'form_submit'), dateCond))
       .then((r) => Number(r[0]?.n ?? 0)),
     db
       .select({ n: sql<number>`count(*)` })
       .from(analyticsEvents)
-      .where(gte(analyticsEvents.createdAt, weekAgo))
+      .where(and(inArray(analyticsEvents.type, CONTACT_CLICK_TYPES), dateCond))
       .then((r) => Number(r[0]?.n ?? 0)),
     db
       .select({ path: analyticsEvents.path, n: sql<number>`count(*)` })
       .from(analyticsEvents)
-      .where(eq(analyticsEvents.type, 'page_view'))
+      .where(and(eq(analyticsEvents.type, 'page_view'), dateCond))
       .groupBy(analyticsEvents.path)
       .orderBy(desc(sql`count(*)`))
       .limit(15),
-    db.select().from(analyticsEvents).orderBy(desc(analyticsEvents.createdAt)).limit(20),
+    db.select().from(analyticsEvents).where(dateCond).orderBy(desc(analyticsEvents.createdAt)).limit(20),
   ]);
 
   return (
     <>
       <PageTitle title={t('analytics.title')} subtitle={t('analytics.subtitle')} />
 
+      <DateRangeFilter
+        basePath="/admin/analytics"
+        active={range.key}
+        from={range.fromParam}
+        to={range.toParam}
+        t={t}
+      />
+
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label={t('analytics.totalEvents')} value={total} icon={Activity} accent />
         <StatCard label={t('analytics.pageViews')} value={pageViews} icon={Eye} />
         <StatCard label={t('analytics.formSubmits')} value={formSubmits} icon={MousePointerClick} />
-        <StatCard label={t('analytics.last7Days')} value={lastWeek} icon={CalendarClock} />
+        <StatCard label={t('analytics.contactClicks')} value={contactClicks} icon={PhoneCall} />
       </div>
 
       <div className="mt-8 grid gap-6 lg:grid-cols-2">

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { and, desc, eq, sql } from 'drizzle-orm';
+import { and, desc, eq, gte, lte, sql } from 'drizzle-orm';
 import { Download } from 'lucide-react';
 import { requirePermission, can } from '@/lib/auth/guard';
 import { getAdminT } from '@/lib/admin/i18n';
@@ -8,6 +8,8 @@ import { leads } from '@/db/schema';
 import { PageTitle, NotConfigured, DataTable, Th, Td, Badge, EmptyState, Flash, LinkButton } from '@/components/admin/bits';
 import { DeleteButton } from '@/components/admin/form-controls';
 import { deleteLead } from '@/lib/admin/lead-actions';
+import { DateRangeFilter } from '@/components/admin/DateRangeFilter';
+import { resolveDateRange } from '@/lib/admin/date-range';
 
 export const dynamic = 'force-dynamic';
 
@@ -17,11 +19,16 @@ type Stage = (typeof STAGES)[number];
 export default async function LeadsPage({
   searchParams,
 }: {
-  searchParams: Promise<{ stage?: string; ok?: string; error?: string }>;
+  searchParams: Promise<{ stage?: string; ok?: string; error?: string; range?: string; from?: string; to?: string }>;
 }) {
   const user = await requirePermission('leads.read');
   const { t } = await getAdminT();
   const sp = await searchParams;
+  const range = resolveDateRange(sp, 'all');
+  const dateCond = and(
+    range.from ? gte(leads.createdAt, range.from) : undefined,
+    range.to ? lte(leads.createdAt, range.to) : undefined,
+  );
 
   if (!isDbConfigured || !db) {
     return (
@@ -36,15 +43,17 @@ export default async function LeadsPage({
   const rows = await db
     .select()
     .from(leads)
-    .where(activeStage ? eq(leads.stage, activeStage) : undefined)
+    .where(and(activeStage ? eq(leads.stage, activeStage) : undefined, dateCond))
     .orderBy(desc(leads.createdAt))
     .limit(200);
 
   const counts = await db
     .select({ stage: leads.stage, n: sql<number>`count(*)` })
     .from(leads)
+    .where(dateCond)
     .groupBy(leads.stage);
   const countByStage = Object.fromEntries(counts.map((c) => [c.stage, Number(c.n)]));
+  const rangeTotal = counts.reduce((sum, c) => sum + Number(c.n), 0);
   const canDelete = can(user, 'leads.delete');
 
   return (
@@ -62,12 +71,21 @@ export default async function LeadsPage({
       />
       <Flash ok={sp.ok} error={sp.error} />
 
+      <DateRangeFilter
+        basePath="/admin/leads"
+        active={range.key}
+        from={range.fromParam}
+        to={range.toParam}
+        preserve={{ stage: activeStage }}
+        t={t}
+      />
+
       <div className="mb-4 flex flex-wrap gap-2">
-        <FilterPill href="/admin/leads" active={!activeStage} label={t('common.all')} />
+        <FilterPill href={stageHref(undefined, sp)} active={!activeStage} label={`${t('common.all')} (${rangeTotal})`} />
         {STAGES.map((s) => (
           <FilterPill
             key={s}
-            href={`/admin/leads?stage=${s}`}
+            href={stageHref(s, sp)}
             active={activeStage === s}
             label={`${t(`leads.stage.${s}`)} (${countByStage[s] ?? 0})`}
           />
@@ -128,6 +146,20 @@ export default async function LeadsPage({
       )}
     </>
   );
+}
+
+/** Build the leads URL for a stage pill while preserving the active date range. */
+function stageHref(
+  stage: Stage | undefined,
+  sp: { range?: string; from?: string; to?: string },
+): string {
+  const params = new URLSearchParams();
+  if (stage) params.set('stage', stage);
+  if (sp.range) params.set('range', sp.range);
+  if (sp.from) params.set('from', sp.from);
+  if (sp.to) params.set('to', sp.to);
+  const qs = params.toString();
+  return qs ? `/admin/leads?${qs}` : '/admin/leads';
 }
 
 function FilterPill({ href, active, label }: { href: string; active: boolean; label: string }) {

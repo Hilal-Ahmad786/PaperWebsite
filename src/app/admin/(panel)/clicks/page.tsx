@@ -1,10 +1,12 @@
-import { and, desc, gte, ne, sql } from 'drizzle-orm';
+import { and, desc, gte, lte, ne, sql } from 'drizzle-orm';
 import { Eye, Phone, MessageCircle, Send } from 'lucide-react';
 import { requirePermission } from '@/lib/auth/guard';
 import { isDbConfigured, db } from '@/db';
 import { analyticsEvents } from '@/db/schema';
 import { PageTitle, StatCard, NotConfigured, DataTable, Th, Td, EmptyState } from '@/components/admin/bits';
 import { getAdminT, type Translator } from '@/lib/admin/i18n';
+import { DateRangeFilter } from '@/components/admin/DateRangeFilter';
+import { resolveDateRange } from '@/lib/admin/date-range';
 
 export const dynamic = 'force-dynamic';
 
@@ -24,9 +26,14 @@ function typeLabel(t: Translator, type: string): string {
   return KNOWN_TYPES.has(type) ? t(`clicks.type.${type}`) : type;
 }
 
-export default async function ClicksPage() {
+export default async function ClicksPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ range?: string; from?: string; to?: string }>;
+}) {
   await requirePermission('clicks.view');
   const { t } = await getAdminT();
+  const sp = await searchParams;
 
   if (!isDbConfigured || !db) {
     return (
@@ -37,13 +44,18 @@ export default async function ClicksPage() {
     );
   }
 
-  const since30 = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+  // Defaults to the last month (preserves the previous "last 30 days" behaviour).
+  const range = resolveDateRange(sp, '1m');
+  const dateCond = and(
+    range.from ? gte(analyticsEvents.createdAt, range.from) : undefined,
+    range.to ? lte(analyticsEvents.createdAt, range.to) : undefined,
+  );
 
   const countType = (type: string) =>
     db!
       .select({ n: sql<number>`count(*)` })
       .from(analyticsEvents)
-      .where(and(gte(analyticsEvents.createdAt, since30), sql`${analyticsEvents.type} = ${type}`))
+      .where(and(sql`${analyticsEvents.type} = ${type}`, dateCond))
       .then((r) => Number(r[0]?.n ?? 0));
 
   const [pageViews, phoneClicks, whatsappClicks, formSubmits, byType, recent] = await Promise.all([
@@ -54,19 +66,28 @@ export default async function ClicksPage() {
     db
       .select({ type: analyticsEvents.type, n: sql<number>`count(*)` })
       .from(analyticsEvents)
+      .where(dateCond)
       .groupBy(analyticsEvents.type)
       .orderBy(desc(sql`count(*)`)),
     db
       .select()
       .from(analyticsEvents)
-      .where(ne(analyticsEvents.type, 'page_view'))
+      .where(and(ne(analyticsEvents.type, 'page_view'), dateCond))
       .orderBy(desc(analyticsEvents.createdAt))
       .limit(25),
   ]);
 
   return (
     <>
-      <PageTitle title={t('clicks.title')} subtitle={t('clicks.subtitle')} />
+      <PageTitle title={t('clicks.title')} subtitle={t('clicks.subtitleShort')} />
+
+      <DateRangeFilter
+        basePath="/admin/clicks"
+        active={range.key}
+        from={range.fromParam}
+        to={range.toParam}
+        t={t}
+      />
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
         <StatCard label={t('clicks.type.page_view')} value={pageViews} icon={Eye} accent />
